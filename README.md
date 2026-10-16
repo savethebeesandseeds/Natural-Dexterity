@@ -2,6 +2,11 @@
 
 Project experiments live under [`projects/`](projects/).
 
+The [Electric Wind Instrument](projects/electric-wind-instrument/README.md) is a
+concept for a silent, wearable wind instrument using wrist and neck radar,
+optional precision mouthpiece sensing, and headphone sound. Its description is
+recorded as an idea only; no development is requested.
+
 Temporary files, previews, builds, and dependency caches are ignored. Remove
 disposable task output when finished; ignoring it does not reclaim disk space.
 See [repository hygiene](AGENTS.md) for the cleanup and staging rules.

@@ -4,6 +4,23 @@ This records the voice discussion and the owner's current product direction.
 It distinguishes implemented work, requirements and proposals. It does not
 select a new learning architecture or turn a suggestion into an experiment.
 
+## Owner clarification, 2026-10-06
+
+The owner clarified that the **first** child-built creature should already have
+substantial exposure to training environments and broadly generalized
+competence. The product applies generalization learning to modular block
+robotics: offline training supplies the starting knowledge, and the child's
+assembly calls for inference and modest specialization rather than a new full
+training session. Personal experience after rebuilding is useful in addition
+to that pretrained starting point.
+
+This supersedes a roadmap centered only on one learned body's checkpoint
+transfer. It does not retroactively change the September discussion, select
+a universal neural architecture or claim that existing results meet the goal.
+The first bounded step is a
+[pooled-pretraining development pilot](GENERALIZATION_PRETRAINING_EXPERIMENT.md),
+with frozen first-use behavior measured separately from future adaptation.
+
 ## Product direction
 
 Children should assemble a creature, rearrange its parts, and see purposeful

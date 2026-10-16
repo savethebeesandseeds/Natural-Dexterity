@@ -1,0 +1,22 @@
+{
+  "schema": "generalization_study_independent_verification_v1",
+  "input": "/workspace/artifacts/reports/generalization-study-v1-20261006",
+  "created_at_utc": "2026-10-06T15:53:56.703358+00:00",
+  "native_replay_requested": true,
+  "verifier_source_path": "/workspace/tools/verify-generalization-study.py",
+  "verifier_source_sha256": "6a2cd51b73d2a6e15ab5ac8c349143017ede9df20fedb26c17acaee6e1f4371b",
+  "verifier_source_archive_path": null,
+  "helper_source_path": "/workspace/tools/verify-generalization-pretraining.py",
+  "helper_source_sha256": "414507e697dd133f91599b8bf8a88dd34a8b30282ce0b1316f7fc9b2fba85f57",
+  "helper_source_archive_path": null,
+  "expected_protocol_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "integrity_passed": false,
+  "checks": 1011,
+  "failed_checks": 2,
+  "issues": [
+    "external prospective protocol commitment: value differs",
+    "ValueError: native replay refused after failed prospective integrity checks"
+  ],
+  "issues_truncated": false,
+  "native_replay_verified": false
+}

@@ -1,0 +1,1436 @@
+{
+  "schema": "pretrained_workshop_legacy_idle_v1",
+  "states": {
+    "/api/state": {
+      "actuators": {
+        "commands": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "current_a": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "effort": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "electrical_power_w": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "feedback": [],
+        "feedback_role": "observation_and_safety_only",
+        "load_impedance_nm_s_per_rad": [],
+        "model_id": "rotary_dc_gearmotor_v0",
+        "module_ids": [
+          "motor-0001",
+          "motor-0002",
+          "motor-0003",
+          "motor-0004"
+        ],
+        "shaft_position_rad": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "shaft_velocity_rad_s": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stuck": [],
+        "stuck_score": [],
+        "target_velocity_rad_s": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "targets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "temperature_c": [
+          25.0,
+          25.0,
+          25.0,
+          25.0
+        ],
+        "torque_nm": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "controller": {
+        "id": "external_effort_v0",
+        "kind": "policy_evaluation"
+      },
+      "engine": "MuJoCo 3.12.0",
+      "module_schema": "0.1.0",
+      "playground": {
+        "artifact_sha256": "4dd4d6ccadecb0b3b69d3b3d412af83eff15208b19058701538dbdf83a4c32b5",
+        "duration_s": 20.0,
+        "elapsed_s": 0.0,
+        "exposure": "known_training_world",
+        "illuminance_lux": 65.535858,
+        "initial_illuminance_lux": 65.535858,
+        "light_position_m": [
+          -18.730427742004395,
+          0.0,
+          0.0
+        ],
+        "max_steps": 1000,
+        "mode": "learned",
+        "policy_id": "shared_linear_memory_v2",
+        "session_id": 1,
+        "side": "left",
+        "status": "ready",
+        "step": 0
+      },
+      "power_system": {
+        "bus_current_a": 0.0,
+        "bus_voltage_v": 7.4,
+        "energy_fraction": 1.0,
+        "policy_visible": false,
+        "reward_vote": false
+      },
+      "reward": {
+        "aggregation": "dt_s * sum(sensor.reward_rate)",
+        "components": [],
+        "cumulative": 0.0,
+        "total_rate": 0.0,
+        "transition": 0.0
+      },
+      "robot": {
+        "distance": 0.0,
+        "modules": [
+          {
+            "name": "droid",
+            "position": [
+              0.0,
+              0.0,
+              0.24
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "chassis"
+          },
+          {
+            "name": "module_power",
+            "position": [
+              -0.08,
+              0.0,
+              0.345
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "power"
+          },
+          {
+            "name": "module_sensor",
+            "position": [
+              0.15,
+              0.0,
+              0.355
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "sensor"
+          },
+          {
+            "name": "module_front_left_wheel",
+            "position": [
+              0.22,
+              0.265,
+              0.13
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "wheel"
+          },
+          {
+            "name": "module_front_right_wheel",
+            "position": [
+              0.22,
+              -0.265,
+              0.13
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "wheel"
+          },
+          {
+            "name": "module_rear_left_wheel",
+            "position": [
+              -0.22,
+              0.265,
+              0.13
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "wheel"
+          },
+          {
+            "name": "module_rear_right_wheel",
+            "position": [
+              -0.22,
+              -0.265,
+              0.13
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "type": "wheel"
+          }
+        ],
+        "position": [
+          0.0,
+          0.0,
+          0.24
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 0.0,
+        "wheel_angles": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "yaw": 0.0
+      },
+      "running": false,
+      "runtime": "native-cpp20",
+      "safety": {
+        "flags": [],
+        "veto": false
+      },
+      "sensors": {
+        "ambient_light_lux": 65.535858,
+        "contact_count": 0,
+        "instances": [],
+        "privileged_diagnostics": {
+          "tilt_deg": 0.0,
+          "world_contact_count": 0
+        },
+        "tilt_deg": 0.0,
+        "touch_force_n": [
+          0.0,
+          0.0
+        ]
+      },
+      "sim_time": 0.0,
+      "tick": 0,
+      "world": {
+        "episode_profile": "light_search_1d_v1",
+        "light_source_position": [
+          -18.730427742004395,
+          0.0,
+          0.0
+        ],
+        "track_length": 40.0
+      }
+    },
+    "/api/construction/state": {
+      "active_pattern_id": "",
+      "assembly": {
+        "blocks": [],
+        "name": "My first creature",
+        "schema": "construction_kit_v1",
+        "segments": [
+          3,
+          3
+        ],
+        "sensor": {
+          "segment": 1,
+          "side": -1,
+          "slot": 2
+        }
+      },
+      "assembly_revision": 1,
+      "elapsed_s": 0.0,
+      "error": "",
+      "explorer": {},
+      "mode": "idle",
+      "observation": {
+        "actuator_feedback": [
+          {
+            "feedback": {
+              "bus_voltage_v": 7.4,
+              "current_a": 0.0,
+              "fault_flags": [],
+              "load_impedance_nm_s_per_rad": 0.0,
+              "output_torque_nm": 0.0,
+              "position_rad": 0.0,
+              "stuck": false,
+              "stuck_score": 0.0,
+              "temperature_c": 25.0,
+              "velocity_rad_s": 0.0
+            },
+            "module_id": "motor-0001",
+            "sku_id": "rotary_dc_gearmotor_v0",
+            "valid": true
+          }
+        ],
+        "reward_sensors": [
+          {
+            "age_s": null,
+            "delivered_time_s": null,
+            "family_id": "imu_6axis_v0",
+            "latency_s": 0.006,
+            "module_id": "imu-0001",
+            "observations": {
+              "angular_velocity_rad_s": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "specific_force_m_s2": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "sample_period_s": 0.01,
+            "sample_time_s": null,
+            "sequence": 0,
+            "valid": false
+          }
+        ],
+        "schema_version": "construction_observation_v1"
+      },
+      "patterns": [
+        {
+          "amplitude": 0.2,
+          "control_dt_s": 0.02,
+          "description": "A gentle back-and-forth rhythm, once every four seconds.",
+          "duration_s": 6.0,
+          "final_coast_s": 0.3,
+          "frequency_hz": 0.25,
+          "id": "sway_slow",
+          "initial_quiet_s": 0.1,
+          "label": "Slow sway",
+          "max_steps": 300,
+          "name": "Slow sway",
+          "pattern_id": "sway_slow",
+          "waveform": "sine"
+        },
+        {
+          "amplitude": 0.2,
+          "control_dt_s": 0.02,
+          "description": "A back-and-forth rhythm, once every two seconds.",
+          "duration_s": 6.0,
+          "final_coast_s": 0.3,
+          "frequency_hz": 0.5,
+          "id": "sway_medium",
+          "initial_quiet_s": 0.1,
+          "label": "Steady sway",
+          "max_steps": 300,
+          "name": "Steady sway",
+          "pattern_id": "sway_medium",
+          "waveform": "sine"
+        },
+        {
+          "amplitude": 0.2,
+          "control_dt_s": 0.02,
+          "description": "A quicker back-and-forth rhythm, once each second.",
+          "duration_s": 6.0,
+          "final_coast_s": 0.3,
+          "frequency_hz": 1.0,
+          "id": "sway_quick",
+          "initial_quiet_s": 0.1,
+          "label": "Quick sway",
+          "max_steps": 300,
+          "name": "Quick sway",
+          "pattern_id": "sway_quick",
+          "waveform": "sine"
+        },
+        {
+          "amplitude": 0.2,
+          "control_dt_s": 0.02,
+          "description": "A short push each way, with a rest between pushes.",
+          "duration_s": 6.0,
+          "final_coast_s": 0.3,
+          "frequency_hz": 0.5,
+          "id": "paired_taps",
+          "initial_quiet_s": 0.1,
+          "label": "Paired taps",
+          "max_steps": 300,
+          "name": "Paired taps",
+          "pattern_id": "paired_taps",
+          "waveform": "alternating_pulses"
+        },
+        {
+          "amplitude": 0.2,
+          "control_dt_s": 0.02,
+          "description": "One short push, a long rest, then one push back.",
+          "duration_s": 6.0,
+          "final_coast_s": 0.3,
+          "frequency_hz": 0.0,
+          "id": "push_and_coast",
+          "initial_quiet_s": 0.1,
+          "label": "Push and drift",
+          "max_steps": 300,
+          "name": "Push and drift",
+          "pattern_id": "push_and_coast",
+          "waveform": "two_separated_pulses"
+        }
+      ],
+      "physics": {
+        "actuator": {
+          "bus_voltage_v": 7.4,
+          "current_a": 0.0,
+          "fault_flags": [],
+          "load_impedance_nm_s_per_rad": 0.0,
+          "output_torque_nm": 0.0,
+          "position_rad": 0.0,
+          "stuck": false,
+          "stuck_score": 0.0,
+          "temperature_c": 25.0,
+          "velocity_rad_s": 0.0
+        },
+        "assembly": {
+          "blocks": [],
+          "name": "My first creature",
+          "schema": "construction_kit_v1",
+          "segments": [
+            3,
+            3
+          ],
+          "sensor": {
+            "segment": 1,
+            "side": -1,
+            "slot": 2
+          }
+        },
+        "command": 0.0,
+        "diagnostics": {
+          "actuator_count": 1,
+          "degrees_of_freedom": 2,
+          "electrical_energy_j": 0.0,
+          "instantaneous_imu": {
+            "angular_velocity_rad_s": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "specific_force_m_s2": [
+              1.557992392,
+              0.0,
+              9.127562015
+            ]
+          },
+          "motor_angle_rad": 0.0,
+          "motor_velocity_rad_s": 0.0,
+          "passive_actuator_force_nm": 0.0,
+          "passive_angle_rad": 0.0,
+          "passive_velocity_rad_s": 0.0,
+          "policy_visible": false,
+          "segment_inertias_kg_m2": [
+            {
+              "diagonal_kg_m2": [
+                6e-05,
+                5.5815e-05,
+                7.815e-06
+              ],
+              "inertial_frame_quaternion": [
+                0.707106781,
+                0.0,
+                0.0,
+                0.707106781
+              ]
+            },
+            {
+              "diagonal_kg_m2": [
+                0.000106468,
+                8.9949e-05,
+                2.4468e-05
+              ],
+              "inertial_frame_quaternion": [
+                0.696363138,
+                0.122794057,
+                0.122794057,
+                0.696363138
+              ]
+            }
+          ],
+          "segment_masses_kg": [
+            0.045,
+            0.065
+          ],
+          "total_mass_kg": 0.11
+        },
+        "elapsed_s": 0.0,
+        "geometry": [
+          {
+            "id": "segment-0-cell-0",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.02
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.15,
+              0.55,
+              0.75,
+              1.0
+            ],
+            "segment": 0,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 0
+          },
+          {
+            "id": "segment-0-cell-1",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.06
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.15,
+              0.55,
+              0.75,
+              1.0
+            ],
+            "segment": 0,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 1
+          },
+          {
+            "id": "segment-0-cell-2",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.1
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.15,
+              0.55,
+              0.75,
+              1.0
+            ],
+            "segment": 0,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 2
+          },
+          {
+            "id": "segment-1-cell-0",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.14
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.9,
+              0.55,
+              0.17,
+              1.0
+            ],
+            "segment": 1,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 0
+          },
+          {
+            "id": "segment-1-cell-1",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.18
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.9,
+              0.55,
+              0.17,
+              1.0
+            ],
+            "segment": 1,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 1
+          },
+          {
+            "id": "segment-1-cell-2",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.22
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.9,
+              0.55,
+              0.17,
+              1.0
+            ],
+            "segment": 1,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 2
+          },
+          {
+            "id": "imu-0001",
+            "kind": "sensor",
+            "position_m": [
+              -0.038,
+              0.0,
+              -0.22
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.22,
+              0.78,
+              0.52,
+              1.0
+            ],
+            "segment": 1,
+            "side": -1,
+            "size_m": [
+              0.036,
+              0.036,
+              0.036
+            ],
+            "slot": 2
+          }
+        ],
+        "joints": {
+          "motor_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "passive_m": [
+            0.0,
+            0.0,
+            -0.12
+          ]
+        },
+        "reward": {
+          "cumulative": 0.0,
+          "rate": -1.0
+        },
+        "safety": {
+          "flags": [],
+          "veto": false
+        },
+        "schema": "construction_state_v1",
+        "segments": [
+          {
+            "end_m": [
+              0.0,
+              0.0,
+              -0.12
+            ],
+            "index": 0,
+            "length_studs": 3,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "end_m": [
+              0.0,
+              0.0,
+              -0.24
+            ],
+            "index": 1,
+            "length_studs": 3,
+            "start_m": [
+              0.0,
+              0.0,
+              -0.12
+            ]
+          }
+        ],
+        "sensor": {
+          "age_s": null,
+          "delivered_time_s": null,
+          "family_id": "imu_6axis_v0",
+          "latency_s": 0.006,
+          "module_id": "imu-0001",
+          "observations": {
+            "angular_velocity_rad_s": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "specific_force_m_s2": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "position_m": [
+            -0.038,
+            0.0,
+            -0.22
+          ],
+          "quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_period_s": 0.01,
+          "sample_time_s": null,
+          "sequence": 0,
+          "valid": false
+        },
+        "sim_time": 0.0,
+        "tick": 0,
+        "tip_position_m": [
+          0.0,
+          0.0,
+          -0.24
+        ]
+      },
+      "repertoire": [],
+      "schema": "construction_session_v1",
+      "session_id": 1,
+      "status": "ready",
+      "total_s": 0.0,
+      "trail": [],
+      "trial_count": 1,
+      "trial_index": 0,
+      "trial_steps": 0
+    },
+    "/api/light/state": {
+      "assembly": {
+        "blocks": [],
+        "light": {
+          "face": 1,
+          "segment": 1,
+          "side": 1,
+          "slot": 2
+        },
+        "name": "My first sun-seeker",
+        "schema": "construction_kit_v2",
+        "segments": [
+          3,
+          3
+        ],
+        "sensor": {
+          "segment": 1,
+          "side": -1,
+          "slot": 2
+        }
+      },
+      "assembly_revision": 1,
+      "duration_s": 120.0,
+      "elapsed_s": 0.0,
+      "error": "",
+      "history": [],
+      "learner": {
+        "action_id": "coast",
+        "awaiting_observation": false,
+        "cumulative_reward": 0.0,
+        "decision_count": 0,
+        "effort": 0.0,
+        "elapsed_s": 0.0,
+        "exploration_rate": 0.4,
+        "exploratory_decisions": 0,
+        "history_size": 0,
+        "initial_reward_rate": 0.0,
+        "initial_reward_samples": 0,
+        "initial_value": 0.0,
+        "last_reward": 0.0,
+        "last_td_error": 0.0,
+        "learner_id": "history_expected_sarsa_v2",
+        "learning_enabled": true,
+        "learning_frozen": false,
+        "nonparameter_state_fingerprint_sha256": "d92fc235c173334b49d5fad57f966dc277265af4a7a7a1d5c66871fad6ff19d3",
+        "option_remaining_s": 0.0,
+        "option_values": [
+          {
+            "action_id": "negative",
+            "requested_effort": -0.15,
+            "value": 0.0,
+            "visits": 0
+          },
+          {
+            "action_id": "coast",
+            "requested_effort": 0.0,
+            "value": 0.0,
+            "visits": 0
+          },
+          {
+            "action_id": "positive",
+            "requested_effort": 0.15,
+            "value": 0.0,
+            "visits": 0
+          }
+        ],
+        "parameter_change_l1": 0.0,
+        "parameter_fingerprint_sha256": "0f5521fe7cd2a70f6535cbf773d3c28e4decf73e384f0119801616cc469f9566",
+        "parameter_l1": 0.0,
+        "phase": "warming",
+        "recent_experience": [],
+        "replay_size": 0,
+        "replay_update_count": 0,
+        "requested_effort": 0.0,
+        "speed_limited": false,
+        "state_fingerprint_sha256": "7faa9304d458f8689547b99c054fec538efa0202e1b1a5d31c749cc488c1b4e0",
+        "step": 0,
+        "suppressed_replay_update_count": 0,
+        "suppressed_update_count": 0,
+        "target_effort": 0.0,
+        "unique_imu_samples": 0,
+        "unique_light_samples": 0,
+        "update_count": 0,
+        "values_initialized": false
+      },
+      "mode": "learner",
+      "observation": {
+        "actuator_feedback": [
+          {
+            "feedback": {
+              "bus_voltage_v": 7.4,
+              "current_a": 0.0,
+              "fault_flags": [],
+              "load_impedance_nm_s_per_rad": 0.0,
+              "output_torque_nm": 0.0,
+              "position_rad": 0.0,
+              "stuck": false,
+              "stuck_score": 0.0,
+              "temperature_c": 25.0,
+              "velocity_rad_s": 0.0
+            },
+            "module_id": "motor-0001",
+            "sku_id": "rotary_dc_gearmotor_v0",
+            "valid": true
+          }
+        ],
+        "reward_sensors": [
+          {
+            "age_s": null,
+            "delivered_time_s": null,
+            "family_id": "imu_6axis_v0",
+            "latency_s": 0.006,
+            "module_id": "imu-0001",
+            "observations": {
+              "angular_velocity_rad_s": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "specific_force_m_s2": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "sample_period_s": 0.01,
+            "sample_time_s": null,
+            "sequence": 0,
+            "valid": false
+          },
+          {
+            "age_s": null,
+            "delivered_time_s": null,
+            "family_id": "ambient_light_v0",
+            "latency_s": 0.02,
+            "module_id": "light-0001",
+            "observations": {
+              "illuminance_lux": 0.0,
+              "saturated": false
+            },
+            "sample_period_s": 0.1,
+            "sample_time_s": null,
+            "sequence": 0,
+            "valid": false
+          }
+        ],
+        "schema_version": "construction_observation_v2"
+      },
+      "physics": {
+        "actuator": {
+          "bus_voltage_v": 7.4,
+          "current_a": 0.0,
+          "fault_flags": [],
+          "load_impedance_nm_s_per_rad": 0.0,
+          "output_torque_nm": 0.0,
+          "position_rad": 0.0,
+          "stuck": false,
+          "stuck_score": 0.0,
+          "temperature_c": 25.0,
+          "velocity_rad_s": 0.0
+        },
+        "assembly": {
+          "blocks": [],
+          "light": {
+            "face": 1,
+            "segment": 1,
+            "side": 1,
+            "slot": 2
+          },
+          "name": "My first sun-seeker",
+          "schema": "construction_kit_v2",
+          "segments": [
+            3,
+            3
+          ],
+          "sensor": {
+            "segment": 1,
+            "side": -1,
+            "slot": 2
+          }
+        },
+        "command": 0.0,
+        "diagnostics": {
+          "actuator_count": 1,
+          "degrees_of_freedom": 2,
+          "electrical_energy_j": 0.0,
+          "instantaneous_imu": {
+            "angular_velocity_rad_s": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "specific_force_m_s2": [
+              0.0,
+              0.0,
+              9.81
+            ]
+          },
+          "instantaneous_light_lux": 436.116545746,
+          "motor_angle_rad": 0.0,
+          "motor_velocity_rad_s": 0.0,
+          "passive_actuator_force_nm": 0.0,
+          "passive_angle_rad": 0.0,
+          "passive_velocity_rad_s": 0.0,
+          "policy_visible": false,
+          "segment_inertias_kg_m2": [
+            {
+              "diagonal_kg_m2": [
+                6e-05,
+                5.5815e-05,
+                7.815e-06
+              ],
+              "inertial_frame_quaternion": [
+                0.707106781,
+                0.0,
+                0.0,
+                0.707106781
+              ]
+            },
+            {
+              "diagonal_kg_m2": [
+                0.000160282,
+                9.8337e-05,
+                7.4215e-05
+              ],
+              "inertial_frame_quaternion": [
+                0.707106781,
+                0.0,
+                0.0,
+                0.707106781
+              ]
+            }
+          ],
+          "segment_masses_kg": [
+            0.045,
+            0.085
+          ],
+          "total_mass_kg": 0.13
+        },
+        "elapsed_s": 0.0,
+        "geometry": [
+          {
+            "id": "segment-0-cell-0",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.02
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.15,
+              0.55,
+              0.75,
+              1.0
+            ],
+            "segment": 0,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 0
+          },
+          {
+            "id": "segment-0-cell-1",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.06
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.15,
+              0.55,
+              0.75,
+              1.0
+            ],
+            "segment": 0,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 1
+          },
+          {
+            "id": "segment-0-cell-2",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.1
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.15,
+              0.55,
+              0.75,
+              1.0
+            ],
+            "segment": 0,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 2
+          },
+          {
+            "id": "segment-1-cell-0",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.14
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.9,
+              0.55,
+              0.17,
+              1.0
+            ],
+            "segment": 1,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 0
+          },
+          {
+            "id": "segment-1-cell-1",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.18
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.9,
+              0.55,
+              0.17,
+              1.0
+            ],
+            "segment": 1,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 1
+          },
+          {
+            "id": "segment-1-cell-2",
+            "kind": "beam",
+            "position_m": [
+              0.0,
+              0.0,
+              -0.22
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.9,
+              0.55,
+              0.17,
+              1.0
+            ],
+            "segment": 1,
+            "side": 0,
+            "size_m": [
+              0.04,
+              0.022,
+              0.04
+            ],
+            "slot": 2
+          },
+          {
+            "id": "imu-0001",
+            "kind": "sensor",
+            "position_m": [
+              -0.038,
+              0.0,
+              -0.22
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.22,
+              0.78,
+              0.52,
+              1.0
+            ],
+            "segment": 1,
+            "side": -1,
+            "size_m": [
+              0.036,
+              0.036,
+              0.036
+            ],
+            "slot": 2
+          },
+          {
+            "id": "light-0001",
+            "kind": "light",
+            "position_m": [
+              0.038,
+              0.0,
+              -0.22
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rgba": [
+              0.95,
+              0.79,
+              0.18,
+              1.0
+            ],
+            "segment": 1,
+            "side": 1,
+            "size_m": [
+              0.036,
+              0.036,
+              0.036
+            ],
+            "slot": 2
+          }
+        ],
+        "joints": {
+          "motor_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "passive_m": [
+            0.0,
+            0.0,
+            -0.12
+          ]
+        },
+        "light_sensor": {
+          "age_s": null,
+          "delivered_time_s": null,
+          "direction_m": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "family_id": "ambient_light_v0",
+          "latency_s": 0.02,
+          "module_id": "light-0001",
+          "observations": {
+            "illuminance_lux": 0.0,
+            "saturated": false
+          },
+          "position_m": [
+            0.038,
+            0.0,
+            -0.202
+          ],
+          "sample_period_s": 0.1,
+          "sample_time_s": null,
+          "sequence": 0,
+          "valid": false
+        },
+        "reward": {
+          "cumulative": 0.0,
+          "rate": -2.0
+        },
+        "safety": {
+          "flags": [],
+          "veto": false
+        },
+        "schema": "construction_state_v2",
+        "segments": [
+          {
+            "end_m": [
+              0.0,
+              0.0,
+              -0.12
+            ],
+            "index": 0,
+            "length_studs": 3,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "end_m": [
+              0.0,
+              0.0,
+              -0.24
+            ],
+            "index": 1,
+            "length_studs": 3,
+            "start_m": [
+              0.0,
+              0.0,
+              -0.12
+            ]
+          }
+        ],
+        "sensor": {
+          "age_s": null,
+          "delivered_time_s": null,
+          "family_id": "imu_6axis_v0",
+          "latency_s": 0.006,
+          "module_id": "imu-0001",
+          "observations": {
+            "angular_velocity_rad_s": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "specific_force_m_s2": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "position_m": [
+            -0.038,
+            0.0,
+            -0.22
+          ],
+          "quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_period_s": 0.01,
+          "sample_time_s": null,
+          "sequence": 0,
+          "valid": false
+        },
+        "sim_time": 0.0,
+        "sun": {
+          "intensity_lux": 1000.0,
+          "position_m": [
+            0.3,
+            0.0,
+            0.2
+          ]
+        },
+        "tick": 0,
+        "tip_position_m": [
+          0.0,
+          0.0,
+          -0.24
+        ]
+      },
+      "schema": "light_session_v1",
+      "session_id": 1,
+      "status": "ready",
+      "sun_events": [
+        {
+          "sun": {
+            "intensity_lux": 1000.0,
+            "position_m": [
+              0.3,
+              0.0,
+              0.2
+            ]
+          },
+          "time_s": 0.0
+        }
+      ]
+    }
+  }
+}

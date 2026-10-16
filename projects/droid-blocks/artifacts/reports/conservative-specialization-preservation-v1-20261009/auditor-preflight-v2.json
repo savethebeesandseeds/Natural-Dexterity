@@ -1,0 +1,119 @@
+{
+  "schema": "conservative_specialization_auditor_synthetic_checks_v1",
+  "native_worlds_constructed": 0,
+  "training_updates": 0,
+  "checks": [
+    {
+      "name": "valid single-case tape",
+      "passed": true
+    },
+    {
+      "name": "reject other geometry",
+      "passed": true
+    },
+    {
+      "name": "reject reset rescue",
+      "passed": true
+    },
+    {
+      "name": "reject invalid action",
+      "passed": true
+    },
+    {
+      "name": "reject record True",
+      "passed": true
+    },
+    {
+      "name": "reject path ../outside",
+      "passed": true
+    },
+    {
+      "name": "reject path /outside",
+      "passed": true
+    },
+    {
+      "name": "reject path a\\b",
+      "passed": true
+    },
+    {
+      "name": "641st attempted action rejected",
+      "passed": true
+    },
+    {
+      "name": "second configure rejected",
+      "passed": true
+    },
+    {
+      "name": "384 decisions six rollouts and24 steps",
+      "passed": true
+    },
+    {
+      "name": "942 checkpoints at full294 opportunity cap",
+      "passed": true
+    },
+    {
+      "name": "six successful updates release384 candidate",
+      "passed": true
+    },
+    {
+      "name": "failed update blocks candidate despite24-step label",
+      "passed": true
+    },
+    {
+      "name": "strict whole-cost benefit positive fixture",
+      "passed": true
+    },
+    {
+      "name": "one failed pair blocks primary only",
+      "passed": true
+    },
+    {
+      "name": "strict3.2 benefit boundary fails",
+      "passed": true
+    },
+    {
+      "name": "inclusive target floor exactly-3.2 passes reliability",
+      "passed": true
+    },
+    {
+      "name": "one target below floor blocks readiness despite positive mean",
+      "passed": true
+    },
+    {
+      "name": "inclusive probe floor exactly-3.2 passes",
+      "passed": true
+    },
+    {
+      "name": "one probe regression hidden by acceptable seed mean blocks readiness",
+      "passed": true
+    },
+    {
+      "name": "blocked guard invalidates readiness without rescue",
+      "passed": true
+    },
+    {
+      "name": "scratch failure affects separate scratch contrast",
+      "passed": true
+    },
+    {
+      "name": "missing probes fail sampled retention",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "created_at_utc": "2026-10-09T15:02:29.110835+00:00",
+  "verifier_source_path": "/workspace/tools/verify-conservative-specialization.py",
+  "verifier_source_sha256": "2899a827afd6fe50922e6a54f7c1ab9da3a65ea1f6ab881b3b85c9e2f6809830",
+  "stable_native_helper_path": "/workspace/tools/verify-generalization-pretraining.py",
+  "stable_native_helper_sha256": "414507e697dd133f91599b8bf8a88dd34a8b30282ce0b1316f7fc9b2fba85f57",
+  "observed_invocation": [
+    "/opt/droid-blocks/generalization-venv/bin/python",
+    "-B",
+    "/workspace/tools/verify-conservative-specialization.py",
+    "--self-test",
+    "--receipt",
+    "/workspace/artifacts/reports/conservative-specialization-preservation-v1-20261009/auditor-preflight-v2.json"
+  ],
+  "python_version": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+  "scope": "Pure synthetic guards and reductions; no collection results read, no native process or training"
+}

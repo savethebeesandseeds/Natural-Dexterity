@@ -1,0 +1,31 @@
+{
+  "schema": "generalization_study_preflight_v1",
+  "checks": [
+    {
+      "path": "tests/check_generalization_study_manifest.py",
+      "declared_checks": 3,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_equal_budget_and_exact_partitions (__main__.StudyManifestContract.test_equal_budget_and_exact_partitions) ... ok\ntest_no_mutable_defaults_and_no_budget_or_gate_drift (__main__.StudyManifestContract.test_no_mutable_defaults_and_no_budget_or_gate_drift) ... ok\ntest_whole_assembly_exclusion_and_known_own_domain (__main__.StudyManifestContract.test_whole_assembly_exclusion_and_known_own_domain) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.014s\n\nOK\n"
+    },
+    {
+      "path": "tests/check_generalization_study_driver.py",
+      "declared_checks": 10,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_breadth_ties_and_single_positive_seed_cannot_pass (__main__.StudyDriverContract.test_breadth_ties_and_single_positive_seed_cannot_pass) ... ok\ntest_breadth_usefulness_and_untrained_eligibility_are_distinct (__main__.StudyDriverContract.test_breadth_usefulness_and_untrained_eligibility_are_distinct) ... ok\ntest_changed_evidence_and_escaping_paths_are_rejected (__main__.StudyDriverContract.test_changed_evidence_and_escaping_paths_are_rejected) ... ok\ntest_failed_release_blocks_before_any_learning_or_native_dependency (__main__.StudyDriverContract.test_failed_release_blocks_before_any_learning_or_native_dependency) ... ok\ntest_narrow_eight_slots_and_balanced_independent_sampling (__main__.StudyDriverContract.test_narrow_eight_slots_and_balanced_independent_sampling) ... ok\ntest_rhythms_use_full_period_and_start_negative (__main__.StudyDriverContract.test_rhythms_use_full_period_and_start_negative) ... ok\ntest_sealed_initial_identity_is_checked_from_all_six_results (__main__.StudyDriverContract.test_sealed_initial_identity_is_checked_from_all_six_results) ... ok\ntest_source_initial_tensors_match_and_evaluation_horizon_has_no_rescue_reset (__main__.StudyDriverContract.test_source_initial_tensors_match_and_evaluation_horizon_has_no_rescue_reset) ... ok\ntest_strict_source_margin_and_own_domain_separation (__main__.StudyDriverContract.test_strict_source_margin_and_own_domain_separation) ... ok\ntest_unexpected_source_failure_still_attempts_remaining_sources (__main__.StudyDriverContract.test_unexpected_source_failure_still_attempts_remaining_sources) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 2.917s\n\nOK\n"
+    }
+  ],
+  "source_sha256": {
+    "training/generalization_study.py": "b5d738d407af70b784158eb1cf7bd63152ddbd749661037503554f5fd0f00889",
+    "training/generalization_study_manifest.py": "f9f82db7288483a9fb55cd60a1e2d749faff4136b92113f9051acda46c162520",
+    "tests/check_generalization_study_driver.py": "bc739c690a72bc26c70db197b70f281a6539e06c03b0ce1a7bca64a646a218e9",
+    "tests/check_generalization_study_manifest.py": "48bbbd65f4c10d2f4154e61fe298ab2f31b995470b2e6be4d930c1229bb85060"
+  },
+  "syntax_passes": true,
+  "reserved_case_construction_requests": 0,
+  "policy_gradient_updates": 0,
+  "final_driver_integration_source_decisions": 640,
+  "all_root_driver_integration_runs_source_decisions": 1280,
+  "scope": "Synthetic gate tests and known-source-only Linux initialization/manual-horizon integration; outside collection budget."
+}

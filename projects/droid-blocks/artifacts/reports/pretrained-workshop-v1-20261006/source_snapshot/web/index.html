@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b2420">
+    <meta
+      name="description"
+      content="Wake a little sun-seeker and watch its learned response to light in the Droid Blocks workshop."
+    >
+    <title>Droid Blocks — The Sun-seeker</title>
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/sunseeker.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body class="workbench-view">
+    <a class="skip-link" href="#simulation-window">Skip to simulation</a>
+
+    <div class="console-shell">
+      <header class="brand-strip">
+        <a class="brand-link" href="/" aria-label="Droid Blocks home">
+          <img
+            class="brand-logo"
+            src="/assets/interface/droid-blocks-logo.webp"
+            width="768"
+            height="512"
+            alt="Droid Blocks"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </a>
+
+        <div class="link-plate" aria-label="Simulation connection">
+          <span class="link-light" aria-hidden="true"></span>
+          <span>
+            <strong data-connection-label>Connecting</strong>
+            <small>
+              <span data-engine>engine —</span>
+              <span aria-hidden="true">·</span>
+              <span data-run-state>Waiting</span>
+            </small>
+          </span>
+        </div>
+      </header>
+
+      <main id="simulation">
+        <div class="workshop-intro">
+          <div>
+            <p class="eyebrow" data-experiment-number>The airship workshop · Experiment 01</p>
+            <h1 data-experiment-title>Meet the sun-seeker.</h1>
+            <p data-experiment-intro>Choose a patch of sunshine. Wake your little rover.<br>Watch what happens when its world gets brighter.</p>
+          </div>
+          <img class="workshop-vignette" src="/assets/interface/airship-console.webp" width="1680" height="945" alt="" aria-hidden="true">
+        </div>
+
+        <nav class="experiment-switch" aria-label="Choose an experiment">
+          <button type="button" data-sunseeker-entry aria-pressed="true" disabled>01 · Meet the sun-seeker</button>
+          <button type="button" data-body-entry aria-pressed="false" disabled>02 · Change its body <span aria-hidden="true">↗</span></button>
+          <a href="/construction.html" class="construction-entry">03 · Build a creature ↗</a>
+          <a href="/pretrained.html" class="construction-entry">04 · Build it. Wake what it knows ↗</a>
+        </nav>
+
+        <section class="body-lab-panel" data-body-panel aria-labelledby="body-lab-title" hidden>
+          <div class="body-lab-heading">
+            <h2 id="body-lab-title">One little change. What will it discover?</h2>
+            <span>Each change starts a fresh try</span>
+          </div>
+          <div class="body-lab-choices">
+            <div class="body-choice" role="group" aria-label="Front-left transmission">
+              <span>Front-left transmission</span>
+              <div>
+                <button type="button" data-body-variant="normal" aria-pressed="false">Normal</button>
+                <button type="button" data-body-variant="reversed" aria-pressed="false">Reversed ↶</button>
+                <button type="button" data-body-variant="disconnected" aria-pressed="false">Disconnected ⋯</button>
+              </div>
+            </div>
+            <div class="body-choice" role="group" aria-label="How the rover tries its motors">
+              <span>How shall it try?</span>
+              <div>
+                <button type="button" data-body-strategy="discover" aria-pressed="false">Discover each motor</button>
+                <button type="button" data-body-strategy="together" aria-pressed="false">Try motors together</button>
+              </div>
+            </div>
+          </div>
+          <p data-body-setup>The rover can feel the light and its motors. It is not told which transmission you chose.</p>
+        </section>
+
+        <div class="experiment-toolbar">
+          <div class="sun-choice" role="group" aria-label="Choose the sunshine for a new run">
+            <span>Put the sunshine</span>
+            <button type="button" data-sun-side="left" aria-pressed="false" disabled>← On the left</button>
+            <button type="button" data-sun-side="right" aria-pressed="false" disabled>On the right →</button>
+          </div>
+          <button class="view-toggle" type="button" data-view-toggle aria-pressed="false">Airship view</button>
+        </div>
+
+        <div class="experiment-heading">
+          <span class="controller-chip" data-controller-label>Connecting to the creature</span>
+          <span data-session-state>Waiting for the workshop</span>
+        </div>
+
+        <section class="stage-viewport" aria-label="Droid Blocks airship console">
+          <div class="airship-stage">
+            <div
+              class="simulation-window"
+              id="simulation-window"
+              data-canvas-shell
+              tabindex="-1"
+            >
+              <canvas
+                id="sim-canvas"
+                role="img"
+                aria-label="The sun-seeker and its light source. Use the sunshine buttons to start a new experiment on either side."
+              >
+                Live modular robot simulation.
+              </canvas>
+
+              <div class="window-readout" aria-hidden="true">
+                <span>The sun-seeker</span>
+                <strong class="tabular" data-canvas-speed>0.00 m/s</strong>
+              </div>
+
+              <div class="window-time" aria-hidden="true">
+                <strong class="tabular" data-sim-time>00:00.0</strong>
+                <small>tick <span class="tabular" data-tick>0</span></small>
+              </div>
+
+              <div class="window-world" aria-hidden="true">
+                <span><b data-module-count>—</b> modules</span>
+                <span><b class="tabular" data-track-length>—</b> m track</span>
+              </div>
+
+              <div class="course-meter">
+                <div>
+                  <span id="course-progress-label" data-progress-label>Exploration</span>
+                  <span class="tabular">
+                    <b data-track-progress>0.0</b> /
+                    <span data-track-total>20</span> <span data-progress-unit>s</span>
+                  </span>
+                </div>
+                <progress
+                  data-progress-bar
+                  max="1"
+                  value="0"
+                  aria-labelledby="course-progress-label"
+                >0%</progress>
+              </div>
+
+              <div class="offline-panel" data-offline-panel>
+                <span class="offline-orbit" aria-hidden="true"></span>
+                <strong data-offline-title>Waking the engine</strong>
+                <p data-offline-detail>Waiting for the simulation service on this port.</p>
+              </div>
+            </div>
+
+            <img
+              class="airship-art"
+              src="/assets/interface/airship-console.webp"
+              width="1680"
+              height="945"
+              alt=""
+              aria-hidden="true"
+              fetchpriority="high"
+              decoding="async"
+            >
+
+            <output class="instrument instrument-motion" aria-label="Current motion speed">
+              <span>Motion</span>
+              <strong class="tabular" data-gauge-motion>0.00</strong>
+              <small>m/s</small>
+            </output>
+
+            <output class="instrument instrument-balance" aria-label="Current body tilt">
+              <span>Balance</span>
+              <strong class="tabular" data-gauge-balance>0.0</strong>
+              <small>deg</small>
+            </output>
+
+            <output class="instrument instrument-energy" aria-label="Remaining energy">
+              <span>Energy</span>
+              <strong class="tabular" data-gauge-energy>100</strong>
+              <small>%</small>
+            </output>
+
+            <button
+              class="airship-control control-reset"
+              type="button"
+              data-reset
+              disabled
+            >
+              <span class="sr-only" data-reset-label>Start again</span>
+            </button>
+
+            <button
+              class="airship-control control-play"
+              type="button"
+              data-play-pause
+              aria-pressed="false"
+              disabled
+            >
+              <span class="sr-only" data-play-pause-label>Wake the rover</span>
+            </button>
+
+            <button
+              class="airship-control control-details"
+              type="button"
+              data-details-toggle
+              aria-controls="machine-details"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Peek inside</span>
+            </button>
+          </div>
+        </section>
+
+        <div class="sensing-panel">
+          <div class="eye-reading">
+            <span class="eye-icon" aria-hidden="true">◉</span>
+            <div>
+              <label for="eye-light">Light at its eye</label>
+              <meter id="eye-light" data-eye-light min="0" max="1000" value="0">0 lux</meter>
+            </div>
+            <strong class="tabular" data-eye-reading>— <small>lx</small></strong>
+          </div>
+          <p data-light-change>Choose a side, then wake the rover.</p>
+        </div>
+        <section class="motor-discovery" data-motor-discovery aria-labelledby="discovery-title" hidden>
+          <div class="discovery-heading">
+            <h2 id="discovery-title">Its discoveries this time</h2>
+            <span data-body-phase>Ready to try</span>
+          </div>
+          <div class="discovery-motors" data-discovery-motors></div>
+          <p data-discovery-note>It tries both effort directions and compares the light. A weak response leaves it unsure.</p>
+        </section>
+        <p class="experiment-caption" data-experiment-caption>A 20-second experiment using a saved learned controller. Changing sides starts a fresh run.</p>
+        <p class="control-error" data-control-error role="alert" hidden></p>
+
+        <dialog
+          class="details-dialog"
+          id="machine-details"
+          data-details-dialog
+          aria-labelledby="details-title"
+        >
+          <div class="details-frame">
+            <header class="details-header">
+              <div>
+                <p>Automata telemetry</p>
+                <h2 id="details-title">Machine details</h2>
+              </div>
+              <form method="dialog">
+                <button class="close-button" type="submit" data-details-close>
+                  Close
+                </button>
+              </form>
+            </header>
+
+            <div class="details-grid">
+              <section class="telemetry-section learning-details">
+                <div class="section-heading"><h3>Who is driving?</h3><span class="state-chip" data-controller-detail>Waiting</span></div>
+                <p data-controller-description>The sun-seeker uses a saved learned controller. It does not train during this experiment.</p>
+                <dl class="provenance-list">
+                  <div><dt>Experience</dt><dd data-exposure>—</dd></div>
+                  <div><dt>Policy</dt><dd data-policy-id>—</dd></div>
+                  <div><dt>Artifact SHA-256</dt><dd><code data-policy-hash>—</code></dd></div>
+                </dl>
+                <div class="mode-actions">
+                  <button type="button" data-learned-mode disabled>Prepare the sun-seeker</button>
+                  <button type="button" data-demo-mode disabled>Switch to cruise demo</button>
+                </div>
+                <small>The cruise demo uses a separate, hand-written controller with world-position access.</small>
+              </section>
+              <section class="telemetry-section">
+                <div class="section-heading">
+                  <h3>Body state</h3>
+                  <span class="state-chip" data-body-state>offline</span>
+                </div>
+
+                <dl class="metric-grid">
+                  <div>
+                    <dt>Speed</dt>
+                    <dd><strong class="tabular" data-speed>0.00</strong><span>m/s</span></dd>
+                  </div>
+                  <div>
+                    <dt>Distance</dt>
+                    <dd><strong class="tabular" data-distance>0.00</strong><span>m</span></dd>
+                  </div>
+                  <div>
+                    <dt>Reward rate</dt>
+                    <dd><strong class="tabular" data-reward-rate>0.00</strong><span>r/s</span></dd>
+                  </div>
+                  <div>
+                    <dt>Energy</dt>
+                    <dd><strong class="tabular" data-battery-soc>100.0</strong><span>%</span></dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="telemetry-section">
+                <div class="section-heading">
+                  <h3>Mounted reward sensors</h3>
+                  <span class="catalog-badge">3 votes</span>
+                </div>
+
+                <div class="reward-sensor-list" aria-label="Three mounted reward sensors">
+                  <article class="reward-sensor">
+                    <span class="sensor-mark sensor-mark-light" aria-hidden="true"></span>
+                    <div>
+                      <strong>Ambient light</strong>
+                      <small data-sensor-ambient-id>sensor · light</small>
+                    </div>
+                    <p>
+                      <span><b class="tabular" data-sensor-ambient>—</b> lx</span>
+                      <em class="tabular" data-sensor-ambient-reward>— r/s</em>
+                    </p>
+                  </article>
+
+                  <article class="reward-sensor">
+                    <span class="sensor-mark sensor-mark-touch" aria-hidden="true"></span>
+                    <div>
+                      <strong>Front touch</strong>
+                      <small data-sensor-front-id>sensor · front</small>
+                    </div>
+                    <p>
+                      <span><b class="tabular" data-sensor-front>—</b> N</span>
+                      <em class="tabular" data-sensor-front-reward>— r/s</em>
+                    </p>
+                  </article>
+
+                  <article class="reward-sensor">
+                    <span class="sensor-mark sensor-mark-touch" aria-hidden="true"></span>
+                    <div>
+                      <strong>Rear touch</strong>
+                      <small data-sensor-rear-id>sensor · rear</small>
+                    </div>
+                    <p>
+                      <span><b class="tabular" data-sensor-rear>—</b> N</span>
+                      <em class="tabular" data-sensor-rear-reward>— r/s</em>
+                    </p>
+                  </article>
+                </div>
+              </section>
+            </div>
+
+            <section class="telemetry-section actuator-section">
+              <div class="section-heading">
+                <h3>Motor feedback</h3>
+                <span class="catalog-badge">4 mounted sets</span>
+              </div>
+
+              <div class="actuator-list">
+                <article class="actuator" data-actuator="0">
+                  <header><span>M01 · motor-0001</span><b class="tabular" data-target>u 0.00</b></header>
+                  <progress max="1.7" value="0" data-effort aria-label="Motor 1 effort">0%</progress>
+                  <dl class="motor-meta">
+                    <div><dt>Current</dt><dd data-current>0.00 A</dd></div>
+                    <div><dt>Temperature</dt><dd data-temperature>25.0 °C</dd></div>
+                    <div><dt>Impedance</dt><dd data-impedance>—</dd></div>
+                    <div data-stuck-state="false"><dt>Stuck</dt><dd data-stuck>no · 0.00</dd></div>
+                  </dl>
+                </article>
+
+                <article class="actuator" data-actuator="1">
+                  <header><span>M02 · motor-0002</span><b class="tabular" data-target>u 0.00</b></header>
+                  <progress max="1.7" value="0" data-effort aria-label="Motor 2 effort">0%</progress>
+                  <dl class="motor-meta">
+                    <div><dt>Current</dt><dd data-current>0.00 A</dd></div>
+                    <div><dt>Temperature</dt><dd data-temperature>25.0 °C</dd></div>
+                    <div><dt>Impedance</dt><dd data-impedance>—</dd></div>
+                    <div data-stuck-state="false"><dt>Stuck</dt><dd data-stuck>no · 0.00</dd></div>
+                  </dl>
+                </article>
+
+                <article class="actuator" data-actuator="2">
+                  <header><span>M03 · motor-0003</span><b class="tabular" data-target>u 0.00</b></header>
+                  <progress max="1.7" value="0" data-effort aria-label="Motor 3 effort">0%</progress>
+                  <dl class="motor-meta">
+                    <div><dt>Current</dt><dd data-current>0.00 A</dd></div>
+                    <div><dt>Temperature</dt><dd data-temperature>25.0 °C</dd></div>
+                    <div><dt>Impedance</dt><dd data-impedance>—</dd></div>
+                    <div data-stuck-state="false"><dt>Stuck</dt><dd data-stuck>no · 0.00</dd></div>
+                  </dl>
+                </article>
+
+                <article class="actuator" data-actuator="3">
+                  <header><span>M04 · motor-0004</span><b class="tabular" data-target>u 0.00</b></header>
+                  <progress max="1.7" value="0" data-effort aria-label="Motor 4 effort">0%</progress>
+                  <dl class="motor-meta">
+                    <div><dt>Current</dt><dd data-current>0.00 A</dd></div>
+                    <div><dt>Temperature</dt><dd data-temperature>25.0 °C</dd></div>
+                    <div><dt>Impedance</dt><dd data-impedance>—</dd></div>
+                    <div data-stuck-state="false"><dt>Stuck</dt><dd data-stuck>no · 0.00</dd></div>
+                  </dl>
+                </article>
+              </div>
+            </section>
+
+            <details class="catalog-panel">
+              <summary>
+                <span>Module contracts</span>
+                <small data-catalog-summary>Loading reward families and actuator feedback…</small>
+              </summary>
+
+              <div class="catalog-grid">
+                <section aria-labelledby="motor-catalog-title">
+                  <div class="catalog-heading">
+                    <h3 id="motor-catalog-title">Actuator feedback</h3>
+                    <span>no reward vote</span>
+                  </div>
+                  <div data-motor-catalog></div>
+                </section>
+
+                <section aria-labelledby="sensor-catalog-title">
+                  <div class="catalog-heading">
+                    <h3 id="sensor-catalog-title">Optional reward families</h3>
+                    <span>3 mounted</span>
+                  </div>
+                  <div class="sensor-catalog-list" data-sensor-catalog></div>
+                </section>
+              </div>
+            </details>
+          </div>
+        </dialog>
+
+        <p class="screen-reader-status" data-live-status aria-live="polite"></p>
+      </main>
+    </div>
+  </body>
+</html>

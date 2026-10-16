@@ -1,0 +1,2971 @@
+{
+  "schema": "generalization_study_tensor_audit_v1",
+  "audited_at_utc": "2026-10-06T15:51:11.300290+00:00",
+  "study_directory": "/workspace/artifacts/reports/generalization-study-v1-20261006",
+  "checks_passed": true,
+  "no_model_environment_or_native_process_constructed": true,
+  "loader": "stable_baselines3.common.save_util.load_from_zip_file(load_data=False, device='cpu'); raw JSON counters; tensor-only weights_only=True reader",
+  "scope": "Trusted generated checkpoint tensors/Adam counters only; separate native-tape auditor checks physical exposure/reward. No training, inference, policy/model construction, world setup or native execution.",
+  "auditor": {
+    "path": "/workspace/tools/verify-generalization-study-tensors.py",
+    "sha256": "52e2ed81af2dc1e8883403873a13a8a6ee28f613baa865ed2c8b67f8c2000bc3",
+    "snapshot_path": "verification/auditor_snapshot/verify-generalization-study-tensors-52e2ed81af2dc1e8883403873a13a8a6ee28f613baa865ed2c8b67f8c2000bc3.py",
+    "snapshot_sha256": "52e2ed81af2dc1e8883403873a13a8a6ee28f613baa865ed2c8b67f8c2000bc3"
+  },
+  "runtime": {
+    "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+    "python_executable": "/opt/droid-blocks/generalization-venv/bin/python",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "machine": "x86_64",
+    "packages": {
+      "torch": "2.8.0+cpu",
+      "stable-baselines3": "2.9.0",
+      "numpy": "2.2.6",
+      "gymnasium": "1.2.3",
+      "cloudpickle": "3.1.2"
+    },
+    "torch_threads": 1,
+    "cpu_deserialization": true,
+    "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n"
+  },
+  "protocol_sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727",
+  "source_stage": {
+    "path": "sources/stage.json",
+    "sha256": "77b0974f8f56bf118fe4b0f7d9cc4bfe951db2efedfc063599660acf63217804"
+  },
+  "source_seal": {
+    "path": "sources/sealed-checkpoints.json",
+    "sha256": "6404315c901c19972c7b190f797026431fc88ecd9006c6d0ebaa740feed18508"
+  },
+  "operational_complete": true,
+  "source_attempts": [
+    {
+      "reference": {
+        "path": "sources/source-pooled-101/result.json",
+        "sha256": "b7239ade4c0853cfa4ddb4c798671ce33803669616e242b2d879d2827268880b"
+      },
+      "checks_passed": true,
+      "source_arm": "pooled",
+      "seed": 101,
+      "source_complete": true,
+      "source_schema": "generalization_study_source_result_v1",
+      "source_error": null,
+      "unknown_exposure": false,
+      "checkpoints": [
+        {
+          "path": "sources/source-pooled-101/policy.zip",
+          "sha256": "4c7ce76f644dd07d41340ef311d5f797578fa58f0470e2b89aa49c0d3b93082c",
+          "kind": "final",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 98304,
+            "_n_updates": 192,
+            "_total_timesteps": 98304,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "30cb3f0efad3b0a6755cecafac73366aef1b925e2ee30f62b1bab989a04023dc",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 12,
+            "all_moments_finite": true,
+            "steps_min": 6144,
+            "steps_max": 6144,
+            "steps": [
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144
+            ],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 1,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 2,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 3,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 4,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 5,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 6,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 7,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 8,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 9,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 10,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 11,
+                "initialized": true,
+                "step": 6144
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": true
+        },
+        {
+          "path": "sources/source-pooled-101/policy_initial.zip",
+          "sha256": "1bbca4d19e927078acd4689ca12110e900ff4167ce95ad4fb55fbb9dd562dcbe",
+          "kind": "initial",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 0,
+            "_n_updates": 0,
+            "_total_timesteps": 0,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "5feee93f171f258d9b85c1876f78986d60f3fff4d9da92a515da91967669043f",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 0,
+            "all_moments_finite": true,
+            "steps_min": 0,
+            "steps_max": 0,
+            "steps": [],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": false
+              },
+              {
+                "parameter_id": 1,
+                "initialized": false
+              },
+              {
+                "parameter_id": 2,
+                "initialized": false
+              },
+              {
+                "parameter_id": 3,
+                "initialized": false
+              },
+              {
+                "parameter_id": 4,
+                "initialized": false
+              },
+              {
+                "parameter_id": 5,
+                "initialized": false
+              },
+              {
+                "parameter_id": 6,
+                "initialized": false
+              },
+              {
+                "parameter_id": 7,
+                "initialized": false
+              },
+              {
+                "parameter_id": 8,
+                "initialized": false
+              },
+              {
+                "parameter_id": 9,
+                "initialized": false
+              },
+              {
+                "parameter_id": 10,
+                "initialized": false
+              },
+              {
+                "parameter_id": 11,
+                "initialized": false
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "missing_initial_checkpoint": false,
+      "missing_final_checkpoint": false
+    },
+    {
+      "reference": {
+        "path": "sources/source-narrow-101/result.json",
+        "sha256": "3e605e8920080720c7bc98670c41dfa0fbaf0c9c2988089321392f0394748c08"
+      },
+      "checks_passed": true,
+      "source_arm": "narrow",
+      "seed": 101,
+      "source_complete": true,
+      "source_schema": "generalization_study_source_result_v1",
+      "source_error": null,
+      "unknown_exposure": false,
+      "checkpoints": [
+        {
+          "path": "sources/source-narrow-101/policy.zip",
+          "sha256": "045aef0be4c95af3c3c75f86034dfc6928faafb6a71baf4c8c46769f4c45163f",
+          "kind": "final",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 98304,
+            "_n_updates": 192,
+            "_total_timesteps": 98304,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "c7ef6180b599e97b518813723fe51d55f35e369e0b681b8da1940a9c47605285",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 12,
+            "all_moments_finite": true,
+            "steps_min": 6144,
+            "steps_max": 6144,
+            "steps": [
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144
+            ],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 1,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 2,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 3,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 4,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 5,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 6,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 7,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 8,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 9,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 10,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 11,
+                "initialized": true,
+                "step": 6144
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": true
+        },
+        {
+          "path": "sources/source-narrow-101/policy_initial.zip",
+          "sha256": "00731acb96ae08de4f007deb7b6bd4bdfb4a187e9f78f6cec93850bfbb86f877",
+          "kind": "initial",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 0,
+            "_n_updates": 0,
+            "_total_timesteps": 0,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "5feee93f171f258d9b85c1876f78986d60f3fff4d9da92a515da91967669043f",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 0,
+            "all_moments_finite": true,
+            "steps_min": 0,
+            "steps_max": 0,
+            "steps": [],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": false
+              },
+              {
+                "parameter_id": 1,
+                "initialized": false
+              },
+              {
+                "parameter_id": 2,
+                "initialized": false
+              },
+              {
+                "parameter_id": 3,
+                "initialized": false
+              },
+              {
+                "parameter_id": 4,
+                "initialized": false
+              },
+              {
+                "parameter_id": 5,
+                "initialized": false
+              },
+              {
+                "parameter_id": 6,
+                "initialized": false
+              },
+              {
+                "parameter_id": 7,
+                "initialized": false
+              },
+              {
+                "parameter_id": 8,
+                "initialized": false
+              },
+              {
+                "parameter_id": 9,
+                "initialized": false
+              },
+              {
+                "parameter_id": 10,
+                "initialized": false
+              },
+              {
+                "parameter_id": 11,
+                "initialized": false
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "missing_initial_checkpoint": false,
+      "missing_final_checkpoint": false
+    },
+    {
+      "reference": {
+        "path": "sources/source-pooled-202/result.json",
+        "sha256": "3f238ee1a7c7ccb9af1467207c378aa375dfe7e3df839dc9ddc7015e561997d1"
+      },
+      "checks_passed": true,
+      "source_arm": "pooled",
+      "seed": 202,
+      "source_complete": true,
+      "source_schema": "generalization_study_source_result_v1",
+      "source_error": null,
+      "unknown_exposure": false,
+      "checkpoints": [
+        {
+          "path": "sources/source-pooled-202/policy.zip",
+          "sha256": "b9293da448f3f3c008b8b7053999363652633d368e9353717a913bfb90665da7",
+          "kind": "final",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 98304,
+            "_n_updates": 192,
+            "_total_timesteps": 98304,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "cefb17643dc88fabef70e7abd21aec0bef83481b99a6387c7cefc57970cb582c",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 12,
+            "all_moments_finite": true,
+            "steps_min": 6144,
+            "steps_max": 6144,
+            "steps": [
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144
+            ],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 1,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 2,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 3,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 4,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 5,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 6,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 7,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 8,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 9,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 10,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 11,
+                "initialized": true,
+                "step": 6144
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": true
+        },
+        {
+          "path": "sources/source-pooled-202/policy_initial.zip",
+          "sha256": "a9f50762cf0a8b5cf804b00db701e284d1ef7a579907eb706a103b677bae5ff6",
+          "kind": "initial",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 0,
+            "_n_updates": 0,
+            "_total_timesteps": 0,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "2a4018dfc5ec313e9c1771bc4486638ae50744c26ca3ec8b3eb6b78e4341595e",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 0,
+            "all_moments_finite": true,
+            "steps_min": 0,
+            "steps_max": 0,
+            "steps": [],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": false
+              },
+              {
+                "parameter_id": 1,
+                "initialized": false
+              },
+              {
+                "parameter_id": 2,
+                "initialized": false
+              },
+              {
+                "parameter_id": 3,
+                "initialized": false
+              },
+              {
+                "parameter_id": 4,
+                "initialized": false
+              },
+              {
+                "parameter_id": 5,
+                "initialized": false
+              },
+              {
+                "parameter_id": 6,
+                "initialized": false
+              },
+              {
+                "parameter_id": 7,
+                "initialized": false
+              },
+              {
+                "parameter_id": 8,
+                "initialized": false
+              },
+              {
+                "parameter_id": 9,
+                "initialized": false
+              },
+              {
+                "parameter_id": 10,
+                "initialized": false
+              },
+              {
+                "parameter_id": 11,
+                "initialized": false
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "missing_initial_checkpoint": false,
+      "missing_final_checkpoint": false
+    },
+    {
+      "reference": {
+        "path": "sources/source-narrow-202/result.json",
+        "sha256": "5b247a7ec7a0f4838e8abfcdb67d682d36046d596fc70811e96350eb77d14810"
+      },
+      "checks_passed": true,
+      "source_arm": "narrow",
+      "seed": 202,
+      "source_complete": true,
+      "source_schema": "generalization_study_source_result_v1",
+      "source_error": null,
+      "unknown_exposure": false,
+      "checkpoints": [
+        {
+          "path": "sources/source-narrow-202/policy.zip",
+          "sha256": "048b5d47906299196a0474e58d5d7845aae985a30bfb6839494a0b601b2d7509",
+          "kind": "final",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 98304,
+            "_n_updates": 192,
+            "_total_timesteps": 98304,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "be9e67c38df51600459bb1a4e82d22792863fabdd0d57ced1d8f54d6511f658a",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 12,
+            "all_moments_finite": true,
+            "steps_min": 6144,
+            "steps_max": 6144,
+            "steps": [
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144
+            ],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 1,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 2,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 3,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 4,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 5,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 6,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 7,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 8,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 9,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 10,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 11,
+                "initialized": true,
+                "step": 6144
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": true
+        },
+        {
+          "path": "sources/source-narrow-202/policy_initial.zip",
+          "sha256": "023f2290b924f7a4531941c2a34809c01bad26e9957a5366f9e66644e0535298",
+          "kind": "initial",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 0,
+            "_n_updates": 0,
+            "_total_timesteps": 0,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "2a4018dfc5ec313e9c1771bc4486638ae50744c26ca3ec8b3eb6b78e4341595e",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 0,
+            "all_moments_finite": true,
+            "steps_min": 0,
+            "steps_max": 0,
+            "steps": [],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": false
+              },
+              {
+                "parameter_id": 1,
+                "initialized": false
+              },
+              {
+                "parameter_id": 2,
+                "initialized": false
+              },
+              {
+                "parameter_id": 3,
+                "initialized": false
+              },
+              {
+                "parameter_id": 4,
+                "initialized": false
+              },
+              {
+                "parameter_id": 5,
+                "initialized": false
+              },
+              {
+                "parameter_id": 6,
+                "initialized": false
+              },
+              {
+                "parameter_id": 7,
+                "initialized": false
+              },
+              {
+                "parameter_id": 8,
+                "initialized": false
+              },
+              {
+                "parameter_id": 9,
+                "initialized": false
+              },
+              {
+                "parameter_id": 10,
+                "initialized": false
+              },
+              {
+                "parameter_id": 11,
+                "initialized": false
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "missing_initial_checkpoint": false,
+      "missing_final_checkpoint": false
+    },
+    {
+      "reference": {
+        "path": "sources/source-pooled-303/result.json",
+        "sha256": "8f82d1afc59622fca4764be2e64f2d06e14ed538b5aa3dfc7cbcdd04b234bad8"
+      },
+      "checks_passed": true,
+      "source_arm": "pooled",
+      "seed": 303,
+      "source_complete": true,
+      "source_schema": "generalization_study_source_result_v1",
+      "source_error": null,
+      "unknown_exposure": false,
+      "checkpoints": [
+        {
+          "path": "sources/source-pooled-303/policy.zip",
+          "sha256": "a392b0544d24affec90545c4438a244bec5f60f3ff857845b90191866351aec4",
+          "kind": "final",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 98304,
+            "_n_updates": 192,
+            "_total_timesteps": 98304,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "826e9b6a8d7709d37c0208f195d3a39de2331e2f5fc0684e26772c9b21dd83fd",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 12,
+            "all_moments_finite": true,
+            "steps_min": 6144,
+            "steps_max": 6144,
+            "steps": [
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144
+            ],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 1,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 2,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 3,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 4,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 5,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 6,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 7,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 8,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 9,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 10,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 11,
+                "initialized": true,
+                "step": 6144
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": true
+        },
+        {
+          "path": "sources/source-pooled-303/policy_initial.zip",
+          "sha256": "6348cf32f4bfe6609be3cedfcf31a1f543983558823502e84b13736050aaf4d7",
+          "kind": "initial",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 0,
+            "_n_updates": 0,
+            "_total_timesteps": 0,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "65f7ea37954bd0706ad4c08ad2289d3b0adcdae1f5e944d8cbe15409ce33b973",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 0,
+            "all_moments_finite": true,
+            "steps_min": 0,
+            "steps_max": 0,
+            "steps": [],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": false
+              },
+              {
+                "parameter_id": 1,
+                "initialized": false
+              },
+              {
+                "parameter_id": 2,
+                "initialized": false
+              },
+              {
+                "parameter_id": 3,
+                "initialized": false
+              },
+              {
+                "parameter_id": 4,
+                "initialized": false
+              },
+              {
+                "parameter_id": 5,
+                "initialized": false
+              },
+              {
+                "parameter_id": 6,
+                "initialized": false
+              },
+              {
+                "parameter_id": 7,
+                "initialized": false
+              },
+              {
+                "parameter_id": 8,
+                "initialized": false
+              },
+              {
+                "parameter_id": 9,
+                "initialized": false
+              },
+              {
+                "parameter_id": 10,
+                "initialized": false
+              },
+              {
+                "parameter_id": 11,
+                "initialized": false
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "missing_initial_checkpoint": false,
+      "missing_final_checkpoint": false
+    },
+    {
+      "reference": {
+        "path": "sources/source-narrow-303/result.json",
+        "sha256": "dd795e486bc1a95548f351ba298af8a673f18a9f13ee8e957059c8e1734ec58f"
+      },
+      "checks_passed": true,
+      "source_arm": "narrow",
+      "seed": 303,
+      "source_complete": true,
+      "source_schema": "generalization_study_source_result_v1",
+      "source_error": null,
+      "unknown_exposure": false,
+      "checkpoints": [
+        {
+          "path": "sources/source-narrow-303/policy.zip",
+          "sha256": "3ef4ee271a498c0a26943414b56936f9677f39f57364a45c2342cb20e8048751",
+          "kind": "final",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 98304,
+            "_n_updates": 192,
+            "_total_timesteps": 98304,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "c73360fb31f847d8b59a7608985cba0a02b1b08619ef776d426a57d1db565ea2",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 12,
+            "all_moments_finite": true,
+            "steps_min": 6144,
+            "steps_max": 6144,
+            "steps": [
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144,
+              6144
+            ],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 1,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 2,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 3,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 4,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 5,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 6,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 7,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 8,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 9,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 10,
+                "initialized": true,
+                "step": 6144
+              },
+              {
+                "parameter_id": 11,
+                "initialized": true,
+                "step": 6144
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": true
+        },
+        {
+          "path": "sources/source-narrow-303/policy_initial.zip",
+          "sha256": "8dd78c31131bdff44aa7d677cd09343333650c40f587271b0f21bc966e934aed",
+          "kind": "initial",
+          "label_available": true,
+          "checks_passed": true,
+          "saved_sb3_version": "2.9.0",
+          "counters": {
+            "num_timesteps": 0,
+            "_n_updates": 0,
+            "_total_timesteps": 0,
+            "_num_timesteps_at_start": 0,
+            "_episode_num": 0
+          },
+          "policy": {
+            "parameter_sha256": "65f7ea37954bd0706ad4c08ad2289d3b0adcdae1f5e944d8cbe15409ce33b973",
+            "parameter_count": 34820,
+            "all_parameters_finite": true,
+            "tensors": [
+              {
+                "name": "action_net.bias",
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "elements": 3,
+                "finite": true
+              },
+              {
+                "name": "action_net.weight",
+                "shape": [
+                  3,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 192,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.policy_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.0.weight",
+                "shape": [
+                  64,
+                  204
+                ],
+                "dtype": "float32",
+                "elements": 13056,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.bias",
+                "shape": [
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              },
+              {
+                "name": "mlp_extractor.value_net.2.weight",
+                "shape": [
+                  64,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 4096,
+                "finite": true
+              },
+              {
+                "name": "value_net.bias",
+                "shape": [
+                  1
+                ],
+                "dtype": "float32",
+                "elements": 1,
+                "finite": true
+              },
+              {
+                "name": "value_net.weight",
+                "shape": [
+                  1,
+                  64
+                ],
+                "dtype": "float32",
+                "elements": 64,
+                "finite": true
+              }
+            ]
+          },
+          "optimizer": {
+            "parameter_groups": 1,
+            "parameter_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "state_entries": 0,
+            "all_moments_finite": true,
+            "steps_min": 0,
+            "steps_max": 0,
+            "steps": [],
+            "states": [
+              {
+                "parameter_id": 0,
+                "initialized": false
+              },
+              {
+                "parameter_id": 1,
+                "initialized": false
+              },
+              {
+                "parameter_id": 2,
+                "initialized": false
+              },
+              {
+                "parameter_id": 3,
+                "initialized": false
+              },
+              {
+                "parameter_id": 4,
+                "initialized": false
+              },
+              {
+                "parameter_id": 5,
+                "initialized": false
+              },
+              {
+                "parameter_id": 6,
+                "initialized": false
+              },
+              {
+                "parameter_id": 7,
+                "initialized": false
+              },
+              {
+                "parameter_id": 8,
+                "initialized": false
+              },
+              {
+                "parameter_id": 9,
+                "initialized": false
+              },
+              {
+                "parameter_id": 10,
+                "initialized": false
+              },
+              {
+                "parameter_id": 11,
+                "initialized": false
+              }
+            ],
+            "group": {
+              "lr": 0.0003,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false
+            }
+          },
+          "complete_source_count_requirements_applied": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "missing_initial_checkpoint": false,
+      "missing_final_checkpoint": false
+    }
+  ],
+  "checked_checkpoints": 12,
+  "declared_complete_checkpoint_count": 12,
+  "initial_identity_by_seed": [
+    {
+      "seed": 101,
+      "pooled_initial_parameter_sha256": "5feee93f171f258d9b85c1876f78986d60f3fff4d9da92a515da91967669043f",
+      "narrow_initial_parameter_sha256": "5feee93f171f258d9b85c1876f78986d60f3fff4d9da92a515da91967669043f",
+      "independently_matches": true,
+      "status": "checked"
+    },
+    {
+      "seed": 202,
+      "pooled_initial_parameter_sha256": "2a4018dfc5ec313e9c1771bc4486638ae50744c26ca3ec8b3eb6b78e4341595e",
+      "narrow_initial_parameter_sha256": "2a4018dfc5ec313e9c1771bc4486638ae50744c26ca3ec8b3eb6b78e4341595e",
+      "independently_matches": true,
+      "status": "checked"
+    },
+    {
+      "seed": 303,
+      "pooled_initial_parameter_sha256": "65f7ea37954bd0706ad4c08ad2289d3b0adcdae1f5e944d8cbe15409ce33b973",
+      "narrow_initial_parameter_sha256": "65f7ea37954bd0706ad4c08ad2289d3b0adcdae1f5e944d8cbe15409ce33b973",
+      "independently_matches": true,
+      "status": "checked"
+    }
+  ],
+  "all_available_checkpoint_checks_passed": true,
+  "all_available_initial_pairs_match": true,
+  "complete_source_tensor_contract_passed": true,
+  "partial_interpretation": "Incomplete sources are not required to have final checkpoints or full update counts; unavailable initial identity stays unknown. Tensor checks do not establish native exposure or competence.",
+  "project_learner_or_adapter_imports": []
+}

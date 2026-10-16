@@ -22,6 +22,7 @@ COPY config/ config/
 COPY models/ models/
 COPY tests/ tests/
 COPY artifacts/light-search-policy-v3-seed0.json artifacts/light-search-policy-v3-seed0.json
+COPY artifacts/pretrained/pooled-seed101-v1.json artifacts/pretrained/pooled-seed101-v1.json
 RUN cmake -S . -B build -G Ninja \
       -DCMAKE_BUILD_TYPE=Release \
       -DBUILD_TESTING=ON \

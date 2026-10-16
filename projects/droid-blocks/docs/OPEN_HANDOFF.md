@@ -1,11 +1,76 @@
 # Droid Blocks: open project brief and handoff
 
-**Historical brief captured:** 2026-09-05; latest study: 2026-10-04
+**Historical brief captured:** 2026-09-05; latest completed study: 2026-10-09;
+owner clarification: 2026-10-06
 
 **Status:** active research project; this document is intentionally open to revision  
 **Start here:** the simulation is normally visible at <http://127.0.0.1:43117/>
 
-**Latest adopted question, 2026-10-04:** the owner authorized continuing work
+**Current product direction, 2026-10-06:** the owner clarified that the very
+first child-built creature should already carry substantial simulated training
+exposure and generalized competence. Offline multi-body/environment pretraining
+is the starting point. Inference and little new experience specialize it to an
+assembly; retaining personal experience after rebuilding adds to that base.
+Scratch learning remains an experimental comparator.
+
+The [three-seed breadth study](GENERALIZATION_STUDY_RESULTS.md) now provides a
+bounded first-use result on previously uninstantiated length-5 assemblies.
+All 36 pooled trials completed safely with frozen weights, exceeded quiet's
+useful-behavior margin and beat their matched saved initial policies. Equal-budget
+broader training improved the mean over narrow training in all three seeds,
+with median seed gain +1.723678, but won only 21/36 individual comparisons.
+Narrow training also cleared the quiet margin everywhere. These are three
+training replicates with correlated case outcomes, not a universal breadth
+guarantee. All 16 fixed-witness safety stops remain in the record.
+
+The [earlier pooled-pretraining development pilot](GENERALIZATION_PRETRAINING_EXPERIMENT.md)
+is [complete](GENERALIZATION_PRETRAINING_RESULTS.md). One seed trained on 32
+body/light conditions, then controlled 12 known cases with fixed weights. All
+36 trained/untrained/quiet trials completed safely; trained beat quiet's margin
+in all 12 and beat its matched initial policy in 10, with mean gain +7.987401.
+Two cases worsened relative to initialization, the weakest quiet-margin pass
+was narrow, and the benefit is strongly lamp-side dependent. Independent native
+replay verified all 37 tapes with zero failed checks. Its reserve remained
+unconstructed until the successor study's six-source seal and 48-pair
+competence gate passed. Length-5 outcomes are now known development data.
+
+The [bounded specialization study](SPECIALIZATION_RESULTS.md) now measures that
+next step on the twelve exposed conditions. All 294 target/retention opportunities
+safely completed and independent replay passed 21,227,993 checks. With 128 learning
+decisions inside each 640-decision target budget, head-only tuning's median seed
+mean gain over frozen was −0.337379 and full tuning's was +1.410498. Both missed
+the practical +3.2 gate. Both beat matched scratch in every whole target run;
+this supports inherited pretraining competence, without demonstrating useful
+incremental specialization. Both methods' sampled retention gates passed, but full
+tuning lost 10.037916 in one earlier-condition probe. No adapted brain was promoted.
+
+The [longer-budget study](CONSERVATIVE_SPECIALIZATION_RESULTS.md) now completes
+that comparison: 384 learning decisions and 256 frozen continuation decisions
+within each 640-decision opportunity. Conservative updates gained a median
++1.213250 over frozen, below the +3.2 usefulness threshold, and failed individual
+reliability with a 5.008546 target loss and a 34.334899 earlier-condition probe
+loss. Its mean retention gate passed, showing why an average is insufficient.
+Standard updates had two native safety stops, failed sampled mean retention,
+and lost 41.550677 in one probe. All 150 guard opportunities safely completed; 292 of the
+294 total opportunities did so. Neither method met combined readiness.
+
+Keep frozen reuse as the product default. The next research milestone is to
+diagnose when the retained update checkpoints change behavior and damage
+inherited competence, then declare an adaptation recipe with explicit checks
+for preserving that competence and test it prospectively. Increasing the budget
+and lowering learning rate and clipping together did not meet the tested requirements. Personal memory should
+build on a reliable specialization process.
+Before extending the first-build claim, declare a fresh reserve and a supported
+body family. Persistent per-creature knowledge, richer topology/motors/contact
+and physical hardware need separate evidence. The [native pretrained workshop](PRETRAINED_WORKSHOP.md) brings the
+canonical pooled seed 101 actor into the visible build/wake loop, with immutable
+weights, fresh local history on rebuild and preserved pending actions on pause.
+This fixture remains one anchored two-link topology,
+so even successful new geometry results cannot establish arbitrary modular-body
+generalization. Define the supported first-build family and child responsiveness
+budget before making a product claim.
+
+**Completed question, 2026-10-04:** the owner authorized continuing work
 after reviewing the failed [actuation-transfer result](ACTUATION_TRANSFER_RESULTS.md).
 The [locked native headroom study](LIGHT_HEADROOM_EXPERIMENT.md) now asks whether
 the existing bodies have a useful advantage over quiet control, separately from
@@ -22,10 +87,14 @@ case, controller and seed. The
 [earlier motor-move comparison](http://127.0.0.1:43117/transfer.html) remains
 available, including its failed improvement gate.
 
-The next justified research comparison is frozen reuse, adaptation and scratch
-under equal budgets on this now-exposed lower-light curriculum, with source
-competence checked first. Learning separately from fresh memory is established;
-reuse after rebuilding and success on unseen conditions remain open.
+The October 4 next-step proposal compared frozen reuse, adaptation and scratch
+under equal budgets on the exposed lower-light curriculum. The October 6
+clarification brings broader pretraining and first-use frozen competence ahead
+of that comparison. Check source competence before exposing new conditions.
+Fresh-memory acquisition on the older known cases and frozen first-use geometry
+generalization in the bounded kit now have evidence. Useful incremental specialization,
+variable connections, multiple motors, contact, physical hardware and retained
+personal experience across rebuilds remain open.
 
 ## An invitation
 

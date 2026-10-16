@@ -1,5 +1,41 @@
 # Droid Blocks: the implemented control model
 
+## Current controller map — 9 October 2026
+
+The [pretrained workshop](PRETRAINED_WORKSHOP.md) at `/pretrained.html` deploys a
+frozen 17,475-parameter actor from pooled source seed 101: 204 local-history inputs,
+two 64-unit tanh layers and three categorical effort choices. Its native runtime
+contains no critic, optimizer or online training. Rebuilding clears world and
+sensor history while preserving that same pretrained actor.
+
+The research PPO model additionally contains a separate value network, for
+34,820 actor-plus-critic parameters. The [bounded specialization protocol](SPECIALIZATION_EXPERIMENT.md)
+compares tuning four output tensors (195 actor plus 65 critic parameters),
+tuning all weights, and matched scratch against the unchanged pretrained model.
+These isolated experimental worlds do not modify the workshop actor.
+
+The [completed specialization result](SPECIALIZATION_RESULTS.md) misses the
+declared practical gain gate for both tuning scopes. The immutable pretrained
+actor remains the workshop default; sampled retention averages do not bound
+individual losses.
+
+The [longer-budget comparison](CONSERVATIVE_SPECIALIZATION_RESULTS.md) uses
+384 learning decisions, six 64-decision rollouts and 24 Adam steps, followed by
+256 decisions with fixed weights in the same world. Conservative updates lower
+both learning rate and PPO clipping; standard updates retain the previous
+settings. Both tune all 12 actor/critic tensors with fresh optimizer state.
+Neither meets combined usefulness and reliability gates. Conservative mean
+retention passes despite a 34.334899 individual probe loss; standard has two
+native safety stops and a 41.550677 probe loss. Further work must establish how
+adaptation preserves the pretrained behavior before adding it to the workshop.
+
+The September analysis below describes the older Expected SARSA controller and
+its manually designed features. Its historical parameter counts and recall
+semantics belong to that controller. The later PPO appendix and the linked
+October protocols describe the neural controller separately.
+
+## Historical review — 6 September 2026
+
 Reviewed against the native source on 2026-09-06. This document supplies a shared
 mathematical vocabulary for the current light-enabled, anchored two-link kit.
 It describes the implemented controller and explicitly separates proposed work.

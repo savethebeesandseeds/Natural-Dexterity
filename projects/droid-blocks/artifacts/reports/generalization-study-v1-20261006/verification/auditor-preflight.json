@@ -1,0 +1,58 @@
+{
+  "schema": "study_auditor_preflight_v1",
+  "checks": [
+    {
+      "check": "source-budget",
+      "rejected": true
+    },
+    {
+      "check": "reserve-overlap",
+      "rejected": true
+    },
+    {
+      "check": "source-margin-tie",
+      "rejected": true
+    },
+    {
+      "check": "separate-untrained-and-breadth-safety",
+      "passes": true
+    },
+    {
+      "check": "full-period-rhythms",
+      "passes": true
+    },
+    {
+      "check": "wrong-commitment-before-replay",
+      "rejected": true,
+      "returncode": 1,
+      "issues": [
+        "external prospective protocol commitment: value differs",
+        "ValueError: native replay refused after failed prospective integrity checks"
+      ]
+    },
+    {
+      "check": "exclusive-receipt",
+      "rejected": true,
+      "returncode": 2,
+      "bytes_unchanged": true
+    }
+  ],
+  "reserved_calls": 0,
+  "native_replay_calls": 0,
+  "source_archives": [
+    {
+      "source": "/workspace/tools/verify-generalization-study.py",
+      "path": "/workspace/artifacts/reports/generalization-study-v1-20261006/verification/auditor_snapshot/verify-generalization-study-6a2cd51b73d2a6e15ab5ac8c349143017ede9df20fedb26c17acaee6e1f4371b.py",
+      "sha256": "6a2cd51b73d2a6e15ab5ac8c349143017ede9df20fedb26c17acaee6e1f4371b"
+    },
+    {
+      "source": "/workspace/tools/verify-generalization-pretraining.py",
+      "path": "/workspace/artifacts/reports/generalization-study-v1-20261006/verification/auditor_snapshot/verify-generalization-pretraining-414507e697dd133f91599b8bf8a88dd34a8b30282ce0b1316f7fc9b2fba85f57.py",
+      "sha256": "414507e697dd133f91599b8bf8a88dd34a8b30282ce0b1316f7fc9b2fba85f57"
+    }
+  ],
+  "prior_failed_qa": [
+    "auditor-preflight-attempt1.json",
+    "auditor-preflight-attempt2.json"
+  ]
+}

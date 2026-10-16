@@ -1,0 +1,635 @@
+{
+  "schema": "specialization_trial_v1",
+  "protocol_sha256": "5b5dbda3123c20a030021c141e4812ec0db1c8f66fd9030eca78b8265ec002e4",
+  "trial_id": "guard--development-long-upper-base-left--202--full--exposed-long-lower-elbow-left",
+  "partition": "guard",
+  "seed": 202,
+  "arm": "full",
+  "case_id": "development-long-upper-base-left",
+  "case_index": 0,
+  "checkpoint": {
+    "path": "artifacts/reports/specialization-v1-20261007/targets/trials/target--exposed-long-lower-elbow-left--202--full/policy_after128.zip",
+    "sha256": "6ca267fe87f1d5515a72a2ad45362fd170b8800cb546f0b315e51b93610f889b",
+    "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+    "decisions": 128
+  },
+  "guard_source": {
+    "kind": "post128_specialization",
+    "case_id": "exposed-long-lower-elbow-left",
+    "case_index": 6,
+    "arm": "full",
+    "target_result": {
+      "path": "artifacts/reports/specialization-v1-20261007/targets/trials/target--exposed-long-lower-elbow-left--202--full/result.json",
+      "sha256": "6a5a322675b83879342228acd2de9a4b98acc54b39746645cd78dae6a054d788"
+    }
+  },
+  "status": "complete",
+  "blocked": false,
+  "case": {
+    "assembly": {
+      "blocks": [],
+      "light": {
+        "face": 1,
+        "segment": 1,
+        "side": 1,
+        "slot": 2
+      },
+      "name": "Pooled sun-seeker development fixture",
+      "powered_hinge": 0,
+      "schema": "construction_kit_v2",
+      "segments": [
+        4,
+        3
+      ],
+      "sensor": {
+        "segment": 1,
+        "side": -1,
+        "slot": 2
+      }
+    },
+    "sun": {
+      "intensity_lux": 1000.0,
+      "position_m": [
+        -0.3,
+        0.0,
+        -0.3
+      ]
+    }
+  },
+  "action_seed": 1112000,
+  "checkpoint_parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+  "complete": true,
+  "safe": true,
+  "error": null,
+  "close_error": null,
+  "cancelled": false,
+  "metrics": {
+    "decisions": 640,
+    "native_steps": 3200,
+    "duration_s": 64.00000000000064,
+    "native_reward": 17.475316197245515,
+    "light_reward": 17.48054851797036,
+    "imu_reward": -0.00523232072484581,
+    "energy_j": 10.042331505,
+    "safety_stops": 0,
+    "max_current_a": 0.3749467171890585,
+    "max_speed_rad_s": 3.38960306187295,
+    "max_temperature_c": 25.245403645730548,
+    "sampled_invalid_imu": 0,
+    "sampled_invalid_light": 0,
+    "sampled_light_lux_sum": 31427.804238689994,
+    "sampled_valid_light_count": 640,
+    "sampled_max_light_lux": 208.142451093,
+    "sampled_feedback_flag_count": 0,
+    "sampled_mean_light_lux": 49.10594412295312
+  },
+  "windows": [
+    {
+      "requested_decisions": 64,
+      "complete": true,
+      "metrics": {
+        "decisions": 64,
+        "native_steps": 320,
+        "duration_s": 6.399999999999993,
+        "native_reward": 1.6293602194403243,
+        "light_reward": 1.6338090279456698,
+        "imu_reward": -0.00444880850534558,
+        "energy_j": 1.058555098,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467171890585,
+        "max_speed_rad_s": 3.1790814755802885,
+        "max_temperature_c": 25.03325287512306,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 2758.3926268110004,
+        "sampled_valid_light_count": 64,
+        "sampled_max_light_lux": 201.735857206,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 43.09988479392188
+      }
+    },
+    {
+      "requested_decisions": 128,
+      "complete": true,
+      "metrics": {
+        "decisions": 128,
+        "native_steps": 640,
+        "duration_s": 12.79999999999997,
+        "native_reward": 3.352155099633446,
+        "light_reward": 3.3566039081387915,
+        "imu_reward": -0.00444880850534558,
+        "energy_j": 2.046107153,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467171890585,
+        "max_speed_rad_s": 3.1790814755802885,
+        "max_temperature_c": 25.064201878044727,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 5939.468105101002,
+        "sampled_valid_light_count": 128,
+        "sampled_max_light_lux": 201.735857206,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 46.40209457110158
+      }
+    },
+    {
+      "requested_decisions": 320,
+      "complete": true,
+      "metrics": {
+        "decisions": 320,
+        "native_steps": 1600,
+        "duration_s": 32.000000000000185,
+        "native_reward": 8.534331103862087,
+        "light_reward": 8.539201655932494,
+        "imu_reward": -0.004870552070409738,
+        "energy_j": 5.103339625,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467171890585,
+        "max_speed_rad_s": 3.38960306187295,
+        "max_temperature_c": 25.144956033384744,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 15367.974661217999,
+        "sampled_valid_light_count": 320,
+        "sampled_max_light_lux": 205.680555321,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 48.02492081630625
+      }
+    },
+    {
+      "requested_decisions": 640,
+      "complete": true,
+      "metrics": {
+        "decisions": 640,
+        "native_steps": 3200,
+        "duration_s": 64.00000000000064,
+        "native_reward": 17.475316197245515,
+        "light_reward": 17.48054851797036,
+        "imu_reward": -0.00523232072484581,
+        "energy_j": 10.042331505,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467171890585,
+        "max_speed_rad_s": 3.38960306187295,
+        "max_temperature_c": 25.245403645730548,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 31427.804238689994,
+        "sampled_valid_light_count": 640,
+        "sampled_max_light_lux": 208.142451093,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 49.10594412295312
+      }
+    }
+  ],
+  "prefix_metrics": {
+    "decisions": 128,
+    "native_steps": 640,
+    "duration_s": 12.79999999999997,
+    "native_reward": 3.352155099633446,
+    "light_reward": 3.3566039081387915,
+    "imu_reward": -0.00444880850534558,
+    "energy_j": 2.046107153,
+    "safety_stops": 0,
+    "max_current_a": 0.3749467171890585,
+    "max_speed_rad_s": 3.1790814755802885,
+    "max_temperature_c": 25.064201878044727,
+    "sampled_invalid_imu": 0,
+    "sampled_invalid_light": 0,
+    "sampled_light_lux_sum": 5939.468105101002,
+    "sampled_valid_light_count": 128,
+    "sampled_max_light_lux": 201.735857206,
+    "sampled_feedback_flag_count": 0,
+    "sampled_mean_light_lux": 46.40209457110158
+  },
+  "continuation_metrics": {
+    "decisions": 512,
+    "native_steps": 2560,
+    "duration_s": 51.20000000000046,
+    "native_reward": 14.123161097612078,
+    "light_reward": 14.123944609831577,
+    "imu_reward": -0.0007835122195002306,
+    "energy_j": 10.042331505,
+    "safety_stops": 0,
+    "max_current_a": 0.37494671718905676,
+    "max_speed_rad_s": 3.38960306187295,
+    "max_temperature_c": 25.245403645730548,
+    "sampled_invalid_imu": 0,
+    "sampled_invalid_light": 0,
+    "sampled_light_lux_sum": 25488.33613358899,
+    "sampled_valid_light_count": 512,
+    "sampled_max_light_lux": 208.142451093,
+    "sampled_feedback_flag_count": 0,
+    "sampled_mean_light_lux": 49.781906510915995
+  },
+  "snapshots": {
+    "initial": {
+      "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+      "partitions": {
+        "actor_trunk": {
+          "sha256": "1f6736113b887f8a16eae76e5a30d4f95f92b57398a3625d86d4cfa8c00cdfdb",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "value_trunk": {
+          "sha256": "6e6f654ecbb770be92f0fe32cf095109c7b673ff7bff740644ddb0e4876785f0",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "actor_head": {
+          "sha256": "1a870321a01642ca90619a740fa25cfa02d938b4f0e91a0e79133ecd989fa974",
+          "tensors": 2,
+          "elements": 195
+        },
+        "value_head": {
+          "sha256": "0dd897a4b5d29dc8d3fca9698c3777a741d5e08119eb9d667b5563f18813235a",
+          "tensors": 2,
+          "elements": 65
+        }
+      },
+      "parameters_finite": true,
+      "parameter_elements": 34820,
+      "parameter_tensors": 12,
+      "requires_grad": {
+        "mlp_extractor.policy_net.0.weight": false,
+        "mlp_extractor.policy_net.0.bias": false,
+        "mlp_extractor.policy_net.2.weight": false,
+        "mlp_extractor.policy_net.2.bias": false,
+        "mlp_extractor.value_net.0.weight": false,
+        "mlp_extractor.value_net.0.bias": false,
+        "mlp_extractor.value_net.2.weight": false,
+        "mlp_extractor.value_net.2.bias": false,
+        "action_net.weight": false,
+        "action_net.bias": false,
+        "value_net.weight": false,
+        "value_net.bias": false
+      },
+      "trainable_elements": 0,
+      "trainable_tensors": 0,
+      "optimizer": {
+        "enabled": false,
+        "fresh": true,
+        "param_groups": [],
+        "state": {},
+        "state_tensors": 0,
+        "step_min": 0,
+        "step_max": 0
+      },
+      "num_timesteps": 0,
+      "optimization_epochs": 0,
+      "torch_rng_sha256": "d7e94a91f5f972455cf7abb3e8ec7435141f85e16db1caaa4ebd6e35ae83f7f0",
+      "rollout_buffer": {
+        "full": false,
+        "position": 0,
+        "buffer_size": 64,
+        "n_envs": 1
+      },
+      "input_float32_le_sha256": "c31f6b2cf825fa1f0e0055ed53672e82a61c2775eb2d9cc90644a83f254eb307"
+    },
+    "after64": {
+      "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+      "partitions": {
+        "actor_trunk": {
+          "sha256": "1f6736113b887f8a16eae76e5a30d4f95f92b57398a3625d86d4cfa8c00cdfdb",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "value_trunk": {
+          "sha256": "6e6f654ecbb770be92f0fe32cf095109c7b673ff7bff740644ddb0e4876785f0",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "actor_head": {
+          "sha256": "1a870321a01642ca90619a740fa25cfa02d938b4f0e91a0e79133ecd989fa974",
+          "tensors": 2,
+          "elements": 195
+        },
+        "value_head": {
+          "sha256": "0dd897a4b5d29dc8d3fca9698c3777a741d5e08119eb9d667b5563f18813235a",
+          "tensors": 2,
+          "elements": 65
+        }
+      },
+      "parameters_finite": true,
+      "parameter_elements": 34820,
+      "parameter_tensors": 12,
+      "requires_grad": {
+        "mlp_extractor.policy_net.0.weight": false,
+        "mlp_extractor.policy_net.0.bias": false,
+        "mlp_extractor.policy_net.2.weight": false,
+        "mlp_extractor.policy_net.2.bias": false,
+        "mlp_extractor.value_net.0.weight": false,
+        "mlp_extractor.value_net.0.bias": false,
+        "mlp_extractor.value_net.2.weight": false,
+        "mlp_extractor.value_net.2.bias": false,
+        "action_net.weight": false,
+        "action_net.bias": false,
+        "value_net.weight": false,
+        "value_net.bias": false
+      },
+      "trainable_elements": 0,
+      "trainable_tensors": 0,
+      "optimizer": {
+        "enabled": false,
+        "fresh": true,
+        "param_groups": [],
+        "state": {},
+        "state_tensors": 0,
+        "step_min": 0,
+        "step_max": 0
+      },
+      "num_timesteps": 0,
+      "optimization_epochs": 0,
+      "torch_rng_sha256": "30ee141d5527f1f54c13c54bed0d1266197a799436f5a605b55092b034b5777e",
+      "rollout_buffer": {
+        "full": false,
+        "position": 0,
+        "buffer_size": 64,
+        "n_envs": 1
+      },
+      "input_float32_le_sha256": "f22c0952bb3bda3564cc63781d8876aba3aa404f95b49f4872b0f73968ee23ae"
+    },
+    "after128": {
+      "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+      "partitions": {
+        "actor_trunk": {
+          "sha256": "1f6736113b887f8a16eae76e5a30d4f95f92b57398a3625d86d4cfa8c00cdfdb",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "value_trunk": {
+          "sha256": "6e6f654ecbb770be92f0fe32cf095109c7b673ff7bff740644ddb0e4876785f0",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "actor_head": {
+          "sha256": "1a870321a01642ca90619a740fa25cfa02d938b4f0e91a0e79133ecd989fa974",
+          "tensors": 2,
+          "elements": 195
+        },
+        "value_head": {
+          "sha256": "0dd897a4b5d29dc8d3fca9698c3777a741d5e08119eb9d667b5563f18813235a",
+          "tensors": 2,
+          "elements": 65
+        }
+      },
+      "parameters_finite": true,
+      "parameter_elements": 34820,
+      "parameter_tensors": 12,
+      "requires_grad": {
+        "mlp_extractor.policy_net.0.weight": false,
+        "mlp_extractor.policy_net.0.bias": false,
+        "mlp_extractor.policy_net.2.weight": false,
+        "mlp_extractor.policy_net.2.bias": false,
+        "mlp_extractor.value_net.0.weight": false,
+        "mlp_extractor.value_net.0.bias": false,
+        "mlp_extractor.value_net.2.weight": false,
+        "mlp_extractor.value_net.2.bias": false,
+        "action_net.weight": false,
+        "action_net.bias": false,
+        "value_net.weight": false,
+        "value_net.bias": false
+      },
+      "trainable_elements": 0,
+      "trainable_tensors": 0,
+      "optimizer": {
+        "enabled": false,
+        "fresh": true,
+        "param_groups": [],
+        "state": {},
+        "state_tensors": 0,
+        "step_min": 0,
+        "step_max": 0
+      },
+      "num_timesteps": 0,
+      "optimization_epochs": 0,
+      "torch_rng_sha256": "cac58f97fa9a36f1bb96f199abf4221776bb07696b78917e71fc1b751e072ff9",
+      "rollout_buffer": {
+        "full": false,
+        "position": 0,
+        "buffer_size": 64,
+        "n_envs": 1
+      },
+      "input_float32_le_sha256": "20861a23e0fb00382f9a2e62c4f24c4bef15c9a6d0138e72e96e91beacd7dc79"
+    },
+    "after640": {
+      "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+      "partitions": {
+        "actor_trunk": {
+          "sha256": "1f6736113b887f8a16eae76e5a30d4f95f92b57398a3625d86d4cfa8c00cdfdb",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "value_trunk": {
+          "sha256": "6e6f654ecbb770be92f0fe32cf095109c7b673ff7bff740644ddb0e4876785f0",
+          "tensors": 4,
+          "elements": 17280
+        },
+        "actor_head": {
+          "sha256": "1a870321a01642ca90619a740fa25cfa02d938b4f0e91a0e79133ecd989fa974",
+          "tensors": 2,
+          "elements": 195
+        },
+        "value_head": {
+          "sha256": "0dd897a4b5d29dc8d3fca9698c3777a741d5e08119eb9d667b5563f18813235a",
+          "tensors": 2,
+          "elements": 65
+        }
+      },
+      "parameters_finite": true,
+      "parameter_elements": 34820,
+      "parameter_tensors": 12,
+      "requires_grad": {
+        "mlp_extractor.policy_net.0.weight": false,
+        "mlp_extractor.policy_net.0.bias": false,
+        "mlp_extractor.policy_net.2.weight": false,
+        "mlp_extractor.policy_net.2.bias": false,
+        "mlp_extractor.value_net.0.weight": false,
+        "mlp_extractor.value_net.0.bias": false,
+        "mlp_extractor.value_net.2.weight": false,
+        "mlp_extractor.value_net.2.bias": false,
+        "action_net.weight": false,
+        "action_net.bias": false,
+        "value_net.weight": false,
+        "value_net.bias": false
+      },
+      "trainable_elements": 0,
+      "trainable_tensors": 0,
+      "optimizer": {
+        "enabled": false,
+        "fresh": true,
+        "param_groups": [],
+        "state": {},
+        "state_tensors": 0,
+        "step_min": 0,
+        "step_max": 0
+      },
+      "num_timesteps": 0,
+      "optimization_epochs": 0,
+      "torch_rng_sha256": "8cfe2f2d01c9d2bb6f7f12bbab51e095feee545eb2d0824311f1bfeb531b2337",
+      "rollout_buffer": {
+        "full": false,
+        "position": 0,
+        "buffer_size": 64,
+        "n_envs": 1
+      },
+      "input_float32_le_sha256": "0769c40b04f3f95c0e4ccbed2c3b2d30ff94da1ed089289469253c3c34c7030e"
+    }
+  },
+  "checkpoints": {
+    "initial": {
+      "path": "artifacts/reports/specialization-v1-20261007/guards/trials/guard--development-long-upper-base-left--202--full--exposed-long-lower-elbow-left/policy_initial.zip",
+      "sha256": "190a88f446467101f454cfea7be5f6961aee3d8041c372ad40688ba400f325e9",
+      "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+      "decisions": 0
+    }
+  },
+  "training_updates": [],
+  "training_rng_unchanged": true,
+  "continuation_weights_and_optimizer_unchanged": true,
+  "initial_local_observation": {
+    "actuator_feedback": [
+      {
+        "feedback": {
+          "bus_voltage_v": 7.4,
+          "current_a": 0.0,
+          "fault_flags": [],
+          "load_impedance_nm_s_per_rad": 0.0,
+          "output_torque_nm": 0.0,
+          "position_rad": 0.0,
+          "stuck": false,
+          "stuck_score": 0.0,
+          "temperature_c": 25.0,
+          "velocity_rad_s": 0.0
+        },
+        "module_id": "motor-0001",
+        "sku_id": "rotary_dc_gearmotor_v0",
+        "valid": true
+      }
+    ],
+    "reward_sensors": [
+      {
+        "age_s": null,
+        "delivered_time_s": null,
+        "family_id": "imu_6axis_v0",
+        "latency_s": 0.006,
+        "module_id": "imu-0001",
+        "observations": {
+          "angular_velocity_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "specific_force_m_s2": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "sample_period_s": 0.01,
+        "sample_time_s": null,
+        "sequence": 0,
+        "valid": false
+      },
+      {
+        "age_s": null,
+        "delivered_time_s": null,
+        "family_id": "ambient_light_v0",
+        "latency_s": 0.02,
+        "module_id": "light-0001",
+        "observations": {
+          "illuminance_lux": 0.0,
+          "saturated": false
+        },
+        "sample_period_s": 0.1,
+        "sample_time_s": null,
+        "sequence": 0,
+        "valid": false
+      }
+    ],
+    "schema_version": "construction_observation_v2"
+  },
+  "reset_count": 1,
+  "pending_action_audit": null,
+  "exposure_exact": true,
+  "native_failure": null,
+  "unresolved_request": null,
+  "case_construction_requests": 1,
+  "wall_s": 1.620940389999987,
+  "wall_cap_exceeded": false,
+  "learning_log": {
+    "path": "artifacts/reports/specialization-v1-20261007/guards/trials/guard--development-long-upper-base-left--202--full--exposed-long-lower-elbow-left/learning.jsonl",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "retained_final_snapshot": {
+    "parameter_sha256": "2c485693db0cc3deff6e1e375750a52c7497597111a1e9cda5ffb71ad6504162",
+    "partitions": {
+      "actor_trunk": {
+        "sha256": "1f6736113b887f8a16eae76e5a30d4f95f92b57398a3625d86d4cfa8c00cdfdb",
+        "tensors": 4,
+        "elements": 17280
+      },
+      "value_trunk": {
+        "sha256": "6e6f654ecbb770be92f0fe32cf095109c7b673ff7bff740644ddb0e4876785f0",
+        "tensors": 4,
+        "elements": 17280
+      },
+      "actor_head": {
+        "sha256": "1a870321a01642ca90619a740fa25cfa02d938b4f0e91a0e79133ecd989fa974",
+        "tensors": 2,
+        "elements": 195
+      },
+      "value_head": {
+        "sha256": "0dd897a4b5d29dc8d3fca9698c3777a741d5e08119eb9d667b5563f18813235a",
+        "tensors": 2,
+        "elements": 65
+      }
+    },
+    "parameters_finite": true,
+    "parameter_elements": 34820,
+    "parameter_tensors": 12,
+    "requires_grad": {
+      "mlp_extractor.policy_net.0.weight": false,
+      "mlp_extractor.policy_net.0.bias": false,
+      "mlp_extractor.policy_net.2.weight": false,
+      "mlp_extractor.policy_net.2.bias": false,
+      "mlp_extractor.value_net.0.weight": false,
+      "mlp_extractor.value_net.0.bias": false,
+      "mlp_extractor.value_net.2.weight": false,
+      "mlp_extractor.value_net.2.bias": false,
+      "action_net.weight": false,
+      "action_net.bias": false,
+      "value_net.weight": false,
+      "value_net.bias": false
+    },
+    "trainable_elements": 0,
+    "trainable_tensors": 0,
+    "optimizer": {
+      "enabled": false,
+      "fresh": true,
+      "param_groups": [],
+      "state": {},
+      "state_tensors": 0,
+      "step_min": 0,
+      "step_max": 0
+    },
+    "num_timesteps": 0,
+    "optimization_epochs": 0,
+    "torch_rng_sha256": "8cfe2f2d01c9d2bb6f7f12bbab51e095feee545eb2d0824311f1bfeb531b2337",
+    "rollout_buffer": {
+      "full": false,
+      "position": 0,
+      "buffer_size": 64,
+      "n_envs": 1
+    }
+  },
+  "request_tape": {
+    "path": "artifacts/reports/specialization-v1-20261007/guards/trials/guard--development-long-upper-base-left--202--full--exposed-long-lower-elbow-left/traces/requests.json.gz",
+    "sha256": "13e8ab1a9e903650c8ea224edd1bc40442cc1ed36348c643992fed3ad8a6255a",
+    "native_stream_sha256": "d24fde98b9589ff1fb6141882178b5971fa58a98496476f89ea83722c6cee451",
+    "request_count": 642
+  },
+  "telemetry": {
+    "path": "artifacts/reports/specialization-v1-20261007/guards/trials/guard--development-long-upper-base-left--202--full--exposed-long-lower-elbow-left/traces/telemetry.json.gz",
+    "sha256": "a5510494cf72bcf6e202d3b94bad75ec3592286ba0ba7ec3efb7cf112ad052d5"
+  }
+}

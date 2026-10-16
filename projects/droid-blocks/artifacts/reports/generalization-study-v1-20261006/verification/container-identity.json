@@ -1,0 +1,54 @@
+{
+  "schema": "generalization_study_container_identity_v1",
+  "container_id": "a3eabc3183e054aafd42304857b6a10b2c3a7cf15787fcf177149335e6aeaaaf",
+  "name": "/droid-blocks-dev",
+  "image_id": "sha256:eabe48053a78bcb334a947e7a5c0c009d6ff174a3b5e57e2493593d423b91068",
+  "command": [
+    "/workspace/run.sh"
+  ],
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "C:\\Work\\Universalis-Materiae-Dexteritas\\projects\\droid-blocks",
+      "Destination": "/workspace",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "ports": {
+    "8080/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "43117"
+      }
+    ]
+  },
+  "restart_policy": {
+    "Name": "no",
+    "MaximumRetryCount": 0
+  },
+  "labels": {
+    "io.waajacu.managed": "true",
+    "io.waajacu.project": "droid-blocks"
+  },
+  "device_requests": [
+    {
+      "Driver": "",
+      "Count": -1,
+      "DeviceIDs": null,
+      "Capabilities": [
+        [
+          "gpu"
+        ]
+      ],
+      "Options": {}
+    }
+  ],
+  "devices": [],
+  "init": true,
+  "shm_size": 1073741824,
+  "started_at": "2026-10-06T14:45:45.44206138Z",
+  "state": "running",
+  "health": "healthy"
+}

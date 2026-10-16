@@ -1,0 +1,16 @@
+# The optional Linux installer must remain executable by /bin/sh after checkout.
+/training/setup-generalization.sh text eol=lf
+
+# Protocols, receipts and source snapshots bind exact recorded bytes by hash.
+/artifacts/reports/generalization-pretraining-*/** -text
+/artifacts/reports/generalization-study-*/** -text
+/artifacts/reports/pretrained-workshop-*/** -text
+/artifacts/pretrained/** -text
+/artifacts/reports/specialization-*/** -text
+/artifacts/reports/conservative-specialization-*/** -text
+/training/conservative_specialization_manifest.py text eol=lf
+/training/conservative_specialization_study.py text eol=lf
+/training/specialization_manifest.py text eol=lf
+/training/specialization_study.py text eol=lf
+/training/export_pretrained_actor.py text eol=lf
+/training/verify_pretrained_actor.py text eol=lf

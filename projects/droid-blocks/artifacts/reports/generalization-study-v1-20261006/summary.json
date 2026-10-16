@@ -1,0 +1,4019 @@
+{
+  "schema": "generalization_study_summary_v1",
+  "protocol_sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727",
+  "phases": {
+    "sources": {
+      "schema": "generalization_study_stage_v1",
+      "stage": "sources",
+      "protocol_sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727",
+      "status": "complete",
+      "provenance_unchanged": true,
+      "source_sha256_after_collection": {
+        "CMakeLists.txt": "cd1e17ec3214446a08731c978aa53d142d9227c1916e05353aee0108c0e5b26b",
+        "config/module_catalog.json": "5327cc56ebbe6817db8af4e5fca2cf8228b07ccc8904d9bd90d738e3a7cd6781",
+        "docs/GENERALIZATION_PRETRAINING_EXPERIMENT.md": "897eda203487c6d1c46bb864a9ea54ae39d5c8564a68805794bf1cfb2749e11a",
+        "docs/GENERALIZATION_STUDY_EXPERIMENT.md": "a49b7ae6537b97c0e6bd1a2a23858176edc06e0d1e37f05ab43e3df21dd61792",
+        "include/droid/baseline.hpp": "d3119b95c99467e433be506bcb14b89d7c850dc8abf1928a83d62810853b5cc0",
+        "include/droid/body_controller.hpp": "debaa2ef481f185f15293a9d5c64daf872a7c1db2f47d0e9439c0980f90012cb",
+        "include/droid/construction.hpp": "6a04e26471093cc8ee639729e3b6b248b2fb16e2e5d0b70c6fab39cc03de6a17",
+        "include/droid/construction_session.hpp": "7e883fbbe20d914821014698af2ff36952938325961b963a39194380131a39c3",
+        "include/droid/environment.hpp": "2e72cd9496d115dd9ff9694e796cf7a86a18957e2cc1cfbaadedad600cc02f8f",
+        "include/droid/evaluation.hpp": "950584d94473946b5c0f8a6abd6f14cb4539b907e12580a6e8a2ede640f9c96e",
+        "include/droid/learner.hpp": "6d31aea2e2cbc1232f3353b9d6de4a0f0a68347a905889989bf7e0b75d13ff29",
+        "include/droid/light_context.hpp": "9b65fd35524ea99d30983275c7192cf5cc0440101c7e136581466154dd226748",
+        "include/droid/light_learner.hpp": "3571dd0ef11f82bf13f5e04f4d8fa059769d758174bb04da4a674245ff5b2e58",
+        "include/droid/light_prediction.hpp": "99760228dc0dfffcd14a5fc76f1fc1c5ad2704bcb0271939d51721bc7a2157cc",
+        "include/droid/light_session.hpp": "2a8668d95487083baa996366e275f1b7876eefb90f94a17b494e53c3509b3418",
+        "include/droid/module_catalog.hpp": "e7a85ace104fea22f4d35677a691312ed1325f92e9fa7450971705c7d76fb65c",
+        "include/droid/motion_explorer.hpp": "46c38b1d58e3f1610fe0d46d94038461ff2dc4b4c5949c2844787571205cf44b",
+        "include/droid/playground.hpp": "b94ab7ac715f0f4f8f4e0e67ed64648f27f1f626a8a155b2dfef58524794e9ff",
+        "include/droid/policy.hpp": "fe0e8bdc9ed835c311fd014c1c04960bd4bf67d77f872d750dfaa604566c59df",
+        "include/droid/simulation.hpp": "8c0d5b32824b6e06462211bd711b59cb8e137aa92c6bfe9a17cf569026c40bba",
+        "src/agent_cli.cpp": "1425ad65711bbcaae8edced99765b52f1fcee930ae33e39c5e60d65c338a7483",
+        "src/baseline.cpp": "150ae55b970dd7245b16b3cd4c2eb697336b68a926fdc995322a5aa68418040f",
+        "src/body_controller.cpp": "8dd85e8d7959e61a68707cdeb99368c554a5bc42411e93ace982f6c8a4384215",
+        "src/body_experiment_cli.cpp": "9d409a06b889feb989d590d9c01a4c0c744b46d34f44912de7a8830d68d7f8b6",
+        "src/construction.cpp": "36abfa36251b33931d6929125e351bbf1f3cf0582aecb0cacc34ef70003f500e",
+        "src/construction_experiment_cli.cpp": "431406dea941d69536a6f9635d454e1c8911f93d48c2198728d6d7b98c9e0a6a",
+        "src/construction_session.cpp": "c24a50947c7254723301a926868405d71e0ccb7ac9c8b4739e6a67ea2ae1ba8d",
+        "src/environment.cpp": "b6f851519e863be290f843899c4d8a3eefa9bdad892fddcf58803ee0b59fdd88",
+        "src/evaluation.cpp": "998dfddd38181a81ec0dbaab846d39fb8e943aa920a00f24f353bde314a56bc1",
+        "src/learner.cpp": "e25e454b2fdfaaccdb360dd7b05b0ea2c3465ab42cee361920df82aaad47bbf3",
+        "src/light_adaptation_cli.cpp": "4c1869d41e444a2f1252c3a7c470c1b14694182123b1273438f34c32987fdebb",
+        "src/light_context.cpp": "fd7bb50e94f041119ee7f45bf1890b1f8cb9dddfdcf0ca28e624385907f4d585",
+        "src/light_context_cli.cpp": "1c9033fb589a756e26d28403fa6025b560ddfff3dbbe98d9367d5aa0d76b5034",
+        "src/light_experiment_cli.cpp": "bb87488dfa9bf1dbcd14e0e5954ac0485adf15e6ab4d9975b41442b3461d2bc2",
+        "src/light_headroom_cli.cpp": "39c5e9e74af9f19618c8ac62b9128ea110d5d3c08301e8513a89fc1e9ddda02f",
+        "src/light_learner.cpp": "c9e8cea0c7e301a63a2439a4ff3417f5757123aae32428911bd67fc023b468a5",
+        "src/light_prediction.cpp": "ae494a37d8067f1dc6e945f817569da642706a94b7138afe22a81213f351eba6",
+        "src/light_prediction_cli.cpp": "e8c91a488f5c6a40ca26b8435d4d290bb3681f1df3c86228cf4920cd6f411ffa",
+        "src/light_retention_cli.cpp": "49787142cac66d9aede07a12c51c443fa98e04bf9b53bdd6e8fcc0d72f80d892",
+        "src/light_session.cpp": "4315857c13eace4f2accff020d2683ae4751a678261e4198bb1012d087e284a9",
+        "src/main.cpp": "7bfee671d1a8797b5f72c6db7038c0fd4d044f0c85730e83c42d67a2bd725407",
+        "src/module_catalog.cpp": "f0a3c3cf1ee21ed02acc6779bf0e1dc3efa0956132c08c87876d72c05fba34a5",
+        "src/motion_explorer.cpp": "d756c0f01bc23381827fb5d5a8066ad8b22f62bc6725d2957640356de6d51398",
+        "src/playground.cpp": "c2e0c1ed174c4a7a6a73c01845ca1de4231bf67138f98b773fec6ce9bdaa22be",
+        "src/policy.cpp": "f5736cbede8cc87aefc9a8fc9a5f2ddb033cf4397610be7e75a683aa23c9c796",
+        "src/simulation.cpp": "f9c50c7ece4614ea9d4cb26ba9100aef6347ae9407b7a218347154c90a8b7767",
+        "src/transfer_env_cli.cpp": "2a3a05bcd464707317b6b61ef8e9d62a2e2fa360edb9660278318de2968b21e2",
+        "tests/check_generalization_adapter.py": "a8d25e939c56f76aa8a5f36701be1b7e559f88cac908fb5ce5d86f9a51adb49e",
+        "tests/check_generalization_curriculum.py": "d6eacab7b4fbffe82faac09cd7fbf17f4d60fe57bc4c7c524a2cdd8afe23da53",
+        "tests/check_generalization_study_driver.py": "bc739c690a72bc26c70db197b70f281a6539e06c03b0ce1a7bca64a646a218e9",
+        "tests/check_generalization_study_manifest.py": "48bbbd65f4c10d2f4154e61fe298ab2f31b995470b2e6be4d930c1229bb85060",
+        "training/generalization_curriculum.py": "c89aecac86c7a02fb63806ce5c3c4a66287c037d54130a295cd3a3eecc7d5597",
+        "training/generalization_pretraining.py": "70ca9d8ebd6abed07c46e9b82736003e5d61b53b15258fb89f150edb701dba6b",
+        "training/generalization_study.py": "b5d738d407af70b784158eb1cf7bd63152ddbd749661037503554f5fd0f00889",
+        "training/generalization_study_manifest.py": "f9f82db7288483a9fb55cd60a1e2d749faff4136b92113f9051acda46c162520",
+        "training/native_transfer.py": "972d9fa7d98a67bc0c39b373e5dd093a4b6268999e824cbe55bd05dcf0c49fc1",
+        "training/requirements-generalization.txt": "68358c399dc331441a37996210972cc4e0c36e30da900e18914473e752d5537b",
+        "training/setup-generalization.sh": "0b51377d3f342b5cc8c08264eabf84fcf010941c35225322f0c419795f16ef58"
+      },
+      "runtime_after_collection": {
+        "schema": "generalization_runtime_v1",
+        "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+        "python_executable": "/opt/droid-blocks/generalization-venv/bin/python",
+        "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+        "machine": "x86_64",
+        "packages": {
+          "torch": "2.8.0+cpu",
+          "stable-baselines3": "2.9.0",
+          "gymnasium": "1.2.3",
+          "numpy": "2.2.6",
+          "cloudpickle": "3.1.2"
+        },
+        "native_command": [
+          "/workspace/build/native/droid-transfer-env"
+        ],
+        "native_binary_sha256": "377b754985b2977c947e37e41cbbff286595fe70b08888c9fc32ece1db2d9777",
+        "cpu_only": true,
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "torch_deterministic_algorithms": true,
+        "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n"
+      },
+      "source_results": [
+        {
+          "path": "sources/source-pooled-101/result.json",
+          "sha256": "b7239ade4c0853cfa4ddb4c798671ce33803669616e242b2d879d2827268880b"
+        },
+        {
+          "path": "sources/source-narrow-101/result.json",
+          "sha256": "3e605e8920080720c7bc98670c41dfa0fbaf0c9c2988089321392f0394748c08"
+        },
+        {
+          "path": "sources/source-pooled-202/result.json",
+          "sha256": "3f238ee1a7c7ccb9af1467207c378aa375dfe7e3df839dc9ddc7015e561997d1"
+        },
+        {
+          "path": "sources/source-narrow-202/result.json",
+          "sha256": "5b247a7ec7a0f4838e8abfcdb67d682d36046d596fc70811e96350eb77d14810"
+        },
+        {
+          "path": "sources/source-pooled-303/result.json",
+          "sha256": "8f82d1afc59622fca4764be2e64f2d06e14ed538b5aa3dfc7cbcdd04b234bad8"
+        },
+        {
+          "path": "sources/source-narrow-303/result.json",
+          "sha256": "dd795e486bc1a95548f351ba298af8a673f18a9f13ee8e957059c8e1734ec58f"
+        }
+      ],
+      "seal": {
+        "path": "sources/sealed-checkpoints.json",
+        "sha256": "6404315c901c19972c7b190f797026431fc88ecd9006c6d0ebaa740feed18508"
+      },
+      "initial_identity_by_seed": [
+        {
+          "seed": 101,
+          "matches": true
+        },
+        {
+          "seed": 202,
+          "matches": true
+        },
+        {
+          "seed": 303,
+          "matches": true
+        }
+      ],
+      "operational_complete": true,
+      "actual_decisions": 589824,
+      "native_steps": 2949120,
+      "exposure_exact": true,
+      "declared_source_attempts": 6,
+      "collected_source_attempts": 6,
+      "reserved_case_construction_requests": 0
+    },
+    "development": {
+      "schema": "generalization_study_stage_v1",
+      "stage": "development",
+      "protocol_sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727",
+      "status": "complete",
+      "provenance_unchanged": true,
+      "source_sha256_after_collection": {
+        "CMakeLists.txt": "cd1e17ec3214446a08731c978aa53d142d9227c1916e05353aee0108c0e5b26b",
+        "config/module_catalog.json": "5327cc56ebbe6817db8af4e5fca2cf8228b07ccc8904d9bd90d738e3a7cd6781",
+        "docs/GENERALIZATION_PRETRAINING_EXPERIMENT.md": "897eda203487c6d1c46bb864a9ea54ae39d5c8564a68805794bf1cfb2749e11a",
+        "docs/GENERALIZATION_STUDY_EXPERIMENT.md": "a49b7ae6537b97c0e6bd1a2a23858176edc06e0d1e37f05ab43e3df21dd61792",
+        "include/droid/baseline.hpp": "d3119b95c99467e433be506bcb14b89d7c850dc8abf1928a83d62810853b5cc0",
+        "include/droid/body_controller.hpp": "debaa2ef481f185f15293a9d5c64daf872a7c1db2f47d0e9439c0980f90012cb",
+        "include/droid/construction.hpp": "6a04e26471093cc8ee639729e3b6b248b2fb16e2e5d0b70c6fab39cc03de6a17",
+        "include/droid/construction_session.hpp": "7e883fbbe20d914821014698af2ff36952938325961b963a39194380131a39c3",
+        "include/droid/environment.hpp": "2e72cd9496d115dd9ff9694e796cf7a86a18957e2cc1cfbaadedad600cc02f8f",
+        "include/droid/evaluation.hpp": "950584d94473946b5c0f8a6abd6f14cb4539b907e12580a6e8a2ede640f9c96e",
+        "include/droid/learner.hpp": "6d31aea2e2cbc1232f3353b9d6de4a0f0a68347a905889989bf7e0b75d13ff29",
+        "include/droid/light_context.hpp": "9b65fd35524ea99d30983275c7192cf5cc0440101c7e136581466154dd226748",
+        "include/droid/light_learner.hpp": "3571dd0ef11f82bf13f5e04f4d8fa059769d758174bb04da4a674245ff5b2e58",
+        "include/droid/light_prediction.hpp": "99760228dc0dfffcd14a5fc76f1fc1c5ad2704bcb0271939d51721bc7a2157cc",
+        "include/droid/light_session.hpp": "2a8668d95487083baa996366e275f1b7876eefb90f94a17b494e53c3509b3418",
+        "include/droid/module_catalog.hpp": "e7a85ace104fea22f4d35677a691312ed1325f92e9fa7450971705c7d76fb65c",
+        "include/droid/motion_explorer.hpp": "46c38b1d58e3f1610fe0d46d94038461ff2dc4b4c5949c2844787571205cf44b",
+        "include/droid/playground.hpp": "b94ab7ac715f0f4f8f4e0e67ed64648f27f1f626a8a155b2dfef58524794e9ff",
+        "include/droid/policy.hpp": "fe0e8bdc9ed835c311fd014c1c04960bd4bf67d77f872d750dfaa604566c59df",
+        "include/droid/simulation.hpp": "8c0d5b32824b6e06462211bd711b59cb8e137aa92c6bfe9a17cf569026c40bba",
+        "src/agent_cli.cpp": "1425ad65711bbcaae8edced99765b52f1fcee930ae33e39c5e60d65c338a7483",
+        "src/baseline.cpp": "150ae55b970dd7245b16b3cd4c2eb697336b68a926fdc995322a5aa68418040f",
+        "src/body_controller.cpp": "8dd85e8d7959e61a68707cdeb99368c554a5bc42411e93ace982f6c8a4384215",
+        "src/body_experiment_cli.cpp": "9d409a06b889feb989d590d9c01a4c0c744b46d34f44912de7a8830d68d7f8b6",
+        "src/construction.cpp": "36abfa36251b33931d6929125e351bbf1f3cf0582aecb0cacc34ef70003f500e",
+        "src/construction_experiment_cli.cpp": "431406dea941d69536a6f9635d454e1c8911f93d48c2198728d6d7b98c9e0a6a",
+        "src/construction_session.cpp": "c24a50947c7254723301a926868405d71e0ccb7ac9c8b4739e6a67ea2ae1ba8d",
+        "src/environment.cpp": "b6f851519e863be290f843899c4d8a3eefa9bdad892fddcf58803ee0b59fdd88",
+        "src/evaluation.cpp": "998dfddd38181a81ec0dbaab846d39fb8e943aa920a00f24f353bde314a56bc1",
+        "src/learner.cpp": "e25e454b2fdfaaccdb360dd7b05b0ea2c3465ab42cee361920df82aaad47bbf3",
+        "src/light_adaptation_cli.cpp": "4c1869d41e444a2f1252c3a7c470c1b14694182123b1273438f34c32987fdebb",
+        "src/light_context.cpp": "fd7bb50e94f041119ee7f45bf1890b1f8cb9dddfdcf0ca28e624385907f4d585",
+        "src/light_context_cli.cpp": "1c9033fb589a756e26d28403fa6025b560ddfff3dbbe98d9367d5aa0d76b5034",
+        "src/light_experiment_cli.cpp": "bb87488dfa9bf1dbcd14e0e5954ac0485adf15e6ab4d9975b41442b3461d2bc2",
+        "src/light_headroom_cli.cpp": "39c5e9e74af9f19618c8ac62b9128ea110d5d3c08301e8513a89fc1e9ddda02f",
+        "src/light_learner.cpp": "c9e8cea0c7e301a63a2439a4ff3417f5757123aae32428911bd67fc023b468a5",
+        "src/light_prediction.cpp": "ae494a37d8067f1dc6e945f817569da642706a94b7138afe22a81213f351eba6",
+        "src/light_prediction_cli.cpp": "e8c91a488f5c6a40ca26b8435d4d290bb3681f1df3c86228cf4920cd6f411ffa",
+        "src/light_retention_cli.cpp": "49787142cac66d9aede07a12c51c443fa98e04bf9b53bdd6e8fcc0d72f80d892",
+        "src/light_session.cpp": "4315857c13eace4f2accff020d2683ae4751a678261e4198bb1012d087e284a9",
+        "src/main.cpp": "7bfee671d1a8797b5f72c6db7038c0fd4d044f0c85730e83c42d67a2bd725407",
+        "src/module_catalog.cpp": "f0a3c3cf1ee21ed02acc6779bf0e1dc3efa0956132c08c87876d72c05fba34a5",
+        "src/motion_explorer.cpp": "d756c0f01bc23381827fb5d5a8066ad8b22f62bc6725d2957640356de6d51398",
+        "src/playground.cpp": "c2e0c1ed174c4a7a6a73c01845ca1de4231bf67138f98b773fec6ce9bdaa22be",
+        "src/policy.cpp": "f5736cbede8cc87aefc9a8fc9a5f2ddb033cf4397610be7e75a683aa23c9c796",
+        "src/simulation.cpp": "f9c50c7ece4614ea9d4cb26ba9100aef6347ae9407b7a218347154c90a8b7767",
+        "src/transfer_env_cli.cpp": "2a3a05bcd464707317b6b61ef8e9d62a2e2fa360edb9660278318de2968b21e2",
+        "tests/check_generalization_adapter.py": "a8d25e939c56f76aa8a5f36701be1b7e559f88cac908fb5ce5d86f9a51adb49e",
+        "tests/check_generalization_curriculum.py": "d6eacab7b4fbffe82faac09cd7fbf17f4d60fe57bc4c7c524a2cdd8afe23da53",
+        "tests/check_generalization_study_driver.py": "bc739c690a72bc26c70db197b70f281a6539e06c03b0ce1a7bca64a646a218e9",
+        "tests/check_generalization_study_manifest.py": "48bbbd65f4c10d2f4154e61fe298ab2f31b995470b2e6be4d930c1229bb85060",
+        "training/generalization_curriculum.py": "c89aecac86c7a02fb63806ce5c3c4a66287c037d54130a295cd3a3eecc7d5597",
+        "training/generalization_pretraining.py": "70ca9d8ebd6abed07c46e9b82736003e5d61b53b15258fb89f150edb701dba6b",
+        "training/generalization_study.py": "b5d738d407af70b784158eb1cf7bd63152ddbd749661037503554f5fd0f00889",
+        "training/generalization_study_manifest.py": "f9f82db7288483a9fb55cd60a1e2d749faff4136b92113f9051acda46c162520",
+        "training/native_transfer.py": "972d9fa7d98a67bc0c39b373e5dd093a4b6268999e824cbe55bd05dcf0c49fc1",
+        "training/requirements-generalization.txt": "68358c399dc331441a37996210972cc4e0c36e30da900e18914473e752d5537b",
+        "training/setup-generalization.sh": "0b51377d3f342b5cc8c08264eabf84fcf010941c35225322f0c419795f16ef58"
+      },
+      "runtime_after_collection": {
+        "schema": "generalization_runtime_v1",
+        "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+        "python_executable": "/opt/droid-blocks/generalization-venv/bin/python",
+        "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+        "machine": "x86_64",
+        "packages": {
+          "torch": "2.8.0+cpu",
+          "stable-baselines3": "2.9.0",
+          "gymnasium": "1.2.3",
+          "numpy": "2.2.6",
+          "cloudpickle": "3.1.2"
+        },
+        "native_command": [
+          "/workspace/build/native/droid-transfer-env"
+        ],
+        "native_binary_sha256": "377b754985b2977c947e37e41cbbff286595fe70b08888c9fc32ece1db2d9777",
+        "cpu_only": true,
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "torch_deterministic_algorithms": true,
+        "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n"
+      },
+      "source_seal_sha256": "6404315c901c19972c7b190f797026431fc88ecd9006c6d0ebaa740feed18508",
+      "trial_results": [
+        {
+          "path": "development/trials/development--development-long-upper-base-left--quiet--fixed/result.json",
+          "sha256": "0f6152aa413464ebd97ff1d5c5b1d68febdb9efdddb890f0296fea46a738f9a2"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--quiet--fixed/result.json",
+          "sha256": "02db48c46b0297721954efedc24c4b5db94af76553fddc9f7a96a5456b3ec364"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--quiet--fixed/result.json",
+          "sha256": "58632954b5fd4d7580b9b7e43ae4fd1dafdb4521a89268891ecfd45c0443b234"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--quiet--fixed/result.json",
+          "sha256": "82476d75aa7ee8e15d0f575beea7cacdd4cf114c7ffdee1ef16d9735561cb3d2"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--quiet--fixed/result.json",
+          "sha256": "b950e675032809b01a5ab7cf7eea4ceec706108aa96992b7c6c97554cb1e0948"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--quiet--fixed/result.json",
+          "sha256": "6b90b2717615b93335a27cbc4b655d6d08dc0b3b8587a9a6a30c490f2603a02d"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--quiet--fixed/result.json",
+          "sha256": "3db69000de7db7d684b1ef0dc6ebf7d575a9cc13af48a19123099bdf8cdb082b"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--quiet--fixed/result.json",
+          "sha256": "84304a8815a78e483a0f71fb74b6813545b4b484e93ed939c25ce70a709fc66b"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--quiet--fixed/result.json",
+          "sha256": "defdee18207a49c1d9f6ccc26b06fa907e69a2804daf09fc9a8196eb567788a9"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--quiet--fixed/result.json",
+          "sha256": "84d8b1025c3bbf52aadb2e88fcfcb5ce50bc13bc0df1ccaf406b7e26199fe3e2"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--quiet--fixed/result.json",
+          "sha256": "fbaeddf6423f1f7b2c1083284927107c81af55daf34f848f5f6acc68ca736a10"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--quiet--fixed/result.json",
+          "sha256": "34411df61501b6bf58efe1ef8a428d5776f8895a48c3ec24b779748c15d4b087"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--pooled--101/result.json",
+          "sha256": "04bfc6534555e35ecaee500d880112a96572888a7a9fdbe5c5da67a637bd8fb7"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--narrow--101/result.json",
+          "sha256": "c053ac4d876356e470ba90f715116e707df9505001e3778bd910a0c105c19403"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--untrained--101/result.json",
+          "sha256": "a8a7d1e05512f6541cf27751037e793543cc612885d8e1a463e3e7d3b535d82b"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--pooled--101/result.json",
+          "sha256": "c99f328b5091f62ee75cc47933f9f9d1d32162ad849310bb19cf43bbc21a4368"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--narrow--101/result.json",
+          "sha256": "5a978fd416f37065e15eb919c7dd0df786adda2d84fa0239d60a988a16f14745"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--untrained--101/result.json",
+          "sha256": "661c29973cda49c37218b9a50d5cfc3c70c56cd99cd53f2f79fabf570d23c2a0"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--pooled--101/result.json",
+          "sha256": "f78771fb4c457af05efe853a5048c591f52d935e2be0a273000b04b7e9f7a8d0"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--narrow--101/result.json",
+          "sha256": "618525bcefa2cfd87abfa6513cb4d3e58376e431f14a552d935a8cadd9254e22"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--untrained--101/result.json",
+          "sha256": "69fc41ca36df90618964407c29d8e97d8d6a016dddf04ecab6fcdc3985f808a6"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--pooled--101/result.json",
+          "sha256": "92b8cead1c39ffad969949badb1edc9982506551cfcdbe719df8067c21ae11c1"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--narrow--101/result.json",
+          "sha256": "0f8fcb11a838bbc80a1f99cf799ea1b1318d0a24c5a6c8629034b25453d6a010"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--untrained--101/result.json",
+          "sha256": "cf214f09d58415868717c9a64d438b0bf84e397b33ee7999eff01c8dc24890db"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--pooled--101/result.json",
+          "sha256": "7c23fea8b5f88be0d4e7f1cef419237bd37d17314e11ab7644382b642b73e80a"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--narrow--101/result.json",
+          "sha256": "b360b901cc9e91b3de72dd79888bee3f358ffd33428dd4b8642359cd617f49f1"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--untrained--101/result.json",
+          "sha256": "12beccae92af27bd73204fe0531f79146aedfeba61135719d729e039634ebe32"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--pooled--101/result.json",
+          "sha256": "a385ed30d81723650932ee88e33fb436f1340b553aea4247d68f4849206da678"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--narrow--101/result.json",
+          "sha256": "88bfec1969eb5c0d75b6a23c5e67257cca537d1320c49034f60b966aab7db72d"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--untrained--101/result.json",
+          "sha256": "fb6faedac0810a165b88971d1c9a05f4cfef2f61b38308b6728278a9c9274149"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--pooled--101/result.json",
+          "sha256": "f4ba5016f086343d9be0bcdbae7a5745df1fab30326a33e1bb64161a4c74117e"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--narrow--101/result.json",
+          "sha256": "2adbe8b74df028cba02cb7a7495cf8a89be8b989f67b082799ba808b3c8fafb6"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--untrained--101/result.json",
+          "sha256": "984d22234d3d52bbc21fcdd419cb1e15ed6a4017b8c1deea362c068152df6334"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--pooled--101/result.json",
+          "sha256": "b588928c2277ffe4fcfdf1006f999bc04e016aa0123d1f11495d917a19b9dfad"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--narrow--101/result.json",
+          "sha256": "cd46e356dc66c83aa8388dca2c055165e73f26419bb3e2ed365f976e89a06979"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--untrained--101/result.json",
+          "sha256": "239cbbdc1917e1dac857ab3b8389586fd6429a1634e269d7c6b8f3af820a74c0"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--pooled--101/result.json",
+          "sha256": "1cb8ce62a932abee45bad8727417017053cbb687c786b8ccb6d926e1639b06a7"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--narrow--101/result.json",
+          "sha256": "b46f90fcfeda5ab3034e27e275a55c3b6a00552ce55d1dc495abca6807c74e91"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--untrained--101/result.json",
+          "sha256": "d116a1e219083aa096e50b8c71bd11a25505db59727aa6f0d7045bea744f9230"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--pooled--101/result.json",
+          "sha256": "5658d26373e594b705ba858a382a8d02e200dbd026b3387781b2bf790a030da3"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--narrow--101/result.json",
+          "sha256": "cb5690a03f37ce998b7923ed7ed12a0eae3b4f93d5db904e99ffb7562374934c"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--untrained--101/result.json",
+          "sha256": "976b85dd872067e47985714dc64c0e9d20fb645318b54d3cda3c0c7a1c4c9492"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--pooled--101/result.json",
+          "sha256": "15033a98f7e26ff28e03663ce6d3a19cc732cb0989723be6c8d428eb50c38e9c"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--narrow--101/result.json",
+          "sha256": "4aec5e7b6187efe18ccdf42d4d0537f56a99e85efb26ad699360452bc5305079"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--untrained--101/result.json",
+          "sha256": "6f14c0e29ca7cf1cb9a82bf2422f6ef22b2d3efda10fbb058b82b20755dd4893"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--pooled--101/result.json",
+          "sha256": "a5ccef08de4428992db42470424ab4a21015e62caee54214e2f5104d501447d3"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--narrow--101/result.json",
+          "sha256": "bbf3eaf7a8f1a80c611764f40ae5e7770b241dee198c5ffe9f07e5251d4ede5d"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--untrained--101/result.json",
+          "sha256": "66baf6e5cf4b6ca8e17b6a8fdeeea94de0bd7fc608b9c9761bcf0cac62f80290"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--pooled--202/result.json",
+          "sha256": "dbbea32de60cb8f6eaaffe15d34d30a0885527a3ec253efa7a204cafceecf0aa"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--narrow--202/result.json",
+          "sha256": "a3dd83ca90d5fee95e403613f8b3cd141c43ece440c4e6e4801645b992ec5db4"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--untrained--202/result.json",
+          "sha256": "2fa46075f62397c1ff75ae566dc79f810f742f971d10116b507f8d513d8f1586"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--pooled--202/result.json",
+          "sha256": "99604ef31a7d438ca5e7f4c927fc40a473f114921ce7d0cc84175037a03f27f9"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--narrow--202/result.json",
+          "sha256": "05a58ad35e46eabf857e8191c98161d9172ea637406ecac9b76d758ccb32a02d"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--untrained--202/result.json",
+          "sha256": "c9aa3af0efbbf341be7b83027a8dc6f49ff72ef645cfbe7cccbd5f1e5fc1da9e"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--pooled--202/result.json",
+          "sha256": "091afd928e525f61d3d5c660bf75129527b3154081305eeaa51d889fc5318e12"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--narrow--202/result.json",
+          "sha256": "eea358941b856cab7519b2453384fad703129ad99545b3a8b4f887855ef63dc0"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--untrained--202/result.json",
+          "sha256": "c626c76f2bfc8a46892f1c62e12fff44ae3c5e2a40c5437dae9786cf457efa74"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--pooled--202/result.json",
+          "sha256": "66dcda4a1490c72bc8c951dee6447e0f8840827f5808d4670a0ecade9f35188e"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--narrow--202/result.json",
+          "sha256": "f29a0a4bcecabbb37bf92fb70db8f2ea67cc339e444da6befe7bcb5d0cbebc96"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--untrained--202/result.json",
+          "sha256": "4224edadeccd73525e294752bf00f9061833a50834f3c9a9d63fc088975bc2cd"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--pooled--202/result.json",
+          "sha256": "0defa8f44d0805830628216232ce0500973743848ab51850077912719ab283f1"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--narrow--202/result.json",
+          "sha256": "16d507e39e8f026a61d6a6b2e1280c5e7a4089e2dd4362f3ee36fd84e0b2dbd6"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--untrained--202/result.json",
+          "sha256": "ec28192985ab5d0b52f139122f9202f83814d1c76eefa3511b4b205b26648fa3"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--pooled--202/result.json",
+          "sha256": "939d359978012605787902fd8d9057b045296aa1ce675288a98b318f6e06a9f5"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--narrow--202/result.json",
+          "sha256": "08418d5926aabee667eb23e8574b12e00e24a590ca2375745cf8b9aa39badb00"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--untrained--202/result.json",
+          "sha256": "c44fe7e9f82cf8c76908fc86c00afd019c33293d327dfda4b02d8ac3a9bdb5b5"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--pooled--202/result.json",
+          "sha256": "5784af0ff06a32d3db275ac95efa1980ff03d9a2e0ca43be9d60addf1389af0c"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--narrow--202/result.json",
+          "sha256": "48601cb220e2053772b97d188ca058334e125ce2cded2503e53d6af12da6424c"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--untrained--202/result.json",
+          "sha256": "b92bf8ed91c375ab30985837a63eff9c85a4c4b8fd6bed1f5e4e9b6954c989bf"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--pooled--202/result.json",
+          "sha256": "fb8e1b7411165bd28d059b6ce978db63fb1e412ff2b8e1c515a6f0b5cd4c3905"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--narrow--202/result.json",
+          "sha256": "bee7b3e71648976a11e321653aaadee5e700fb28a1fd092b1f84cc5954b70ebf"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--untrained--202/result.json",
+          "sha256": "ef5a663b3807cacaaa6d627226a67e2de45c25073c36348dc7d2da92dab2839b"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--pooled--202/result.json",
+          "sha256": "6ba9ea66acb2cf29570b7d56f4654efab4fa37004561ed3e9ebad9327c941a83"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--narrow--202/result.json",
+          "sha256": "67eff53fa089dd3b1039c348af80482de4826cf0a53e5ce03b4ac994af3ee6ee"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--untrained--202/result.json",
+          "sha256": "649b29c24fab1942f36c60eb0fcdb57b83c82958641359d6b8bde8348426edcf"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--pooled--202/result.json",
+          "sha256": "6a3fd78ae0c08a292e893a3267bfbfe613a352dd9c2e8191f34e16e0a1a303f3"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--narrow--202/result.json",
+          "sha256": "a7ac5de2851ae40dad93e75b9574b29be1e1f363519c96047ad6a07b25a1017f"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--untrained--202/result.json",
+          "sha256": "e94ae178eb6996e9a06191ad9de44df4f04cef4ee7758d7ce4fc57d5b7d99a69"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--pooled--202/result.json",
+          "sha256": "b3e6c7a45292260c379763419f597e9d4970468d1982a5b2b3c06ec4c4592cb7"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--narrow--202/result.json",
+          "sha256": "f8f6845562026a8595cfe947e8c4b1d3cd6f148ea6e4eff07300f0a8eba494b8"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--untrained--202/result.json",
+          "sha256": "4e7d83a05e4b61711fd807c0d21701f51c83921418bf036a24325f893ce95d2c"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--pooled--202/result.json",
+          "sha256": "b34f47e417c4693cbc5539657bd2ff8b0bb47d8489778d7b1dd086a141422648"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--narrow--202/result.json",
+          "sha256": "4b99cf3c8f27b817284714415ff38b8a4e07e4b431fd54269a60bb264e32d701"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--untrained--202/result.json",
+          "sha256": "4e20e43d049822f978cc4ec327456910ade367046f952e6ee6b42ec40eed5352"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--pooled--303/result.json",
+          "sha256": "0fbea7f72d957778d1685d2d55d41182a4a5cc00c91d1d382e1a1f3a229ad365"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--narrow--303/result.json",
+          "sha256": "93f41127c0d9e72aa0c182e597c669c492b0b417b50dbf676ae2a6dcec3096cc"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-left--untrained--303/result.json",
+          "sha256": "72a92aad0ca6e103e2561d3f5e33e8ed419c46fd951ca139b8b16211a4665726"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--pooled--303/result.json",
+          "sha256": "5d92c276f62c12665ef8c8a0e05ac9b65281b076512f146cb971b3924bbef8c4"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--narrow--303/result.json",
+          "sha256": "68a1aa596a45595fef16008e517f55e8c30506e9e3fc83e81b2766341d3fa544"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-base-right--untrained--303/result.json",
+          "sha256": "4882019ef6ccc113ee9a93a934b0fa3d720802f8b51e63c5c6d268f0221fb11a"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--pooled--303/result.json",
+          "sha256": "fddb216095f1ce6e08e9b3ac07b78b7e4be016ad9ccfe902c3b9361aae68d7e1"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--narrow--303/result.json",
+          "sha256": "0d3a5b1be944d4336918b054040a4758cae24d795a023f169f7033fa14d87b18"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-left--untrained--303/result.json",
+          "sha256": "6dc1d894c24324f5a4342ce4f7089540441917c68c60e61db5c9fbb1ac21651d"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--pooled--303/result.json",
+          "sha256": "a1f9d5abe265ab504e8b9b65b7105549d54bb97244c385d44de991c6a53a7e0f"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--narrow--303/result.json",
+          "sha256": "fb8e432c7a5770d1521b28467b581660d0eae4b67fad27f9bdef6abbd8655c38"
+        },
+        {
+          "path": "development/trials/development--development-long-upper-elbow-right--untrained--303/result.json",
+          "sha256": "5cb0eb3646167dc47a67bef51c86bd45f69841b84bc0d7755f24248669a334d6"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--pooled--303/result.json",
+          "sha256": "36ca7043a4222c3921a631f19e00b7f2509b0f30b2896cf35fdb31cf15820a62"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--narrow--303/result.json",
+          "sha256": "ae90ebb50739ccf807c6801cbfbcbbab5d25e29aff00892b1073750892af1022"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-left--untrained--303/result.json",
+          "sha256": "b820136765aff0b3f832bbe67904c465c16f58a2df9dccbfdf66494d5cda6e64"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--pooled--303/result.json",
+          "sha256": "9865b0abc4af1fe66d68ced90ae5ea7f1c04cf3ad816b84c2124cd7b517577db"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--narrow--303/result.json",
+          "sha256": "0d58c7abb0d4f63dd2ab131c28d6775f74ae4e11b1558b8efcabd010622dc689"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-base-right--untrained--303/result.json",
+          "sha256": "34436fd65ed4a712dc44db8fa1ea47f4d02f00b8f0ae4f821d6292ad055ccab0"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--pooled--303/result.json",
+          "sha256": "77cf4fa04e10d2e6ae52d22d78ad49bb1c91f7f1d19763b490be5f68ac30378b"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--narrow--303/result.json",
+          "sha256": "4dea7c7742dad9ee6c65e9df5b885e80477f49fc042924a673bb0c65c5537e57"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-left--untrained--303/result.json",
+          "sha256": "209745f358441bc9e657bcbca7e062ccdb4eaa2dcd5bdd09040ad7e1da6c147e"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--pooled--303/result.json",
+          "sha256": "1c8c0bd55982a5b239914fba78c610403a69caa821fdac188415104c2405acae"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--narrow--303/result.json",
+          "sha256": "34275c1c2d7a7cfc14e4d376d9623ed2c33d9846cb8cad2538c70dae353e4f8a"
+        },
+        {
+          "path": "development/trials/development--development-long-lower-elbow-right--untrained--303/result.json",
+          "sha256": "d15fc99bdcd28f77476760dff3d3789fd87477a5620c5703abc85a619e612c0b"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--pooled--303/result.json",
+          "sha256": "28a78bdf036ac924038f718c83271fe56fee441737f5fbe3450cde1458240599"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--narrow--303/result.json",
+          "sha256": "bc25f2b402130ed2393e5f1d1f5204e283396a98f984148ac239fef0580cc709"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-left--untrained--303/result.json",
+          "sha256": "d399c836f16b4d43d1a74e60f0679e31d5ffe2dab11217f54ab44de653ba2939"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--pooled--303/result.json",
+          "sha256": "dca0975947b5442a6cc2102751c8b6f16ae97893a412e78229b582c03c2c250a"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--narrow--303/result.json",
+          "sha256": "57a83575624598adf6aa0340e8db7b3e04d660f3c23aba5e11b1fd5d7e09de83"
+        },
+        {
+          "path": "development/trials/development--development-weighted-base-right--untrained--303/result.json",
+          "sha256": "533a5ed866d6ae500e50f393373a122f6c8a3cf2bd31ff0a8632f37a8d0fbfd1"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--pooled--303/result.json",
+          "sha256": "b9df756ecb3bbcb7ea82925f4cedc1e7bc927807f7113f19a7fa175470adbc48"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--narrow--303/result.json",
+          "sha256": "4c5b41e6f11d626ee2e10464ccb6d79d12e2a2550505acf57c570beb25510e7e"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-left--untrained--303/result.json",
+          "sha256": "f958d01e46129e3b8737a11f9ae49b71015cdd24d696b94f42bcbc69ea78f0f3"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--pooled--303/result.json",
+          "sha256": "13328ac383b9f89baa981663651b77d1b231cffa46113889cf9b5e9fbf155047"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--narrow--303/result.json",
+          "sha256": "80719bb45de45d6e4eb201e47bd55c39f2d823c1f1c52b7360bdd6e34e65415d"
+        },
+        {
+          "path": "development/trials/development--development-weighted-elbow-right--untrained--303/result.json",
+          "sha256": "637b158807bc2fbaba13d03413d10809f16bdf5036d52496f0263f07d71dbbd1"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--quiet--fixed/result.json",
+          "sha256": "baa61c91aa5418fe1e796166cdeb1a90c1736160fbedc7efe925bb4483b2069b"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--quiet--fixed/result.json",
+          "sha256": "978b6d21bd8b818dca806b89e3f630099136a72c72db26ea74194cfe7553a31d"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--quiet--fixed/result.json",
+          "sha256": "e423e7e69b8e3533df6c8396a2403bf95932d6f62357dbbde0797d7c0c0ecba4"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--quiet--fixed/result.json",
+          "sha256": "0664cfb9a1f3ee63ed19f96218d594a7758b8ff01b1ab9a8fae54dad116235d9"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--narrow--101/result.json",
+          "sha256": "90cd207d5db8ccf2c83546b389848ada5b84935cb1e951473a3ae9403ddbc08d"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--untrained--101/result.json",
+          "sha256": "8ea46b2e59ef0f8894fb35740312d198f27f283bcb3495f2e36ad050ad0b4303"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--narrow--101/result.json",
+          "sha256": "2a56c3534d998ef9e0df20b0dff582979fc170ed19684ef07e6808dc49fc412c"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--untrained--101/result.json",
+          "sha256": "ef30aa7da09a687f17db9e533ec68aa047606bb4e0f5b47d58ad7d1fa576b10a"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--narrow--101/result.json",
+          "sha256": "85bdfcc48ebb97207d644d0e1b018ec23529c8d4a7ff36959a108fe1d9eb05db"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--untrained--101/result.json",
+          "sha256": "812fddde0567d183a43229bee032f0067bf74f43414ef08e6edf32756a6c7cbb"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--narrow--101/result.json",
+          "sha256": "25ebde8d819f89b90f12ee57be59656a3fbbf8220f4df1f6d37c1835400161c8"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--untrained--101/result.json",
+          "sha256": "ffbf1125b6975675e239be29371517f8df1b2d042be96bbb399515743abce03b"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--narrow--202/result.json",
+          "sha256": "0f2ac1823054837d63466d4130d75d94f3b5f73993121e38d690036bab2b7432"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--untrained--202/result.json",
+          "sha256": "f6e1c02a209dc28aa71745acc57ccfbc3de3cfb8cd3c34983eb0b9bbe8eb480c"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--narrow--202/result.json",
+          "sha256": "d4c7602d84ff841692e8463130b6e1df80c429aa735562e2a070a2fa3a84db18"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--untrained--202/result.json",
+          "sha256": "4d92b6110134547bd2f73f5d84dd9e838fde9382b77f8a9a3b7d288aca862249"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--narrow--202/result.json",
+          "sha256": "f1f56fae858d90c046f54e234f6d5dd7c063a8b5e8dc7e1a66ba5f300a44738b"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--untrained--202/result.json",
+          "sha256": "62ce8dba95870cfa809b17e9c57bdcca92c39b3df9e7dd35e559f65850c5ede5"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--narrow--202/result.json",
+          "sha256": "608548cbe89484e77d536820d872044c44ec77e2ee0642950cc53ee358beeb82"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--untrained--202/result.json",
+          "sha256": "65a2fd3c83a8de6ecc8b2d43957fc3ca94ad69f305b933aaea6486e61a6b0852"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--narrow--303/result.json",
+          "sha256": "2de4f42747267cbcb9fa1081a193f9c3ca02de9223726882981ebc379c7076e5"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-left--untrained--303/result.json",
+          "sha256": "9c95dced4dfe748a8f3313996e4bf46946ff352cfb1f8b1f2943505dacdbb2e5"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--narrow--303/result.json",
+          "sha256": "79fbe28eee8a5125eaf4549b51583f0532ef1d8a25affb447cde980110da57ac"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-base-right--untrained--303/result.json",
+          "sha256": "86e606b86794fe854f236c706de564dea0dd027a472f358da686fc315d5be4e4"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--narrow--303/result.json",
+          "sha256": "de5ae39238b9c5167eba4833087fd377621db3d0cb466cfb3027de57080ca057"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-left--untrained--303/result.json",
+          "sha256": "541948f7b9bb6861bfbecdb712f7fd3533f809d2d19515507b0cb4179999fb8f"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--narrow--303/result.json",
+          "sha256": "eb37478f383bca403aac74831369442ef2a5df2937e85c90ce3a7bb73b454c51"
+        },
+        {
+          "path": "development/trials/narrow_development--narrow-own-L3-3-plain-elbow-right--untrained--303/result.json",
+          "sha256": "b87c31adbf505b036e2375ec4b0867518242244d91981274b1ef995573f72038"
+        }
+      ],
+      "collected_trials": 148,
+      "planned_trials": 148,
+      "gate": {
+        "path": "development/gate.json",
+        "sha256": "5405c8364a82f1c3507f18c2599b586f2f10535505b253529f413293479c2df9"
+      },
+      "source_competence": true,
+      "learning_diagnostics": [
+        {
+          "partition": "development",
+          "comparisons": [
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-upper-base-left",
+              "trained_minus_untrained": 8.927780880494964,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-upper-base-right",
+              "trained_minus_untrained": 9.110496656396412,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-upper-elbow-left",
+              "trained_minus_untrained": 49.445494907338706,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-upper-elbow-right",
+              "trained_minus_untrained": 37.898757750208475,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-lower-base-left",
+              "trained_minus_untrained": 10.84092321794166,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-lower-base-right",
+              "trained_minus_untrained": 10.860937661094972,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-lower-elbow-left",
+              "trained_minus_untrained": 45.51307854797794,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-long-lower-elbow-right",
+              "trained_minus_untrained": 44.273401659254745,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-weighted-base-left",
+              "trained_minus_untrained": 12.174071313672494,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-weighted-base-right",
+              "trained_minus_untrained": 10.79951878785894,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-weighted-elbow-left",
+              "trained_minus_untrained": 44.5292771121953,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "development-weighted-elbow-right",
+              "trained_minus_untrained": 44.79828209285181,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-upper-base-left",
+              "trained_minus_untrained": 9.501375578470821,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-upper-base-right",
+              "trained_minus_untrained": 10.620696105723347,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-upper-elbow-left",
+              "trained_minus_untrained": 43.826934057598166,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-upper-elbow-right",
+              "trained_minus_untrained": 39.52986180253515,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-lower-base-left",
+              "trained_minus_untrained": 11.493726483999131,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-lower-base-right",
+              "trained_minus_untrained": 12.107965344026626,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-lower-elbow-left",
+              "trained_minus_untrained": 45.72765779631642,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-long-lower-elbow-right",
+              "trained_minus_untrained": 41.043546914419224,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-weighted-base-left",
+              "trained_minus_untrained": 10.353015501994872,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-weighted-base-right",
+              "trained_minus_untrained": 10.409700193755697,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-weighted-elbow-left",
+              "trained_minus_untrained": 41.684768791333994,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "development-weighted-elbow-right",
+              "trained_minus_untrained": 45.94611532806173,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-upper-base-left",
+              "trained_minus_untrained": 8.329537955983557,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-upper-base-right",
+              "trained_minus_untrained": 10.81035525983891,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-upper-elbow-left",
+              "trained_minus_untrained": 46.850273181202404,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-upper-elbow-right",
+              "trained_minus_untrained": 39.30366890668937,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-lower-base-left",
+              "trained_minus_untrained": 11.343708381741175,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-lower-base-right",
+              "trained_minus_untrained": 12.287551084665123,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-lower-elbow-left",
+              "trained_minus_untrained": 46.4573081853345,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-long-lower-elbow-right",
+              "trained_minus_untrained": 46.95386056550796,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-weighted-base-left",
+              "trained_minus_untrained": 10.278330281420214,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-weighted-base-right",
+              "trained_minus_untrained": 11.070292558601123,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-weighted-elbow-left",
+              "trained_minus_untrained": 39.5940393526344,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "development-weighted-elbow-right",
+              "trained_minus_untrained": 46.35779208096087,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-upper-base-left",
+              "trained_minus_untrained": 9.281353377572845,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-upper-base-right",
+              "trained_minus_untrained": 10.535461120579166,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-upper-elbow-left",
+              "trained_minus_untrained": 9.729047928274555,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-upper-elbow-right",
+              "trained_minus_untrained": 37.474262978275576,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-lower-base-left",
+              "trained_minus_untrained": 11.841250797611938,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-lower-base-right",
+              "trained_minus_untrained": 12.775839683225271,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-lower-elbow-left",
+              "trained_minus_untrained": 46.16602254739604,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-long-lower-elbow-right",
+              "trained_minus_untrained": 42.93315992167234,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-weighted-base-left",
+              "trained_minus_untrained": 13.18917695130848,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-weighted-base-right",
+              "trained_minus_untrained": 10.34184214855215,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-weighted-elbow-left",
+              "trained_minus_untrained": 45.31560598078049,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "development-weighted-elbow-right",
+              "trained_minus_untrained": 44.031231119746735,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-upper-base-left",
+              "trained_minus_untrained": 9.17569584457921,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-upper-base-right",
+              "trained_minus_untrained": 10.594918274957003,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-upper-elbow-left",
+              "trained_minus_untrained": 43.97542520319415,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-upper-elbow-right",
+              "trained_minus_untrained": 37.30962038759248,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-lower-base-left",
+              "trained_minus_untrained": 11.808603222499753,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-lower-base-right",
+              "trained_minus_untrained": 12.757131061586371,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-lower-elbow-left",
+              "trained_minus_untrained": 46.68569003178854,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-long-lower-elbow-right",
+              "trained_minus_untrained": 27.5692928075928,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-weighted-base-left",
+              "trained_minus_untrained": 11.679253544229429,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-weighted-base-right",
+              "trained_minus_untrained": 9.95135685296287,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-weighted-elbow-left",
+              "trained_minus_untrained": 42.118627865597006,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "development-weighted-elbow-right",
+              "trained_minus_untrained": 34.771512733238666,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-upper-base-left",
+              "trained_minus_untrained": 8.275226955415079,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-upper-base-right",
+              "trained_minus_untrained": 11.174691713834903,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-upper-elbow-left",
+              "trained_minus_untrained": 47.03814575367729,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-upper-elbow-right",
+              "trained_minus_untrained": 39.43019489892494,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-lower-base-left",
+              "trained_minus_untrained": 11.424925986909491,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-lower-base-right",
+              "trained_minus_untrained": 12.81716752304993,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-lower-elbow-left",
+              "trained_minus_untrained": 46.22954745734825,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-long-lower-elbow-right",
+              "trained_minus_untrained": 46.26884786549071,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-weighted-base-left",
+              "trained_minus_untrained": 10.952784740386754,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-weighted-base-right",
+              "trained_minus_untrained": 11.215056550331274,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-weighted-elbow-left",
+              "trained_minus_untrained": 40.094639649498646,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "development-weighted-elbow-right",
+              "trained_minus_untrained": 45.07842676902404,
+              "complete_safe_pair": true
+            }
+          ],
+          "realized_pairs": 72,
+          "planned_pairs": 72,
+          "mean_realized_trained_minus_untrained": 26.43146028512231,
+          "complete_safe_pairs": 72,
+          "mean_complete_safe_trained_minus_untrained": 26.43146028512231,
+          "complete_safe_trained_wins": 72,
+          "by_controller": {
+            "pooled": {
+              "realized_pairs": 36,
+              "planned_pairs": 36,
+              "mean_realized_trained_minus_untrained": 27.251502841113922,
+              "complete_safe_pairs": 36,
+              "mean_complete_safe_trained_minus_untrained": 27.251502841113922,
+              "complete_safe_trained_wins": 36
+            },
+            "narrow": {
+              "realized_pairs": 36,
+              "planned_pairs": 36,
+              "mean_realized_trained_minus_untrained": 25.6114177291307,
+              "complete_safe_pairs": 36,
+              "mean_complete_safe_trained_minus_untrained": 25.6114177291307,
+              "complete_safe_trained_wins": 36
+            }
+          },
+          "per_seed_controller": [
+            {
+              "seed": 101,
+              "controller": "pooled",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 27.431001715607202,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 27.431001715607202,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 101,
+              "controller": "narrow",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 24.467854546249633,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 24.467854546249633,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 202,
+              "controller": "pooled",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 26.85378032485293,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 26.85378032485293,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 202,
+              "controller": "narrow",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 24.866427319151523,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 24.866427319151523,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 303,
+              "controller": "pooled",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 27.469726482881633,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 27.469726482881633,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 303,
+              "controller": "narrow",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 27.49997132199094,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 27.49997132199094,
+              "complete_safe_trained_wins": 12
+            }
+          ],
+          "interpretation": "All-case realized means retain unequal stopped prefixes and cannot establish competence; eligible-only means are labeled separately"
+        },
+        {
+          "partition": "narrow_development",
+          "comparisons": [
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "narrow-own-L3-3-plain-base-left",
+              "trained_minus_untrained": 11.442338874478827,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "narrow-own-L3-3-plain-base-right",
+              "trained_minus_untrained": 11.15807502631218,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "narrow-own-L3-3-plain-elbow-left",
+              "trained_minus_untrained": 25.020482444172142,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "narrow-own-L3-3-plain-elbow-right",
+              "trained_minus_untrained": 44.48709167454773,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "narrow-own-L3-3-plain-base-left",
+              "trained_minus_untrained": 11.253953606307881,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "narrow-own-L3-3-plain-base-right",
+              "trained_minus_untrained": 11.223783580191125,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "narrow-own-L3-3-plain-elbow-left",
+              "trained_minus_untrained": 46.015782456754344,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "narrow-own-L3-3-plain-elbow-right",
+              "trained_minus_untrained": 42.32290858568349,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "narrow-own-L3-3-plain-base-left",
+              "trained_minus_untrained": 10.740891890146695,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "narrow-own-L3-3-plain-base-right",
+              "trained_minus_untrained": 11.440194235743208,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "narrow-own-L3-3-plain-elbow-left",
+              "trained_minus_untrained": 42.82437058055193,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "narrow-own-L3-3-plain-elbow-right",
+              "trained_minus_untrained": 44.97157867371144,
+              "complete_safe_pair": true
+            }
+          ],
+          "realized_pairs": 12,
+          "planned_pairs": 12,
+          "mean_realized_trained_minus_untrained": 26.075120969050083,
+          "complete_safe_pairs": 12,
+          "mean_complete_safe_trained_minus_untrained": 26.075120969050083,
+          "complete_safe_trained_wins": 12,
+          "by_controller": {
+            "narrow": {
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 26.075120969050083,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 26.075120969050083,
+              "complete_safe_trained_wins": 12
+            }
+          },
+          "per_seed_controller": [
+            {
+              "seed": 101,
+              "controller": "narrow",
+              "realized_pairs": 4,
+              "planned_pairs": 4,
+              "mean_realized_trained_minus_untrained": 23.026997004877718,
+              "complete_safe_pairs": 4,
+              "mean_complete_safe_trained_minus_untrained": 23.026997004877718,
+              "complete_safe_trained_wins": 4
+            },
+            {
+              "seed": 202,
+              "controller": "narrow",
+              "realized_pairs": 4,
+              "planned_pairs": 4,
+              "mean_realized_trained_minus_untrained": 27.70410705723421,
+              "complete_safe_pairs": 4,
+              "mean_complete_safe_trained_minus_untrained": 27.70410705723421,
+              "complete_safe_trained_wins": 4
+            },
+            {
+              "seed": 303,
+              "controller": "narrow",
+              "realized_pairs": 4,
+              "planned_pairs": 4,
+              "mean_realized_trained_minus_untrained": 27.494258845038317,
+              "complete_safe_pairs": 4,
+              "mean_complete_safe_trained_minus_untrained": 27.494258845038317,
+              "complete_safe_trained_wins": 4
+            }
+          ],
+          "interpretation": "All-case realized means retain unequal stopped prefixes and cannot establish competence; eligible-only means are labeled separately"
+        }
+      ],
+      "actual_decisions": 94720,
+      "native_steps": 473600,
+      "reserved_case_construction_requests": 0
+    },
+    "challenge": {
+      "schema": "generalization_study_stage_v1",
+      "stage": "challenge",
+      "protocol_sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727",
+      "status": "complete",
+      "provenance_unchanged": true,
+      "source_sha256_after_collection": {
+        "CMakeLists.txt": "cd1e17ec3214446a08731c978aa53d142d9227c1916e05353aee0108c0e5b26b",
+        "config/module_catalog.json": "5327cc56ebbe6817db8af4e5fca2cf8228b07ccc8904d9bd90d738e3a7cd6781",
+        "docs/GENERALIZATION_PRETRAINING_EXPERIMENT.md": "897eda203487c6d1c46bb864a9ea54ae39d5c8564a68805794bf1cfb2749e11a",
+        "docs/GENERALIZATION_STUDY_EXPERIMENT.md": "a49b7ae6537b97c0e6bd1a2a23858176edc06e0d1e37f05ab43e3df21dd61792",
+        "include/droid/baseline.hpp": "d3119b95c99467e433be506bcb14b89d7c850dc8abf1928a83d62810853b5cc0",
+        "include/droid/body_controller.hpp": "debaa2ef481f185f15293a9d5c64daf872a7c1db2f47d0e9439c0980f90012cb",
+        "include/droid/construction.hpp": "6a04e26471093cc8ee639729e3b6b248b2fb16e2e5d0b70c6fab39cc03de6a17",
+        "include/droid/construction_session.hpp": "7e883fbbe20d914821014698af2ff36952938325961b963a39194380131a39c3",
+        "include/droid/environment.hpp": "2e72cd9496d115dd9ff9694e796cf7a86a18957e2cc1cfbaadedad600cc02f8f",
+        "include/droid/evaluation.hpp": "950584d94473946b5c0f8a6abd6f14cb4539b907e12580a6e8a2ede640f9c96e",
+        "include/droid/learner.hpp": "6d31aea2e2cbc1232f3353b9d6de4a0f0a68347a905889989bf7e0b75d13ff29",
+        "include/droid/light_context.hpp": "9b65fd35524ea99d30983275c7192cf5cc0440101c7e136581466154dd226748",
+        "include/droid/light_learner.hpp": "3571dd0ef11f82bf13f5e04f4d8fa059769d758174bb04da4a674245ff5b2e58",
+        "include/droid/light_prediction.hpp": "99760228dc0dfffcd14a5fc76f1fc1c5ad2704bcb0271939d51721bc7a2157cc",
+        "include/droid/light_session.hpp": "2a8668d95487083baa996366e275f1b7876eefb90f94a17b494e53c3509b3418",
+        "include/droid/module_catalog.hpp": "e7a85ace104fea22f4d35677a691312ed1325f92e9fa7450971705c7d76fb65c",
+        "include/droid/motion_explorer.hpp": "46c38b1d58e3f1610fe0d46d94038461ff2dc4b4c5949c2844787571205cf44b",
+        "include/droid/playground.hpp": "b94ab7ac715f0f4f8f4e0e67ed64648f27f1f626a8a155b2dfef58524794e9ff",
+        "include/droid/policy.hpp": "fe0e8bdc9ed835c311fd014c1c04960bd4bf67d77f872d750dfaa604566c59df",
+        "include/droid/simulation.hpp": "8c0d5b32824b6e06462211bd711b59cb8e137aa92c6bfe9a17cf569026c40bba",
+        "src/agent_cli.cpp": "1425ad65711bbcaae8edced99765b52f1fcee930ae33e39c5e60d65c338a7483",
+        "src/baseline.cpp": "150ae55b970dd7245b16b3cd4c2eb697336b68a926fdc995322a5aa68418040f",
+        "src/body_controller.cpp": "8dd85e8d7959e61a68707cdeb99368c554a5bc42411e93ace982f6c8a4384215",
+        "src/body_experiment_cli.cpp": "9d409a06b889feb989d590d9c01a4c0c744b46d34f44912de7a8830d68d7f8b6",
+        "src/construction.cpp": "36abfa36251b33931d6929125e351bbf1f3cf0582aecb0cacc34ef70003f500e",
+        "src/construction_experiment_cli.cpp": "431406dea941d69536a6f9635d454e1c8911f93d48c2198728d6d7b98c9e0a6a",
+        "src/construction_session.cpp": "c24a50947c7254723301a926868405d71e0ccb7ac9c8b4739e6a67ea2ae1ba8d",
+        "src/environment.cpp": "b6f851519e863be290f843899c4d8a3eefa9bdad892fddcf58803ee0b59fdd88",
+        "src/evaluation.cpp": "998dfddd38181a81ec0dbaab846d39fb8e943aa920a00f24f353bde314a56bc1",
+        "src/learner.cpp": "e25e454b2fdfaaccdb360dd7b05b0ea2c3465ab42cee361920df82aaad47bbf3",
+        "src/light_adaptation_cli.cpp": "4c1869d41e444a2f1252c3a7c470c1b14694182123b1273438f34c32987fdebb",
+        "src/light_context.cpp": "fd7bb50e94f041119ee7f45bf1890b1f8cb9dddfdcf0ca28e624385907f4d585",
+        "src/light_context_cli.cpp": "1c9033fb589a756e26d28403fa6025b560ddfff3dbbe98d9367d5aa0d76b5034",
+        "src/light_experiment_cli.cpp": "bb87488dfa9bf1dbcd14e0e5954ac0485adf15e6ab4d9975b41442b3461d2bc2",
+        "src/light_headroom_cli.cpp": "39c5e9e74af9f19618c8ac62b9128ea110d5d3c08301e8513a89fc1e9ddda02f",
+        "src/light_learner.cpp": "c9e8cea0c7e301a63a2439a4ff3417f5757123aae32428911bd67fc023b468a5",
+        "src/light_prediction.cpp": "ae494a37d8067f1dc6e945f817569da642706a94b7138afe22a81213f351eba6",
+        "src/light_prediction_cli.cpp": "e8c91a488f5c6a40ca26b8435d4d290bb3681f1df3c86228cf4920cd6f411ffa",
+        "src/light_retention_cli.cpp": "49787142cac66d9aede07a12c51c443fa98e04bf9b53bdd6e8fcc0d72f80d892",
+        "src/light_session.cpp": "4315857c13eace4f2accff020d2683ae4751a678261e4198bb1012d087e284a9",
+        "src/main.cpp": "7bfee671d1a8797b5f72c6db7038c0fd4d044f0c85730e83c42d67a2bd725407",
+        "src/module_catalog.cpp": "f0a3c3cf1ee21ed02acc6779bf0e1dc3efa0956132c08c87876d72c05fba34a5",
+        "src/motion_explorer.cpp": "d756c0f01bc23381827fb5d5a8066ad8b22f62bc6725d2957640356de6d51398",
+        "src/playground.cpp": "c2e0c1ed174c4a7a6a73c01845ca1de4231bf67138f98b773fec6ce9bdaa22be",
+        "src/policy.cpp": "f5736cbede8cc87aefc9a8fc9a5f2ddb033cf4397610be7e75a683aa23c9c796",
+        "src/simulation.cpp": "f9c50c7ece4614ea9d4cb26ba9100aef6347ae9407b7a218347154c90a8b7767",
+        "src/transfer_env_cli.cpp": "2a3a05bcd464707317b6b61ef8e9d62a2e2fa360edb9660278318de2968b21e2",
+        "tests/check_generalization_adapter.py": "a8d25e939c56f76aa8a5f36701be1b7e559f88cac908fb5ce5d86f9a51adb49e",
+        "tests/check_generalization_curriculum.py": "d6eacab7b4fbffe82faac09cd7fbf17f4d60fe57bc4c7c524a2cdd8afe23da53",
+        "tests/check_generalization_study_driver.py": "bc739c690a72bc26c70db197b70f281a6539e06c03b0ce1a7bca64a646a218e9",
+        "tests/check_generalization_study_manifest.py": "48bbbd65f4c10d2f4154e61fe298ab2f31b995470b2e6be4d930c1229bb85060",
+        "training/generalization_curriculum.py": "c89aecac86c7a02fb63806ce5c3c4a66287c037d54130a295cd3a3eecc7d5597",
+        "training/generalization_pretraining.py": "70ca9d8ebd6abed07c46e9b82736003e5d61b53b15258fb89f150edb701dba6b",
+        "training/generalization_study.py": "b5d738d407af70b784158eb1cf7bd63152ddbd749661037503554f5fd0f00889",
+        "training/generalization_study_manifest.py": "f9f82db7288483a9fb55cd60a1e2d749faff4136b92113f9051acda46c162520",
+        "training/native_transfer.py": "972d9fa7d98a67bc0c39b373e5dd093a4b6268999e824cbe55bd05dcf0c49fc1",
+        "training/requirements-generalization.txt": "68358c399dc331441a37996210972cc4e0c36e30da900e18914473e752d5537b",
+        "training/setup-generalization.sh": "0b51377d3f342b5cc8c08264eabf84fcf010941c35225322f0c419795f16ef58"
+      },
+      "runtime_after_collection": {
+        "schema": "generalization_runtime_v1",
+        "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+        "python_executable": "/opt/droid-blocks/generalization-venv/bin/python",
+        "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+        "machine": "x86_64",
+        "packages": {
+          "torch": "2.8.0+cpu",
+          "stable-baselines3": "2.9.0",
+          "gymnasium": "1.2.3",
+          "numpy": "2.2.6",
+          "cloudpickle": "3.1.2"
+        },
+        "native_command": [
+          "/workspace/build/native/droid-transfer-env"
+        ],
+        "native_binary_sha256": "377b754985b2977c947e37e41cbbff286595fe70b08888c9fc32ece1db2d9777",
+        "cpu_only": true,
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "torch_deterministic_algorithms": true,
+        "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n"
+      },
+      "release": {
+        "path": "challenge/release.json",
+        "sha256": "38d30b7d137b3118a202802ca2adfdfb4a6b48b8d32c461b37522b5185590cdd"
+      },
+      "trial_results": [
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--quiet--fixed/result.json",
+          "sha256": "b100fa9472ab75258321537881947e0a442642e212454b2ee8d0d775553ffad2"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--negative--fixed/result.json",
+          "sha256": "2be6f684a078565aa2c3f012abebb61c0cede04f2d608d61627c885948275db6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--positive--fixed/result.json",
+          "sha256": "d6fa33666b8dfc7265f47cdf38b9aeef8d088fd7ca436acd5fccc8596d9e4b03"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--rhythm_2s--fixed/result.json",
+          "sha256": "83c010d46dc73ec48346533bcbe9a0d8b0c834cf67b7501b94001847a801d815"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--rhythm_4s--fixed/result.json",
+          "sha256": "5241dc851a52fc10e894de3ad165d0a4b50d3f150bbebe793360b1494ad4fae9"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--quiet--fixed/result.json",
+          "sha256": "a8e4926fdf9458f4592764d2e220111f92e4a7df1ac5a8f2e7101c42d696d19d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--negative--fixed/result.json",
+          "sha256": "788d22880925af3c4ba58881ca8a8d97b0bdcbd5441541659b57c4c561ea1cea"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--positive--fixed/result.json",
+          "sha256": "f38763bb82cb994b1f2891b15440d5c930483045133a9ad2b6882d3baf35922a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--rhythm_2s--fixed/result.json",
+          "sha256": "a60c7fd0ba151a5ff5fe5fb5e5a4c4e3afad263dc9e55663bc874b55197bc094"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--rhythm_4s--fixed/result.json",
+          "sha256": "9bcd467102cfebc1413745c19aaac365f7f60b765b960349b9c970fbf1da63d0"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--quiet--fixed/result.json",
+          "sha256": "230551682cbc2ee9f79312f0153541ae9a8290133a115172b0e50114e9085585"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--negative--fixed/result.json",
+          "sha256": "5fed2be81dde4e9cc580447cb6596378976506bbb5fe3f34ebdaad0dcd5a97f3"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--positive--fixed/result.json",
+          "sha256": "022e06340abfc17c734089e31b9fd31c3c6017be5f5cc29ef6feef5cc1a57190"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--rhythm_2s--fixed/result.json",
+          "sha256": "b0664a604a049af87478bfd30e41aa7fd2710aa25cec33a461ff6ebf8f8f75ac"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--rhythm_4s--fixed/result.json",
+          "sha256": "1f396dce6ad2b7f9288aa2ed3b797f2815229a163a91e5c8af09f38169ffc737"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--quiet--fixed/result.json",
+          "sha256": "e300da3d5e37d42ced3bc7d69106d3453d3d640ad88afab91070f0e39b676dd6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--negative--fixed/result.json",
+          "sha256": "4a196467c02d0f0771ef78fe8122f7fdc0cf72123167bd3e7ec4be05d54600eb"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--positive--fixed/result.json",
+          "sha256": "0a48944f9baeb37112a768b8c2258f5f0f0f95b0af3eefe8a9cfd1bf5b81b3e4"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--rhythm_2s--fixed/result.json",
+          "sha256": "ed8f43eb2661576f483f5a5999b020c58e4d850587e667e067fa509c20498368"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--rhythm_4s--fixed/result.json",
+          "sha256": "37f0408544f0d2fc9e196026c4f91fe9422d50bb7512725203988163ede11e34"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--quiet--fixed/result.json",
+          "sha256": "69a56db0f59680e6b2f809b262c716769ca0fe95e13163212ad57169d697bb38"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--negative--fixed/result.json",
+          "sha256": "5947506c12d47851eea19344bf50939698dbd507b5cf1137c5221a5e53e5fc3a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--positive--fixed/result.json",
+          "sha256": "ac11522788f16768c9b3ca6501865e674af0fd0f4ff03901468cb53722616648"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--rhythm_2s--fixed/result.json",
+          "sha256": "07ff469f4758f771c25a0fb91eec60d2cf3304a2d11327d8273b18b893726a09"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--rhythm_4s--fixed/result.json",
+          "sha256": "14bc338b95ed2ff0f255338ef65f4914074b7e00fcd1b242345c1470afff5f72"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--quiet--fixed/result.json",
+          "sha256": "1666d933eeacac877d81fd8fc66698c3766b968b517397d4560ff71fc4b51631"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--negative--fixed/result.json",
+          "sha256": "02d6686c8df980f345d001b07b4f9a7673e1e6edf005b7f53ab4a7fd20e678ac"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--positive--fixed/result.json",
+          "sha256": "2945400e02d6ef6eda04a9d9042a0a03f1ec1bca09f2c99c0dde4b9c191d8088"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--rhythm_2s--fixed/result.json",
+          "sha256": "ef792c891b70c0900c24c004456152bd0efce51717c2591a11a7e3b231dd7e6f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--rhythm_4s--fixed/result.json",
+          "sha256": "05868b5f8d0c80a6ef355b4636730857403bc1d412096be604c743d72a189b34"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--quiet--fixed/result.json",
+          "sha256": "5387e91d90deb1f5033511e7aef675517136815b8ace857b814983407ad16ff1"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--negative--fixed/result.json",
+          "sha256": "fb6ec007b3d96c74146e79e58e5b32d5f0c259a238430827a14dda760f7add8d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--positive--fixed/result.json",
+          "sha256": "834a3adee8410e9120048b3f227b91293078df2cf36aa2519966e59a3c9c249e"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--rhythm_2s--fixed/result.json",
+          "sha256": "61dade355679c1d9bd04fe3d0e5b83953a2350beba866c95a3393462d67f957c"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--rhythm_4s--fixed/result.json",
+          "sha256": "8ac90ce148be1f9198a26ac2137b212ae7686a9ffdd746b7e9c0d74603c28e62"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--quiet--fixed/result.json",
+          "sha256": "d25d50b71fa5ce4923814c8e0c16c0c55cf3b8b3e63bf3011ebe804eadd806f1"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--negative--fixed/result.json",
+          "sha256": "0b0637f642db48aec2f7b1c507f538f5656e35807590c9e07990ad38f5ce7b30"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--positive--fixed/result.json",
+          "sha256": "24d99e76eb40de01411914ac77d76c4e8f5dc012971707704e3f87b637217e8a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--rhythm_2s--fixed/result.json",
+          "sha256": "a19d7b23aa2ea3a85c21e9e291c45ea84e5dcb07fbcfe94f9f80373fb3578b9f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--rhythm_4s--fixed/result.json",
+          "sha256": "6cdc809a8bab66934be6e798d436f6c4be6722b5bad824ab5c072c06e477f0f7"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--quiet--fixed/result.json",
+          "sha256": "4b06a35e428541cd008b872fb823b7c43c8c14e633cb6accccadce2f65573fa6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--negative--fixed/result.json",
+          "sha256": "30ca0a394458e0f03f61a49cddb6bf9009e037a0a23564c5c3a5f918afde8928"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--positive--fixed/result.json",
+          "sha256": "35d2b199a25ba75ed209542085b7c8451c752814e973f2620f04ea9fb0241932"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--rhythm_2s--fixed/result.json",
+          "sha256": "0d295e03a31c5bcbb5bc612a72406da5328eb8ea1df99e80cbb82db491300d93"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--rhythm_4s--fixed/result.json",
+          "sha256": "267f0b9da83d1fbaaa304bf2bef15f1ac7c1150ce7fbb95f5565fbdb315e68cf"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--quiet--fixed/result.json",
+          "sha256": "97024b581e5b6aaf97f23bda69d66cea3bdbe6ec45e514dfcb587fa80f66277f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--negative--fixed/result.json",
+          "sha256": "4a3ef0341368d3fab151b7fa6f8ea450e3c68e861a08604253b4f31d6cc38aff"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--positive--fixed/result.json",
+          "sha256": "85e9ff3143e24535b0a1e222b8c3efdad2c0db1a08f325132dc3f5b6d481544d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--rhythm_2s--fixed/result.json",
+          "sha256": "cd56a86a3b1f70558af220f552e4702d2071f607dcf1182bd82526f420c53569"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--rhythm_4s--fixed/result.json",
+          "sha256": "63a433bb786935f9b45f319e685b2107bfa0b69d2a3127f7eb5748b6ca98be45"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--quiet--fixed/result.json",
+          "sha256": "0c5f3ac956f211d57fd1744292d576436cfd6876d5e193ca8910f2fbcf15ddf6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--negative--fixed/result.json",
+          "sha256": "cde56435f0a702dfce0750a131affc18a3bc47f1690c68e45841318abb641d59"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--positive--fixed/result.json",
+          "sha256": "c9805ce4afe9c98dbf8106bc388ffbffec6e2f66e86a983e3e52b4b76f59a5c3"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--rhythm_2s--fixed/result.json",
+          "sha256": "22c8b35654615f897f29de4f5925bac7d9b161d604930fb8b38eb0a1f597953a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--rhythm_4s--fixed/result.json",
+          "sha256": "a9eff48d0bfc62d71a934e6dbeca23ee05d164c110f6579fd83c2f8957b45f1c"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--quiet--fixed/result.json",
+          "sha256": "30bc2d0015ed3a4c2c5f116111951b902e49916857ad92e95d50673dc1e23c02"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--negative--fixed/result.json",
+          "sha256": "a703dd43ab454a1ce72bef67ad3b62624a5edc2940c2ce3696bad0082220be9b"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--positive--fixed/result.json",
+          "sha256": "5930d75ef269280b3367eea4bdbb7f271b328d5383007f045a7847e44f743e97"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--rhythm_2s--fixed/result.json",
+          "sha256": "91bcae439d4ef5d2d6ca13aca4f230079f0895091088ecd750c668c9e97adce8"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--rhythm_4s--fixed/result.json",
+          "sha256": "321367c3b6da7fd5ab4fb89be1ed60cb61c3ea702f45a1f2747f9c109e5a149e"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--pooled--101/result.json",
+          "sha256": "cf62154d0dae22a095a6ed7a9f9adf618982e7403e0c2c8fc9b9354a04df15c6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--narrow--101/result.json",
+          "sha256": "c166b1daff3f6cc607981aed863d1df00b97c80943796327184ded3eb41958d1"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--untrained--101/result.json",
+          "sha256": "59b09b78388bf264044e75c3cada7ebe1cef10ab6161bd53461f720f239ecbd7"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--pooled--101/result.json",
+          "sha256": "8c84849b760c4a9ab95dc75e06c816cdca3eea9baef39f569260911448b2b06d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--narrow--101/result.json",
+          "sha256": "131274b6937a82945ee5b5ce12a7011085fa901ed773a547ad4e99e242debac2"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--untrained--101/result.json",
+          "sha256": "31f0e27d126f3906c212c82f7263eed89824c1c0b588b880b36de55d26972243"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--pooled--101/result.json",
+          "sha256": "9a23d0eeb01570a05cf3219ef45215a553966f7be94202461d4756b9e6c9dd41"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--narrow--101/result.json",
+          "sha256": "0ef8063e6eb4d51e737b7d999b211eead17db8eb9a457bb1fc9771347f829793"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--untrained--101/result.json",
+          "sha256": "75dc606bef9c62988125452fb7e5b3a0be68ed23cd601faaf6216e0ff8f469de"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--pooled--101/result.json",
+          "sha256": "9da6ab50ec8b5a6ca72dd2d6b1d4b9098cc8a211ee8f62921f9af87c74a57042"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--narrow--101/result.json",
+          "sha256": "54494af1dfa8936504ee4d4cfc7fe6b86f180d9fbab8b667361bc6807a9921ed"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--untrained--101/result.json",
+          "sha256": "4c3a96c57351b795f22a44a591802e33cddfc3e1063666416928749f38ed65ef"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--pooled--101/result.json",
+          "sha256": "adae2d42087f50505dc4bcbea1fdda33b53164abdc9e70377990b97b8ba2a0cb"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--narrow--101/result.json",
+          "sha256": "ad26a8dfe565f7960583d898953d3d43fd805ede88b3f1674e6a75df455b97c5"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--untrained--101/result.json",
+          "sha256": "958d049a12d69ea3f29e0b7518009e084366f388b1c2ec0e87fd5c21abcb6cb0"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--pooled--101/result.json",
+          "sha256": "078baf8f676eca5050c6f7ccd98e5ffcb9fa76f751a92c36951de99f009c66cf"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--narrow--101/result.json",
+          "sha256": "608435c90d2f02e3f3e672019750bbb52b99dee2e16b459fcec677d7fd39ea93"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--untrained--101/result.json",
+          "sha256": "77afeb630d2694f3da382db70d049a3e3438f05702332643f278d4215b305a5c"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--pooled--101/result.json",
+          "sha256": "16ef3ea1ce88da8d6323c17f331fdc7a720b603b8ae4e5b35b8c1f826ecb7122"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--narrow--101/result.json",
+          "sha256": "20753315b8ef90fe167a36e718257a397d44e9221a8f278117ed9ee124fb56c1"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--untrained--101/result.json",
+          "sha256": "69ada7d0caf3d10d7f2d1fd548498e88282a6c0ae22a39ab59c54ca48fb74405"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--pooled--101/result.json",
+          "sha256": "7da57dc1a7cd39f1ab0a45764cccb6c334c6dec66c0f23371c15fe803a7b2b52"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--narrow--101/result.json",
+          "sha256": "2f5942d47ffaf60a3615252eb3cb54de14d539153cb6730d603ede65b3f2d16b"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--untrained--101/result.json",
+          "sha256": "dd84c3e37bac0079f080ce08ff64481809802310b5ff9d72adc153f22b1b72d0"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--pooled--101/result.json",
+          "sha256": "aa9762be7f98545e3c36baf11cd6842b5a66a311baa17dea512f657df350d77f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--narrow--101/result.json",
+          "sha256": "d5d037873eb3d373806d653776f3755f767efc96066e5c0a71d891acfa0a755f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--untrained--101/result.json",
+          "sha256": "11fe94344e4cf13782bbea5a51441924f51c59a622ef3ce28bd19c409cb6a2d9"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--pooled--101/result.json",
+          "sha256": "eefc58940cd1dd45f15c854667d3811659467f13c1549b5b87efc6b3561343d4"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--narrow--101/result.json",
+          "sha256": "52376215b2becbe6d8275c945a8821b9da3d50760b00509fb97a17f22adb8549"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--untrained--101/result.json",
+          "sha256": "ff02f482224e5f344d8409cd133ff4dca442a72172fdd619cbd17b99625aa2b2"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--pooled--101/result.json",
+          "sha256": "4ae25fea83049ab2c86ac18da757d994c9f2ae73774f04ea4ea87a6a602431d5"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--narrow--101/result.json",
+          "sha256": "8f3cb1774c9f6d2fb62017a08fe1b20b97987607da276ff4664fb76517b71c09"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--untrained--101/result.json",
+          "sha256": "93a4afe9f51116e288f8cc98dcec15ce510d3ba8abe908a77010afb5a33d3dd0"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--pooled--101/result.json",
+          "sha256": "c200a2671383cfc820d2f2102bf5989339883b19debee432dbeca4a4485990d4"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--narrow--101/result.json",
+          "sha256": "c2cb8b5023c4c01bc5aee61c2079e82fbc6188de6b419e41f79f061349b2e51b"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--untrained--101/result.json",
+          "sha256": "b82a7a990fec8b6a55491b4bdbf672febcb3a39d6654cddb73f02ee7190fa795"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--pooled--202/result.json",
+          "sha256": "2cd961a5ae0d529628af8380907cb387625a69e7db198e37989e229848380678"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--narrow--202/result.json",
+          "sha256": "9c3fd6e3f6c46a92c60e4cdcbc9f30ace590b3da5b98501d745f3f8a515d296d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--untrained--202/result.json",
+          "sha256": "265405e687379e47ed675010a1034f383057b695810722082bcdb8caa97fe586"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--pooled--202/result.json",
+          "sha256": "21a10bc0113e33bab588860e30c3a6b276cd4a1f0fc2ee5076973a7e2f6b7835"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--narrow--202/result.json",
+          "sha256": "d83c19eef3496bb38e509984bce9661fb4713884efde286ca184c64756ff2329"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--untrained--202/result.json",
+          "sha256": "c5b673562ad43ca25095397ba7986322ca13dbcf58a2ea21c706d9bf53b6aa60"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--pooled--202/result.json",
+          "sha256": "81971fbbd1880c7a58bd87237d019668b9b16fb0e6f390c0e78aedd8c284a1da"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--narrow--202/result.json",
+          "sha256": "cc8bff619534703a7850db102f6e12870ebbd81493b95257bd32b8e83b0ae640"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--untrained--202/result.json",
+          "sha256": "0c7c4cc2d01c976e834a13638a9707087ed6ab8eb4cc5325e1cc11c2d4f2a00f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--pooled--202/result.json",
+          "sha256": "979f1685f32918629c602305a476602d81f5b5ccb6dffa5fe1f8f9af5508b458"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--narrow--202/result.json",
+          "sha256": "8df3bf1b82e7e83914b0ffd4a210be95ef087e9d66395401fa840a189896a6f7"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--untrained--202/result.json",
+          "sha256": "fe20a9f7ec85df0c6cdd3b1c93afe7ae8c37b19ba5fff0ea741263180f36e4b6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--pooled--202/result.json",
+          "sha256": "2db75df37130f18940aa859c333d2d5dea8e0bb9654d7d2bf10015a8ee126fae"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--narrow--202/result.json",
+          "sha256": "5b83e5546ebe31ffb1d75b4fbf5f77769858cf6f1dca0e0827e705424dcd220b"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--untrained--202/result.json",
+          "sha256": "fcc5001b1c76b1d4aa5e1b8bd964782582c1b64095c546ffa11d43c55f6d95fa"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--pooled--202/result.json",
+          "sha256": "a1886757b10934136ef00daf3abd3f34e3769a406bb13bee89ac5c09b7b6859e"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--narrow--202/result.json",
+          "sha256": "159bcb19b11add3b9350bee2df87ff848c1daf528b9c77633d9ede255ec46981"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--untrained--202/result.json",
+          "sha256": "6395d501d1d12d9bd9a2d8630460538dc4ee8f1411333a4086d942dee35908d5"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--pooled--202/result.json",
+          "sha256": "f3424626c39072c15548f9751706b14c8c51c96d4a3eec0cf37e3d5599496e59"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--narrow--202/result.json",
+          "sha256": "c24dddddda6fbe3220be3c6502af04ae7bf5063d0c41378cf12953885f5e22f6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--untrained--202/result.json",
+          "sha256": "224029bc5c32097790ff2aa0856e133fabd6132e7cdd08b55e4ba340b44fb91a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--pooled--202/result.json",
+          "sha256": "360712652c6ead75dee75cea002a851621519ed16ed429d2ed997cf481ed5379"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--narrow--202/result.json",
+          "sha256": "87a7ee1f41549f823a9f8a05c85c1f7614d44b92a3597dc6494386cbe1b31d1e"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--untrained--202/result.json",
+          "sha256": "038e9817efd04f4e4c403b0503e64287ee8be110ad12f77a7a342fa943315665"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--pooled--202/result.json",
+          "sha256": "3c04d040cf0c31f493726daee5d9df70defe742f06ea76af3eaf0d040defb86f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--narrow--202/result.json",
+          "sha256": "3819788fe3fa34260ff7530e984656f1f4395543e6969288b5ed78fe4d7dfa15"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--untrained--202/result.json",
+          "sha256": "0c7b8b9e2876d012c5d3996c5b44ac9b7b672f54904d98f2ea9d265fb13dc4b6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--pooled--202/result.json",
+          "sha256": "a198da70e75373594acbba07123fc86cd32f8814273121646e2e90c2bd78f038"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--narrow--202/result.json",
+          "sha256": "3aa02b84759152a3e9a349a9b5a7ade71b672658b2bed23f65d24d51ae3f08f6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--untrained--202/result.json",
+          "sha256": "831b81e6474062266ff33b9289829614fc437515c6bedca501b39b2ace007341"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--pooled--202/result.json",
+          "sha256": "bb892b24c3bc556325f1804e491a6390d28e29e6fc920afbee250a5843369190"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--narrow--202/result.json",
+          "sha256": "a97af222dc6dc7b152329b2dd147fd6dd4b967dda2cfef2485ddaaf360600399"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--untrained--202/result.json",
+          "sha256": "2c49f5c20fa5cf71710749fba0753af6807fc1f7e6847e6cb2cf6ef771f8cd8c"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--pooled--202/result.json",
+          "sha256": "6c5863fb337a36428acf1c9babcd39f2f95aa5efcbc71dd19ae322cfe3692e93"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--narrow--202/result.json",
+          "sha256": "37178be49efbbde15c2a2e7b0e32c58bef6c4724ffa70719e772a4cc51fe327d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--untrained--202/result.json",
+          "sha256": "ee50f3eb915a527cbef14500b613f058e5b1de431cac2825ff430a9e7b240e1a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--pooled--303/result.json",
+          "sha256": "bfc49d3fd82b71cbbddc82c088425f01c45737d0f14fae13ba22da01dfe2d454"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--narrow--303/result.json",
+          "sha256": "8d029adc9c57c6cc25dbddc2e2813413224033897aa5589770f3e6b0fa1ed8ab"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-left--untrained--303/result.json",
+          "sha256": "f8f273c8b9e36164808ac9a5656c7702dfee56b22a1d49a64fb2ec624950ee3a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--pooled--303/result.json",
+          "sha256": "87ed025a04960b34183aa19638372fed63f8b022a5f6ac7fddde19971896f7d4"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--narrow--303/result.json",
+          "sha256": "2790965899e59d9cc21ca6b323d70652da78feb6d7ffbb66e97955e47ce6486d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-base-right--untrained--303/result.json",
+          "sha256": "1ae901a27a8329123a444801257d6d84c658b2756e46ff7cfa94c375e013cc47"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--pooled--303/result.json",
+          "sha256": "b26ba3f7d9bebc2852519086e745ff03268571b4fe08d10b113b0e3f9e8bd45f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--narrow--303/result.json",
+          "sha256": "73d55d7cabb68a03e5acabba589aa6b51b6cf929b5b2a8ac87ebd05f4c9aebf6"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-left--untrained--303/result.json",
+          "sha256": "50393ef22df9399567e6debf774fc73be197b5378c01c5c445fd153f5aea66c8"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--pooled--303/result.json",
+          "sha256": "6b662c7814be160047be386b47df7d5d8b6182cd6358bd0448db37e0c2284718"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--narrow--303/result.json",
+          "sha256": "8bb0c5c2acd5b4022599ad9d29247c782cb0509c407a06fbeca2e70b23fc3bdb"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-upper-elbow-right--untrained--303/result.json",
+          "sha256": "b66f11935f9d1428f33e6fa1984c0f4172ffab1c55b806cbca1847cdd0d1b389"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--pooled--303/result.json",
+          "sha256": "8aafff27ad9c06be0120e370ecb1e6a918518f109e7f7810d904f661411c1d25"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--narrow--303/result.json",
+          "sha256": "06e46d8dee069c8d8de5854c342a82787bf0b420cf5b3c849d9bf1189f36f64c"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-left--untrained--303/result.json",
+          "sha256": "a0fa1e8b48ccd408e21aed0be42b96c43bb01809ba989f4af00315d168db0202"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--pooled--303/result.json",
+          "sha256": "6f71180b6ab25f099f24e3c683229701e1fcb7f8e492042312c4b1a9c11027c7"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--narrow--303/result.json",
+          "sha256": "bcfdcb1385e6d76e57866b250727ce39b68ef142ef40fbb2bf7d8e2901d9c6c9"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-base-right--untrained--303/result.json",
+          "sha256": "fa91ac0a5adb2aeb81048e5faeaf0f01eea49d58662da63ce5807b78d46e5a1d"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--pooled--303/result.json",
+          "sha256": "0a723f9e11eaf05ef5f9fe07d49e2c4da6e2a807047bc13b53f047dbedf55778"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--narrow--303/result.json",
+          "sha256": "e4f650c487cfe5df921892b9c852daf7663f856a4cca71106b1151edc6fe638a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-left--untrained--303/result.json",
+          "sha256": "9245866921cdf57ab0a1d8fa07c1e5d4fab90413131da1013bdab8d9763b8e7e"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--pooled--303/result.json",
+          "sha256": "ad15446236ac18738558dcbb522a2448f0f1fce471f23b980b52937abcd5167a"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--narrow--303/result.json",
+          "sha256": "1f213bfa5c6a0e16104c947e26d48c5b8f786d80ab1582afedf7024c251fb76f"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-long-lower-elbow-right--untrained--303/result.json",
+          "sha256": "a4f21b8bf57802f268730bd20c9207df74f6f94848f860f002628421a6bd69f1"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--pooled--303/result.json",
+          "sha256": "90b63a849abadef9c566ecb948586d0fead65d003c90ac9da428f021ee373a79"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--narrow--303/result.json",
+          "sha256": "83580512a5541af6622c159b407fe8807081451cfc88d2fd8960c70edad17c17"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-left--untrained--303/result.json",
+          "sha256": "f53fb6f63dc6dc803b838a9642ec9792e70880126519c0fbab837da15d300129"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--pooled--303/result.json",
+          "sha256": "3586e43979f8205a247d114b04ca055d5ed6c34e4239850b979382218effce21"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--narrow--303/result.json",
+          "sha256": "6519fea1b5281d7cc9ae88cb9f792c384796544d933918de0ff11364a98ddf44"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-base-right--untrained--303/result.json",
+          "sha256": "dfccb93d138edd9425c1708b2950ae4332196b726a0cf80f472514161e4d5e97"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--pooled--303/result.json",
+          "sha256": "fc70aff515aea981c3f33b341afcc9acd1e9c9322a5283db8f77a243badd1212"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--narrow--303/result.json",
+          "sha256": "48442052a88fa6cf5cc70688ea3b42dd53b278280cfb2d01e1c474f922852724"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-left--untrained--303/result.json",
+          "sha256": "a1004378ee2eb659e2a0845e3214365b56396a6020527eba53197a2d3773dd42"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--pooled--303/result.json",
+          "sha256": "f4234d30da499ca96f9085e573eb85177019c55f5ca537ae915c1eefe75b0920"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--narrow--303/result.json",
+          "sha256": "e39660a24df334c3b2a8e579391b93a7fb25973ddc1ccbe590649cde97e18bf5"
+        },
+        {
+          "path": "challenge/trials/reserved--reserved-weighted-elbow-right--untrained--303/result.json",
+          "sha256": "d5479751b7173571a728b5d7e23b4eef516424ec37217da2af6f15ce0fd2432b"
+        }
+      ],
+      "collected_trials": 168,
+      "planned_trials": 168,
+      "analysis": {
+        "schema": "generalization_study_challenge_analysis_v1",
+        "comparisons": [
+          {
+            "seed": 101,
+            "case_id": "reserved-long-upper-base-left",
+            "case_index": 0,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.3848919958653454,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-upper-base-right",
+            "case_index": 1,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": -1.8051227170636288,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-upper-elbow-left",
+            "case_index": 2,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 41.71090580632587,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-upper-elbow-right",
+            "case_index": 3,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": -0.8972139035058575,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-lower-base-left",
+            "case_index": 4,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.3680855846571145,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-lower-base-right",
+            "case_index": 5,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 0.9020459962569536,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-lower-elbow-left",
+            "case_index": 6,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.6894853452160419,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-long-lower-elbow-right",
+            "case_index": 7,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": -12.104646911307555,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-weighted-base-left",
+            "case_index": 8,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 0.7014880828114336,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-weighted-base-right",
+            "case_index": 9,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 1.0322057298613778,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-weighted-elbow-left",
+            "case_index": 10,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -21.25795034136086,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 101,
+            "case_id": "reserved-weighted-elbow-right",
+            "case_index": 11,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 3.741930137292634,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-upper-base-left",
+            "case_index": 0,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.49775508161796367,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-upper-base-right",
+            "case_index": 1,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": -0.7727080087226099,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-upper-elbow-left",
+            "case_index": 2,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.45754453147954877,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-upper-elbow-right",
+            "case_index": 3,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 2.2047783603264293,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-lower-base-left",
+            "case_index": 4,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 0.8390860813458669,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-lower-base-right",
+            "case_index": 5,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 0.5007569276143293,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-lower-elbow-left",
+            "case_index": 6,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -1.935603856395474,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-long-lower-elbow-right",
+            "case_index": 7,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 1.233350313755544,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-weighted-base-left",
+            "case_index": 8,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 1.4066422190122054,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-weighted-base-right",
+            "case_index": 9,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 1.2912523517067456,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-weighted-elbow-left",
+            "case_index": 10,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 1.553715699343286,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 202,
+            "case_id": "reserved-weighted-elbow-right",
+            "case_index": 11,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 15.318169867437511,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-upper-base-left",
+            "case_index": 0,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.1388921689911662,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-upper-base-right",
+            "case_index": 1,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": -0.3931659037589732,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-upper-elbow-left",
+            "case_index": 2,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 0.8903029337421415,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-upper-elbow-right",
+            "case_index": 3,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": -7.1310682570357855,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-lower-base-left",
+            "case_index": 4,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": -0.0723324776194314,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-lower-base-right",
+            "case_index": 5,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 0.1713612661310382,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-lower-elbow-left",
+            "case_index": 6,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 35.94686684826904,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-long-lower-elbow-right",
+            "case_index": 7,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 1.2357443259746006,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-weighted-base-left",
+            "case_index": 8,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 0.5108926454048692,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-weighted-base-right",
+            "case_index": 9,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 0.16589122942390944,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-weighted-elbow-left",
+            "case_index": 10,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "pooled_minus_narrow": 10.61463587729861,
+            "complete_safe_pair_and_quiet": true
+          },
+          {
+            "seed": 303,
+            "case_id": "reserved-weighted-elbow-right",
+            "case_index": 11,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "pooled_minus_narrow": 20.691992233640534,
+            "complete_safe_pair_and_quiet": true
+          }
+        ],
+        "seed_means": [
+          {
+            "seed": 101,
+            "realized_pairs": 12,
+            "mean_pooled_minus_narrow": 0.8817649127976553,
+            "all_pairs_and_quiet_complete_safe": true
+          },
+          {
+            "seed": 202,
+            "realized_pairs": 12,
+            "mean_pooled_minus_narrow": 1.7236783618605267,
+            "all_pairs_and_quiet_complete_safe": true
+          },
+          {
+            "seed": 303,
+            "realized_pairs": 12,
+            "mean_pooled_minus_narrow": 5.207685712706615,
+            "all_pairs_and_quiet_complete_safe": true
+          }
+        ],
+        "lamp_motor_strata": [
+          {
+            "seed": 101,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "mean_realized_pooled_minus_narrow": -0.01716316590367543
+          },
+          {
+            "seed": 101,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "mean_realized_pooled_minus_narrow": 0.043043003018234195
+          },
+          {
+            "seed": 101,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "mean_realized_pooled_minus_narrow": 6.587823373249655
+          },
+          {
+            "seed": 101,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "mean_realized_pooled_minus_narrow": -3.086643559173593
+          },
+          {
+            "seed": 202,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "mean_realized_pooled_minus_narrow": 0.5826577395800362
+          },
+          {
+            "seed": 202,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "mean_realized_pooled_minus_narrow": 0.3397670901994883
+          },
+          {
+            "seed": 202,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "mean_realized_pooled_minus_narrow": -0.27981089617724564
+          },
+          {
+            "seed": 202,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "mean_realized_pooled_minus_narrow": 6.252099513839828
+          },
+          {
+            "seed": 303,
+            "powered_hinge": 0,
+            "lamp_side": -1,
+            "mean_realized_pooled_minus_narrow": 0.09988933293142388
+          },
+          {
+            "seed": 303,
+            "powered_hinge": 0,
+            "lamp_side": 1,
+            "mean_realized_pooled_minus_narrow": -0.01863780273467519
+          },
+          {
+            "seed": 303,
+            "powered_hinge": 1,
+            "lamp_side": -1,
+            "mean_realized_pooled_minus_narrow": 15.817268553103263
+          },
+          {
+            "seed": 303,
+            "powered_hinge": 1,
+            "lamp_side": 1,
+            "mean_realized_pooled_minus_narrow": 4.93222276752645
+          }
+        ],
+        "breadth": {
+          "passes": true,
+          "all_pooled_narrow_and_quiet_complete_safe": true,
+          "median_seed_mean": 1.7236783618605267,
+          "positive_seed_means": 3,
+          "untrained_controls_gate_breadth": false
+        },
+        "useful_first_use": {
+          "passes": true,
+          "comparisons": [
+            {
+              "seed": 101,
+              "case_id": "reserved-long-upper-base-left",
+              "pooled_minus_quiet": 22.622268368508788,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-upper-base-right",
+              "pooled_minus_quiet": 22.669898106153433,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-upper-elbow-left",
+              "pooled_minus_quiet": 53.9552009936929,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-upper-elbow-right",
+              "pooled_minus_quiet": 57.1245243772897,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-lower-base-left",
+              "pooled_minus_quiet": 12.70744004781098,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-lower-base-right",
+              "pooled_minus_quiet": 14.97628333042693,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-lower-elbow-left",
+              "pooled_minus_quiet": 53.84032009248023,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-long-lower-elbow-right",
+              "pooled_minus_quiet": 38.39274838098152,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-weighted-base-left",
+              "pooled_minus_quiet": 22.414003395781275,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-weighted-base-right",
+              "pooled_minus_quiet": 21.296324078909944,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-weighted-elbow-left",
+              "pooled_minus_quiet": 35.34196656786348,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 101,
+              "case_id": "reserved-weighted-elbow-right",
+              "pooled_minus_quiet": 57.9957100295975,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-upper-base-left",
+              "pooled_minus_quiet": 22.203415021548555,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-upper-base-right",
+              "pooled_minus_quiet": 23.53989347016223,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-upper-elbow-left",
+              "pooled_minus_quiet": 58.77962773018208,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-upper-elbow-right",
+              "pooled_minus_quiet": 57.266028509929754,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-lower-base-left",
+              "pooled_minus_quiet": 14.16648405756698,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-lower-base-right",
+              "pooled_minus_quiet": 14.424587182961295,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-lower-elbow-left",
+              "pooled_minus_quiet": 52.42390377008976,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-long-lower-elbow-right",
+              "pooled_minus_quiet": 31.86602217786702,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-weighted-base-left",
+              "pooled_minus_quiet": 22.602038769121457,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-weighted-base-right",
+              "pooled_minus_quiet": 21.64380726531078,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-weighted-elbow-left",
+              "pooled_minus_quiet": 55.59676121289062,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 202,
+              "case_id": "reserved-weighted-elbow-right",
+              "pooled_minus_quiet": 52.624513916924165,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-upper-base-left",
+              "pooled_minus_quiet": 22.50039929502612,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-upper-base-right",
+              "pooled_minus_quiet": 24.025847663331312,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-upper-elbow-left",
+              "pooled_minus_quiet": 58.19969972009129,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-upper-elbow-right",
+              "pooled_minus_quiet": 47.85761805672576,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-lower-base-left",
+              "pooled_minus_quiet": 13.249083641209214,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-lower-base-right",
+              "pooled_minus_quiet": 14.29684162563666,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-lower-elbow-left",
+              "pooled_minus_quiet": 52.436688642159844,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-long-lower-elbow-right",
+              "pooled_minus_quiet": 56.084822900538676,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-weighted-base-left",
+              "pooled_minus_quiet": 21.618506314086936,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-weighted-base-right",
+              "pooled_minus_quiet": 20.72799080645694,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-weighted-elbow-left",
+              "pooled_minus_quiet": 57.03388765290526,
+              "complete_safe_pair": true,
+              "passes": true
+            },
+            {
+              "seed": 303,
+              "case_id": "reserved-weighted-elbow-right",
+              "pooled_minus_quiet": 46.662968118145216,
+              "complete_safe_pair": true,
+              "passes": true
+            }
+          ],
+          "margin_strictly_greater_than": 3.2
+        },
+        "target_headroom": {
+          "all_cases_attainable_margin": true,
+          "cases": [
+            {
+              "case_id": "reserved-long-upper-base-left",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 0.1520074015263586,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 0.054615625578394694,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 11.430144581050106,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 5.150171235011859,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 11.430144581050106,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-upper-base-right",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 0.06080992864024991,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 0.1697357552334413,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 12.454816086590103,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 5.743298355431332,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 12.454816086590103,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-upper-elbow-left",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 40.25079537878467,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 23.294961935598895,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 25.43983719514737,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 31.54802147252031,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "negative",
+                "fixed_minus_quiet": 40.25079537878467,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-upper-elbow-right",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 23.17612682492898,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 40.574856547536896,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 25.8977019956004,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 31.624190429654742,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "positive",
+                "fixed_minus_quiet": 40.574856547536896,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-lower-base-left",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 4.110322354554572,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": -0.28634239329360645,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 3.3110956056571488,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 2.579659688316861,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "negative",
+                "fixed_minus_quiet": 4.110322354554572,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-lower-base-right",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": -0.05835875599095834,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 4.162607173082944,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 3.793624262471702,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 2.974537636163048,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "positive",
+                "fixed_minus_quiet": 4.162607173082944,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-lower-elbow-left",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 1.4721069393646642,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 0.4428273593708345,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 16.35444480344798,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 1.8722196158222906,
+                  "complete_safe_pair": false
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 16.35444480344798,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-long-lower-elbow-right",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 0.436624125766056,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 1.5190029099470292,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 16.966034479365145,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 0.7615136894796918,
+                  "complete_safe_pair": false
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 16.966034479365145,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-weighted-base-left",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 0.21171222073354834,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 0.09999721771836781,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 13.882821621744219,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 7.28225238032123,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 13.882821621744219,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-weighted-base-right",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 0.042735432081085455,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 0.09188697346967406,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 11.931309122871996,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 6.395899450743605,
+                  "complete_safe_pair": true
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 11.931309122871996,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-weighted-elbow-left",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 1.6831608007440715,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 0.46730501148748865,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 26.043197560584677,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 2.1031293756718186,
+                  "complete_safe_pair": false
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 26.043197560584677,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            },
+            {
+              "case_id": "reserved-weighted-elbow-right",
+              "comparisons": [
+                {
+                  "controller": "negative",
+                  "fixed_minus_quiet": 0.4909827082639362,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "positive",
+                  "fixed_minus_quiet": 1.647161552529452,
+                  "complete_safe_pair": false
+                },
+                {
+                  "controller": "rhythm_2s",
+                  "fixed_minus_quiet": 24.965866170143144,
+                  "complete_safe_pair": true
+                },
+                {
+                  "controller": "rhythm_4s",
+                  "fixed_minus_quiet": 0.6821274445111428,
+                  "complete_safe_pair": false
+                }
+              ],
+              "best_safe_fixed": {
+                "controller": "rhythm_2s",
+                "fixed_minus_quiet": 24.965866170143144,
+                "complete_safe_pair": true
+              },
+              "attainable_margin": true
+            }
+          ],
+          "selection": "Exploratory safe fixed witness; no optimality claim, tuning or case selection"
+        },
+        "offline_learning": {
+          "partition": "reserved",
+          "comparisons": [
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-upper-base-left",
+              "trained_minus_untrained": 8.72465724630762,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-upper-base-right",
+              "trained_minus_untrained": 7.445066532679093,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-upper-elbow-left",
+              "trained_minus_untrained": 32.098610864028544,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-upper-elbow-right",
+              "trained_minus_untrained": 29.80738763134335,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-lower-base-left",
+              "trained_minus_untrained": 10.311226531731053,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-lower-base-right",
+              "trained_minus_untrained": 12.252069033188242,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-lower-elbow-left",
+              "trained_minus_untrained": 44.71486013081119,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-long-lower-elbow-right",
+              "trained_minus_untrained": 32.01573282928845,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-weighted-base-left",
+              "trained_minus_untrained": 4.981331587396902,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-weighted-base-right",
+              "trained_minus_untrained": 7.460034886387087,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-weighted-elbow-left",
+              "trained_minus_untrained": 12.775872993403809,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 101,
+              "case_id": "reserved-weighted-elbow-right",
+              "trained_minus_untrained": 38.342463291309876,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-upper-base-left",
+              "trained_minus_untrained": 6.695176509428052,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-upper-base-right",
+              "trained_minus_untrained": 8.068253794519654,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-upper-elbow-left",
+              "trained_minus_untrained": 43.084999489229595,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-upper-elbow-right",
+              "trained_minus_untrained": 34.45127013997282,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-lower-base-left",
+              "trained_minus_untrained": 11.495924830241194,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-lower-base-right",
+              "trained_minus_untrained": 11.382345312392227,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-lower-elbow-left",
+              "trained_minus_untrained": 44.10293933790111,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-long-lower-elbow-right",
+              "trained_minus_untrained": 24.274284560629404,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-weighted-base-left",
+              "trained_minus_untrained": 4.975014469468988,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-weighted-base-right",
+              "trained_minus_untrained": 8.367377443841317,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-weighted-elbow-left",
+              "trained_minus_untrained": 36.850327777855995,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 202,
+              "case_id": "reserved-weighted-elbow-right",
+              "trained_minus_untrained": 33.947733515284156,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-upper-base-left",
+              "trained_minus_untrained": 7.170885214186784,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-upper-base-right",
+              "trained_minus_untrained": 8.079821894421928,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-upper-elbow-left",
+              "trained_minus_untrained": 40.81765244897721,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-upper-elbow-right",
+              "trained_minus_untrained": 24.57370650566659,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-lower-base-left",
+              "trained_minus_untrained": 10.866132308336471,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-lower-base-right",
+              "trained_minus_untrained": 11.445139231551062,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-lower-elbow-left",
+              "trained_minus_untrained": 44.109764976817964,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-long-lower-elbow-right",
+              "trained_minus_untrained": 51.823889859180866,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-weighted-base-left",
+              "trained_minus_untrained": 4.025986112483739,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-weighted-base-right",
+              "trained_minus_untrained": 6.798500462495978,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-weighted-elbow-left",
+              "trained_minus_untrained": 33.401668857224635,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "pooled",
+              "seed": 303,
+              "case_id": "reserved-weighted-elbow-right",
+              "trained_minus_untrained": 32.75712902974325,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-upper-base-left",
+              "trained_minus_untrained": 9.109549242172966,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-upper-base-right",
+              "trained_minus_untrained": 9.250189249742721,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-upper-elbow-left",
+              "trained_minus_untrained": -9.612294942297329,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-upper-elbow-right",
+              "trained_minus_untrained": 30.704601534849207,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-lower-base-left",
+              "trained_minus_untrained": 10.679312116388168,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-lower-base-right",
+              "trained_minus_untrained": 11.350023036931288,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-lower-elbow-left",
+              "trained_minus_untrained": 45.40434547602723,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-long-lower-elbow-right",
+              "trained_minus_untrained": 44.12037974059601,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-weighted-base-left",
+              "trained_minus_untrained": 4.279843504585468,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-weighted-base-right",
+              "trained_minus_untrained": 6.427829156525709,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-weighted-elbow-left",
+              "trained_minus_untrained": 34.03382333476467,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 101,
+              "case_id": "reserved-weighted-elbow-right",
+              "trained_minus_untrained": 34.60053315401724,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-upper-base-left",
+              "trained_minus_untrained": 7.192931591046015,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-upper-base-right",
+              "trained_minus_untrained": 8.840961803242264,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-upper-elbow-left",
+              "trained_minus_untrained": 43.542544020709144,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-upper-elbow-right",
+              "trained_minus_untrained": 32.24649177964639,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-lower-base-left",
+              "trained_minus_untrained": 10.656838748895325,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-lower-base-right",
+              "trained_minus_untrained": 10.881588384777897,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-lower-elbow-left",
+              "trained_minus_untrained": 46.03854319429659,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-long-lower-elbow-right",
+              "trained_minus_untrained": 23.04093424687386,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-weighted-base-left",
+              "trained_minus_untrained": 3.5683722504567825,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-weighted-base-right",
+              "trained_minus_untrained": 7.076125092134571,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-weighted-elbow-left",
+              "trained_minus_untrained": 35.29661207851271,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 202,
+              "case_id": "reserved-weighted-elbow-right",
+              "trained_minus_untrained": 18.62956364784664,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-upper-base-left",
+              "trained_minus_untrained": 7.30977738317795,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-upper-base-right",
+              "trained_minus_untrained": 8.4729877981809,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-upper-elbow-left",
+              "trained_minus_untrained": 39.92734951523508,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-upper-elbow-right",
+              "trained_minus_untrained": 31.704774762702375,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-lower-base-left",
+              "trained_minus_untrained": 10.938464785955901,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-lower-base-right",
+              "trained_minus_untrained": 11.273777965420024,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-lower-elbow-left",
+              "trained_minus_untrained": 8.16289812854892,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-long-lower-elbow-right",
+              "trained_minus_untrained": 50.58814553320626,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-weighted-base-left",
+              "trained_minus_untrained": 3.51509346707887,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-weighted-base-right",
+              "trained_minus_untrained": 6.632609233072069,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-weighted-elbow-left",
+              "trained_minus_untrained": 22.78703297992603,
+              "complete_safe_pair": true
+            },
+            {
+              "controller": "narrow",
+              "seed": 303,
+              "case_id": "reserved-weighted-elbow-right",
+              "trained_minus_untrained": 12.065136796102715,
+              "complete_safe_pair": true
+            }
+          ],
+          "realized_pairs": 72,
+          "planned_pairs": 72,
+          "mean_realized_trained_minus_untrained": 20.489346214320484,
+          "complete_safe_pairs": 72,
+          "mean_complete_safe_trained_minus_untrained": 20.489346214320484,
+          "complete_safe_trained_wins": 71,
+          "by_controller": {
+            "pooled": {
+              "realized_pairs": 36,
+              "planned_pairs": 36,
+              "mean_realized_trained_minus_untrained": 21.791534378881284,
+              "complete_safe_pairs": 36,
+              "mean_complete_safe_trained_minus_untrained": 21.791534378881284,
+              "complete_safe_trained_wins": 36
+            },
+            "narrow": {
+              "realized_pairs": 36,
+              "planned_pairs": 36,
+              "mean_realized_trained_minus_untrained": 19.187158049759685,
+              "complete_safe_pairs": 36,
+              "mean_complete_safe_trained_minus_untrained": 19.187158049759685,
+              "complete_safe_trained_wins": 35
+            }
+          },
+          "per_seed_controller": [
+            {
+              "seed": 101,
+              "controller": "pooled",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 20.077442796489603,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 20.077442796489603,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 101,
+              "controller": "narrow",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 19.195677883691946,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 19.195677883691946,
+              "complete_safe_trained_wins": 11
+            },
+            {
+              "seed": 202,
+              "controller": "pooled",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 22.30797059839704,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 22.30797059839704,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 202,
+              "controller": "narrow",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 20.584292236536516,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 20.584292236536516,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 303,
+              "controller": "pooled",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 22.989189741757208,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 22.989189741757208,
+              "complete_safe_trained_wins": 12
+            },
+            {
+              "seed": 303,
+              "controller": "narrow",
+              "realized_pairs": 12,
+              "planned_pairs": 12,
+              "mean_realized_trained_minus_untrained": 17.78150402905059,
+              "complete_safe_pairs": 12,
+              "mean_complete_safe_trained_minus_untrained": 17.78150402905059,
+              "complete_safe_trained_wins": 12
+            }
+          ],
+          "interpretation": "All-case realized means retain unequal stopped prefixes and cannot establish competence; eligible-only means are labeled separately"
+        },
+        "raw_prefix_interpretation": "All-case realized contrasts preserve stopped prefixes; unequal exposure cannot establish competence"
+      },
+      "actual_decisions": 98242,
+      "native_steps": 491174,
+      "reserved_case_construction_requests": 168
+    }
+  },
+  "actual_decisions": 782786,
+  "native_steps": 3913894,
+  "reserved_case_construction_requests": 168,
+  "adaptation_weight_updates": 0,
+  "scope": "Geometry extrapolation inside one anchored planar two-link graph; one motor, one IMU and one light; no gradient adaptation, topology or hardware claim."
+}

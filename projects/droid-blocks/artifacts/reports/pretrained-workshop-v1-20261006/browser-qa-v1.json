@@ -1,0 +1,200 @@
+{
+  "schema": "pretrained_workshop_browser_qa_v1",
+  "created_at_utc": "2026-10-06T21:15:12Z",
+  "passed": true,
+  "url": "http://127.0.0.1:43117/pretrained.html",
+  "browser": "Edge extension through documented CUA API",
+  "scope": "Browser JavaScript parsing, rendered DOM/accessibility, native motion presentation and explicit demo controls. This is interface QA, not a new learning or generalization experiment.",
+  "checks": [
+    {
+      "name": "final_javascript_parsed_and_native_policy_loaded",
+      "passed": true
+    },
+    {
+      "name": "initial_invalid_light_and_imu_shown_as_missing",
+      "passed": true
+    },
+    {
+      "name": "ready_controls_wake_rebuild_enabled_pause_disabled",
+      "passed": true
+    },
+    {
+      "name": "wake_updates_native_geometry_transforms",
+      "passed": true
+    },
+    {
+      "name": "delivered_light_motion_and_live_effort_render",
+      "passed": true
+    },
+    {
+      "name": "pause_holds_time_counts_and_geometry",
+      "passed": true
+    },
+    {
+      "name": "resume_continues_existing_counts_and_history",
+      "passed": true
+    },
+    {
+      "name": "body_motor_lamp_choices_remain_unapplied_drafts",
+      "passed": true
+    },
+    {
+      "name": "draft_blocks_wake_and_running_blocks_rebuild",
+      "passed": true
+    },
+    {
+      "name": "explicit_rebuild_applies_changed_case_and_clears_run",
+      "passed": true
+    },
+    {
+      "name": "checkpoint_and_actor_hashes_survive_rebuild",
+      "passed": true
+    },
+    {
+      "name": "390px_responsive_layout_has_no_horizontal_overflow",
+      "passed": true
+    },
+    {
+      "name": "phone_run_controls_have_48px_height",
+      "passed": true
+    },
+    {
+      "name": "keyboard_space_selects_weighted_body_draft",
+      "passed": true
+    },
+    {
+      "name": "weighted_elbow_right_shows_native_motion_and_brightness",
+      "passed": true
+    },
+    {
+      "name": "running_draft_announcement_and_partial_macro_time_fixes_retested",
+      "passed": true
+    },
+    {
+      "name": "no_browser_console_errors",
+      "passed": true
+    },
+    {
+      "name": "final_observed_default_is_fresh_ready",
+      "passed": true
+    }
+  ],
+  "observations": {
+    "initial": {
+      "body": "long_upper",
+      "motor": "base",
+      "lamp": "left",
+      "status": "Ready to wake",
+      "elapsed_s": 0,
+      "light": "— lx",
+      "motion": "— rad/s",
+      "light_meter_hidden": true
+    },
+    "native_motion": {
+      "at_s": 6.3,
+      "proximal_render_angle_deg": 0.9902904632562334,
+      "distal_render_angle_deg": 34.86514342168836,
+      "initial_render_angles_deg": 0
+    },
+    "pause": {
+      "elapsed_s": 7.1,
+      "macro_decisions": 71,
+      "native_controls": 355,
+      "history_frames": 12,
+      "subsequent_time_counts_and_render_transforms_unchanged": true
+    },
+    "resumed": {
+      "observed_elapsed_s": 13.4,
+      "macro_decisions": 135,
+      "native_controls": 671,
+      "history_frames": 12
+    },
+    "rebuild": {
+      "body": "long_lower",
+      "motor": "elbow",
+      "lamp": "right",
+      "elapsed_s": 0,
+      "macro_decisions": 0,
+      "native_controls": 0,
+      "history_frames": 1,
+      "light": "— lx",
+      "motion": "— rad/s"
+    },
+    "phone": {
+      "requested_width": 390,
+      "observed_inner_width": 390,
+      "height": 844,
+      "document_scroll_width": 375,
+      "horizontal_overflow": false,
+      "bench_single_column": true,
+      "run_button_heights_px": [
+        48,
+        48,
+        48
+      ],
+      "keyboard_selected_body": "weighted"
+    },
+    "weighted_motion": {
+      "body": "weighted",
+      "motor": "elbow",
+      "lamp": "right",
+      "observed_elapsed_s": 8.5,
+      "delivered_light_lux": 682,
+      "local_angular_speed_rad_s": 0.87,
+      "horizontal_overflow": false
+    },
+    "corrections": {
+      "running_draft_live_announcement": "Your new choices are drafted. Pause, then press Rebuild to apply them.",
+      "elapsed_and_history_labels_at_partial_decision": "11.8 / 64 s"
+    },
+    "final_observed": {
+      "body": "long_upper",
+      "motor": "base",
+      "lamp": "left",
+      "status": "Ready to wake",
+      "elapsed_s": 0,
+      "macro_decisions": 0,
+      "native_controls": 0,
+      "history_frames": 1,
+      "light": "— lx",
+      "motion": "— rad/s",
+      "wake_enabled": true,
+      "pause_enabled": false,
+      "rebuild_enabled": true,
+      "message_hidden": true
+    },
+    "viewport_override_reset": true,
+    "normal_viewport": {
+      "width": 1666,
+      "height": 874
+    },
+    "console_errors": []
+  },
+  "policy_identity": {
+    "source_seed": 101,
+    "training": "pooled",
+    "frozen": true,
+    "source_checkpoint_sha256": "4c7ce76f644dd07d41340ef311d5f797578fa58f0470e2b89aa49c0d3b93082c",
+    "actor_sha256": "73db0a5e562fe052c81894844fac08bdc35676da356b8acefd7e3602f4bb5e2b",
+    "unchanged_across_observed_runs_and_rebuilds": true
+  },
+  "final_frontend_assets": {
+    "web/pretrained.html": "12d31b37ac0041dc3a727c5b7537e4ccd764b479462240d1c89000094e9ea679",
+    "web/pretrained.css": "397b80532d24c0a9be0ff4274227f117b138e04e85c2e359aa59df32a11ca80d",
+    "web/pretrained.js": "fe93efc9976fd22ec58d85c2b39d46c24275f6d6a32e9b1fbf257234776406fc"
+  },
+  "retained_prior_javascript": {
+    "path": "auditor_snapshot/web-http-v1/pretrained.js",
+    "sha256": "a1cbcabfbb22c71533d761f6e5c68d9b091213785c38bb76dee53bcbb97f6a8c",
+    "matches": "http-service-v1.json assets['/pretrained.js'].sha256",
+    "reconstruction": "Exact inverse of the two browser-discovered UI deltas, hash verified in memory before publication and rechecked on archived bytes. The prior HTTP receipt was preserved."
+  },
+  "limitations": [
+    "The enabled in-app browser was unavailable; a dedicated Edge tab was used and marked as a deliverable.",
+    "CUA startup required one session reset; one screenshot request timed out and was recovered using the documented tab screenshot API.",
+    "Screenshots were emitted through CUA. No local screenshot path was returned, so no separate image file was invented or downloaded.",
+    "A screenshot after the final fresh-default DOM observation showed a weighted running case, consistent with concurrent root HTTP-v2 matrix verification; the final DOM observation is separately recorded and root owns final post-HTTP restoration.",
+    "No forced service outage, stale-session injection or terminal safety stop was performed through the browser. These paths rely on separate native/HTTP verification.",
+    "No host development toolchain was used. The final source was reloaded and parsed by the actual browser."
+  ]
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="droid_blocks">
+  <compiler angle="radian" autolimits="true" inertiafromgeom="auto"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"
+          cone="elliptic" iterations="40"/>
+
+  <default>
+    <geom contype="1" conaffinity="1" condim="4"
+          friction="0.95 0.01 0.001" solref="0.008 1"
+          solimp="0.9 0.95 0.001"/>
+    <joint damping="0.12" armature="0.002"/>
+    <motor ctrllimited="true" ctrlrange="-4 4"/>
+  </default>
+
+  <asset>
+    <material name="ground_material" rgba="0.11 0.13 0.16 1"/>
+    <material name="chassis_material" rgba="0.16 0.45 0.78 1"/>
+    <material name="power_material" rgba="0.95 0.58 0.12 1"/>
+    <material name="sensor_material" rgba="0.26 0.92 0.76 1"/>
+    <material name="wheel_material" rgba="0.035 0.04 0.055 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="key_light" directional="true" pos="0 0 6" dir="-0.2 -0.25 -1"/>
+    <geom name="ground" type="plane" size="25 6 0.1"
+          material="ground_material" friction="1.1 0.01 0.001"/>
+    <site name="track_start" type="box" pos="-20 0 0.006" size="0.025 2.5 0.005"
+          rgba="0.25 0.85 0.65 0.8"/>
+    <site name="track_finish" type="box" pos="20 0 0.006" size="0.025 2.5 0.005"
+          rgba="0.95 0.45 0.25 0.8"/>
+
+    <body name="droid" pos="0 0 0.24">
+      <freejoint name="root"/>
+      <geom name="chassis" type="box" size="0.32 0.22 0.075"
+            density="125" material="chassis_material"/>
+      <geom name="front_bumper" type="capsule" fromto="0.34 -0.2 0 0.34 0.2 0"
+            size="0.025" density="80" rgba="0.12 0.19 0.27 1"/>
+      <geom name="rear_bumper" type="capsule" fromto="-0.34 -0.2 0 -0.34 0.2 0"
+            size="0.025" density="80" rgba="0.12 0.19 0.27 1"/>
+      <site name="touch_front_site" type="box" pos="0.34 0 0"
+            size="0.04 0.22 0.04" rgba="0.72 0.84 0.38 0.08"/>
+      <site name="touch_rear_site" type="box" pos="-0.34 0 0"
+            size="0.04 0.22 0.04" rgba="0.72 0.84 0.38 0.08"/>
+
+      <body name="module_power" pos="-0.08 0 0.105">
+        <geom name="power_pack" type="box" size="0.11 0.14 0.035"
+              density="220" material="power_material"/>
+      </body>
+
+      <body name="module_sensor" pos="0.15 0 0.115">
+        <geom name="sensor_pod" type="cylinder" size="0.05 0.04"
+              density="160" material="sensor_material"/>
+        <site name="light_sensor_site" type="sphere" pos="0 0 0.045" size="0.012"
+              rgba="0.8 1 0.94 1"/>
+      </body>
+
+      <body name="module_front_left_wheel" pos="0.22 0.265 -0.11">
+        <joint name="wheel_front_left_joint" type="hinge" axis="0 1 0"/>
+        <geom name="wheel_front_left" type="cylinder" size="0.12 0.045"
+              quat="0.7071068 0.7071068 0 0" density="250"
+              material="wheel_material" friction="1.25 0.012 0.001"/>
+      </body>
+
+      <body name="module_front_right_wheel" pos="0.22 -0.265 -0.11">
+        <joint name="wheel_front_right_joint" type="hinge" axis="0 1 0"/>
+        <geom name="wheel_front_right" type="cylinder" size="0.12 0.045"
+              quat="0.7071068 0.7071068 0 0" density="250"
+              material="wheel_material" friction="1.25 0.012 0.001"/>
+      </body>
+
+      <body name="module_rear_left_wheel" pos="-0.22 0.265 -0.11">
+        <joint name="wheel_rear_left_joint" type="hinge" axis="0 1 0"/>
+        <geom name="wheel_rear_left" type="cylinder" size="0.12 0.045"
+              quat="0.7071068 0.7071068 0 0" density="250"
+              material="wheel_material" friction="1.25 0.012 0.001"/>
+      </body>
+
+      <body name="module_rear_right_wheel" pos="-0.22 -0.265 -0.11">
+        <joint name="wheel_rear_right_joint" type="hinge" axis="0 1 0"/>
+        <geom name="wheel_rear_right" type="cylinder" size="0.12 0.045"
+              quat="0.7071068 0.7071068 0 0" density="250"
+              material="wheel_material" friction="1.25 0.012 0.001"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="drive_front_left" joint="wheel_front_left_joint" gear="1"/>
+    <motor name="drive_front_right" joint="wheel_front_right_joint" gear="1"/>
+    <motor name="drive_rear_left" joint="wheel_rear_left_joint" gear="1"/>
+    <motor name="drive_rear_right" joint="wheel_rear_right_joint" gear="1"/>
+  </actuator>
+
+  <sensor>
+    <touch name="touch_front_force" site="touch_front_site"/>
+    <touch name="touch_rear_force" site="touch_rear_site"/>
+    <jointpos name="encoder_front_left_position" joint="wheel_front_left_joint"/>
+    <jointvel name="encoder_front_left_velocity" joint="wheel_front_left_joint"/>
+    <jointpos name="encoder_front_right_position" joint="wheel_front_right_joint"/>
+    <jointvel name="encoder_front_right_velocity" joint="wheel_front_right_joint"/>
+    <jointpos name="encoder_rear_left_position" joint="wheel_rear_left_joint"/>
+    <jointvel name="encoder_rear_left_velocity" joint="wheel_rear_left_joint"/>
+    <jointpos name="encoder_rear_right_position" joint="wheel_rear_right_joint"/>
+    <jointvel name="encoder_rear_right_velocity" joint="wheel_rear_right_joint"/>
+  </sensor>
+</mujoco>

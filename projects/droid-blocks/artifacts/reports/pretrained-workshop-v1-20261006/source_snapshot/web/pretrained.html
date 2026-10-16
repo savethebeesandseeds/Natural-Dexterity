@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b31">
+  <meta name="description" content="Build a two-link Droid Blocks creature, wake its pretrained brain, and rebuild it with the same saved knowledge.">
+  <title>Droid Blocks — Ready before its first move</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/construction.css">
+  <link rel="stylesheet" href="/pretrained.css">
+  <script src="/pretrained.js" defer></script>
+</head>
+<body class="pretrained-workshop">
+  <a class="skip-link" href="#creature-bench">Skip to your creature</a>
+  <main class="workshop pretrained-page">
+    <header class="masthead">
+      <a class="home-link" href="/">← Droid Blocks workshop</a>
+      <div class="connection-group"><span class="connection" data-connection data-state="waiting"><i aria-hidden="true"></i><span data-connection-text>Connecting to the engine</span></span><button type="button" class="reconnect-button" data-reconnect hidden>Try again</button></div>
+    </header>
+
+    <div class="introduction pretrained-introduction">
+      <div><p class="eyebrow">The airship workshop · A brain to build with</p><h1>Ready before<br>its first move.</h1><p>Give it a body. Put the sunshine nearby.<br>Wake the knowledge it brought from simulation.</p></div>
+      <div class="brain-stamp" aria-hidden="true"><span>BUILD</span><svg viewBox="0 0 110 90"><path d="M55 10v18m0 0-18 23 9 25m9-48 18 23-9 25"/><circle cx="55" cy="28" r="8"/><circle cx="37" cy="51" r="5"/><circle cx="73" cy="51" r="5"/><path class="stamp-ray" d="m15 17 5 5m-8 8h8m75-13-5 5m8 8h-8"/></svg><span>WAKE · REBUILD</span></div>
+    </div>
+
+    <div class="brain-banner"><span class="brain-icon" aria-hidden="true">✦</span><div><strong data-brain-status>Preparing its pretrained brain</strong><p>One saved brain. A different body each time. Its weights stay fixed while you watch.</p></div><span class="brain-tag" data-policy-chip>Simulation pretrained</span></div>
+
+    <div class="bench-layout pretrained-layout">
+      <section class="building-bench" id="creature-bench" aria-labelledby="bench-title">
+        <div class="bench-heading"><div><span class="bench-dot" aria-hidden="true"></span><h2 id="bench-title" data-body-name>Your creature</h2></div><span data-run-status>Waiting for the engine</span></div>
+        <div class="pretrained-scene-wrap">
+          <svg data-scene viewBox="0 0 800 500" role="img" aria-labelledby="pretrained-scene-title pretrained-scene-description"><title id="pretrained-scene-title">Your pretrained creature</title><desc id="pretrained-scene-description">A two-link creature, its powered hinge, attached eye and sunshine. Native physical positions appear when the engine connects.</desc></svg>
+          <div class="scene-topline"><span data-scene-note>A little creature, ready to wake</span><output data-time aria-label="Elapsed simulated time">0.0 / 64 s</output></div>
+          <div class="scene-key"><span><i class="motor-dot" aria-hidden="true"></i>Powered hinge</span><span><i class="eye-dot" aria-hidden="true"></i>Light-sensitive face</span></div>
+          <p class="scene-overlay" data-scene-state>Connecting to native physics…</p>
+        </div>
+        <div class="run-controls"><button type="button" class="quiet-button" data-rebuild disabled>Rebuild</button><button type="button" class="wake-button" data-wake disabled>Wake this creature ↗</button><button type="button" class="quiet-button" data-pause disabled>Pause</button></div>
+        <p class="run-note" data-run-note>Choose a body, then wake it. The saved brain is ready from the start.</p>
+      </section>
+
+      <aside class="parts-panel pretrained-parts" aria-labelledby="parts-title">
+        <div class="panel-heading"><h2 id="parts-title">Build your creature</h2><span class="step-mark" aria-hidden="true">01—03</span></div>
+        <fieldset class="body-choices"><legend><span>01</span> Choose its body</legend><div class="body-card-grid">
+          <button type="button" class="body-card" data-body="long_upper" aria-pressed="true"><svg viewBox="0 0 80 74" aria-hidden="true"><path class="upper" d="M34 10v33"/><path class="lower" d="M34 43 48 63"/><circle cx="34" cy="10" r="4"/><circle cx="34" cy="43" r="3"/></svg><span>Long upper</span><small>5 + 3 studs</small></button>
+          <button type="button" class="body-card" data-body="long_lower" aria-pressed="false"><svg viewBox="0 0 80 74" aria-hidden="true"><path class="upper" d="M34 10v20"/><path class="lower" d="M34 30 50 63"/><circle cx="34" cy="10" r="4"/><circle cx="34" cy="30" r="3"/></svg><span>Long lower</span><small>3 + 5 studs</small></button>
+          <button type="button" class="body-card" data-body="weighted" aria-pressed="false"><svg viewBox="0 0 80 74" aria-hidden="true"><path class="upper" d="M29 8v27"/><path class="lower" d="M29 35 45 64"/><circle cx="29" cy="8" r="4"/><circle cx="29" cy="35" r="3"/><rect x="49" y="51" width="12" height="12" rx="2"/></svg><span>A little weight</span><small>5 + 5 · one block</small></button>
+        </div></fieldset>
+        <fieldset class="choice-pair"><legend><span>02</span> Put its motor</legend><div><button type="button" data-motor="base" aria-pressed="true">At the anchor</button><button type="button" data-motor="elbow" aria-pressed="false">At the elbow</button></div></fieldset>
+        <fieldset class="choice-pair"><legend><span>03</span> Put the sunshine</legend><div><button type="button" data-lamp="left" aria-pressed="true">← Left</button><button type="button" data-lamp="right" aria-pressed="false">Right →</button></div></fieldset>
+        <p class="draft-status" data-draft-status>Waiting to confirm this body with the engine.</p>
+        <p class="same-brain-note"><span aria-hidden="true">↝</span> Rebuilding starts fresh sensor memory.<br>The pretrained brain comes with it.</p>
+      </aside>
+    </div>
+
+    <p class="message" data-message role="alert" hidden></p>
+    <section class="pretrained-senses" aria-labelledby="senses-title">
+      <div class="senses-heading"><div><p class="eyebrow">What it can feel</p><h2 id="senses-title">A moment at a time.</h2></div><p data-sample-note>Waiting for the first delivered sensor readings.</p></div>
+      <div class="reading-grid">
+        <article class="light-reading"><span class="reading-icon" aria-hidden="true">◉</span><div><h3>Light on its face</h3><strong data-light>— <small>lx</small></strong><meter data-light-meter min="0" max="1000" value="0" aria-label="Delivered light reading" hidden>Waiting for a valid reading</meter><p data-light-note>Its first sample is still ahead.</p></div></article>
+        <article><span class="reading-icon motion-icon" aria-hidden="true">↝</span><div><h3>Motion it feels</h3><strong data-motion>— <small>rad/s</small></strong><p>Angular speed at its attached sensor.</p></div></article>
+        <article><span class="reading-icon" aria-hidden="true">↻</span><div><h3>Motor effort</h3><strong data-effort>—</strong><p data-effort-note>Waiting for its first choice.</p></div></article>
+      </div>
+      <div class="brightness-history"><svg data-light-chart viewBox="0 0 900 112" role="img" aria-label="Delivered light over this run; no samples yet"></svg><div><span>Light measured in this run</span><span data-history-time>0 / 64 s</span></div></div>
+    </section>
+
+    <p class="scope-caption">A native simulation of one anchored two-link creature, one motor and a light-sensitive face. Parts can pass through each other.</p>
+    <details class="inside-notes pretrained-details" data-details><summary>Peek inside its saved brain <span aria-hidden="true">+</span></summary><div><p>This controller was pretrained across 32 simulation conditions. Rebuilding changes the body and clears its recent sensor history; it does not train or change the saved policy. Its choices use local motor, motion and light feedback, without receiving the body layout or the lamp position.</p><p>Choices remain stochastic: the portable sampler matches the policy's probabilities, rather than Torch's seeded action sequence.</p><p>This demo uses the first declared training seed, 101. Its supported choices are three body layouts, two motor placements and two lamp positions within the same two-link graph. The research result does not establish arbitrary creature topology, walking, hardware transfer or a child's waiting time.</p><dl class="brain-facts"><div><dt>Policy</dt><dd data-policy-id>Waiting</dd></div><div><dt>Pretraining</dt><dd>Pooled curriculum · 98,304 decisions</dd></div><div><dt>Weights during this run</dt><dd data-frozen>Waiting to confirm</dd></div><div><dt>Choices / native controls</dt><dd data-counts>0 / 0</dd></div><div><dt>Recent history frames</dt><dd data-frames>0</dd></div><div><dt>Checkpoint SHA-256</dt><dd><code data-checkpoint>—</code></dd></div><div><dt>Actor SHA-256</dt><dd><code data-actor>—</code></dd></div></dl><p><a href="/api/pretrained/trace" download>Download this session's native record</a> · <a href="/discoveries.html">Read the research notebook</a></p><details class="service-details"><summary>Simulation specification</summary><pre data-spec>Reading the simulation specification…</pre></details></div></details>
+    <p class="screen-reader-status" data-live aria-live="polite"></p>
+  </main>
+</body>
+</html>

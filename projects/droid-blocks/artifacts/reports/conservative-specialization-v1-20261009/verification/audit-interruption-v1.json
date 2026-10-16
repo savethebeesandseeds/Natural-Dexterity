@@ -1,0 +1,61 @@
+{
+  "schema": "conservative_specialization_audit_interruption_v1",
+  "created_at_utc": "2026-10-09T17:01:33.1209402Z",
+  "observation": "Audit-v1 session could no longer be resumed; its retained receipt is empty. The same managed container was observed stopped before recovery.",
+  "stopped_container": {
+    "id": "a3eabc3183e054aafd42304857b6a10b2c3a7cf15787fcf177149335e6aeaaaf",
+    "name": "droid-blocks-dev",
+    "image_id": "sha256:eabe48053a78bcb334a947e7a5c0c009d6ff174a3b5e57e2493593d423b91068",
+    "observed_at_utc": "2026-10-09T16:55:15Z",
+    "exit_code": 255,
+    "oom_killed": false,
+    "error": "",
+    "finished_at_utc": "2026-10-09T16:53:57.886343357Z",
+    "cause": "Not established by available inspection and logs"
+  },
+  "last_delivered_progress": {
+    "phase": "targets",
+    "completed": 60,
+    "planned": 144,
+    "checks": 4447070,
+    "failed": 0,
+    "provenance": "Recorded in the earlier tool-session output; not a final audit result"
+  },
+  "collection": {
+    "target_attempts": 144,
+    "guard_attempts": 150,
+    "safely_completed": 292,
+    "decisions": 187919,
+    "successful_native_controls": 939593,
+    "new_collection_or_training_performed_for_recovery": false
+  },
+  "retained_files": [
+    {
+      "path": "verification/audit-v1.json",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "targets/stage.json",
+      "size": 36721,
+      "sha256": "ac95e0d9fe4acd4aec5a1cb2e63d54557e8893823ef167064a83b65e024d2b5d"
+    },
+    {
+      "path": "targets/seal.json",
+      "size": 391079,
+      "sha256": "6f4bc4864ec5f17541fc600c06bc7a6f8f243cbaa33ecd756bf99841264d4e38"
+    },
+    {
+      "path": "guards/stage.json",
+      "size": 43079,
+      "sha256": "8d49d0e10b144137d0eeb7ef58aafa82638c17b29201eed05b0df2de0b4b4dbb"
+    }
+  ],
+  "recovery": {
+    "action": "Start the same fully inspected matching container; verify frozen protocol/runtime; replay existing evidence into an exclusive new audit receipt",
+    "protocol_sha256": "cfe2dd83b378bc7fa50367aaffe058143c866d5d218804a4e32ae05b4924d38c",
+    "replacement_receipt": "verification/audit-v2.json",
+    "empty_attempt_preserved": true,
+    "scientific_trial_retries": 0
+  }
+}

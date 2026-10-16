@@ -1,0 +1,223 @@
+{
+  "schema": "generalization_study_trial_v1",
+  "protocol_sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727",
+  "trial_id": "development--development-long-upper-elbow-left--pooled--101",
+  "partition": "development",
+  "case_id": "development-long-upper-elbow-left",
+  "case_index": 2,
+  "controller": "pooled",
+  "seed": 101,
+  "action_seed": 101012,
+  "held_out": false,
+  "weight_updates": 0,
+  "complete": true,
+  "safe": true,
+  "error": null,
+  "close_error": null,
+  "cancelled": false,
+  "exposure_exact": true,
+  "native_failure": null,
+  "unresolved_request": null,
+  "metrics": {
+    "decisions": 640,
+    "native_steps": 3200,
+    "duration_s": 64.00000000000064,
+    "native_reward": 58.9208555601225,
+    "light_reward": 59.164540800781594,
+    "imu_reward": -0.24368524065908045,
+    "energy_j": 10.382457472,
+    "safety_stops": 0,
+    "max_current_a": 0.3749467171890547,
+    "max_speed_rad_s": 3.9327118689109635,
+    "max_temperature_c": 25.467514774860696,
+    "sampled_invalid_imu": 0,
+    "sampled_invalid_light": 0,
+    "sampled_light_lux_sum": 390878.92601447116,
+    "sampled_valid_light_count": 640,
+    "sampled_max_light_lux": 652.886459881,
+    "sampled_feedback_flag_count": 0,
+    "sampled_mean_light_lux": 610.7483218976112
+  },
+  "wall_s": 0.9223447349995695,
+  "wall_cap_exceeded": false,
+  "checkpoint": {
+    "path": "sources/source-pooled-101/policy.zip",
+    "sha256": "4c7ce76f644dd07d41340ef311d5f797578fa58f0470e2b89aa49c0d3b93082c"
+  },
+  "checkpoint_parameter_sha256": "30cb3f0efad3b0a6755cecafac73366aef1b925e2ee30f62b1bab989a04023dc",
+  "initial_parameter_sha256": "30cb3f0efad3b0a6755cecafac73366aef1b925e2ee30f62b1bab989a04023dc",
+  "final_parameter_sha256": "30cb3f0efad3b0a6755cecafac73366aef1b925e2ee30f62b1bab989a04023dc",
+  "frozen_weights_unchanged": true,
+  "initial_local_observation": {
+    "actuator_feedback": [
+      {
+        "feedback": {
+          "bus_voltage_v": 7.4,
+          "current_a": 0.0,
+          "fault_flags": [],
+          "load_impedance_nm_s_per_rad": 0.0,
+          "output_torque_nm": 0.0,
+          "position_rad": 0.0,
+          "stuck": false,
+          "stuck_score": 0.0,
+          "temperature_c": 25.0,
+          "velocity_rad_s": 0.0
+        },
+        "module_id": "motor-0001",
+        "sku_id": "rotary_dc_gearmotor_v0",
+        "valid": true
+      }
+    ],
+    "reward_sensors": [
+      {
+        "age_s": null,
+        "delivered_time_s": null,
+        "family_id": "imu_6axis_v0",
+        "latency_s": 0.006,
+        "module_id": "imu-0001",
+        "observations": {
+          "angular_velocity_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "specific_force_m_s2": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "sample_period_s": 0.01,
+        "sample_time_s": null,
+        "sequence": 0,
+        "valid": false
+      },
+      {
+        "age_s": null,
+        "delivered_time_s": null,
+        "family_id": "ambient_light_v0",
+        "latency_s": 0.02,
+        "module_id": "light-0001",
+        "observations": {
+          "illuminance_lux": 0.0,
+          "saturated": false
+        },
+        "sample_period_s": 0.1,
+        "sample_time_s": null,
+        "sequence": 0,
+        "valid": false
+      }
+    ],
+    "schema_version": "construction_observation_v2"
+  },
+  "windows": [
+    {
+      "requested_decisions": 64,
+      "complete": true,
+      "metrics": {
+        "decisions": 64,
+        "native_steps": 320,
+        "duration_s": 6.399999999999993,
+        "native_reward": 5.532176194577143,
+        "light_reward": 5.549451803910957,
+        "imu_reward": -0.017275609333814647,
+        "energy_j": 1.053192046,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467168520594,
+        "max_speed_rad_s": 3.7226088184900052,
+        "max_temperature_c": 25.048491598949727,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 33395.061844702,
+        "sampled_valid_light_count": 64,
+        "sampled_max_light_lux": 644.526325849,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 521.7978413234688
+      }
+    },
+    {
+      "requested_decisions": 128,
+      "complete": true,
+      "metrics": {
+        "decisions": 128,
+        "native_steps": 640,
+        "duration_s": 12.79999999999997,
+        "native_reward": 11.478811537294256,
+        "light_reward": 11.503010928430037,
+        "imu_reward": -0.024199391135782407,
+        "energy_j": 2.068719481,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467170563821,
+        "max_speed_rad_s": 3.7226088184900052,
+        "max_temperature_c": 25.105571901399664,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 72940.77471090601,
+        "sampled_valid_light_count": 128,
+        "sampled_max_light_lux": 652.886459881,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 569.8498024289532
+      }
+    },
+    {
+      "requested_decisions": 320,
+      "complete": true,
+      "metrics": {
+        "decisions": 320,
+        "native_steps": 1600,
+        "duration_s": 32.000000000000185,
+        "native_reward": 29.263684492997605,
+        "light_reward": 29.357998226751693,
+        "imu_reward": -0.09431373375408457,
+        "energy_j": 5.098896796,
+        "safety_stops": 0,
+        "max_current_a": 0.37494671710722616,
+        "max_speed_rad_s": 3.8894746273179717,
+        "max_temperature_c": 25.257730316680597,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 191526.85144529803,
+        "sampled_valid_light_count": 320,
+        "sampled_max_light_lux": 652.886459881,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 598.5214107665563
+      }
+    },
+    {
+      "requested_decisions": 640,
+      "complete": true,
+      "metrics": {
+        "decisions": 640,
+        "native_steps": 3200,
+        "duration_s": 64.00000000000064,
+        "native_reward": 58.9208555601225,
+        "light_reward": 59.164540800781594,
+        "imu_reward": -0.24368524065908045,
+        "energy_j": 10.382457472,
+        "safety_stops": 0,
+        "max_current_a": 0.3749467171890547,
+        "max_speed_rad_s": 3.9327118689109635,
+        "max_temperature_c": 25.467514774860696,
+        "sampled_invalid_imu": 0,
+        "sampled_invalid_light": 0,
+        "sampled_light_lux_sum": 390878.92601447116,
+        "sampled_valid_light_count": 640,
+        "sampled_max_light_lux": 652.886459881,
+        "sampled_feedback_flag_count": 0,
+        "sampled_mean_light_lux": 610.7483218976112
+      }
+    }
+  ],
+  "case_construction_requests": 1,
+  "reserved_case_construction_requests": 0,
+  "request_tape": {
+    "path": "requests.json.gz",
+    "sha256": "a0633313fdb5d4cc91e76aaeb84765e8074f26c72b68a5d8ccc6ab1a32134bd1",
+    "native_stream_sha256": "1feadb46e1a2613fb92080d47ad4818b5b028cc244ca686b0552ad03dfc72ec6",
+    "request_count": 642
+  },
+  "telemetry": {
+    "path": "telemetry.json.gz",
+    "sha256": "e4b58aac9c54f2d077040f10399e8c7ea41801963b2021de70b9cc48ca558e51"
+  }
+}

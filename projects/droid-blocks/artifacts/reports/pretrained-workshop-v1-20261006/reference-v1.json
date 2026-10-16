@@ -1,0 +1,375 @@
+{
+  "schema": "pretrained_actor_reference_verification_v1",
+  "created_at_utc": "2026-10-06T21:03:31.686810+00:00",
+  "artifact": {
+    "path": "artifacts/pretrained/pooled-seed101-v1.json",
+    "sha256": "6263b6204e00abf7362d096cca080012fbf8f9dca940a1411c66dff10499260e"
+  },
+  "verifier_source": {
+    "path": "training/verify_pretrained_actor.py",
+    "sha256": "5f78b6fce9363ac308f752115780a39eaccd1c3b8365f4b3fe1ced8cb352e5e7"
+  },
+  "exporter_source": {
+    "path": "training/export_pretrained_actor.py",
+    "sha256": "2d2cd9e73cf29ec5f14f51608703347258664db39449ca806d761aac8345fa4b"
+  },
+  "native_binary": {
+    "path": "build/native/droid-pretrained-actor",
+    "sha256": "c5ac6b9f3c5b1f04c8d9d3db8a00f9b6f382a8a7a6763304255fb3738e15d858"
+  },
+  "weight_updates": 0,
+  "new_reserved_world_calls": 0,
+  "counts": {
+    "actor_inputs": 647,
+    "frames": 6,
+    "histories": 174,
+    "known_telemetry_inputs": 168,
+    "categorical_thresholds": 175,
+    "negative_cases": 6
+  },
+  "max_abs_logit_error": 2.3245811462402344e-06,
+  "max_abs_probability_error": 7.748603820800781e-07,
+  "reference_vector_stream_sha256": "e04a68eabe7a992710008e9182c67308b2d32cb9520ca982dc04c6581330b280",
+  "known_telemetry_references": [
+    {
+      "case_id": "development-long-upper-base-left",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-base-left--pooled--101/result.json",
+        "sha256": "04bfc6534555e35ecaee500d880112a96572888a7a9fdbe5c5da67a637bd8fb7"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-base-left--pooled--101/traces/telemetry.json.gz",
+        "sha256": "dfb87272022dcf0a0cd12347c39f1d7c3adc6fb0c30f17e71908db759749de38"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-upper-base-right",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-base-right--pooled--101/result.json",
+        "sha256": "c99f328b5091f62ee75cc47933f9f9d1d32162ad849310bb19cf43bbc21a4368"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-base-right--pooled--101/traces/telemetry.json.gz",
+        "sha256": "02d98ad0cee90d5ac3d95493fbe6f2a9814979d13b376626a88496037e24d0b3"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-upper-elbow-left",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-elbow-left--pooled--101/result.json",
+        "sha256": "f78771fb4c457af05efe853a5048c591f52d935e2be0a273000b04b7e9f7a8d0"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-elbow-left--pooled--101/traces/telemetry.json.gz",
+        "sha256": "e4b58aac9c54f2d077040f10399e8c7ea41801963b2021de70b9cc48ca558e51"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-upper-elbow-right",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-elbow-right--pooled--101/result.json",
+        "sha256": "92b8cead1c39ffad969949badb1edc9982506551cfcdbe719df8067c21ae11c1"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-upper-elbow-right--pooled--101/traces/telemetry.json.gz",
+        "sha256": "b4e7d9213264363fe58b62372043619ad4465b03ba00f57ba3e2e745dc1367a0"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-lower-base-left",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-base-left--pooled--101/result.json",
+        "sha256": "7c23fea8b5f88be0d4e7f1cef419237bd37d17314e11ab7644382b642b73e80a"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-base-left--pooled--101/traces/telemetry.json.gz",
+        "sha256": "44d7b03679306cf09bc5fffc2c499d294d82e4395bce7fdcc9f62f83dc6a197e"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-lower-base-right",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-base-right--pooled--101/result.json",
+        "sha256": "a385ed30d81723650932ee88e33fb436f1340b553aea4247d68f4849206da678"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-base-right--pooled--101/traces/telemetry.json.gz",
+        "sha256": "23cc770d917d090d046d2214f88750319a6abfb5b348ff8d1753a6ed98ff9955"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-lower-elbow-left",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-elbow-left--pooled--101/result.json",
+        "sha256": "f4ba5016f086343d9be0bcdbae7a5745df1fab30326a33e1bb64161a4c74117e"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-elbow-left--pooled--101/traces/telemetry.json.gz",
+        "sha256": "cb487136ba8d6c33993e5decdd6b86986a80d5fdf7d04ee8860bac4f53fbc746"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-long-lower-elbow-right",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-elbow-right--pooled--101/result.json",
+        "sha256": "b588928c2277ffe4fcfdf1006f999bc04e016aa0123d1f11495d917a19b9dfad"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-long-lower-elbow-right--pooled--101/traces/telemetry.json.gz",
+        "sha256": "94e4d19d2484a5ffd2287e9856b666541537201ad46fa370b963f08b827b3aa3"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-weighted-base-left",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-base-left--pooled--101/result.json",
+        "sha256": "1cb8ce62a932abee45bad8727417017053cbb687c786b8ccb6d926e1639b06a7"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-base-left--pooled--101/traces/telemetry.json.gz",
+        "sha256": "e9136429194835d501f4eb57802cd6a22797bfb210cade238ac32c57691ccc65"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-weighted-base-right",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-base-right--pooled--101/result.json",
+        "sha256": "5658d26373e594b705ba858a382a8d02e200dbd026b3387781b2bf790a030da3"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-base-right--pooled--101/traces/telemetry.json.gz",
+        "sha256": "4aea9780f479479f6f49075c468e27bc409ce78dafa6ac70fbda7a9673e06673"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-weighted-elbow-left",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-elbow-left--pooled--101/result.json",
+        "sha256": "15033a98f7e26ff28e03663ce6d3a19cc732cb0989723be6c8d428eb50c38e9c"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-elbow-left--pooled--101/traces/telemetry.json.gz",
+        "sha256": "30c626199461996acd2f538da118c93109813ff130027dfb847cd69a5b372f6d"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    },
+    {
+      "case_id": "development-weighted-elbow-right",
+      "source_result": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-elbow-right--pooled--101/result.json",
+        "sha256": "a5ccef08de4428992db42470424ab4a21015e62caee54214e2f5104d501447d3"
+      },
+      "telemetry": {
+        "path": "artifacts/reports/generalization-study-v1-20261006/development/trials/development--development-weighted-elbow-right--pooled--101/traces/telemetry.json.gz",
+        "sha256": "69ec374ed419f5824982b475ec2f21341e43904c0c72eac96f4906f31286d7db"
+      },
+      "sampled_decisions": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12,
+        63,
+        64,
+        127,
+        128,
+        319,
+        320,
+        639,
+        640
+      ]
+    }
+  ],
+  "reserved_telemetry_read": false,
+  "native_world_calls": 0,
+  "training_decisions": 0,
+  "declared_gates": {
+    "input_frame_bytes_exact": true,
+    "max_abs_logit_error": 0.0001,
+    "max_abs_probability_error": 1e-05,
+    "categorical_thresholds_exact": true
+  },
+  "scope": "Float32 frames/history, frozen actor forward/probability outputs and supplied-uniform categorical semantics. This does not regenerate Torch's seeded sampled trajectories or evaluate new physical behavior.",
+  "native_parity_calls": 834,
+  "passed": true,
+  "checks": 3977,
+  "failed_checks": 0,
+  "errors": [],
+  "errors_truncated": false
+}

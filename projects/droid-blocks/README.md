@@ -3,8 +3,9 @@
 Droid Blocks is a Python-free C++20 MuJoCo development service for exploring modular robots. The project directory is bind-mounted into its Debian container, and `run.sh` incrementally configures, builds, tests, and starts the native server.
 
 The September 7 [neural transfer experiment](docs/ACTUATION_TRANSFER_RESULTS.md)
-used an isolated host Python environment with Stable-Baselines3 PPO; the native
-service and live learner remain separate. Open the
+historically used an isolated host Python environment with Stable-Baselines3
+PPO. Current development instructions require all new training inside the
+managed Linux container; the native service and live learner remain separate. Open the
 [recorded motor-move comparison](http://127.0.0.1:43117/transfer.html) to watch
 frozen transfer, continued learning and scratch share the same timeline.
 
@@ -12,6 +13,73 @@ New collaborators should begin with the living
 [`open project brief and handoff`](docs/OPEN_HANDOFF.md). It separates the
 current evidence and preserved contracts from the questions we actively invite
 others to challenge.
+
+## Pretrained competence on the first build
+
+The owner's October 6 clarification is that a child's first assembly should
+already benefit from broad simulated training, then need little new experience
+to specialize to its body. Retaining knowledge after rebuilding builds on that
+starting competence. The
+[prospective pooled-pretraining pilot](docs/GENERALIZATION_PRETRAINING_EXPERIMENT.md)
+uses the existing native two-link environment and established PPO implementation
+to prepare a first bounded comparison. Known development performance and
+genuinely new assembly performance are separate measurements; neither the old
+transfer study nor the fresh-memory headroom result proves this product goal.
+
+Optional CPU training dependencies are installed by
+`training/setup-generalization.sh` into the existing managed container's
+filesystem. Training and dependency caches stay in Linux; the base image and
+native launcher still build a C++ service. Follow the prospective protocol for
+its source manifest, declared budgets and execution commands.
+
+The [completed first pilot](docs/GENERALIZATION_PRETRAINING_RESULTS.md) trained
+one pooled policy on 32 conditions. With its weights frozen, it cleared the
+useful-behavior margin over quiet in all 12 known cases and beat the matched
+untrained policy in 10 of 12. All 36 development trials completed safely and
+37 native request tapes replayed exactly. Gains were uneven and two cases
+worsened relative to initialization. That pilot remains a known-domain record.
+
+The [completed three-seed breadth study](docs/GENERALIZATION_STUDY_RESULTS.md)
+then compared broad and narrow pretraining under equal budgets. All 36 broad
+policy runs safely completed across the twelve reserved body/light conditions, beat
+quiet by the declared margin and beat their saved untrained controls, with no
+weight updates. Broader training improved the mean in every seed but won only
+21 of 36 individual comparisons; narrow training also produced useful behavior
+on every target. Sixteen fixed-witness safety stops remain in the evidence.
+This is first-use geometry generalization within one anchored two-link graph.
+Useful online specialization, arbitrary connections, multiple motors and hardware
+remain separate milestones. The pretrained policy now powers the visible
+build/wake loop, and the bounded adaptation comparison below measures the next step.
+
+The [pretrained build-and-wake workshop](http://127.0.0.1:43117/pretrained.html)
+now integrates pooled seed 101's frozen actor into native real-time physics.
+Choose one of three evaluated bodies, change motor placement and lamp side,
+then Rebuild and Wake. Rebuilding clears old-body sensor history while retaining
+the same brain; Pause/Resume preserves an unfinished action. The
+[runtime contract and evidence](docs/PRETRAINED_WORKSHOP.md) explain the actor
+export, portable stochastic sampler, numerical checks and historical replay.
+This completes the visible pretrained reuse milestone in the bounded kit.
+
+The [October 7 specialization results](docs/SPECIALIZATION_RESULTS.md) compare
+128 learning decisions followed by 512 fixed-weight decisions against frozen
+reuse and matched scratch. All 294 target/retention opportunities safely completed,
+and independent replay passed 21,227,993 checks. Head-only tuning's median seed
+mean gain was −0.337379; full tuning's was +1.410498. Both missed the declared
+practical +3.2 gate. Both beat scratch in every whole target comparison, but
+frozen reuse also did so. Two-condition retention averages passed their gate;
+full tuning still lost 10.037916 in one probe. Keep the unchanged pretrained
+actor as the default while investigating useful, reliable specialization.
+
+The [October 9 longer-budget results](docs/CONSERVATIVE_SPECIALIZATION_RESULTS.md)
+tripled learning to 384 decisions within the same 640-decision opportunity.
+Conservative updates gained a median +1.213250 over frozen, below the +3.2
+usefulness gate. They also lost 5.008546 on one target and 34.334899 on one
+earlier-condition probe. Standard updates had two native safety stops and a
+41.550677 worst probe loss. Across all arms, 292 of 294 opportunities safely
+completed; both methods failed combined readiness. The next step is to diagnose
+checkpoint and action changes and design adaptation that preserves inherited
+competence before another prospective experiment. The live pretrained actor
+remains unchanged.
 
 ## Is there room for useful movement?
 

@@ -1,6 +1,7 @@
 #include "droid/environment.hpp"
 #include "droid/construction_session.hpp"
 #include "droid/light_session.hpp"
+#include "droid/pretrained_session.hpp"
 #include "droid/playground.hpp"
 #include "droid/simulation.hpp"
 
@@ -385,7 +386,8 @@ void guarded_agent_json(
 [[nodiscard]] int run_server(
     const Options& options,
     droid::PlaygroundSession& environment,
-    droid::ConstructionSession& construction, droid::LightSession& light) {
+    droid::ConstructionSession& construction, droid::LightSession& light,
+    droid::PretrainedSession& pretrained) {
     std::error_code error;
     const std::filesystem::path canonical_web_root =
         std::filesystem::canonical(options.web_root, error);
@@ -462,6 +464,15 @@ void guarded_agent_json(
     });
     server.Get("/api/light/spec", [](const auto&, auto& response) {
         guarded_json(response, [] { return droid::LightSession::specification(); });
+    });
+    server.Get("/api/pretrained/state", [&pretrained](const auto&, auto& response) {
+        guarded_json(response, [&pretrained] { return pretrained.state(); });
+    });
+    server.Get("/api/pretrained/spec", [](const auto&, auto& response) {
+        guarded_json(response, [] { return droid::PretrainedSession::specification(); });
+    });
+    server.Get("/api/pretrained/trace", [&pretrained](const auto&, auto& response) {
+        guarded_json(response, [&pretrained] { return pretrained.trace(); });
     });
     server.Get(R"(/api/.*)", [](const auto&, auto& response) {
         send_json(response, 404, Json{{"error", "not found"}});
@@ -693,6 +704,11 @@ void guarded_agent_json(
         if (!parse_json_object(request, response, payload)) return;
         guarded_agent_json(response, [&light, &payload] { return light.control(payload); });
     });
+    server.Post("/api/pretrained/control", [&pretrained](const httplib::Request& request, auto& response) {
+        Json payload;
+        if (!parse_json_object(request, response, payload)) return;
+        guarded_agent_json(response, [&pretrained, &payload] { return pretrained.control(payload); });
+    });
     server.Post(R"(/.*)", [](const auto&, auto& response) {
         send_json(response, 404, Json{{"error", "not found"}});
     });
@@ -768,7 +784,8 @@ int main(int argc, char** argv) {
             "artifacts/light-search-policy-v3-seed0.json", true);
         droid::ConstructionSession construction(true);
         droid::LightSession light(true);
-        return run_server(options, playground, construction, light);
+        droid::PretrainedSession pretrained(true);
+        return run_server(options, playground, construction, light, pretrained);
     } catch (const std::invalid_argument& error) {
         std::cerr << "error: " << error.what() << '\n';
         std::cerr << "Try --help for usage.\n";

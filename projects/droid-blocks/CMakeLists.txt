@@ -79,6 +79,8 @@ add_library(
   src/learner.cpp
   src/playground.cpp
   src/policy.cpp
+  src/pretrained_policy.cpp
+  src/pretrained_session.cpp
 )
 target_compile_options(droid_agent_core PRIVATE -Wall -Wextra -Wpedantic)
 target_link_libraries(droid_agent_core PUBLIC droid_core)
@@ -87,6 +89,19 @@ add_executable(droid-blocks-server src/main.cpp)
 target_include_directories(droid-blocks-server PRIVATE "${CPP_HTTPLIB_INCLUDE_DIR}")
 target_compile_options(droid-blocks-server PRIVATE -Wall -Wextra -Wpedantic)
 target_link_libraries(droid-blocks-server PRIVATE droid_agent_core)
+
+foreach(_pretrained_target IN ITEMS policy-tests session-tests actor session)
+  if(_pretrained_target STREQUAL "policy-tests" OR _pretrained_target STREQUAL "session-tests")
+    set(_pretrained_source "tests/native_pretrained_${_pretrained_target}.cpp")
+    string(REPLACE "-tests" "_tests" _pretrained_source "${_pretrained_source}")
+  else()
+    set(_pretrained_source "src/pretrained_${_pretrained_target}_cli.cpp")
+  endif()
+  add_executable(droid-pretrained-${_pretrained_target} "${_pretrained_source}")
+  target_compile_options(droid-pretrained-${_pretrained_target} PRIVATE -Wall -Wextra -Wpedantic)
+  target_link_libraries(droid-pretrained-${_pretrained_target} PRIVATE droid_agent_core)
+  set_target_properties(droid-pretrained-${_pretrained_target} PROPERTIES BUILD_RPATH "/opt/mujoco/lib")
+endforeach()
 
 add_executable(droid-agent src/agent_cli.cpp)
 target_compile_options(droid-agent PRIVATE -Wall -Wextra -Wpedantic)
@@ -265,6 +280,10 @@ set_target_properties(
 add_custom_target(
   droid-native-validation
   DEPENDS
+    droid-pretrained-policy-tests
+    droid-pretrained-session-tests
+    droid-pretrained-actor
+    droid-pretrained-session
     droid-transfer-env
     droid-native-construction-actuation-tests
     droid-blocks-server
@@ -298,6 +317,9 @@ add_custom_target(
 )
 
 if(BUILD_TESTING)
+  add_test(NAME native-pretrained-policy COMMAND droid-pretrained-policy-tests)
+  add_test(NAME native-pretrained-session COMMAND droid-pretrained-session-tests)
+  set_tests_properties(native-pretrained-policy native-pretrained-session PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
   add_test(NAME native-light-headroom COMMAND droid-native-light-headroom-tests)
   set_tests_properties(native-light-headroom PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
   add_test(NAME native-construction-actuation COMMAND droid-native-construction-actuation-tests)

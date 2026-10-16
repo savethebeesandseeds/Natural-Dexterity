@@ -1,0 +1,109 @@
+{
+  "schema": "conservative_specialization_container_reuse_v1",
+  "id": "a3eabc3183e054aafd42304857b6a10b2c3a7cf15787fcf177149335e6aeaaaf",
+  "name": "droid-blocks-dev",
+  "image": "droid-blocks:dev",
+  "image_id": "sha256:eabe48053a78bcb334a947e7a5c0c009d6ff174a3b5e57e2493593d423b91068",
+  "command": [
+    "/workspace/run.sh"
+  ],
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "C:\\Work\\Universalis-Materiae-Dexteritas\\projects\\droid-blocks",
+      "Destination": "/workspace",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "port_bindings": {
+    "8080/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "43117"
+      }
+    ]
+  },
+  "restart_policy": {
+    "Name": "no",
+    "MaximumRetryCount": 0
+  },
+  "named_volumes": [],
+  "devices": [],
+  "device_requests": [
+    {
+      "Driver": "",
+      "Count": -1,
+      "DeviceIDs": null,
+      "Capabilities": [
+        [
+          "gpu"
+        ]
+      ],
+      "Options": {}
+    }
+  ],
+  "init": true,
+  "shm_size": 1073741824,
+  "stop_timeout": 15,
+  "labels": {
+    "io.waajacu.managed": "true",
+    "io.waajacu.project": "droid-blocks"
+  },
+  "environment": [
+    "NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics",
+    "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "MUJOCO_GL=egl",
+    "LD_LIBRARY_PATH=/opt/mujoco/lib"
+  ],
+  "running": true,
+  "health": "healthy",
+  "started_at_utc": "2026-10-09T14:50:12.873308991Z",
+  "recreated": false,
+  "config_checks": {
+    "same_id": true,
+    "same_image": true,
+    "command": true,
+    "mount": true,
+    "ports": true,
+    "restart": true,
+    "volumes": true,
+    "devices": true,
+    "gpu": true,
+    "init": true,
+    "shared_memory": true,
+    "stop_timeout": true,
+    "labels": true,
+    "running": true,
+    "healthy": true
+  },
+  "config_passed": true,
+  "runtime": {
+    "cpu_only": true,
+    "machine": "x86_64",
+    "native_binary_sha256": "377b754985b2977c947e37e41cbbff286595fe70b08888c9fc32ece1db2d9777",
+    "native_command": [
+      "/workspace/build/native/droid-transfer-env"
+    ],
+    "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n",
+    "packages": {
+      "cloudpickle": "3.1.2",
+      "gymnasium": "1.2.3",
+      "numpy": "2.2.6",
+      "stable-baselines3": "2.9.0",
+      "torch": "2.8.0+cpu"
+    },
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+    "python_executable": "/opt/droid-blocks/generalization-venv/bin/python",
+    "schema": "generalization_runtime_v1",
+    "torch_deterministic_algorithms": true,
+    "torch_interop_threads": 1,
+    "torch_threads": 1
+  },
+  "runtime_scope": "Pinned package versions, platform and native hash read without constructing worlds; CPU/thread/determinism settings in runtime helper are declared execution settings.",
+  "native_worlds_constructed": 0,
+  "captured_at_utc": "2026-10-09 14:57:16 UTC"
+}
+

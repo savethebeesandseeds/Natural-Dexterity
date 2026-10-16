@@ -14,6 +14,23 @@ construction need not travel, and not every construction can perform every
 motion. Rocking, swinging, reaching, rolling, and remaining still belong in the
 possible vocabulary.
 
+### Owner clarification, 2026-10-06
+
+The first creature a child assembles should already benefit from substantial
+training across simulated bodies and environments. Broadly pretrained
+generalization is the starting competence, before the child supplies any new
+experience. Assembly-specific sensing and a small amount of online adaptation
+should specialize that competence; a rebuild should also retain useful personal
+experience. Learning each new creature from scratch is a research control, not
+the intended first-use experience.
+
+This requirement does not imply that every arrangement can perform every task.
+Evaluate frozen pretrained behavior on a new feasible assembly first, then
+measure the additional benefit and cost of bounded adaptation separately. The
+acceptable child's waiting time, supported assembly family and eventual device
+compute budget remain to be measured. See the
+[prospective pretraining pilot](GENERALIZATION_PRETRAINING_EXPERIMENT.md).
+
 ## First deliverable: build a swinging creature
 
 A small native construction bench brings actual shape editing and passive

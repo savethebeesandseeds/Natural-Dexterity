@@ -1,0 +1,51 @@
+{
+  "schema": "pretrained_actor_export_v1",
+  "created_at_utc": "2026-10-06T20:54:10.486996+00:00",
+  "artifact": {
+    "path": "artifacts/pretrained/pooled-seed101-v1.json",
+    "sha256": "6263b6204e00abf7362d096cca080012fbf8f9dca940a1411c66dff10499260e"
+  },
+  "actor_tensor_sha256": "f163453766fe2ca7f7bab75a0093238bbcfce682aaa8bf11529ddc1673d0454c",
+  "actor_bytes_sha256": "73db0a5e562fe052c81894844fac08bdc35676da356b8acefd7e3602f4bb5e2b",
+  "actor_parameters": 17475,
+  "provenance": {
+    "selection_rule": "first declared source seed, pooled arm; no target-score selection",
+    "source_arm": "pooled",
+    "source_seed": 101,
+    "source_decisions": 98304,
+    "protocol": {
+      "path": "artifacts/reports/generalization-study-v1-20261006/protocol.json",
+      "sha256": "4cf6fe175dfad1150c9264e2ab074f8df7fe575a978724bc7d3ffddb16915727"
+    },
+    "source_seal": {
+      "path": "artifacts/reports/generalization-study-v1-20261006/sources/sealed-checkpoints.json",
+      "sha256": "6404315c901c19972c7b190f797026431fc88ecd9006c6d0ebaa740feed18508"
+    },
+    "source_result": {
+      "path": "artifacts/reports/generalization-study-v1-20261006/sources/source-pooled-101/result.json",
+      "sha256": "b7239ade4c0853cfa4ddb4c798671ce33803669616e242b2d879d2827268880b"
+    },
+    "checkpoint": {
+      "path": "artifacts/reports/generalization-study-v1-20261006/sources/source-pooled-101/policy.zip",
+      "sha256": "4c7ce76f644dd07d41340ef311d5f797578fa58f0470e2b89aa49c0d3b93082c"
+    },
+    "native_audit": {
+      "path": "artifacts/reports/generalization-study-v1-20261006/verification/native-replay-v1.json",
+      "sha256": "92839768519ec6c3df1a7dc56f9ca25adcf563375886f26e3057fe679a19bf20"
+    },
+    "tensor_audit": {
+      "path": "artifacts/reports/generalization-study-v1-20261006/verification/tensors-v1.json",
+      "sha256": "35cbaf63da3a84ade402efc486573fb2b0dde520865b04407ad02faab14e5544"
+    },
+    "full_policy_parameter_sha256": "30cb3f0efad3b0a6755cecafac73366aef1b925e2ee30f62b1bab989a04023dc",
+    "exporter_source_sha256": "2d2cd9e73cf29ec5f14f51608703347258664db39449ca806d761aac8345fa4b"
+  },
+  "exporter_source": {
+    "path": "training/export_pretrained_actor.py",
+    "sha256": "2d2cd9e73cf29ec5f14f51608703347258664db39449ca806d761aac8345fa4b"
+  },
+  "weight_updates": 0,
+  "native_world_calls": 0,
+  "reserved_world_calls": 0,
+  "scope": "Lossless frozen actor export; forward and frame parity are separately verified before demo use."
+}
