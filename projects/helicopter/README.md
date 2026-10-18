@@ -68,7 +68,7 @@ required. See Docker's [Windows GPU prerequisites](https://docs.docker.com/deskt
 2. Build/start the managed environment from the project directory:
 
    ```powershell
-   Set-Location 'C:\Work\Universalis-Materiae-Dexteritas\projects\helicopter'
+   Set-Location 'C:\Work\Natural-Dexterity\projects\helicopter'
    .\helicopter.ps1 up
    ```
 

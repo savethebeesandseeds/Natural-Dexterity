@@ -20,7 +20,8 @@ param(
 $ErrorActionPreference = 'Stop'
 $ContainerName = 'atari-dev'
 $ImageName = 'atari:dev'
-$ProjectPath = [IO.Path]::GetFullPath($PSScriptRoot)
+. "$PSScriptRoot/../../tools/container-path.ps1"
+$ProjectPath = Resolve-ContainerProjectPath -ProjectPath $PSScriptRoot
 $ExpectedCommand = @('sh', '/workspace/run.sh')
 $ExpectedRestartPolicy = 'no'
 $GameWasSpecified = $PSBoundParameters.ContainsKey('Game')

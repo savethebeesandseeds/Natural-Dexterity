@@ -1,4 +1,22 @@
-# Universalis Materiae Dexteritas
+# Natural-Dexterity
+
+Repository: <https://github.com/savethebeesandseeds/Natural-Dexterity>.
+
+Use `C:\Work\Natural-Dexterity` for the local checkout. The former path,
+`C:\Work\Universalis-Materiae-Dexteritas`, remains available for existing Docker
+mounts and saved workspace references. A compatibility junction makes both names
+resolve to the same checkout. Keep both paths while those references are in use. Container
+names, IDs, images, dependencies, and experiment data are preserved. Historical
+reports, source snapshots, and verification records retain their original bytes.
+
+On Windows, open Codex helpers can prevent moving the backing directory. While
+it is locked, the new name is the junction to the original directory. After
+closing Codex, run the following from a separate PowerShell window to move the
+backing directory and leave the old name as the compatibility junction:
+
+```powershell
+pwsh -NoProfile -File C:\Work\Natural-Dexterity\tools\rename-local-checkout.ps1
+```
 
 Project experiments live under [`projects/`](projects/).
 
@@ -48,7 +66,7 @@ Prerequisites: Docker Desktop using Linux containers/WSL2, an NVIDIA GPU and
 compatible Windows driver, and PowerShell. From the repository root:
 
 ```powershell
-Set-Location 'C:\Work\Universalis-Materiae-Dexteritas\projects\helicopter'
+Set-Location 'C:\Work\Natural-Dexterity\projects\helicopter'
 .\helicopter.ps1 up
 .\helicopter.ps1 gpu
 ```

@@ -6,7 +6,9 @@ param(
 $ErrorActionPreference = 'Stop'
 $containerName = 'humanoid-mujoco-native'
 $imageName = 'humanoid-mujoco:dev'
-$projectRoot = [IO.Path]::GetFullPath($PSScriptRoot)
+. "$PSScriptRoot/../../tools/container-path.ps1"
+$projectRoot = Resolve-ContainerProjectPath -ProjectPath $PSScriptRoot
+# This preserved path also participates in the existing configuration digest.
 $expectedRoot = 'C:\Work\Universalis-Materiae-Dexteritas\projects\humanoid'
 if ($projectRoot -ne $expectedRoot) { throw "This definition is for $expectedRoot. Confirm a new definition before using another location." }
 $configText = [ordered]@{

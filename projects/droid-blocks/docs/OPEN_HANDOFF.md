@@ -533,7 +533,7 @@ Recommended reading order:
 The workspace is:
 
 ```text
-C:\Work\Universalis-Materiae-Dexteritas\projects\droid-blocks
+C:\Work\Natural-Dexterity\projects\droid-blocks
 ```
 
 Before touching Docker, inspect the existing managed container and compare its

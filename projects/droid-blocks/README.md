@@ -497,7 +497,7 @@ docker container create `
   --name droid-blocks-dev `
   --label io.waajacu.managed=true `
   --label io.waajacu.project=droid-blocks `
-  --mount 'type=bind,source=C:\Work\Universalis-Materiae-Dexteritas\projects\droid-blocks,target=/workspace' `
+  --mount 'type=bind,source=C:\Work\Natural-Dexterity\projects\droid-blocks,target=/workspace' `
   --publish 127.0.0.1:43117:8080 `
   --gpus all `
   --env NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics `
