@@ -57,7 +57,7 @@ preserved. See [the preserved conflict](runtime/port-conflict.json).
 | Container / image | `humanoid-mujoco-native` / `humanoid-mujoco:dev` |
 | Base image | `debian:12-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171` |
 | Command | `bash /workspace/run.sh` |
-| Bind mount | `C:\Work\Universalis-Materiae-Dexteritas\projects\humanoid` → `/workspace`, read-write |
+| Bind mount | `C:\Work\Natural-Dexterity\projects\humanoid` → `/workspace`, read-write |
 | Named volumes | None |
 | Viewer | `127.0.0.1:43871` → container `8080` |
 | Restart policy | `no` |

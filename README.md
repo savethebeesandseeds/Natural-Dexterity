@@ -2,21 +2,12 @@
 
 Repository: <https://github.com/savethebeesandseeds/Natural-Dexterity>.
 
-Use `C:\Work\Natural-Dexterity` for the local checkout. The former path,
-`C:\Work\Universalis-Materiae-Dexteritas`, remains available for existing Docker
-mounts and saved workspace references. A compatibility junction makes both names
-resolve to the same checkout. Keep both paths while those references are in use. Container
-names, IDs, images, dependencies, and experiment data are preserved. Historical
-reports, source snapshots, and verification records retain their original bytes.
-
-On Windows, open Codex helpers can prevent moving the backing directory. While
-it is locked, the new name is the junction to the original directory. After
-closing Codex, run the following from a separate PowerShell window to move the
-backing directory and leave the old name as the compatibility junction:
-
-```powershell
-pwsh -NoProfile -File C:\Work\Natural-Dexterity\tools\rename-local-checkout.ps1
-```
+Use `C:\Work\Natural-Dexterity` for the local checkout and new container mounts.
+The old folder link is no longer required. The Droid Blocks environment was
+preserved through a container snapshot before migrating its bind mount; see the
+[migration record](projects/droid-blocks/docs/CONTAINER_PATH_MIGRATION.json).
+Historical reports, source snapshots, and verification records retain their
+original bytes and paths.
 
 Project experiments live under [`projects/`](projects/).
 

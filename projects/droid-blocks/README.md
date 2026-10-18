@@ -467,6 +467,11 @@ ctest --test-dir build/native --output-on-failure
 | Stop timeout | 15 seconds |
 | Labels | `io.waajacu.managed=true`, `io.waajacu.project=droid-blocks` |
 
+The October 18, 2026 [container-path migration](docs/CONTAINER_PATH_MIGRATION.json)
+preserved the installed environment in the current image and moved the managed
+container to the Natural-Dexterity checkout. The original stopped container is
+retained for recovery only; its obsolete mount is not used by the managed service.
+
 ## Safe first launch
 
 Run these commands in PowerShell from this project directory. First inspect the requested name, even when the container is expected to be absent:

@@ -22,7 +22,7 @@ viewer available at [127.0.0.1:43871](http://127.0.0.1:43871/).
 - Inspected image ID: `sha256:603dfd694bbd1eea2002b555a737b5289165cd10f5654d76b57f10a8905d823c`
 - Base: `debian:12-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171`
 - Command: `["bash", "/workspace/run.sh"]`
-- Bind mount: `C:\Work\Universalis-Materiae-Dexteritas\projects\humanoid` to `/workspace`, read-write
+- Bind mount: `C:\Work\Natural-Dexterity\projects\humanoid` to `/workspace`, read-write
 - Named volumes: none; experiment outputs persist under the bind mount
 - Port: `127.0.0.1:43871:8080`
 - Restart policy: `no`

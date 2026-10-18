@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18",
+  "operation": "Authorized host bind path migration and removal of the compatibility junction",
+  "original": {
+    "container_id": "a3eabc3183e054aafd42304857b6a10b2c3a7cf15787fcf177149335e6aeaaaf",
+    "image_id": "sha256:eabe48053a78bcb334a947e7a5c0c009d6ff174a3b5e57e2493593d423b91068",
+    "retained_container_name": "droid-blocks-dev-before-natural-dexterity-a3eabc3183e0",
+    "state": "stopped; retained for recovery only",
+    "obsolete_bind_source": "C:\\Work\\Universalis-Materiae-Dexteritas\\projects\\droid-blocks",
+    "writable_bytes_before": 2062604784
+  },
+  "snapshot": {
+    "image_id": "sha256:c17fd3a6faf80c65a1c0bd54967a0fd939a24dc69d3846c0b84b1857726d1342",
+    "tags": [
+      "droid-blocks:dev",
+      "droid-blocks:natural-dexterity-20261018-a3eabc3183e0"
+    ],
+    "purpose": "Preserve the original container filesystem and installed dependencies without rebuilding"
+  },
+  "managed": {
+    "container_name": "droid-blocks-dev",
+    "container_id": "0d8d0d060516bc3e68914cbec40008cb5f794d94322d732d01ae676f31cd0f8b",
+    "state": "created; not started",
+    "command": [
+      "/workspace/run.sh"
+    ],
+    "working_directory": "/workspace",
+    "bind_source": "C:\\Work\\Natural-Dexterity\\projects\\droid-blocks",
+    "bind_target": "/workspace",
+    "bind_read_write": true,
+    "named_volumes": [],
+    "port": "127.0.0.1:43117:8080",
+    "restart": "no",
+    "gpu": "all",
+    "nvidia_capabilities": "compute,utility,graphics",
+    "init": true,
+    "shared_memory_bytes": 1073741824,
+    "stop_timeout_seconds": 15
+  },
+  "verification": {
+    "configuration_matches_original_except": [
+      "container identity",
+      "snapshot image identity",
+      "host bind source",
+      "additional provenance labels"
+    ],
+    "startup_command_environment_healthcheck_port_gpu_logging_preserved": true,
+    "host_data_copied": false,
+    "docker_objects_deleted": false,
+    "container_started": false,
+    "builds_run": false,
+    "tests_run": false,
+    "old_folder_link_removed": true,
+    "workspace_and_git_owner": "WAAJACU\\santi"
+  },
+  "recovery_note": "The retained original container still records the obsolete bind source. It is archival, not a second managed service. Use the saved snapshot for recovery; do not start the archived container with its obsolete mount."
+}

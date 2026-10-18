@@ -3,8 +3,7 @@ param([ValidateSet('up', 'status', 'stop', 'logs', 'test', 'check', 'gpu')][stri
 $ErrorActionPreference = 'Stop'
 $containerName = 'helicopter-dev'
 $imageName = 'helicopter:dev'
-. "$PSScriptRoot/../../tools/container-path.ps1"
-$projectPath = Resolve-ContainerProjectPath -ProjectPath $PSScriptRoot
+$projectPath = [IO.Path]::GetFullPath($PSScriptRoot)
 
 function Invoke-Docker {
     param([string[]]$DockerArgs)

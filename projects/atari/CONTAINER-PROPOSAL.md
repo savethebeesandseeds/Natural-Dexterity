@@ -17,7 +17,7 @@ see [VALIDATION.md](VALIDATION.md) for the original inspection and recovery reco
 | Command | `sh /workspace/run.sh` |
 | Application | `/workspace/build/native/atari serve --root /workspace --rom /opt/ale/roms/pong.bin --host 0.0.0.0 --port 8080` |
 | Working directory | `/workspace` |
-| Bind | `C:\Work\Universalis-Materiae-Dexteritas\projects\atari` to `/workspace`, read-write |
+| Bind | `C:\Work\Natural-Dexterity\projects\atari` to `/workspace`, read-write |
 | Named volumes | None |
 | Port | `127.0.0.1:43260` to `8080/tcp` |
 | Restart | `no` (manual start only) |
