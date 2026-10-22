@@ -48,22 +48,22 @@
     }
     return rotations;
   }
-  class Preview {
+  class Recording {
     constructor(scene, fetchJSON) {
       this.scene=scene; this.fetchJSON=fetchJSON; this.metadata=null;
       this.document=null; this.semantic=null; this.pending=false;
     }
     async load(id) {
-      if (!slug.test(id)) throw new Error("Invalid preview");
+      if (!slug.test(id)) throw new Error("Invalid recording");
       this.pending=true;
       try {
         const metadata=await this.fetchJSON("/api/previews/"+id);
         const base="/preview/"+id+"/";
         if (!metadata || metadata.preview_id!==id || metadata.local_preview!==true ||
             !metadata.audio || metadata.audio.url!==base+"audio.wav" || !hash.test(metadata.audio.sha256||"") ||
-            !metadata.performance || metadata.performance.url!==base+"performance.json") throw new Error("Invalid preview");
+            !metadata.performance || metadata.performance.url!==base+"performance.json") throw new Error("Invalid recording");
         const document=await this.fetchJSON(metadata.performance.url);
-        if (!validPreview(document,id,metadata.audio.sha256) || document.duration_ms!==metadata.duration_ms) throw new Error("Invalid preview");
+        if (!validPreview(document,id,metadata.audio.sha256) || document.duration_ms!==metadata.duration_ms) throw new Error("Invalid recording");
         let semantic=null;
         if (metadata.semantic) {
           if(metadata.semantic.url!==base+"semantic.json")throw new Error("Invalid semantic source");
@@ -87,5 +87,5 @@
       return false;
     }
   }
-  window.RadioSemantic=Object.freeze({Preview,positionsAt,rotationsAt,validPreview,validSemantic});
+  window.RadioSemantic=Object.freeze({Recording,Preview:Recording,positionsAt,rotationsAt,validRecording:validPreview,validPreview,validSemantic});
 })();

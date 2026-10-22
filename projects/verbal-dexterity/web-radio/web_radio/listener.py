@@ -69,7 +69,7 @@ def create_app(*, transport: httpx.AsyncBaseTransport | None = None, runtime: Pa
     @application.get("/")
     def index(request: Request):
         headers = {"Cache-Control": "no-cache"}
-        if "preview" in request.query_params:
+        if any(key in request.query_params for key in ("recording", "preview")):
             headers["X-Robots-Tag"] = "noindex, nofollow"
         return FileResponse(PLAYER / "index.html", headers=headers)
 

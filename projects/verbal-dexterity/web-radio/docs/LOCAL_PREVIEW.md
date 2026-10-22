@@ -1,6 +1,6 @@
 # Local audio and semantic audition
 
-Open http://127.0.0.1:43120/?preview=empty-chair-first-guest-v2 to audition
+Open http://127.0.0.1:43120/?recording=empty-chair-first-guest-v2 to hear
 *The Mouse Who Brought a Monster*. The ordinary entrance still follows the
 station schedule. Preparing this audition does not publish or schedule it.
 
@@ -17,8 +17,9 @@ of sequential character takes; these cues identify turns, not individual words.
 A 64-point signed time-domain profile from the actual Web Audio output also
 shapes the radius along the spring's own axis. Audio energy stretches a quiet
 dot along that axis into the coil; fading speech contracts it again. The
-terminal quarter-turns lie in flat local end planes, within the same continuous
-strand. Semantic rotation carries the entire axis and waveform together. It box-averages the analyser's
+strand fades smoothly into the axis at both ends. Tail amount is configurable,
+including zero, and axial progress continues across the full range without
+forced winding planes. Semantic rotation carries the entire axis and waveform together. It box-averages the analyser's
 2048-sample window with fixed gain, interpolates spatially along the coil, and
 smooths briefly in time. Its absolute magnitude, with a fixed gain of two and
 a unit ceiling, gives radius with no constant offset. A zero profile is exactly
@@ -32,7 +33,8 @@ A brief post-seek hold excludes samples from the previous playback location.
 Each spoken turn also has a Gemini Embedding 2 text embedding. All turns share
 one L2-normalized, mean-centered PCA fit, reduced from 3072 dimensions to four.
 The first three components position the center; the fourth smoothly rotates the
-whole spring about the viewing axis by up to 150 degrees each way. All components
+whole spring about the viewing axis by up to 150 degrees each way, added to the
+90-degree base orientation. All components
 use the same score scale, preserving the original three coordinates. Rotation
 encodes a semantic value and adds no time-driven spin. A character's spring center approaches the current turn's
 coordinate with a 0.6 second time constant and retains its latest coordinate when
@@ -78,3 +80,17 @@ available through these routes.
 The current alignment includes natural leading/trailing silence in each source
 turn. More granular phrase/word timing can be prepared later; this first test
 moves by spoken turn.
+
+## Shared rendering and listening controls
+
+The listening page uses the common configurable renderer described in
+[renderer integration and options](RENDERER.md). Its defaults and runtime
+configuration apply to any supplied cast and playback-timed feature/semantic
+snapshots. The current recording adapter is named Recording; the previous
+Preview alias and query remain compatible with existing links and retained data.
+Public labels use Radio Waajacu and Recording, and the page has no volume
+control. Playback uses unity gain and follows device master volume. The seek
+line is wider with a one-pixel track and a larger transparent pointer target.
+
+The visible name does not alter the private source identities, immutable
+recording evidence, preparation journals, or station schedule.

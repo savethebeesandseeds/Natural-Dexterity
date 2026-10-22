@@ -31,16 +31,11 @@
           <svg class="pause-symbol" id="pause-symbol" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M7 5h4v14H7zM15 5h4v14h-4z"/></svg>
           <span class="visually-hidden" id="button-label">Listen live</span>
         </button>
-        <label class="volume" for="volume">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-5 4H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg>
-          <span class="visually-hidden">Volume</span>
-          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
-        </label>
       </div>
-      <div class="preview-progress" id="preview-progress" hidden>
-        <span id="preview-elapsed">0:00</span>
-        <input id="preview-seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="Preview playback position">
-        <span id="preview-duration">0:00</span>
+      <div class="recording-progress" id="recording-progress" hidden>
+        <span id="recording-elapsed">0:00</span>
+        <input id="recording-seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="Recording position">
+        <span id="recording-duration">0:00</span>
       </div>
       <p class="signal" id="signal" role="status"><span class="signal-dot" aria-hidden="true"></span><span id="signal-text">Connecting</span></p>
       <p class="player-note" id="player-note" role="status" aria-live="polite"></p>

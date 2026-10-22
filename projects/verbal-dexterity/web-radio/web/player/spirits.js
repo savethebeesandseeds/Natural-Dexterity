@@ -10,10 +10,60 @@
   const NEUTRAL_COLOR = "#7b805f";
   const FRAME_MS = 1000 / 30;
   const WAVEFORM_SIZE = 64;
-  const MAX_VIEW_ROTATION = 150 * Math.PI / 180;
+  // Flat, immutable options are shared by the Scene and pure geometry helper.
+  // Application code configures these; the public player needs no controls.
+  const DEFAULT_OPTIONS = Object.freeze({
+    baseAngleDegrees: 90,
+    semanticRotationDegrees: 150,
+    turns: 5.5,
+    lengthScale: 1.15,
+    radiusScale: 1,
+    waveformGain: 2,
+    axialEnergyKnee: .12,
+    semanticSmoothingSeconds: .6,
+    featureAttackSeconds: .075,
+    featureReleaseSeconds: .28,
+    waveformSmoothingSeconds: .035,
+    tailFraction: .12
+  });
+  const OPTION_RANGES = Object.freeze({
+    baseAngleDegrees: [-360, 360],
+    semanticRotationDegrees: [0, 180],
+    turns: [1, 10],
+    lengthScale: [.25, 3],
+    radiusScale: [.1, 3],
+    waveformGain: [0, 8],
+    axialEnergyKnee: [.001, 2],
+    semanticSmoothingSeconds: [0, 5],
+    featureAttackSeconds: [.001, 2],
+    featureReleaseSeconds: [.001, 5],
+    waveformSmoothingSeconds: [0, 1],
+    tailFraction: [0, .25]
+  });
 
   const clamp = (value, low = 0, high = 1) => Math.max(low, Math.min(high, value));
   const unit = value => Number.isFinite(value) ? clamp(value) : 0;
+  const smoothstep = value => value * value * (3 - 2 * value);
+  const easingAmount = (delta, seconds, immediate) => immediate || seconds === 0
+    ? 1 : 1 - Math.exp(-Math.max(0, delta) / seconds);
+
+  function ownFinite(object, key) {
+    if (!object || typeof object !== "object" || Array.isArray(object)) return undefined;
+    // Ignore inherited values and accessor properties as well as NaN/Infinity.
+    const property = Object.getOwnPropertyDescriptor(object, key);
+    return property && Number.isFinite(property.value) ? property.value : undefined;
+  }
+
+  function normalizeOptions(options, base = DEFAULT_OPTIONS) {
+    const normalized = {};
+    for (const [key, limits] of Object.entries(OPTION_RANGES)) {
+      const previous = ownFinite(base, key);
+      const supplied = ownFinite(options, key);
+      normalized[key] = clamp(supplied === undefined
+        ? (previous === undefined ? DEFAULT_OPTIONS[key] : previous) : supplied, ...limits);
+    }
+    return Object.freeze(normalized);
+  }
   const hash = value => {
     let result = 2166136261;
     for (let i = 0; i < value.length; i++) {
@@ -53,11 +103,13 @@
     return "rgba(" + channels.map(value => Math.round(value)).join(",") + "," + clamp(alpha).toFixed(4) + ")";
   }
 
-  function smoothEnvelope(current, target, deltaSeconds, attack = .075, release = .28) {
+  function smoothEnvelope(current, target, deltaSeconds, attack = DEFAULT_OPTIONS.featureAttackSeconds, release = DEFAULT_OPTIONS.featureReleaseSeconds) {
     const start = unit(current);
     const end = unit(target);
     const delta = Number.isFinite(deltaSeconds) ? clamp(deltaSeconds, 0, .25) : 0;
-    const duration = end > start ? Math.max(.001, attack) : Math.max(.001, release);
+    const attackTime = Number.isFinite(attack) ? Math.max(.001, attack) : DEFAULT_OPTIONS.featureAttackSeconds;
+    const releaseTime = Number.isFinite(release) ? Math.max(.001, release) : DEFAULT_OPTIONS.featureReleaseSeconds;
+    const duration = end > start ? attackTime : releaseTime;
     return start + (end - start) * (1 - Math.exp(-delta / duration));
   }
 
@@ -65,11 +117,15 @@
    * elongated axis; radius/band ripples stay in local space before projection.
    */
   function projectHelix(options = {}) {
-    const radius = Number.isFinite(options.radius) ? Math.max(0, options.radius) : 20;
-    const length = Number.isFinite(options.length) ? Math.max(0, options.length) : 120;
-    const turns = clamp(Number(options.turns) || 5.5, 2, 10);
+    options = options && typeof options === "object" ? options : {};
+    const renderer = normalizeOptions(options.renderer);
+    const radius = (Number.isFinite(options.radius) ? Math.max(0, options.radius) : 20) * renderer.radiusScale;
+    const length = (Number.isFinite(options.length) ? Math.max(0, options.length) : 120) * renderer.lengthScale;
+    const turns = Number.isFinite(options.turns) ? clamp(options.turns, 1, 10) : renderer.turns;
     const phase = Number.isFinite(options.phase) ? options.phase : 0;
-    const tilt = Number.isFinite(options.tilt) ? options.tilt : -.12;
+    const rotation = Number.isFinite(options.rotation) ? clamp(options.rotation, -1, 1) : 0;
+    const tilt = (Number.isFinite(options.tilt) ? options.tilt : -.12) +
+      (renderer.baseAngleDegrees + rotation * renderer.semanticRotationDegrees) * Math.PI / 180;
     const pitch = Number.isFinite(options.pitch) ? options.pitch : .28;
     const yaw = Number.isFinite(options.yaw) ? options.yaw : .12;
     const energy = unit(options.energy);
@@ -80,7 +136,9 @@
       options.waveform.every(Number.isFinite)
       ? options.waveform.map(value => clamp(value, -1, 1)) : null;
     const count = Math.round(clamp(Number(options.points) || 150, 32, 240));
-    const camera = Math.max(1, length * 4, radius * 9);
+    const camera = Number.isFinite(options.cameraDistance) && options.cameraDistance > 0
+      ? Math.max(1, options.cameraDistance, Math.hypot(radius * 1.158, length * .601) * 1.01)
+      : Math.max(1, length * 4, radius * 9);
     const cosPitch = Math.cos(pitch), sinPitch = Math.sin(pitch);
     const cosYaw = Math.cos(yaw), sinYaw = Math.sin(yaw);
     const cosTilt = Math.cos(tilt), sinTilt = Math.sin(tilt);
@@ -98,14 +156,19 @@
       const profileRight = Math.min(profileLeft + 1, WAVEFORM_SIZE - 1);
       const radialWave = profile ? profile[profileLeft] +
         (profile[profileRight] - profile[profileLeft]) * (profilePosition - profileLeft) : 0;
-      const localRadius = radius * taper * ripple * Math.min(1, 2 * Math.abs(radialWave));
+      // Smooth radial tails meet the axis tangentially while axial progress
+      // continues. There are no terminal winding planes or separate end rings.
+      // Zero disables this optional endpoint fade; waveform silence still draws a line.
+      const tail = renderer.tailFraction > 0
+        ? smoothstep(clamp(Math.min(u, 1 - u) / renderer.tailFraction)) : 1;
+      const localRadius = radius * taper * tail * ripple *
+        Math.min(1, renderer.waveformGain * Math.abs(radialWave));
       const angle = TAU * turns * u + phase +
         .10 * mid * Math.sin(TAU * u * 3 - time * 2) +
         .05 * high * Math.sin(TAU * u * 7 - time * 3);
-      // Flat end planes: each terminal quarter-turn has zero axial pitch.
-      // These are the ends of this same continuous strand, not extra rings.
-      const endFraction = .25 / turns;
-      const axialProgress = clamp((u - endFraction) / (1 - 2 * endFraction));
+      // Preserve the entire axial range, including the tails. The bounded band
+      // ripples have positive axial derivative, so the strand never folds back.
+      const axialProgress = u;
       const spacing = axialProgress + .014 * mid * Math.sin(TAU * axialProgress) +
         .008 * low * Math.sin(TAU * axialProgress * 2);
       const x = localRadius * Math.cos(angle);
@@ -143,6 +206,8 @@
     constructor(canvas, options = {}) {
       this.canvas = canvas;
       this.context = canvas && canvas.getContext ? canvas.getContext("2d") : null;
+      options = options && typeof options === "object" ? options : {};
+      this.rendererOptions = normalizeOptions(options.renderer);
       this.reducedMotion = options.reducedMotion || window.matchMedia("(prefers-reduced-motion: reduce)");
       this.playbackActive = false;
       this.destroyed = false;
@@ -172,6 +237,17 @@
         window.addEventListener("resize", this.onResize);
       }
       this.resize();
+    }
+
+    configure(partial) {
+      if (this.destroyed) return this;
+      const next = normalizeOptions(partial, this.rendererOptions);
+      if (Object.keys(DEFAULT_OPTIONS).every(key => next[key] === this.rendererOptions[key])) return this;
+      this.rendererOptions = next;
+      this.clearTrails();
+      this.renderOnce();
+      this.schedule();
+      return this;
     }
 
     getIdentity(id, color) {
@@ -390,6 +466,7 @@
     draw(delta) {
       const context = this.context;
       const reduced = this.reducedMotion.matches;
+      const renderer = this.rendererOptions;
       context.clearRect(0, 0, this.width, this.height);
       const identities = this.cast.length ? this.cast : [this.getIdentity(NEUTRAL_ID)];
       const count = identities.length;
@@ -405,35 +482,23 @@
       // One common scene camera. These conservative extents depend only on
       // the viewport/cast and the existing maximum local deformation, never on
       // the current sound. Audio therefore cannot move a semantic center.
-      const baseRadius = Math.max(1, Math.min(cellWidth * .22, cellHeight * .13));
-      const baseLength = Math.max(2, cellHeight * .71);
-      // Reserve the complete waveform radius and semantic orientation envelope.
-      // Rectified waveform gain is bounded by one and has no resting offset.
-      // Bounds never vary with a current sound sample or rotation value.
-      const uprightExtentX = baseRadius * 2.3 + baseLength * .16;
-      const uprightExtentY = baseLength * .70 + baseRadius * .85;
-      // A tighter independent bound: pitch/yaw/view-axis rotation are
-      // orthogonal and cannot enlarge the local bounding sphere. Reserve full
-      // energy and all band ripples. The waveform radial multiplier is <=1.
-      const maximumRadius = baseRadius * (1 + .09 + .045 + .023);
+      const intrinsicRadius = Math.max(1, Math.min(cellWidth * .22, cellHeight * .13));
+      const intrinsicLength = Math.max(2, cellHeight * .71);
+      const baseRadius = intrinsicRadius * renderer.radiusScale;
+      const baseLength = intrinsicLength * renderer.lengthScale;
+      // Every configured roll, including the base 90-degree offset without a
+      // semantic cue, preserves this sphere. Tail fades cannot enlarge it.
+      const maximumRadius = baseRadius * (1 + .09 + .045 + .023) *
+        Math.min(1, renderer.waveformGain);
       const maximumAxial = .522 * baseLength * 1.15;
       const sphere = Math.hypot(maximumRadius, maximumAxial);
-      const localCamera = Math.max(baseLength * 4, baseRadius * 9);
-      // Tangent silhouette of the sphere under perspective, independent of
-      // instantaneous audio, orientation, and semantic position.
+      const localCamera = Math.max(1, baseLength * 4, baseRadius * 9);
+      // Tangent silhouette under the same fixed local camera used below. Full
+      // energy/waveform/band bounds are reserved even for a silent character.
       const projectedSphere = localCamera * sphere /
         Math.sqrt(localCamera * localCamera - sphere * sphere);
-      const rotationSpace = this.rotationTargets.size > 0;
-      const extentAngleX = Math.min(MAX_VIEW_ROTATION, Math.atan2(uprightExtentY, uprightExtentX));
-      const extentAngleY = Math.min(MAX_VIEW_ROTATION, Math.atan2(uprightExtentX, uprightExtentY));
-      // The minimum of independent upper bounds is still safe. Rotation
-      // cannot inflate the sphere a second time; retain a tighter axis bound.
-      const extentX = Math.min(projectedSphere, rotationSpace
-        ? uprightExtentX * Math.cos(extentAngleX) + uprightExtentY * Math.sin(extentAngleX)
-        : uprightExtentX);
-      const extentY = Math.min(projectedSphere, rotationSpace
-        ? uprightExtentY * Math.cos(extentAngleY) + uprightExtentX * Math.sin(extentAngleY)
-        : uprightExtentY);
+      const extentX = projectedSphere;
+      const extentY = projectedSphere;
       const maximumPerspective = 1.2;
       const fit = Math.min(1,
         this.width * .30 / (extentX * maximumPerspective),
@@ -441,7 +506,7 @@
       const margin = Math.min(this.width, this.height) * .025;
       const rangeX = Math.max(0, (this.width / 2 - margin - extentX * fit * maximumPerspective) / maximumPerspective);
       const rangeY = Math.max(0, (this.height / 2 - margin - extentY * fit * maximumPerspective) / maximumPerspective);
-      const positionAmount = reduced ? 1 : 1 - Math.exp(-Math.max(0, delta) / .6);
+      const positionAmount = easingAmount(delta, renderer.semanticSmoothingSeconds, reduced);
       const placements = identities.map((identity, index) => {
         const row = Math.floor(index / safeColumns);
         const rowCount = Math.min(safeColumns, count - row * safeColumns);
@@ -450,11 +515,11 @@
         const fixedY = this.height / 2 + (row - (rows - 1) / 2) * cellHeight;
         const semanticTarget = this.positionTargets.get(identity.id);
         if (!semanticTarget) {
-          // A supplied rotation can also use a fixed anchor. Fit its complete
-          // orientation envelope without moving that anchor or reacting to sound.
-          const fixedFit = this.rotationTargets.has(identity.id) ? Math.max(0, Math.min(1,
+          // Fixed anchors reserve the same complete orientation envelope,
+          // including the configured base angle before semantic cues arrive.
+          const fixedFit = Math.max(0, Math.min(1,
             (Math.min(fixedX, this.width - fixedX) - margin) / extentX,
-            (Math.min(fixedY, this.height - fixedY) - margin) / extentY)) : 1;
+            (Math.min(fixedY, this.height - fixedY) - margin) / extentY));
           return {identity, index, originX: fixedX, originY: fixedY, sceneScale: fixedFit, sceneDepth: 0};
         }
         if (!identity.position) {
@@ -485,7 +550,7 @@
       // Draw farther bodies first; no collision offsets or narrative movement.
       placements.sort((a, b) => b.sceneDepth - a.sceneDepth || a.index - b.index);
 
-      const waveformAmount = reduced ? 1 : 1 - Math.exp(-Math.max(0, delta) / .035);
+      const waveformAmount = easingAmount(delta, renderer.waveformSmoothingSeconds, reduced);
       for (const {identity, originX, originY, sceneScale} of placements) {
         const rotationTarget = this.rotationTargets.get(identity.id) || 0;
         const rotationDifference = rotationTarget - identity.rotation;
@@ -493,7 +558,8 @@
           ? rotationTarget : identity.rotation + rotationDifference * positionAmount;
         const target = !reduced && this.playbackActive ? this.targets.get(identity.id) : null;
         const targetEnergy = target ? target.energy : 0;
-        identity.energy = reduced ? 0 : smoothEnvelope(identity.energy, targetEnergy, delta);
+        identity.energy = reduced ? 0 : smoothEnvelope(identity.energy, targetEnergy, delta,
+          renderer.featureAttackSeconds, renderer.featureReleaseSeconds);
         for (let band = 0; band < 3; band++) {
           identity.bands[band] = reduced ? 0 : smoothEnvelope(identity.bands[band], target ? target.bands[band] : 0, delta, .09, .24);
         }
@@ -519,16 +585,17 @@
         // opens radius near silence; it does not rescale ordinary speech's
         // fixed-gain signed waveform a second time by the current RMS level.
         const radiusGate = clamp(identity.energy / .05);
-        const radiusActivation = radiusGate * radiusGate * (3 - 2 * radiusGate);
-        const radius = Math.max(1, Math.min(cellWidth * .22, cellHeight * .13)) * radiusActivation;
-        const axialActivation = 1.12 * identity.energy / (identity.energy + .12);
-        const length = Math.max(2, cellHeight * .71) * axialActivation;
+        const radiusActivation = smoothstep(radiusGate);
+        const radius = intrinsicRadius * radiusActivation;
+        const knee = renderer.axialEnergyKnee;
+        const axialActivation = (1 + knee) * identity.energy / (identity.energy + knee);
+        const length = intrinsicLength * axialActivation;
         const points = projectHelix({
-          radius, length, turns: 5.5,
+          radius, length, renderer, cameraDistance: localCamera,
           phase: identity.phase,
           pitch: .30, yaw: .12,
           // The fourth dimension is a target orientation, never a spin rate.
-          tilt: identity.tilt + identity.rotation * MAX_VIEW_ROTATION, energy: identity.energy,
+          tilt: identity.tilt, rotation: identity.rotation, energy: identity.energy,
           bands: identity.bands, waveform: identity.waveform, time, points: count > 6 ? 110 : 150
         });
         // Camera placement scales the whole unchanged local body, including
@@ -570,8 +637,8 @@
         const segments = [];
         for (let point = 1; point < points.length; point++) {
           const a = points[point - 1], b = points[point];
-          // Flat terminal turns collapse to repeated endpoints for a zero
-          // waveform. Do not stack rounded zero-length strokes into dark dots.
+          // Degenerate curves must not stack rounded zero-length strokes
+          // into dark dots (including an explicitly zero-length helper curve).
           if (Math.hypot(b.x - a.x, b.y - a.y) < 1e-6) continue;
           segments.push({a, b, z: (a.z + b.z) / 2, front: (a.front + b.front) / 2});
         }
@@ -611,5 +678,5 @@
     }
   }
 
-  window.RadioSpirits = Object.freeze({Scene, projectHelix, smoothEnvelope, NEUTRAL_ID});
+  window.RadioSpirits = Object.freeze({Scene, projectHelix, smoothEnvelope, NEUTRAL_ID, DEFAULT_OPTIONS, normalizeOptions});
 })();

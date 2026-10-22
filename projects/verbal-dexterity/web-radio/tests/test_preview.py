@@ -258,11 +258,13 @@ def test_live_player_and_station_endpoints_keep_their_existing_behavior(bundle):
     with TestClient(app) as http:
         normal = http.get("/")
         audition = http.get("/?preview=fixture-audition")
-        assert normal.status_code == audition.status_code == 200
+        recording = http.get("/?recording=fixture-audition")
+        assert normal.status_code == audition.status_code == recording.status_code == 200
         assert "x-robots-tag" not in normal.headers
-        assert audition.headers["x-robots-tag"] == "noindex, nofollow"
-        assert normal.content == audition.content
-        assert "unsafe-inline" not in audition.headers["content-security-policy"]
+        assert audition.headers["x-robots-tag"] == recording.headers["x-robots-tag"] == "noindex, nofollow"
+        assert normal.content == audition.content == recording.content
+        assert normal.headers["content-security-policy"] == recording.headers["content-security-policy"]
+        assert "unsafe-inline" not in recording.headers["content-security-policy"]
         assert http.get("/api/status").status_code == 200
         assert http.get("/api/now").status_code == 200
         assert http.get("/api/generate").status_code == 404

@@ -1,7 +1,8 @@
 # Radio Waajacu
 
 A radio that plays the backend schedule. The web interface is for listening:
-play/pause, now playing, volume, and a subtle animation driven by the audio.
+play/pause, now playing, and a subtle animation driven by the audio. Listening
+volume follows the device's master volume.
 
 `Backend content + schedule -> validated releases -> station -> HLS -> radio player`
 
@@ -30,14 +31,16 @@ The player uses a separate transparent botanical PNG and warm paper texture in
 `web/player/`. The central `.visualizer-slot` contains a continuous 3D helix performance in the
 `#sound-wave` canvas. Prepared cast/cues determine character identity and count;
 per-character features support overlapping voices. Missing data leaves one
-unassigned resting helix, which may follow mixed audio without identifying a
-speaker. Local body deformation and optional prepared semantic centers remain separate. Playback and volume stay
+unassigned resting point, which may follow mixed audio without identifying a
+speaker. Local body deformation and optional prepared semantic centers remain separate. Playback controls stay
 small, programme details appear only for an airing, and the footer reads
 “by waajacu.com”. Portrait layouts keep the plants at the outer edges.
 Artwork generation prompts and hashes are recorded in
 [visual asset provenance](docs/visuals/radio-botanical-v1.json). See
 [prepared performance](docs/PERFORMANCE.md) for backend cue/feature installation
-and the playback timing boundary. See [local audio and semantic audition](docs/LOCAL_PREVIEW.md) for the real recording preview and shared text projection into 3D position and spring rotation.
+and the playback timing boundary. See [local audio and semantic audition](docs/LOCAL_PREVIEW.md) for the recording and shared text projection into 3D position and spring rotation.
+The common renderer is parametric; see [renderer integration and options](docs/RENDERER.md)
+for reusable cast, geometry, waveform, tail, and smoothing configuration.
 
 ## Backend boundary
 

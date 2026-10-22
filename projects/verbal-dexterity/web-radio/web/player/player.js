@@ -9,10 +9,11 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const spiritScene = window.RadioSpirits ? new RadioSpirits.Scene(canvas, {reducedMotion}) : null;
 const visualPerformance = spiritScene && window.RadioPerformance
   ? new RadioPerformance.Timeline(spiritScene, api) : null;
-const previewId = new URLSearchParams(window.location.search).get("preview");
-const audition = previewId && spiritScene && window.RadioSemantic
-  ? new RadioSemantic.Preview(spiritScene, api) : null;
-let previewRetryAfter = 0;
+const playerParams = new URLSearchParams(window.location.search);
+const recordingId = playerParams.get("recording") || playerParams.get("preview");
+const recording = recordingId && spiritScene && window.RadioSemantic
+  ? new RadioSemantic.Recording(spiritScene, api) : null;
+let recordingRetryAfter = 0;
 let hls = null;
 let ready = false;
 let updating = false;
@@ -31,7 +32,8 @@ let lastVisualFrame = 0;
 let lastBoundaryRefresh = 0;
 let waveformReadyAfter = 0;
 
-live.volume = Number($("volume").value);
+// Device volume controls playback level; the page keeps unity gain.
+live.volume = 1;
 
 async function api(path) {
   const controller = new AbortController();
@@ -47,7 +49,7 @@ async function api(path) {
 
 function updateButton() {
   const active = !live.paused || connecting;
-  const label = active ? (previewId ? "Pause" : "Pause live") : (previewId ? "Play" : "Listen live");
+  const label = active ? (recordingId ? "Pause" : "Pause live") : (recordingId ? "Play" : "Listen live");
   $("button-label").textContent = connecting && live.paused ? "Connecting…" : label;
   $("play-symbol").toggleAttribute("hidden", active);
   $("pause-symbol").toggleAttribute("hidden", !active);
@@ -114,8 +116,8 @@ function drawWave(timestamp) {
   if (!playing || reducedMotion.matches || document.hidden || !visualPerformance) return;
   if (!lastVisualFrame || timestamp - lastVisualFrame >= 1000 / 30) {
     lastVisualFrame = timestamp;
-    const boundary = audition
-      ? audition.tick(live.currentTime * 1000, mixedFeatures(), true)
+    const boundary = recording
+      ? recording.tick(live.currentTime * 1000, mixedFeatures(), true)
       : visualPerformance.tick(exactPlaybackTime(), mixedFeatures(), true);
     if (boundary && timestamp - lastBoundaryRefresh > 1000) {
       lastBoundaryRefresh = timestamp;
@@ -181,9 +183,9 @@ function resetStream(message) {
 }
 
 function prepareStream() {
-  if (previewId) {
-    if (!audition || !audition.metadata) return false;
-    if (!live.getAttribute("src")) live.src = audition.metadata.audio.url;
+  if (recordingId) {
+    if (!recording || !recording.metadata) return false;
+    if (!live.getAttribute("src")) live.src = recording.metadata.audio.url;
     return true;
   }
   if (hls || live.getAttribute("src")) return true;
@@ -230,11 +232,11 @@ async function listen() {
   if (attempt !== playAttempt) return;
   if (!prepareStream()) { connecting = false; updateButton(); return; }
   try {
-    if (previewId) { if(live.ended)live.currentTime=0; }
+    if (recordingId) { if(live.ended)live.currentTime=0; }
     else joinLiveEdge();
     await live.play();
   } catch {
-    if (attempt === playAttempt) note.textContent = previewId
+    if (attempt === playAttempt) note.textContent = recordingId
       ? "Select Play to try the recording again."
       : "Select Listen live to try the connection again.";
   } finally {
@@ -263,44 +265,44 @@ function mediaTime(seconds) {
   return Math.floor(value / 60) + ":" + String(value % 60).padStart(2, "0");
 }
 
-function updatePreviewPosition() {
-  if (!audition || !audition.metadata) return;
-  $("preview-elapsed").textContent=mediaTime(live.currentTime);
-  $("preview-seek").value=String(live.currentTime);
-  if (!live.ended && note.textContent === "End of preview") note.textContent = live.paused ? "Paused" : "";
-  if (!playing || reducedMotion.matches) audition.tick(live.currentTime * 1000, null, false);
+function updateRecordingPosition() {
+  if (!recording || !recording.metadata) return;
+  $("recording-elapsed").textContent=mediaTime(live.currentTime);
+  $("recording-seek").value=String(live.currentTime);
+  if (!live.ended && note.textContent === "End of recording") note.textContent = live.paused ? "Paused" : "";
+  if (!playing || reducedMotion.matches) recording.tick(live.currentTime * 1000, null, false);
 }
 
-async function refreshPreview() {
-  if (!audition) { note.textContent="This preview is unavailable."; return; }
-  if (audition.pending || audition.metadata || Date.now()<previewRetryAfter) return;
+async function refreshRecording() {
+  if (!recording) { note.textContent="This recording is unavailable."; return; }
+  if (recording.pending || recording.metadata || Date.now()<recordingRetryAfter) return;
   try {
-    const metadata=await audition.load(previewId);
+    const metadata=await recording.load(recordingId);
     ready=true;
-    document.querySelector("main").setAttribute("aria-label","Radio Waajacu local preview");
-    document.querySelector(".tuner").setAttribute("aria-label","Preview recording");
+    document.querySelector("main").setAttribute("aria-label","Radio Waajacu radio");
+    document.querySelector(".tuner").setAttribute("aria-label","Recording");
     live.src=metadata.audio.url;
-    $("now-label").textContent="LOCAL PREVIEW";
+    $("now-label").textContent="RADIO WAAJACU";
     $("now-title").textContent=metadata.title;
     $("programme").hidden=false;
-    $("signal-text").textContent="Preview";
+    $("signal-text").textContent="Recording";
     $("signal").classList.add("on");
-    $("preview-progress").hidden=false;
-    $("preview-seek").max=String(metadata.duration_ms/1000);
-    $("preview-duration").textContent=mediaTime(metadata.duration_ms/1000);
+    $("recording-progress").hidden=false;
+    $("recording-seek").max=String(metadata.duration_ms/1000);
+    $("recording-duration").textContent=mediaTime(metadata.duration_ms/1000);
     note.textContent="";
     updateButton();
   } catch {
     ready=false;
-    previewRetryAfter=Date.now()+30000;
-    $("signal-text").textContent="Preview unavailable";
+    recordingRetryAfter=Date.now()+30000;
+    $("signal-text").textContent="Recording unavailable";
     note.textContent="The recording could not be loaded.";
     updateButton();
   }
 }
 
 async function refresh() {
-  if (previewId) { await refreshPreview(); return; }
+  if (recordingId) { await refreshRecording(); return; }
   if (updating) return;
   updating = true;
   try {
@@ -347,7 +349,6 @@ async function refresh() {
 }
 
 button.addEventListener("click", listen);
-$("volume").addEventListener("input", event => { live.volume = Number(event.target.value); });
 live.addEventListener("play", updateButton);
 live.addEventListener("playing", () => {
   playing = true;
@@ -371,36 +372,35 @@ for (const name of ["waiting", "stalled"]) {
   });
 }
 live.addEventListener("error", () => {
-  if (live.getAttribute("src")) resetStream(previewId
+  if (live.getAttribute("src")) resetStream(recordingId
     ? "The recording paused. Select Play to try again."
     : "The connection paused. Select Listen live to reconnect.");
 });
 live.addEventListener("ended", () => {
-  if (!previewId) { resetStream("The broadcast paused. Select Listen live to reconnect."); return; }
+  if (!recordingId) { resetStream("The broadcast paused. Select Listen live to reconnect."); return; }
   playing=false; connecting=false; stopWave(); updateButton();
-  if(audition)audition.tick(live.currentTime*1000,null,false);
-  note.textContent="End of preview";
+  if(recording)recording.tick(live.currentTime*1000,null,false);
+  note.textContent="End of recording";
 });
-live.addEventListener("timeupdate", updatePreviewPosition);
+live.addEventListener("timeupdate", updateRecordingPosition);
 live.addEventListener("seeking", () => {
   stopWave();
   waveformReadyAfter = performance.now() + 100;
-  if (audition && spiritScene) {
+  if (recording && spiritScene) {
     spiritScene.setPositions(null);
     spiritScene.setRotations(null);
-    audition.tick(live.currentTime * 1000, null, false);
+    recording.tick(live.currentTime * 1000, null, false);
   }
 });
 live.addEventListener("seeked", () => {
   const windowMs = samples && audioContext ? samples.length * 1000 / audioContext.sampleRate : 0;
   waveformReadyAfter = performance.now() + Math.max(60, windowMs);
-  updatePreviewPosition();
+  updateRecordingPosition();
   updateWave();
 });
-$("preview-seek").addEventListener("input", event => {
-  if(previewId && ready) { live.currentTime=Number(event.target.value); updatePreviewPosition(); }
+$("recording-seek").addEventListener("input", event => {
+  if(recordingId && ready) { live.currentTime=Number(event.target.value); updateRecordingPosition(); }
 });
-live.addEventListener("volumechange", () => { $("volume").value = String(live.volume); });
 document.addEventListener("visibilitychange", () => { updateWave(); if (!document.hidden) refresh(); });
 reducedMotion.addEventListener("change", updateWave);
 window.addEventListener("pagehide", event => {

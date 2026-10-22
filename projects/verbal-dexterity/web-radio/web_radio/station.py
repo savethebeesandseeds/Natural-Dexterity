@@ -60,7 +60,7 @@ def create_app(runtime: Path | None = None, *, start_engine=True) -> FastAPI:
     @app.get("/")
     def index(request: Request):
         headers = {"Cache-Control": "no-cache"}
-        if "preview" in request.query_params:
+        if any(key in request.query_params for key in ("recording", "preview")):
             headers["X-Robots-Tag"] = "noindex, nofollow"
         return FileResponse(PLAYER / "index.html", headers=headers)
 

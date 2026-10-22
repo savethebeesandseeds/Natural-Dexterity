@@ -17,7 +17,7 @@
   const mixed = {energy:.6,bands:[.3,.4,.2]};
   const {sample, activeSpeakers, validDocument, Timeline} = RadioPerformance;
   await test("Continuous helix has depth and a long axis", () => {
-    const points = RadioSpirits.projectHelix({radius:20,length:150,points:150,waveform:Array(64).fill(.5)});
+    const points = RadioSpirits.projectHelix({radius:20,length:150,points:150,waveform:Array(64).fill(.5),renderer:{baseAngleDegrees:0,lengthScale:1,tailFraction:0}});
     assert(points.length===151);
     assert(points.every(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&Number.isFinite(p.z)));
     const span = key => Math.max(...points.map(p=>p[key]))-Math.min(...points.map(p=>p[key]));
@@ -40,6 +40,21 @@
     }
     const dot=RadioSpirits.projectHelix({radius:0,length:0});
     assert(dot.every(point=>point.x===0&&point.y===0&&point.z===0));
+  });
+  await test("Renderer options are bounded, immutable and independently reusable", () => {
+    const defaults=RadioSpirits.DEFAULT_OPTIONS;
+    const normalized=RadioSpirits.normalizeOptions({
+      baseAngleDegrees:NaN,tailFraction:-1,turns:500,lengthScale:"2"
+    });
+    assert(Object.isFrozen(defaults)&&Object.isFrozen(normalized));
+    assert(normalized.baseAngleDegrees===90 && normalized.tailFraction===0 && normalized.turns===10);
+    assert(normalized.lengthScale===defaults.lengthScale && defaults.tailFraction===.12);
+    const source={length:180,waveform:Array(64).fill(0)};
+    const a=RadioSpirits.projectHelix({...source,renderer:{baseAngleDegrees:0}});
+    const b=RadioSpirits.projectHelix({...source,renderer:{baseAngleDegrees:90}});
+    const axis=points=>[points.at(-1).x-points[0].x,points.at(-1).y-points[0].y];
+    const [ax,ay]=axis(a),[bx,by]=axis(b);
+    assert(Math.abs((ax*bx+ay*by)/(Math.hypot(ax,ay)*Math.hypot(bx,by)))<1e-10);
   });
   await test("Envelope smoothing is frame-rate independent", () => {
     let thirty=0,sixty=0;
