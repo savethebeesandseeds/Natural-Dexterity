@@ -1,0 +1,41 @@
+{
+  "recorded_at_utc": "2026-10-22T18:15:08.444170+00:00",
+  "stage": "private-backend-gemini-integration",
+  "credential": {
+    "configured": true,
+    "git_ignored": true,
+    "tracked": false,
+    "private_windows_acl": true,
+    "value_recorded": false
+  },
+  "native_check": {
+    "model": "gemini-3.8-flash-lite-tts",
+    "requests": 1,
+    "http_status": 200,
+    "duration_ms": 9320,
+    "estimated_cost_usd": "0.001410",
+    "total_authorized_cap_usd": "0.25",
+    "published": false
+  },
+  "backup_privacy": {
+    "default_excludes_secrets": true,
+    "secret_inclusion_requires_explicit_opt_in": true,
+    "restore_compatibility_preserved": true,
+    "focused_tests": {
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "local_evidence": [
+    ".runtime/compatibility/gemini-first-check/receipt.json",
+    ".runtime/verification/backend-credential-20261022.json",
+    ".runtime/verification/backup-privacy-20261022T181047568455Z-tey300_m"
+  ],
+  "source_sha256": {
+    "web_radio/backup.py": "be9ad98c478dee0ef0ef5f7c837d7cb22b7ffac19c40968bd839b852af358a96",
+    "tests/test_backup.py": "310e34a375a226e518b5730305ceb443def6eb536d3f57b8a5307acbee07a74e"
+  },
+  "ui": "No frontend files changed; visuals owned by the separate session."
+}

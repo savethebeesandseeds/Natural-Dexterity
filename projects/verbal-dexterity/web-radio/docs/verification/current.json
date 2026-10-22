@@ -1,0 +1,40 @@
+{
+  "recorded_at_utc": "2026-10-22T17:10:37.359251+00:00",
+  "stage": "keyless-development-foundation",
+  "environment_receipt": "environment.json",
+  "test_results": {
+    "tests": 145,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 96.473
+  },
+  "test_log_sha256": "3c48a0e84be5cba678100f7e1aed97c8b5505524818b57184f76638ab37515dd",
+  "junit_sha256": "b4790a7478cf5dd20a358db2111b11cb38d8bddeaf4669d8c37e26c3ed6db8e5",
+  "source_file_count": 50,
+  "source_inventory_sha256": "641fa44ad3c1f08ef86bc06f05519aa843099409d676a37224c18ecce1ebd2fe",
+  "verified": [
+    "strict bounded immutable media contract and trusted imports",
+    "script and voice revisions with stale-save protection",
+    "keyless recording import and exact script/provenance snapshots",
+    "atomic budget reservations and publication approval/crash recovery",
+    "private optimistic programming and station acknowledgements",
+    "actual AAC/HLS, natural-boundary fallback, journal and byte-zero replay",
+    "same fixture encoder continues after studio process exits",
+    "offline backup and fresh-directory restore with tamper rejection",
+    "graceful stop/start reuses the same managed container",
+    "browser editor/history/import/programming rendering; no console errors",
+    "private APIs unavailable through public station"
+  ],
+  "live_state": {
+    "studio_url": "http://127.0.0.1:43120/",
+    "station_url": "http://127.0.0.1:43121/",
+    "editing_ready": true,
+    "import_ready": true,
+    "gemini_key_configured": false,
+    "published_release_count": 0,
+    "station_state": "waiting"
+  },
+  "provider_calls": "No real Gemini requests; provider tests mocked and keyless process test uses imported PCM fixtures.",
+  "next_development": "Episode catalogue, segment assembly, production controls, and operating polish per ROADMAP.md."
+}

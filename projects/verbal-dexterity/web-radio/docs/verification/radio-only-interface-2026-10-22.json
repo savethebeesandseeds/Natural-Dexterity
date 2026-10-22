@@ -1,0 +1,75 @@
+{
+  "recorded_at_utc": "2026-10-22T17:42:00.057164+00:00",
+  "stage": "radio-only-web-interface",
+  "prior_checkpoint": {
+    "path": "keyless-refinement-2026-10-22.json",
+    "sha256": "4c46a4da7bda1ddae5d563d014183e9a488f4d29a05d7bc91b58c9db53b16055",
+    "preserved_unchanged": true
+  },
+  "test_results": {
+    "tests": 232,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 96.89
+  },
+  "retained_reports": {
+    ".runtime/verification/tests-20261022T173926146296Z-mwwlai6n/pytest.log": "0d1e60b75ca19ea3eff325a27364ac4df9613fb95d3b73c7bc776cd885816b91",
+    ".runtime/verification/tests-20261022T173926146296Z-mwwlai6n/junit.xml": "f26fe9ff46036a821a43dee3b860692b8b5bdffe53c0df12a68b4d061c46cb78",
+    ".runtime/verification/tests-20261022T173926146296Z-mwwlai6n/source-inventory.json": "cddff7196581f7bafc7f0918e4db0ed50aa33858c655fb4de1e9bd0f90e98ebe",
+    ".runtime/verification/services-20261022T173929345426Z-v28wgpoa/services.json": "7f27cba8bf99b03c15c7e4705f0b65c7c1da1a54b974d34a1a9d293f26f12fa1",
+    ".runtime/verification/radio-only-interface-removal-20261022.json": "215a5698613231017a08444cd8987bc00ee15748cf19dff8f8f8c2e50aa375a4"
+  },
+  "source_file_count": 49,
+  "interface": {
+    "shared_addresses": [
+      "http://127.0.0.1:43120/",
+      "http://127.0.0.1:43121/"
+    ],
+    "controls": [
+      "play/pause",
+      "now playing",
+      "volume",
+      "audio-driven waveform"
+    ],
+    "removed": [
+      "production dashboard and assets",
+      "generation/credential/import/review/publication/schedule-editing web routes",
+      "replay/transcript/archive panels"
+    ]
+  },
+  "backend": "Production code and explicit internal factory retained; normal default app is listener-only and starts no production worker. Station process remains independent.",
+  "live_state": {
+    "43120": {
+      "state": "waiting",
+      "stream_ready": false,
+      "listener_only": true
+    },
+    "43121": {
+      "state": "waiting",
+      "stream_ready": false,
+      "listener_only": true
+    }
+  },
+  "container": {
+    "name": "radio-waajacu",
+    "id": "282e8a1227384cb694b979ce6ffc6060c66a490ca0685228a9920d002528977e",
+    "ports": [
+      "127.0.0.1:43120:43120",
+      "127.0.0.1:43121:43121"
+    ],
+    "station_pid": 11273,
+    "listener_pid": 31329,
+    "configuration_unchanged": true
+  },
+  "browser_verification": [
+    "existing43120 tab reloaded to Radio Waajacu",
+    "minimal off-air page rendered",
+    "keyboard volume changed and restored",
+    "no browser console warnings/errors"
+  ],
+  "browser_preview": "C:/Users/santi/.codex/visualizations/2026/10/22/01a16459-2eca-7011-9265-0756c79360f9/radio-only.png",
+  "validation_limits": "Actual backend AAC/HLS/replay covered by process tests; facade audio bytes by proxy tests. Browser inspected off-air UI only because live library is empty; live-audio waveform not exercised in browser.",
+  "provider_calls": "None; Gemini remains unconfigured, tests use mocks/imported fixture audio.",
+  "preservation": "Backend records, media, secrets, prior evidence, licensing content, container identity, mount, GPU access and ports preserved. Disposable test scratch removed."
+}

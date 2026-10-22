@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-22",
+  "tool": "Built-in ImageGen",
+  "selected_source": {
+    "sha256": "218e21f9a8c3b607dd6490ac1bccb6a08fa67a601b10d2102112070f3c0e2ec6",
+    "description": "User-selected botanical webpage concept: left-edge plants with upper-right and lower-right botanical groups, open parchment center."
+  },
+  "notes": [
+    "Background removal and texture reconstruction use generative edits; the illustration is not a pixel-exact cutout and some flowers are warmer/golder.",
+    "The texture is displayed with cover sizing, so seamless tiling is not required.",
+    "PNG alpha inspected: center and top-center are fully transparent. Pale engraving details remain within the botanical forms."
+  ],
+  "assets": [
+    {
+      "file": "web/player/botanical-frame-v1.png",
+      "width": 1672,
+      "height": 941,
+      "format": "RGBA PNG",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Edit the provided botanical webpage image. Remove ONLY its warm parchment paper background and export the exact existing botanical artwork on a genuinely TRANSPARENT alpha background as PNG. Preserve the reference image's original wide 16:9 canvas, every plant's position, size, shape, framing, crop, engraved hatching, dark forest-green leaf colors, ivory highlights inside the illustrated leaves, and antique-gold small blossoms. Keep the large empty central area 100% transparent. Every gap outside plants and between stems or leaves must become transparent. Preserve botanical fine lines and leaf interiors; do not erase pale engraved details within leaves. The left-edge botanical column, upper-right hanging spray and lower-right grouping must remain in exactly the same composition. No new plants, no rearrangement, no recoloring, no opaque paper behind the foliage, no shadows, no text, no extra motifs, no checkerboard painted into the pixels. Return only the extracted plant illustration occupying the same full canvas with real transparent alpha.",
+      "sha256": "8b8a2232f9502b0eddfaacbb6ae5c4f114d60533df5c36f5a20ea8ca129d7809",
+      "bytes": 1436065
+    },
+    {
+      "file": "web/player/parchment-texture-v1.png",
+      "width": 1672,
+      "height": 941,
+      "format": "RGB PNG",
+      "transparent_background": false,
+      "prompt": "Use case: precise-object-edit. Extract and reconstruct ONLY the background paper texture from the supplied botanical webpage image. Produce a standalone seamless warm ivory parchment texture that closely matches the clean central background region's exact gentle pale cream color, fine subtle organic paper grain and low-contrast natural mottling. Fill the entire landscape 16:9 canvas with that same even, quiet paper material. Remove ALL foliage, leaves, stems, flowers and other botanical elements completely. No objects, text, marks, borders, folds, stains, conspicuous fibers, shadows, corner darkening, directional lighting, gradients or vignette. Uniform soft illumination and subtle random micrograin across the whole image, edge-to-edge tileable/seamless, so the texture can be repeated as the webpage background underneath a separate transparent botanical layer. Keep the texture understated, bright warm parchment as in the original image center, not brown aged paper.",
+      "sha256": "a51b8f583e58d9073afb5566835966bd5e89df9c69771505bee8c94a6de52d40",
+      "bytes": 1908624
+    }
+  ],
+  "reused_brand_assets": [
+    {
+      "file": "web/player/waajacu-macaw.png",
+      "source": "C:/Work/caatuu/apps/language-runtime/static/assets/caatuu-shell-512.png",
+      "description": "Existing compact macaw used beside the Caatuu footer credit, reused without image edits.",
+      "sha256": "89e2f6ef381cfb1c934ce0da8b02d1c46030cc2bab308af0cf909b8164329a1d",
+      "bytes": 160714,
+      "superseded_by_sha256": "0a3c7f5130eafd34291b93b548fa1c9d6f8f73484da115e9a74e08630f0c7482",
+      "superseded_reason": "Incorrect Caatuu mark; replaced with the actual Waajacu blue-and-gold macaw at the user request."
+    },
+    {
+      "file": "web/player/waajacu-macaw.png",
+      "source": "C:/Work/waajacu/src/waajacu-logo-transparent.png",
+      "description": "Actual Waajacu blue-and-gold macaw used on the Waajacu homepage, reused without image edits.",
+      "sha256": "0a3c7f5130eafd34291b93b548fa1c9d6f8f73484da115e9a74e08630f0c7482",
+      "bytes": 768822
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "recorded_at_utc": "2026-10-22T20:06:44.056226+00:00",
+  "stage": "timed-multimodal-source-embeddings",
+  "model": "gemini-embedding-2",
+  "default_dimensions": 3072,
+  "supported_dimensions": [
+    128,
+    3072
+  ],
+  "input_modes": [
+    "text",
+    "audio",
+    "text_audio"
+  ],
+  "implemented": [
+    "authored release-relative windows bound to accepted package, exact transcript bytes, source audio SHA and native frames",
+    "known-stem editorial provenance; mixed audio stays unassigned",
+    "canonical request/result cache with paid-attempt provenance",
+    "one declared model/configuration/reported-revision space per bundle",
+    "per-job aggregate budget reservations, per-request conservative serving allocations, and audited billing reconciliation",
+    "local-only crash recovery without retry or redispatch",
+    "separate immutable source_embeddings v1 sidecar with bounded float32LE vector shards",
+    "fixed read-only catalog/manifest/shard routes at both listening ports",
+    "backup/restore retention of prepared and installed sidecars"
+  ],
+  "verification": {
+    "tests": 677,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 280.97,
+    "dependency_deprecation_warnings": 1
+  },
+  "limits": {
+    "provider_context_tokens": 8192,
+    "provider_audio_seconds": 180,
+    "app_audio_seconds_per_window": 30,
+    "app_text_utf8_bytes": 4096,
+    "app_prepared_request_bytes_per_job": 67108864,
+    "manifest_bytes": 1048576,
+    "shard_vectors": 64,
+    "shard_bytes": 786432
+  },
+  "live_route_checks": 14,
+  "live_provider_calls_this_implementation": 0,
+  "paid_voice_generation_calls_this_implementation": 0,
+  "running_station": "Reloaded through the existing launcher; empty schedule preserved, no fixtures installed or broadcasts initiated.",
+  "frontend": "No frontend files or 3D mapping/rendering were edited; only backend read-only integration routes added.",
+  "media_contract": "Immutable audio release v1 and performance v1 unchanged.",
+  "remaining_validation": "Real embedding responses and artistic text/audio/joint motion comparisons require separately authorized live work.",
+  "trust_limits": [
+    "Authored timing and stem-to-release relationships require verified editorial/alignment evidence; no speaker inference from mixed audio.",
+    "Null provider_revision means no immutable weight revision was exposed; space_id cannot certify undisclosed weight changes.",
+    "Conservative serving allocations are not measured costs or a provider-account spending cap."
+  ],
+  "container": {
+    "name": "radio-waajacu",
+    "immutable_id": "282e8a1227384cb694b979ce6ffc6060c66a490ca0685228a9920d002528977e",
+    "configuration_reused": true,
+    "ports": [
+      "127.0.0.1:43120:43120",
+      "127.0.0.1:43121:43121"
+    ]
+  },
+  "local_evidence": [
+    ".runtime/verification/tests-20261022T195943057771Z-abt46y8_/junit.xml",
+    ".runtime/verification/tests-20261022T195943057771Z-abt46y8_/pytest.log",
+    ".runtime/verification/tests-20261022T195943057771Z-abt46y8_/embedding-source-sha256.json",
+    ".runtime/verification/embedding-live-20261022T200541Z-bzvu7v0_/routes.json",
+    ".runtime/verification/services-20261022T200506897989Z-6yaiz8ud/services.json"
+  ],
+  "evidence_sha256": {
+    ".runtime/verification/tests-20261022T195943057771Z-abt46y8_/junit.xml": "0b49ae26f2698dcaaefa91bd3c5dff40a3eb49e88274f2991b6bd2692776fd96",
+    ".runtime/verification/tests-20261022T195943057771Z-abt46y8_/pytest.log": "ef24bbc5860c486d3bb39bd04014d095640a107bd565464342285c6d3f1df208",
+    ".runtime/verification/tests-20261022T195943057771Z-abt46y8_/embedding-source-sha256.json": "de7bc150350a31a5e5b8393a4968ef4139d08a94a8f1a2d4219bd91f517d39f0",
+    ".runtime/verification/embedding-live-20261022T200541Z-bzvu7v0_/routes.json": "956fc964eb145df4defabfe72353286beee24e862f636050ffe2edd12d4844f6",
+    ".runtime/verification/services-20261022T200506897989Z-6yaiz8ud/services.json": "554d1517261795d87fd3834507df1244062a1e128147ecef74d33e09de4c009a"
+  },
+  "disposable_cleanup": {
+    "full_suite_scratch_removed": true,
+    "removed_only_task_created_untracked_syntax_cache": [
+      "web_radio/__pycache__/embedding_service.cpython-313.pyc",
+      "web_radio/__pycache__/embedding_cli.cpython-313.pyc"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/embeddings",
+    "https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2",
+    "https://ai.google.dev/api/embeddings",
+    "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2"
+  ]
+}

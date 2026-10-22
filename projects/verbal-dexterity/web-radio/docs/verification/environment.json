@@ -1,0 +1,52 @@
+{
+  "recorded_at_utc": "2026-10-22T16:33:50.4717890Z",
+  "container_name": "radio-waajacu",
+  "container_id": "282e8a1227384cb694b979ce6ffc6060c66a490ca0685228a9920d002528977e",
+  "immutable_base_image_id": "sha256:567e3c17b188e21cd42aa5e1c55e16d8270f880ed8ea321dbd40f993467efc4c",
+  "base_image": "debian@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f",
+  "command": [
+    "/bin/bash",
+    "/workspace/infra/container-entry.sh"
+  ],
+  "working_directory": "/workspace",
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "C:\\Work\\Natural-Dexterity\\projects\\verbal-dexterity\\web-radio",
+      "Destination": "/workspace",
+      "RW": true
+    }
+  ],
+  "named_volume_count": 0,
+  "ports": {
+    "43120/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "43120"
+      }
+    ],
+    "43121/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "43121"
+      }
+    ]
+  },
+  "restart": "no",
+  "init": true,
+  "gpu_requests": [
+    {
+      "Driver": "",
+      "Count": -1,
+      "DeviceIDs": null,
+      "Capabilities": [
+        [
+          "gpu"
+        ]
+      ],
+      "Options": {}
+    }
+  ],
+  "gpu_verified": "NVIDIA RTX A2000 8GB Laptop GPU, GPU-a878a4ab-d3a8-a4d5-8e6f-010b9dd24596, 596.52",
+  "privileged": false
+}

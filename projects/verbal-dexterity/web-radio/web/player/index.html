@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4ead7">
+  <title>Radio Waajacu</title>
+  <link rel="stylesheet" href="/assets/player.css">
+  <script src="/vendor/hls.min.js" defer></script>
+  <script src="/assets/spirits.js" defer></script>
+  <script src="/assets/performance.js" defer></script>
+  <script src="/assets/semantic.js" defer></script>
+  <script src="/assets/player.js" defer></script>
+</head>
+<body>
+  <div class="paper-scene" aria-hidden="true"><div class="botanical-frame"></div></div>
+  <main class="radio" aria-label="Radio Waajacu live radio">
+    <h1 class="visually-hidden">Radio Waajacu</h1>
+    <section class="tuner" aria-label="Live broadcast">
+      <div class="visualizer-slot">
+        <canvas id="sound-wave" width="640" height="256" aria-hidden="true"></canvas>
+      </div>
+      <div class="programme" id="programme" hidden>
+        <p class="eyebrow" id="now-label">LIVE RADIO</p>
+        <h2 id="now-title">Radio Waajacu</h2>
+      </div>
+      <div class="controls">
+        <button id="live-button" type="button" aria-label="Listen live" title="Listen live" disabled>
+          <svg class="play-symbol" id="play-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>
+          <svg class="pause-symbol" id="pause-symbol" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M7 5h4v14H7zM15 5h4v14h-4z"/></svg>
+          <span class="visually-hidden" id="button-label">Listen live</span>
+        </button>
+        <label class="volume" for="volume">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-5 4H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg>
+          <span class="visually-hidden">Volume</span>
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+        </label>
+      </div>
+      <div class="preview-progress" id="preview-progress" hidden>
+        <span id="preview-elapsed">0:00</span>
+        <input id="preview-seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="Preview playback position">
+        <span id="preview-duration">0:00</span>
+      </div>
+      <p class="signal" id="signal" role="status"><span class="signal-dot" aria-hidden="true"></span><span id="signal-text">Connecting</span></p>
+      <p class="player-note" id="player-note" role="status" aria-live="polite"></p>
+      <audio id="live-audio" preload="none"></audio>
+    </section>
+  </main>
+  <footer class="credit"><a href="https://waajacu.com"><img src="/assets/waajacu-macaw.png" width="26" height="26" alt=""><span>by waajacu.com</span></a></footer>
+</body>
+</html>

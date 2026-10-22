@@ -1,0 +1,85 @@
+{
+  "recorded_at_utc": "2026-10-22T18:50:20.374383+00:00",
+  "stage": "backend-characters-and-conversations",
+  "implemented": [
+    "description-only original voice design with retained prompted provenance and audition",
+    "reusable immutable character revisions and voice recipes",
+    "frozen cast identities and recipes per queued take",
+    "bounded native dialogue chunks and ordered unary rendering for larger/designed casts",
+    "atomic aggregate reservations and per-request settlement/reconciliation",
+    "selected-job backend operator CLI with no automatic queue drain or publication",
+    "voice-design recovery without redispatch and offline-backup coordination"
+  ],
+  "excluded": [
+    "voice replication",
+    "reference-audio voice creation",
+    "production web UI"
+  ],
+  "verification": {
+    "tests": 442,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 134.35,
+    "provider_transport": "mocked for new features",
+    "dependency_deprecation_warnings": 1
+  },
+  "acceptance": "Mocked description design, pinned three-character rendering, ordered audio assembly, acceptance, and validated immutable publication passed.",
+  "live_services": [
+    {
+      "service": "listener",
+      "port": 43120,
+      "reachable": true,
+      "listener_only": true,
+      "production_routes_absent": true
+    },
+    {
+      "service": "station",
+      "port": 43121,
+      "reachable": true,
+      "listener_only": true,
+      "production_routes_absent": true
+    }
+  ],
+  "read_only_plan": {
+    "script": "content/series/first-light/programme.json",
+    "strategy": "chunks",
+    "request_count": 2,
+    "input_token_upper_bound": 12956,
+    "reservation_ceiling_usd": "0.204800",
+    "reserved": false,
+    "dispatched": false
+  },
+  "privacy": {
+    "credential_ignored": true,
+    "credential_tracked": false,
+    "secret_directory_inheritance_protected": true,
+    "key_value_or_hash_recorded": false,
+    "default_backup_excludes_secrets": true
+  },
+  "paid_calls_this_implementation": 0,
+  "live_provider_limits": "New original-designed voices and larger casts are fixture-tested only; the earlier 9.32-second native two-speaker compatibility request remains the live-provider evidence.",
+  "voice_design_accounting": "Requires operator-verified quote evidence/expiry and explicit budgets. Local allocation is not a provider-enforced billing ceiling.",
+  "frontend": "No frontend files were edited by this backend implementation; visuals remain owned by the separate session.",
+  "container": {
+    "name": "radio-waajacu",
+    "immutable_id": "282e8a1227384cb694b979ce6ffc6060c66a490ca0685228a9920d002528977e",
+    "ports": [
+      "127.0.0.1:43120:43120",
+      "127.0.0.1:43121:43121"
+    ],
+    "configuration_reused": true
+  },
+  "local_evidence": [
+    ".runtime/verification/tests-20261022T184641178177Z-i8246mwr/pytest.log",
+    ".runtime/verification/tests-20261022T184641178177Z-i8246mwr/junit.xml",
+    ".runtime/verification/tests-20261022T184641178177Z-i8246mwr/backend-source-sha256.json",
+    ".runtime/verification/services-20261022T184927824244Z-4mk4f4_d/services.json"
+  ],
+  "evidence_sha256": {
+    ".runtime/verification/tests-20261022T184641178177Z-i8246mwr/pytest.log": "c78db2d36b015bfb3fbea434a6bc49b2305bef5aee796e8eb5f3997cd8de0961",
+    ".runtime/verification/tests-20261022T184641178177Z-i8246mwr/junit.xml": "e03f7bc77c0350d10319645a3e8b5c9c222c74dada17a57cc305ae37604d3f86",
+    ".runtime/verification/tests-20261022T184641178177Z-i8246mwr/backend-source-sha256.json": "a615b24dde95ea2bc6ca9e7014d9a1f68057982d2a18590fcca42a7a6f6bcff4",
+    ".runtime/verification/services-20261022T184927824244Z-4mk4f4_d/services.json": "8d84325eb63ca6ff8f81e3bda6052f68e8d51d5aa74b1c81d6d7d4104b458fc5"
+  }
+}

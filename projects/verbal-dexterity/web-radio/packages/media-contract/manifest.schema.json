@@ -1,0 +1,221 @@
+{
+  "$defs": {
+    "Asset": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "audio"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "mime_type": {
+                "const": "audio/wav"
+              },
+              "size_bytes": {
+                "maximum": 134217728
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "transcript"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "mime_type": {
+                "const": "text/plain"
+              },
+              "size_bytes": {
+                "maximum": 1048576
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "audio",
+            "transcript"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "path": {
+          "allOf": [
+            {
+              "not": {
+                "pattern": "(^|/)[^/]*\\.(?:/|$)"
+              }
+            },
+            {
+              "not": {
+                "pattern": "(^|/)([Cc][Oo][Nn]|[Pp][Rr][Nn]|[Aa][Uu][Xx]|[Nn][Uu][Ll]|[Cc][Oo][Mm][1-9]|[Ll][Pp][Tt][1-9])(?:\\.[^/]*)?(/|$)"
+              }
+            },
+            {
+              "not": {
+                "const": "manifest.json"
+              }
+            }
+          ],
+          "maxLength": 240,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*(?:/[A-Za-z0-9][A-Za-z0-9._-]*)*$",
+          "title": "Path",
+          "type": "string"
+        },
+        "mime_type": {
+          "enum": [
+            "audio/wav",
+            "text/plain"
+          ],
+          "title": "Mime Type",
+          "type": "string"
+        },
+        "size_bytes": {
+          "exclusiveMinimum": 0,
+          "maximum": 134217728,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "path",
+        "mime_type",
+        "size_bytes",
+        "sha256"
+      ],
+      "title": "Asset",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "programme_id": {
+      "pattern": "^[a-z0-9][a-z0-9-]{0,127}$",
+      "title": "Programme Id",
+      "type": "string"
+    },
+    "release_id": {
+      "pattern": "^[a-z0-9][a-z0-9-]{0,127}$",
+      "title": "Release Id",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "programme",
+        "ident"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 300,
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Title",
+      "type": "string"
+    },
+    "language": {
+      "pattern": "^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$",
+      "title": "Language",
+      "type": "string"
+    },
+    "published_at": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d{1,6})?Z$",
+      "title": "Published At",
+      "type": "string"
+    },
+    "duration_ms": {
+      "exclusiveMinimum": 0,
+      "maximum": 1800000,
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "assets": {
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "audio"
+              }
+            },
+            "required": [
+              "role"
+            ],
+            "type": "object"
+          },
+          "maxContains": 1,
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "transcript"
+              }
+            },
+            "required": [
+              "role"
+            ],
+            "type": "object"
+          },
+          "maxContains": 1,
+          "minContains": 1
+        }
+      ],
+      "items": {
+        "$ref": "#/$defs/Asset"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "title": "Assets",
+      "type": "array"
+    },
+    "package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Package Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "programme_id",
+    "release_id",
+    "kind",
+    "title",
+    "language",
+    "published_at",
+    "duration_ms",
+    "assets",
+    "package_sha256"
+  ],
+  "title": "Web Radio release manifest v1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structure only. Package acceptance additionally verifies inventory, hashes, safe paths, supported PCM WAV audio, decoded duration, and publication trust."
+}

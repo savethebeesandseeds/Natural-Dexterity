@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "name": "radio-waajacu",
+  "base_image": "debian@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f",
+  "command": [
+    "/bin/bash",
+    "/workspace/infra/container-entry.sh"
+  ],
+  "working_directory": "/workspace",
+  "mounts": [
+    {
+      "type": "bind",
+      "source": "C:\\Work\\Natural-Dexterity\\projects\\verbal-dexterity\\web-radio",
+      "target": "/workspace",
+      "read_only": false
+    }
+  ],
+  "named_volumes": [],
+  "ports": [
+    {
+      "host": "127.0.0.1",
+      "host_port": 43120,
+      "container_port": 43120,
+      "purpose": "radio listening entrance"
+    },
+    {
+      "host": "127.0.0.1",
+      "host_port": 43121,
+      "container_port": 43121,
+      "purpose": "station and public player"
+    }
+  ],
+  "restart_policy": "no",
+  "init": true,
+  "stop_timeout_seconds": 20,
+  "gpu": {
+    "request": "all",
+    "capabilities": [
+      "compute",
+      "utility"
+    ]
+  },
+  "network": "bridge",
+  "privileged": false,
+  "extra_devices": [],
+  "labels": {
+    "io.waajacu.managed": "true",
+    "io.waajacu.project": "web-radio",
+    "io.waajacu.configuration": "1"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "recorded_at_utc": "2026-10-22T17:25:23.622783+00:00",
+  "stage": "keyless-foundation-refinement",
+  "prior_receipt": {
+    "path": "current.json",
+    "sha256": "03048844e67825774fddb0545aa472a3abefaf2e67c3ff7be4e45b5693df4bac",
+    "preserved_unchanged": true
+  },
+  "environment_receipt": "environment.json",
+  "test_results": {
+    "tests": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 108.316
+  },
+  "retained_reports": {
+    ".runtime/verification/tests-20261022T172216219266Z-pwujvs9z/pytest.log": "6a3ca851436c8e5e9380acee2c8b9c7c8f261452d9c2125b2ae9f89d5466f69c",
+    ".runtime/verification/tests-20261022T172216219266Z-pwujvs9z/junit.xml": "c5bbf04e6f045c28298e5de5c068b8c1945decb87899f5086963fb252e3bd0b9",
+    ".runtime/verification/tests-20261022T172216219266Z-pwujvs9z/source-inventory.json": "b416c7f1ac04fa3c42c037a5b65eb9dc8ad4e3677932dd0482d9030f181899bb",
+    ".runtime/verification/services-20261022T172249972920Z-eqeelopp/services.json": "5b07b727d1a1f39df98b8c3fca14568ed2795b58131ee320e5f0b1ad02020bb2"
+  },
+  "source_file_count": 52,
+  "changes": [
+    "Character-first roadmap and design, planned reusable character library, native dialogue flow, cloning excluded.",
+    "Current adapter accepts documented prebuilt voices; other IDs fail before reservation or take creation.",
+    "Returned WAV MIME and container both validated; unexpected formats retain uncertain reservations.",
+    "Test and live-check evidence retained in unique directories without overwriting prior results."
+  ],
+  "live_state": {
+    "studio_url": "http://127.0.0.1:43120/",
+    "station_url": "http://127.0.0.1:43121/",
+    "editing_ready": true,
+    "import_ready": true,
+    "gemini_key_configured": false,
+    "station_state": "waiting",
+    "studio_pid": 25097,
+    "station_pid": 11273,
+    "container_id": "282e8a1227384cb694b979ce6ffc6060c66a490ca0685228a9920d002528977e"
+  },
+  "provider_validation": "Mocked only; no real Gemini requests or charges. Exact endpoint/model compatibility check intentionally deferred.",
+  "next_development": "Reusable character records and simple cast/dialogue interface, followed by episode catalogue and production polish.",
+  "scratch_cleanup": "Disposable full-suite scratch removed; task pytest fixtures audited and removed. Persistent data and prior evidence retained."
+}
