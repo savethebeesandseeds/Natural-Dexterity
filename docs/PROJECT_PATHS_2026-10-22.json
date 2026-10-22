@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "operation": "Replace spaces in category directory names with hyphens",
+  "previous_organization_record": "docs/PROJECT_ORGANIZATION_2026-10-22.json",
+  "root": "C:\\Work\\Natural-Dexterity",
+  "categories": {
+    "social-dexterity": [
+      "electronic-scouts"
+    ],
+    "manual-dexterity": [
+      "atari",
+      "delta",
+      "droid-blocks",
+      "droid-goo",
+      "helicopter",
+      "humanoid"
+    ],
+    "verbal-dexterity": [],
+    "field-dexterity": [
+      "mothership-irrigation"
+    ],
+    "stage-dexterity": [
+      "dungeons-and-dragons-board",
+      "electric-wind-instrument",
+      "spirit_of_the_forest",
+      "totems"
+    ],
+    "extras": []
+  },
+  "renames": {
+    "social dexterity": "social-dexterity",
+    "manual dexterity": "manual-dexterity",
+    "verbal dexterity": "verbal-dexterity",
+    "field dexterity": "field-dexterity",
+    "stage dexterity": "stage-dexterity"
+  },
+  "active_files_updated": [
+    "README.md",
+    "projects\\manual-dexterity\\atari\\CONTAINER-PROPOSAL.md",
+    "projects\\manual-dexterity\\helicopter\\README.md",
+    "projects\\manual-dexterity\\droid-blocks\\README.md",
+    "projects\\manual-dexterity\\droid-blocks\\docs\\OPEN_HANDOFF.md",
+    "projects\\manual-dexterity\\humanoid\\container.ps1",
+    "projects\\manual-dexterity\\humanoid\\README.md",
+    "projects\\manual-dexterity\\humanoid\\runtime\\PROPOSAL.md",
+    "projects\\manual-dexterity\\humanoid\\training\\README.md"
+  ],
+  "historical_records_and_artifacts_unchanged": true,
+  "checks": [
+    "Six category names and twelve project placements",
+    "Updated launcher syntax",
+    "All root README local links",
+    "Existing container configuration preserved; no other container inventory changes"
+  ],
+  "exhaustive_hash_comparison": false,
+  "container": {
+    "name": "droid-blocks-dev",
+    "before_id": "3afca83226e3f4e523bc4436652313a85c9801e880f4e8b53f36f6a1467e54a5",
+    "after_id": "6a6ac7985fab73b81a354c84dbf195205c94591d5799f2379a842a6ecf36b0d9",
+    "image": "droid-blocks:dev",
+    "image_id": "sha256:c17fd3a6faf80c65a1c0bd54967a0fd939a24dc69d3846c0b84b1857726d1342",
+    "command": [
+      "/workspace/run.sh"
+    ],
+    "bind_source": "C:\\Work\\Natural-Dexterity\\projects\\manual-dexterity\\droid-blocks",
+    "bind_target": "/workspace",
+    "read_write": true,
+    "named_volumes": [],
+    "port": "127.0.0.1:43117:8080",
+    "restart": "no",
+    "gpu": "all",
+    "state": "created; not started",
+    "writable_layer_bytes_before": 0,
+    "configuration_preserved_except": [
+      "container identity",
+      "host bind source",
+      "project-root and migration labels"
+    ],
+    "other_containers_preserved": true
+  },
+  "local_inspection_records": "tmp/project-path-hyphens-20261022 (local and ignored)"
+}
