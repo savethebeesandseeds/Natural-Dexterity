@@ -39,6 +39,70 @@ class Character(StrictModel):
     color: Annotated[str, Field(pattern=r"^#[0-9A-Fa-f]{6}$")]
 
 
+def _fallback_character_color(character_id: str) -> str:
+    """Match RadioSpirits' stable identity palette for older character records."""
+    identity_hash = 2166136261
+    for character in character_id:
+        identity_hash = ((identity_hash ^ ord(character)) * 16777619) & 0xffffffff
+    hue = (identity_hash % 360) / 60
+    chroma = .30
+    middle = chroma * (1 - abs(hue % 2 - 1))
+    segments = (
+        (chroma, middle, 0), (middle, chroma, 0),
+        (0, chroma, middle), (0, middle, chroma),
+        (middle, 0, chroma), (chroma, 0, middle),
+    )
+    return "#" + "".join(
+        f"{math.floor((component + .28) * 255 + .5):02x}"
+        for component in segments[math.floor(hue)]
+    )
+
+
+def performance_cast_from_characters(characters) -> list[dict[str, str]]:
+    """Extract public identity/colors from selected character definitions.
+
+    The caller selects authored definitions or frozen revisions before preparation.
+    No registry is opened and no existing performance document is changed. Missing
+    or null optional colors use the same stable-ID palette as the renderer.
+    Explicit invalid colors fail rather than silently falling back.
+    """
+    if not isinstance(characters, (list, tuple)) or not 1 <= len(characters) <= 12:
+        raise PerformanceError("Supply between one and twelve character definitions.")
+    result, seen = [], set()
+    for character in characters:
+        if not isinstance(character, dict):
+            raise PerformanceError("Each character definition must be an object.")
+        character_id = character.get("character_id")
+        if not isinstance(character_id, str) or re.fullmatch(SLUG_PATTERN, character_id) is None:
+            raise PerformanceError("A stable character ID is required for visual performance.")
+        if character_id in seen:
+            raise PerformanceError("Visual performance character IDs must be unique.")
+        seen.add(character_id)
+        color = character.get("spiral_color")
+        if color is None:
+            color = _fallback_character_color(character_id)
+        try:
+            item = Character.model_validate({"id": character_id, "color": color})
+        except (ValidationError, TypeError, ValueError) as exc:
+            raise PerformanceError("Character spiral_color must be a #RRGGBB color.") from exc
+        result.append(item.model_dump())
+    return result
+
+
+def cast_from_snapshot(snapshot) -> list[dict[str, str]]:
+    """Resolve only public colors from one already-frozen bound cast snapshot."""
+    if (not isinstance(snapshot, dict) or type(snapshot.get("schema_version")) is not int
+            or snapshot["schema_version"] != 1 or not isinstance(snapshot.get("speakers"), list)
+            or not 1 <= len(snapshot["speakers"]) <= 12):
+        raise PerformanceError("Supply a version-one bound cast with one to twelve speakers.")
+    characters = []
+    for speaker in snapshot["speakers"]:
+        if not isinstance(speaker, dict) or not isinstance(speaker.get("character"), dict):
+            raise PerformanceError("Bound speakers must retain their character snapshots.")
+        characters.append(speaker["character"])
+    return performance_cast_from_characters(characters)
+
+
 class Cue(StrictModel):
     speaker_id: Slug
     start_ms: Annotated[int, Field(ge=0, le=MAX_DURATION_MS)]

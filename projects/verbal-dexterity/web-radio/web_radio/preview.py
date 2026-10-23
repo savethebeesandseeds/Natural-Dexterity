@@ -76,7 +76,7 @@ class PreviewManifest(StrictModel):
 
 class Projection(StrictModel):
     method: Literal["pca"]
-    dimensions: Literal[3, 4]
+    dimensions: Literal[3, 4, 5]
     fitted_count: Annotated[int, Field(ge=1, le=2000)]
     basis_sha256: Hash
 
@@ -84,7 +84,7 @@ class Projection(StrictModel):
     @classmethod
     def exact_dimensions(cls, value):
         if isinstance(value, dict) and type(value.get("dimensions")) is not int:
-            raise ValueError("projection dimensions must be integer three or four")
+            raise ValueError("projection dimensions must be integer three, four or five")
         return value
 
 
@@ -98,6 +98,7 @@ class SemanticWindow(StrictModel):
     end_ms: Annotated[int, Field(gt=0, le=MAX_DURATION_MS)]
     position: Annotated[list[Coordinate], Field(min_length=3, max_length=3)]
     rotation: Coordinate | None = None
+    depth_rotation: Coordinate | None = None
 
 
 class PreviewSemantic(StrictModel):
@@ -231,11 +232,16 @@ def _semantic(raw: dict, manifest: PreviewManifest, performance: Performance):
         raise PreviewError("preview semantic identity does not match audio")
     if semantic.projection.fitted_count != len(semantic.windows):
         raise PreviewError("preview projection fit count does not match its windows")
-    if semantic.projection.dimensions == 4:
+    if semantic.projection.dimensions >= 4:
         if any(window.rotation is None for window in semantic.windows):
-            raise PreviewError("four-dimensional preview windows require rotation")
+            raise PreviewError("four- and five-dimensional preview windows require rotation")
     elif any(window.rotation is not None for window in semantic.windows):
         raise PreviewError("three-dimensional preview windows may not declare rotation")
+    if semantic.projection.dimensions == 5:
+        if any(window.depth_rotation is None for window in semantic.windows):
+            raise PreviewError("five-dimensional preview windows require depth rotation")
+    elif any(window.depth_rotation is not None for window in semantic.windows):
+        raise PreviewError("three- and four-dimensional preview windows may not declare depth rotation")
     known = {character.id for character in performance.cast}
     previous = -1
     ids = set()

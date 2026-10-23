@@ -23,6 +23,13 @@
     return {energy: value("energy"), bands: [value("low"), value("mid"), value("high")]};
   }
 
+  function ownsAudioWindow(performance, id, first, last) {
+    return performance.cues.some(cue => cue.speaker_id === id &&
+      cue.start_ms <= first && cue.end_ms >= last) &&
+      !performance.cues.some(cue => cue.speaker_id !== id &&
+        cue.start_ms < last && cue.end_ms > first);
+  }
+
   function sample(performance, offset, mixed = null) {
     const active = activeSpeakers(performance, offset);
     const result = {};
@@ -31,15 +38,41 @@
       const track = tracks && Object.hasOwn(tracks, id) ? tracks[id] : null;
       if (track) result[id] = sampleTrack(track, performance.features.hop_ms, offset);
       // A single timed speaker can use the mixed signal. Overlaps require separate tracks.
-      else if (active.length === 1 && mixed) result[id] = {energy:mixed.energy, bands:mixed.bands};
+      else if (active.length === 1 && mixed) {
+        const owns = duration => duration === undefined ||
+          Number.isFinite(duration) && duration >= 0 &&
+          ownsAudioWindow(performance, id, offset - duration, offset);
+        result[id] = {
+          energy: owns(mixed.energy_window_ms) ? mixed.energy : 0,
+          bands: owns(mixed.bands_window_ms) ? mixed.bands : [0, 0, 0]
+        };
+      }
       // A measured mixed waveform belongs to the sole timed voice only.
       // Overlapping voices need separate prepared waveforms.
       if (active.length === 1 && mixed && Array.isArray(mixed.waveform) && result[id]) {
-        const windowMs = Number.isFinite(mixed.waveform_window_ms)
-          ? Math.max(0, mixed.waveform_window_ms) : 0;
-        const containsOtherVoice = performance.cues.some(cue =>
-          cue.speaker_id !== id && cue.start_ms < offset && cue.end_ms > offset - windowMs);
-        if (!containsOtherVoice) result[id] = {...result[id], waveform:mixed.waveform};
+        const ranges = mixed.waveform_ranges_ms;
+        if (ranges !== undefined) {
+          // Each contour point is owned only when its complete RMS source
+          // footprint lies inside this character's cue and no other voice.
+          const validRanges = Array.isArray(ranges) && ranges.length === mixed.waveform.length;
+          const mask = mixed.waveform.map((_value, bin) => {
+            const range = validRanges && ranges[bin];
+            if (!Array.isArray(range) || range.length !== 2 ||
+                !range.every(Number.isFinite) || range[0] >= range[1] || range[1] > 0) return false;
+            const first = offset + range[0], last = offset + range[1];
+            return ownsAudioWindow(performance, id, first, last);
+          });
+          result[id] = {...result[id],
+            waveform: mixed.waveform.map((value, bin) => mask[bin] ? value : 0),
+            waveform_mask: mask};
+        } else {
+          // Compatibility for older callers with only a whole-window extent.
+          const windowMs = Number.isFinite(mixed.waveform_window_ms)
+            ? Math.max(0, mixed.waveform_window_ms) : 0;
+          const containsOtherVoice = performance.cues.some(cue =>
+            cue.speaker_id !== id && cue.start_ms < offset && cue.end_ms > offset - windowMs);
+          if (!containsOtherVoice) result[id] = {...result[id], waveform:mixed.waveform};
+        }
       }
     }
     return result;

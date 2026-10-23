@@ -17,7 +17,7 @@
   const mixed = {energy:.6,bands:[.3,.4,.2]};
   const {sample, activeSpeakers, validDocument, Timeline} = RadioPerformance;
   await test("Continuous helix has depth and a long axis", () => {
-    const points = RadioSpirits.projectHelix({radius:20,length:150,points:150,waveform:Array(64).fill(.5),renderer:{baseAngleDegrees:0,lengthScale:1,tailFraction:0}});
+    const points = RadioSpirits.projectHelix({radius:20,length:150,points:150,waveform:Array(64).fill(.5),renderer:{baseAngleDegrees:0,axialTiltDegrees:17,yawDegrees:7,lengthScale:1,tailFraction:0}});
     assert(points.length===151);
     assert(points.every(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&Number.isFinite(p.z)));
     const span = key => Math.max(...points.map(p=>p[key]))-Math.min(...points.map(p=>p[key]));
@@ -77,6 +77,19 @@
     assert(validDocument(data,"fixture-one"));
     const value=sample(data,600,mixed);assert(Math.abs(value.a.energy-.2)<1e-8 && Math.abs(value.b.energy-.8)<1e-8);
   });
+  await test("RMS footprints mask prior voices without blanking the new voice", () => {
+    const source={...mixed,waveform:Array(64).fill(.4),
+      waveform_ranges_ms:Array.from({length:64},(_,i)=> i<32?[-150,-50]:[-30,-10])};
+    const value=sample(base(),550,source).b;
+    assert(value.waveform.slice(0,32).every(v=>v===0));
+    assert(value.waveform.slice(32).every(v=>v===.4));
+    assert(value.waveform_mask.slice(0,32).every(v=>v===false));
+    assert(value.waveform_mask.slice(32).every(v=>v===true));
+    const overlap=base();overlap.cues[0].end_ms=540;
+    assert(sample(overlap,550,source).b.waveform.every(v=>v===0));
+    source.waveform_ranges_ms[63]=[0,10];
+    assert(sample(base(),550,source).b.waveform[63]===0);
+  });
   await test("Unknown character references are rejected", () => {
     const data=base();data.cues[0].speaker_id="unknown";assert(!validDocument(data,"fixture-one"));
   });
@@ -113,6 +126,144 @@
     assert(scene.cast.length===3);
     scene.setCast([{id:"fixture-teal",color:"#518e89"}]);assert(scene.cast.length===1);
     scene.setCast([{id:"fixture-teal",color:"#518e89"},{id:"fixture-gold",color:"#b08c50"},{id:"fixture-rose",color:"#a4778e"}]);
+  });
+  const projectAlias = "project-" + "1".repeat(24);
+  const creationOne = "creation-" + "2".repeat(24);
+  const creationTwo = "creation-" + "3".repeat(24);
+  const recordingFixture = (id, {resolved=id, library=true, staticSite=false} = {}) => {
+    const audioHash="a".repeat(64);
+    const source=base();
+    const {release_id,package_sha256,...timeline}=source;
+    const performance={...timeline,preview_id:resolved,audio_sha256:audioHash};
+    const semantic={
+      schema_version:1,preview_id:resolved,audio_sha256:audioHash,duration_ms:1000,
+      model:"gemini-embedding-2",space_id:"b".repeat(64),
+      projection:{method:"pca",dimensions:5,fitted_count:2,basis_sha256:"c".repeat(64)},
+      windows:[
+        {id:"first",character_id:"a",start_ms:0,end_ms:500,position:[0,.1,.2],rotation:.3,depth_rotation:.4},
+        {id:"second",character_id:"b",start_ms:500,end_ms:1000,position:[.2,.3,.4],rotation:.5,depth_rotation:.6}
+      ]
+    };
+    const prefix=library?"/creation-library/":"/preview/";
+    const assetBase=prefix+resolved+"/";
+    const metadata={
+      preview_id:resolved,local_preview:true,duration_ms:1000,
+      audio:{url:assetBase+"audio.wav",sha256:audioHash},
+      performance:{url:assetBase+"performance.json"},
+      semantic:{url:assetBase+"semantic.json"}
+    };
+    const requested=staticSite ? "/data/recordings/"+id+".json" :
+      (library?"/api/creation-library/":"/api/previews/")+id;
+    const documents=new Map([
+      [requested,metadata],[metadata.performance.url,performance],[metadata.semantic.url,semantic]
+    ]);
+    const calls=[],updates=[];
+    const scene={};
+    for(const method of ["setCast","setPositions","setRotations","setDepthRotations"]) {
+      scene[method]=value=>updates.push({method,value});
+    }
+    const recording=new RadioSemantic.Recording(scene,async path=>{
+      calls.push(path);
+      if(!documents.has(path))throw new Error("Unexpected asset path: "+path);
+      return documents.get(path);
+    });
+    return {recording,metadata,performance,semantic,calls,updates,assetBase,requested,id,library,staticSite};
+  };
+  const rejectedRecording = async fixture => {
+    let rejected=false;
+    try { await fixture.recording.load(fixture.id,{library:fixture.library,staticSite:fixture.staticSite}); }
+    catch { rejected=true; }
+    assert(rejected,"Mismatched recording was accepted");
+    assert(fixture.recording.pending===false,"Pending state was not cleared");
+    assert(fixture.recording.document===null && fixture.recording.semantic===null &&
+      fixture.updates.length===0,"Rejected payload changed the scene");
+  };
+  await test("Project aliases pin performance and five-dimensional semantics to one concrete creation", async () => {
+    const fixture=recordingFixture(projectAlias,{resolved:creationOne});
+    const metadata=await fixture.recording.load(projectAlias,{library:true});
+    assert(metadata.preview_id===creationOne);
+    assert(fixture.recording.document.preview_id===creationOne);
+    assert(fixture.recording.semantic.preview_id===creationOne);
+    assert(fixture.recording.semantic.projection.dimensions===5);
+    assert(fixture.calls.join("|")===[
+      fixture.requested,fixture.assetBase+"performance.json",fixture.assetBase+"semantic.json"
+    ].join("|"),"Assets were not pinned to the concrete version");
+    assert(fixture.updates.map(item=>item.method).join()==="setCast,setPositions,setRotations,setDepthRotations");
+  });
+  await test("Exact creation and preview identities keep their existing loader contract", async () => {
+    for(const [id,library] of [[creationOne,true],["fixture-preview",false]]) {
+      const fixture=recordingFixture(id,{library});
+      await fixture.recording.load(id,{library});
+      assert(fixture.recording.document.preview_id===id && fixture.recording.semantic.preview_id===id);
+      assert(fixture.calls[0]===(library?"/api/creation-library/":"/api/previews/")+id);
+    }
+  });
+  await test("Alias resolution is limited to library project IDs and concrete creation IDs", async () => {
+    await rejectedRecording(recordingFixture(projectAlias,{resolved:creationOne,library:false}));
+    await rejectedRecording(recordingFixture(creationOne,{resolved:creationTwo}));
+    for(const resolved of ["fixture-preview",projectAlias,"creation-not-a-concrete-id"]) {
+      await rejectedRecording(recordingFixture(projectAlias,{resolved}));
+    }
+  });
+  await test("An alias cannot leave audio or sidecars on a moving project asset URL", async () => {
+    for(const asset of ["audio","performance","semantic"]) {
+      const fixture=recordingFixture(projectAlias,{resolved:creationOne});
+      fixture.metadata[asset].url="/creation-library/"+projectAlias+"/"+asset+
+        (asset==="audio"?".wav":".json");
+      await rejectedRecording(fixture);
+    }
+  });
+  await test("Concrete performance and semantic identity, audio hash and timing checks survive alias resolution", async () => {
+    const mutations=[
+      fixture=>fixture.performance.preview_id=creationTwo,
+      fixture=>fixture.semantic.preview_id=creationTwo,
+      fixture=>fixture.performance.audio_sha256="f".repeat(64),
+      fixture=>fixture.semantic.audio_sha256="f".repeat(64),
+      fixture=>fixture.performance.duration_ms=2000,
+      fixture=>fixture.semantic.duration_ms=2000,
+      fixture=>fixture.performance.cues[1].end_ms=1001,
+      fixture=>fixture.semantic.windows[1].end_ms=1001
+    ];
+    for(const mutate of mutations) {
+      const fixture=recordingFixture(projectAlias,{resolved:creationOne});
+      mutate(fixture);
+      await rejectedRecording(fixture);
+    }
+  });
+  await test("Static project and creation links load exported JSON without live API requests", async () => {
+    for(const id of [projectAlias,creationOne]) {
+      const fixture=recordingFixture(id,{resolved:creationOne,staticSite:true});
+      await fixture.recording.load(id,{library:true,staticSite:true});
+      assert(fixture.calls.join("|")===[
+        "/data/recordings/"+id+".json",fixture.assetBase+"performance.json",fixture.assetBase+"semantic.json"
+      ].join("|"));
+      assert(fixture.recording.metadata.preview_id===creationOne);
+      assert(fixture.recording.semantic.projection.dimensions===5);
+      assert(fixture.calls.every(path=>!path.startsWith("/api/")));
+    }
+  });
+  await test("Static playback refuses private preview identities before making a request", async () => {
+    for(const [id,library] of [["fixture-preview",false],["fixture-preview",true],[projectAlias,false]]) {
+      const fixture=recordingFixture(id,{library,staticSite:true});
+      await rejectedRecording(fixture);
+      assert(fixture.calls.length===0);
+    }
+  });
+  await test("Static aliases retain audio, semantic and concrete URL validation", async () => {
+    const mutations=[
+      fixture=>fixture.metadata.preview_id=projectAlias,
+      fixture=>fixture.metadata.audio.url="https://other.example/audio.wav",
+      fixture=>fixture.metadata.performance.url="/creation-library/"+projectAlias+"/performance.json",
+      fixture=>fixture.metadata.semantic.url="/creation-library/"+projectAlias+"/semantic.json",
+      fixture=>fixture.performance.audio_sha256="f".repeat(64),
+      fixture=>fixture.semantic.preview_id=creationTwo,
+      fixture=>fixture.semantic.duration_ms=2000
+    ];
+    for(const mutate of mutations) {
+      const fixture=recordingFixture(projectAlias,{resolved:creationOne,staticSite:true});
+      mutate(fixture);
+      await rejectedRecording(fixture);
+    }
   });
   const pass=tests.filter(Boolean).length;
   const summary=document.getElementById("summary");

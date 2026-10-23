@@ -15,10 +15,13 @@
   const DEFAULT_OPTIONS = Object.freeze({
     baseAngleDegrees: 90,
     semanticRotationDegrees: 150,
+    semanticDepthDegrees: 75,
+    axialTiltDegrees: 0,
+    yawDegrees: 0,
     turns: 5.5,
     lengthScale: 1.15,
     radiusScale: 1,
-    waveformGain: 2,
+    waveformGain: 1,
     axialEnergyKnee: .12,
     semanticSmoothingSeconds: .6,
     featureAttackSeconds: .075,
@@ -29,6 +32,9 @@
   const OPTION_RANGES = Object.freeze({
     baseAngleDegrees: [-360, 360],
     semanticRotationDegrees: [0, 180],
+    semanticDepthDegrees: [0, 89],
+    axialTiltDegrees: [-75, 75],
+    yawDegrees: [-75, 75],
     turns: [1, 10],
     lengthScale: [.25, 3],
     radiusScale: [.1, 3],
@@ -114,7 +120,7 @@
   }
 
   /* Returns samples along ONE unbroken curve. The y coordinate is the spring's
-   * elongated axis; radius/band ripples stay in local space before projection.
+   * elongated axis; only the supplied audio profile shapes its local radius.
    */
   function projectHelix(options = {}) {
     options = options && typeof options === "object" ? options : {};
@@ -126,18 +132,18 @@
     const rotation = Number.isFinite(options.rotation) ? clamp(options.rotation, -1, 1) : 0;
     const tilt = (Number.isFinite(options.tilt) ? options.tilt : -.12) +
       (renderer.baseAngleDegrees + rotation * renderer.semanticRotationDegrees) * Math.PI / 180;
-    const pitch = Number.isFinite(options.pitch) ? options.pitch : .28;
-    const yaw = Number.isFinite(options.yaw) ? options.yaw : .12;
-    const energy = unit(options.energy);
-    const bands = Array.isArray(options.bands) ? options.bands.map(unit) : [0, 0, 0];
-    const low = bands[0] || 0, mid = bands[1] || 0, high = bands[2] || 0;
-    const time = Number.isFinite(options.time) ? options.time : 0;
+    const depthRotation = Number.isFinite(options.depthRotation) ? clamp(options.depthRotation, -1, 1) : 0;
+    // Two coordinates orient the long axis: screen heading and signed depth
+    // inclination. Zero depth lies in the screen plane; no axial spin is added.
+    const pitch = Number.isFinite(options.pitch) ? options.pitch :
+      clamp(renderer.axialTiltDegrees + depthRotation * renderer.semanticDepthDegrees, -89, 89) * Math.PI / 180;
+    const yaw = Number.isFinite(options.yaw) ? options.yaw : renderer.yawDegrees * Math.PI / 180;
     const profile = Array.isArray(options.waveform) && options.waveform.length === WAVEFORM_SIZE &&
       options.waveform.every(Number.isFinite)
       ? options.waveform.map(value => clamp(value, -1, 1)) : null;
     const count = Math.round(clamp(Number(options.points) || 150, 32, 240));
     const camera = Number.isFinite(options.cameraDistance) && options.cameraDistance > 0
-      ? Math.max(1, options.cameraDistance, Math.hypot(radius * 1.158, length * .601) * 1.01)
+      ? Math.max(1, options.cameraDistance, Math.hypot(radius, length * .5) * 1.01)
       : Math.max(1, length * 4, radius * 9);
     const cosPitch = Math.cos(pitch), sinPitch = Math.sin(pitch);
     const cosYaw = Math.cos(yaw), sinYaw = Math.sin(yaw);
@@ -145,10 +151,6 @@
     const points = [];
     for (let index = 0; index <= count; index++) {
       const u = index / count;
-      const taper = .88 + .12 * Math.sin(Math.PI * u);
-      const ripple = 1 + .09 * low * Math.sin(TAU * u * 2 - time * 2.7) +
-        .045 * mid * Math.sin(TAU * u * 6 - time * 4.1) +
-        .023 * high * Math.sin(TAU * u * 14 - time * 5.3);
       // Radius is the waveform magnitude, with fixed gain and no baseline.
       // Zero sound has x=z=0: an exact straight axis at nonzero length.
       const profilePosition = u * (WAVEFORM_SIZE - 1);
@@ -161,29 +163,28 @@
       // Zero disables this optional endpoint fade; waveform silence still draws a line.
       const tail = renderer.tailFraction > 0
         ? smoothstep(clamp(Math.min(u, 1 - u) / renderer.tailFraction)) : 1;
-      const localRadius = radius * taper * tail * ripple *
+      const localRadius = radius * tail *
         Math.min(1, renderer.waveformGain * Math.abs(radialWave));
-      const angle = TAU * turns * u + phase +
-        .10 * mid * Math.sin(TAU * u * 3 - time * 2) +
-        .05 * high * Math.sin(TAU * u * 7 - time * 3);
-      // Preserve the entire axial range, including the tails. The bounded band
-      // ripples have positive axial derivative, so the strand never folds back.
-      const axialProgress = u;
-      const spacing = axialProgress + .014 * mid * Math.sin(TAU * axialProgress) +
-        .008 * low * Math.sin(TAU * axialProgress * 2);
-      const x = localRadius * Math.cos(angle);
-      const y = (spacing - .5) * length * (1 + energy * .15);
-      const z = localRadius * Math.sin(angle);
+      // This is the single required helix carrier. No decorative periodic
+      // radius, phase, or spacing patterns are added to the actual audio contour.
+      const angle = TAU * turns * u + phase;
+      const radialX = Math.cos(angle), radialZ = Math.sin(angle);
+      const x = localRadius * radialX;
+      const y = (u - .5) * length;
+      const z = localRadius * radialZ;
       const pitchedY = y * cosPitch - z * sinPitch;
       const pitchedZ = y * sinPitch + z * cosPitch;
       const yawedX = x * cosYaw + pitchedZ * sinYaw;
       const yawedZ = -x * sinYaw + pitchedZ * cosYaw;
       const projectedScale = camera / (camera + yawedZ);
+      // Rotate the radial normal with the actual out-of-plane view. Near
+      // sections face the camera at negative z; roll does not change this depth.
+      const radialNormalZ = -radialX * sinYaw + radialZ * cosPitch * cosYaw;
       points.push({
         x: (yawedX * cosTilt - pitchedY * sinTilt) * projectedScale,
         y: (yawedX * sinTilt + pitchedY * cosTilt) * projectedScale,
         z: yawedZ,
-        front: localRadius > 1e-9 ? (Math.sin(angle) + 1) / 2 : .5
+        front: localRadius > 1e-9 ? clamp((1 - radialNormalZ) / 2) : .5
       });
     }
     return points;
@@ -198,7 +199,10 @@
     return {
       energy: unit(value && value.energy),
       bands: [unit(bands[0]), unit(bands[1]), unit(bands[2])],
-      waveform
+      waveform,
+      waveformMask: value && Array.isArray(value.waveform_mask) &&
+        value.waveform_mask.length === WAVEFORM_SIZE
+        ? value.waveform_mask.map(valid => valid === true) : Array(WAVEFORM_SIZE).fill(true)
     };
   }
 
@@ -216,6 +220,7 @@
       this.targets = new Map();
       this.positionTargets = new Map();
       this.rotationTargets = new Map();
+      this.depthRotationTargets = new Map();
       this.frame = null;
       this.lastFrame = null;
       this.elapsed = 0;
@@ -259,7 +264,7 @@
           phase: (seed % 6283) / 1000,
           tilt: ((seed >>> 8) % 1000 / 1000 - .5) * .28,
           energy: 0, bands: [0, 0, 0], trail: [], trailAt: -Infinity,
-          position: null, rotation: 0, waveform: Array(WAVEFORM_SIZE).fill(0)
+          position: null, rotation: 0, depthRotation: 0, waveform: Array(WAVEFORM_SIZE).fill(0)
         };
         this.identities.set(id, identity);
       } else if (color !== undefined) {
@@ -290,8 +295,11 @@
       for (const id of this.rotationTargets.keys()) {
         if (!seen.has(id)) this.rotationTargets.delete(id);
       }
+      for (const id of this.depthRotationTargets.keys()) {
+        if (!seen.has(id)) this.depthRotationTargets.delete(id);
+      }
       for (const [id, identity] of this.identities) {
-        if (!seen.has(id)) { identity.position = null; identity.rotation = 0; }
+        if (!seen.has(id)) { identity.position = null; identity.rotation = 0; identity.depthRotation = 0; }
       }
       if (changed) {
         this.targets.clear();
@@ -377,6 +385,25 @@
       this.rotationTargets = next;
       for (const [id, identity] of this.identities) {
         if (!next.has(id)) identity.rotation = 0;
+      }
+      if (this.reducedMotion.matches || !next.size) this.renderOnce();
+      this.schedule();
+    }
+
+    setDepthRotations(rotations) {
+      if (this.destroyed) return;
+      // A complete fifth-dimension snapshot. Missing coordinates return to
+      // zero inclination instead of retaining a future turn after a seek.
+      const next = new Map();
+      const present = new Set(this.cast.map(identity => identity.id));
+      if (rotations && typeof rotations === "object" && !Array.isArray(rotations)) {
+        for (const [id, value] of Object.entries(rotations)) {
+          if (present.has(id) && Number.isFinite(value)) next.set(id, clamp(value, -1, 1));
+        }
+      }
+      this.depthRotationTargets = next;
+      for (const [id, identity] of this.identities) {
+        if (!next.has(id)) identity.depthRotation = 0;
       }
       if (this.reducedMotion.matches || !next.size) this.renderOnce();
       this.schedule();
@@ -488,13 +515,12 @@
       const baseLength = intrinsicLength * renderer.lengthScale;
       // Every configured roll, including the base 90-degree offset without a
       // semantic cue, preserves this sphere. Tail fades cannot enlarge it.
-      const maximumRadius = baseRadius * (1 + .09 + .045 + .023) *
-        Math.min(1, renderer.waveformGain);
-      const maximumAxial = .522 * baseLength * 1.15;
+      const maximumRadius = baseRadius * Math.min(1, renderer.waveformGain);
+      const maximumAxial = .5 * baseLength;
       const sphere = Math.hypot(maximumRadius, maximumAxial);
       const localCamera = Math.max(1, baseLength * 4, baseRadius * 9);
       // Tangent silhouette under the same fixed local camera used below. Full
-      // energy/waveform/band bounds are reserved even for a silent character.
+      // energy/waveform bounds are reserved even for a silent character.
       const projectedSphere = localCamera * sphere /
         Math.sqrt(localCamera * localCamera - sphere * sphere);
       const extentX = projectedSphere;
@@ -556,6 +582,10 @@
         const rotationDifference = rotationTarget - identity.rotation;
         identity.rotation = reduced || Math.abs(rotationDifference) < .00001
           ? rotationTarget : identity.rotation + rotationDifference * positionAmount;
+        const depthTarget = this.depthRotationTargets.get(identity.id) || 0;
+        const depthDifference = depthTarget - identity.depthRotation;
+        identity.depthRotation = reduced || Math.abs(depthDifference) < .00001
+          ? depthTarget : identity.depthRotation + depthDifference * positionAmount;
         const target = !reduced && this.playbackActive ? this.targets.get(identity.id) : null;
         const targetEnergy = target ? target.energy : 0;
         identity.energy = reduced ? 0 : smoothEnvelope(identity.energy, targetEnergy, delta,
@@ -566,8 +596,11 @@
         for (let bin = 0; bin < WAVEFORM_SIZE; bin++) {
           const soundTarget = !reduced && target ? target.waveform[bin] : 0;
           const difference = soundTarget - identity.waveform[bin];
-          identity.waveform[bin] = reduced || Math.abs(difference) < .00001
-            ? soundTarget : identity.waveform[bin] + difference * waveformAmount;
+          // Reapply ownership after smoothing so stale samples cannot bleed
+          // across cue boundaries when a character begins another turn.
+          identity.waveform[bin] = target && !target.waveformMask[bin] ? 0
+            : reduced || Math.abs(difference) < .00001
+              ? soundTarget : identity.waveform[bin] + difference * waveformAmount;
         }
         const color = rgb(identity.color);
         if (identity.energy < .005) {
@@ -583,7 +616,7 @@
         }
         // Energy controls axial elongation. A short smooth activation gate
         // opens radius near silence; it does not rescale ordinary speech's
-        // fixed-gain signed waveform a second time by the current RMS level.
+        // fixed-gain amplitude profile a second time by the current RMS level.
         const radiusGate = clamp(identity.energy / .05);
         const radiusActivation = smoothstep(radiusGate);
         const radius = intrinsicRadius * radiusActivation;
@@ -593,10 +626,10 @@
         const points = projectHelix({
           radius, length, renderer, cameraDistance: localCamera,
           phase: identity.phase,
-          pitch: .30, yaw: .12,
-          // The fourth dimension is a target orientation, never a spin rate.
-          tilt: identity.tilt, rotation: identity.rotation, energy: identity.energy,
-          bands: identity.bands, waveform: identity.waveform, time, points: count > 6 ? 110 : 150
+          // PC4 sets screen heading; PC5 sets depth inclination. Both move
+          // the whole audio body and neither introduces a spin around its axis.
+          tilt: identity.tilt, rotation: identity.rotation, depthRotation: identity.depthRotation,
+          waveform: identity.waveform, points: count > 6 ? 110 : 150
         });
         // Camera placement scales the whole unchanged local body, including
         // its length and radius. Strand, shading and trail styles stay intact.
@@ -673,6 +706,7 @@
       this.targets.clear();
       this.positionTargets.clear();
       this.rotationTargets.clear();
+      this.depthRotationTargets.clear();
       this.identities.clear();
       if (this.context) this.context.clearRect(0, 0, this.width, this.height);
     }

@@ -9,8 +9,15 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const spiritScene = window.RadioSpirits ? new RadioSpirits.Scene(canvas, {reducedMotion}) : null;
 const visualPerformance = spiritScene && window.RadioPerformance
   ? new RadioPerformance.Timeline(spiritScene, api) : null;
+const staticSite = Boolean(document.querySelector("main").dataset.staticCatalogue);
 const playerParams = new URLSearchParams(window.location.search);
-const recordingId = playerParams.get("recording") || playerParams.get("preview");
+const creationId = playerParams.get("creation");
+const recordingId = creationId || playerParams.get("recording") || playerParams.get("preview") ||
+  document.querySelector("main").dataset.defaultRecording || null;
+const libraryRecording = Boolean(creationId) ||
+  (staticSite && /^(?:creation|project)-[0-9a-f]{24}$/.test(recordingId || "")) ||
+  (!playerParams.get("recording") && !playerParams.get("preview") &&
+    /^(?:creation|project)-[0-9a-f]{24}$/.test(recordingId || ""));
 const recording = recordingId && spiritScene && window.RadioSemantic
   ? new RadioSemantic.Recording(spiritScene, api) : null;
 let recordingRetryAfter = 0;
@@ -24,18 +31,81 @@ let playAttempt = 0;
 let audioContext = null;
 let analyser = null;
 let mediaSource = null;
+let outputGain = null;
 let directAudio = false;
 let samples = null;
+let waveformSums = null;
 let frame = null;
 let frequencySamples = null;
 let lastVisualFrame = 0;
 let lastBoundaryRefresh = 0;
 let waveformReadyAfter = 0;
 
-// Device volume controls playback level; the page keeps unity gain.
-live.volume = 1;
+// Keep this status row empty for programme playback.
+if (recordingId) {
+  $("signal").classList.add("quiet");
+  $("signal-text").textContent = "";
+}
+
+// Keep volume after the analyser so listening level does not reshape a voice.
+let listeningVolume = 1;
+let listeningMuted = false;
+let lastAudibleVolume = 1;
+try {
+  const saved = JSON.parse(sessionStorage.getItem("radio-waajacu:audio-level") || "null");
+  if (saved && Number.isFinite(saved.volume) && saved.volume >= 0 && saved.volume <= 1 &&
+      typeof saved.muted === "boolean") {
+    listeningVolume = saved.volume;
+    listeningMuted = saved.muted;
+    if (Number.isFinite(saved.lastAudible) && saved.lastAudible > 0 && saved.lastAudible <= 1) {
+      lastAudibleVolume = saved.lastAudible;
+    }
+  }
+} catch {}
+
+function updateAudioLevel(persist = false) {
+  const silent = listeningMuted || listeningVolume === 0;
+  if (outputGain && audioContext) {
+    // The graph measures the unattenuated recording; only its output is quieted.
+    live.volume = 1;
+    live.muted = false;
+    const now = audioContext.currentTime;
+    const previousGain = outputGain.gain.value;
+    outputGain.gain.cancelScheduledValues(now);
+    outputGain.gain.setValueAtTime(previousGain, now);
+    outputGain.gain.linearRampToValueAtTime(silent ? 0 : listeningVolume, now + .020);
+  } else {
+    live.volume = listeningVolume;
+    live.muted = listeningMuted;
+  }
+  $("audio-volume").value = String(listeningVolume);
+  $("audio-volume").setAttribute("aria-valuetext", Math.round(listeningVolume * 100) + "%");
+  $("volume-toggle").setAttribute("aria-label", silent ? "Unmute" : "Mute");
+  $("volume-toggle").setAttribute("aria-pressed", String(silent));
+  $("volume-toggle").title = silent ? "Unmute" : "Mute";
+  $("volume-symbol").toggleAttribute("hidden", silent);
+  $("muted-symbol").toggleAttribute("hidden", !silent);
+  if (persist) {
+    try {
+      sessionStorage.setItem("radio-waajacu:audio-level", JSON.stringify({
+        volume: listeningVolume, muted: listeningMuted, lastAudible: lastAudibleVolume
+      }));
+    } catch {}
+  }
+}
+
+function prepareOutputGain() {
+  if (!outputGain) {
+    const gain = audioContext.createGain();
+    gain.gain.value = listeningMuted ? 0 : listeningVolume;
+    gain.connect(audioContext.destination);
+    outputGain = gain;
+  }
+  updateAudioLevel();
+}
 
 async function api(path) {
+  if (staticSite && path.startsWith("/api/")) throw new Error("Live services unavailable");
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 7000);
   try {
@@ -49,7 +119,7 @@ async function api(path) {
 
 function updateButton() {
   const active = !live.paused || connecting;
-  const label = active ? (recordingId ? "Pause" : "Pause live") : (recordingId ? "Play" : "Listen live");
+  const label = active ? (recordingId || staticSite ? "Pause" : "Pause live") : (recordingId || staticSite ? "Play" : "Listen live");
   $("button-label").textContent = connecting && live.paused ? "Connecting…" : label;
   $("play-symbol").toggleAttribute("hidden", active);
   $("pause-symbol").toggleAttribute("hidden", !active);
@@ -67,12 +137,18 @@ function exactPlaybackTime() {
 }
 
 function mixedFeatures() {
-  if (!analyser || !samples || !frequencySamples || live.seeking ||
+  if (!analyser || !samples || !waveformSums || !frequencySamples || live.seeking ||
       performance.now() < waveformReadyAfter) return null;
   analyser.getFloatTimeDomainData(samples);
-  let sum = 0;
-  for (const value of samples) sum += value * value;
-  const rms = Math.sqrt(sum / samples.length);
+  // Prefix sums let every contour point measure a full local RMS window.
+  waveformSums[0] = 0;
+  for (let index = 0; index < samples.length; index++) {
+    const value = Number.isFinite(samples[index]) ? samples[index] : 0;
+    waveformSums[index + 1] = waveformSums[index] + value * value;
+  }
+  const energySamples = Math.min(samples.length, Math.max(1, Math.round(audioContext.sampleRate * .020)));
+  const rms = Math.sqrt(Math.max(0, waveformSums[samples.length] -
+    waveformSums[samples.length - energySamples]) / energySamples);
   analyser.getFloatFrequencyData(frequencySamples);
   const nyquist = audioContext.sampleRate / 2;
   const band = (from, to) => {
@@ -84,19 +160,28 @@ function mixedFeatures() {
     }
     return Math.min(1, amplitude / Math.max(1, last - first) * 6);
   };
-  // A short signed time-domain profile shapes radius along the local axis.
-  // Box averaging limits spatial aliasing; fixed gain preserves quiet/loud contrast.
+  // The changing amplitude outline of real audio, without signed cancellation,
+  // peak normalization, hard clipping, or decorative repeating ripples.
+  const halfWindow = Math.max(1, Math.round(audioContext.sampleRate * .020 / 2));
+  const waveformRanges = [];
   const waveform = Array.from({length:64}, (_unused, bin) => {
-    const first = Math.floor(bin * samples.length / 64);
-    const last = Math.floor((bin + 1) * samples.length / 64);
-    let sum = 0;
-    for (let index = first; index < last; index++) sum += Number.isFinite(samples[index]) ? samples[index] : 0;
-    return Math.max(-1, Math.min(1, sum / Math.max(1,last-first) * 7));
+    const center = Math.round((bin + .5) * samples.length / 64);
+    const first = Math.max(0, center - halfWindow);
+    const last = Math.min(samples.length, center + halfWindow);
+    const meanSquare = Math.max(0, waveformSums[last] - waveformSums[first]) / (last - first);
+    waveformRanges.push([
+      (first - samples.length) * 1000 / audioContext.sampleRate,
+      (last - samples.length) * 1000 / audioContext.sampleRate
+    ]);
+    return 1 - Math.exp(-7 * Math.sqrt(meanSquare));
   });
   return {
     energy: Math.min(1, 1 - Math.exp(-rms * 7)),
+    energy_window_ms: energySamples * 1000 / audioContext.sampleRate,
+    bands_window_ms: samples.length * 1000 / audioContext.sampleRate,
     bands: [band(80, 300), band(300, 2500), band(2500, Math.min(8000, nyquist))],
     waveform,
+    waveform_ranges_ms: waveformRanges,
     waveform_window_ms: samples.length * 1000 / audioContext.sampleRate
   };
 }
@@ -141,14 +226,16 @@ async function prepareAnalyser() {
     if (!Audio) return;
     if (!audioContext) audioContext = new Audio();
     if (!mediaSource) mediaSource = audioContext.createMediaElementSource(live);
+    prepareOutputGain();
     if (!analyser && !directAudio) {
       analyser = audioContext.createAnalyser();
-      analyser.fftSize = 2048;
-      analyser.smoothingTimeConstant = .65;
+      analyser.fftSize = 16384;
+      analyser.smoothingTimeConstant = 0;
       samples = new Float32Array(analyser.fftSize);
+      waveformSums = new Float64Array(analyser.fftSize + 1);
       frequencySamples = new Float32Array(analyser.frequencyBinCount);
       mediaSource.connect(analyser);
-      analyser.connect(audioContext.destination);
+      analyser.connect(outputGain);
     }
     if (audioContext.state === "suspended") await audioContext.resume();
   } catch {
@@ -160,11 +247,25 @@ async function prepareAnalyser() {
         if (analyser) analyser.disconnect();
         analyser = null;
         samples = null;
+        waveformSums = null;
         frequencySamples = null;
-        mediaSource.connect(audioContext.destination);
+        prepareOutputGain();
+        mediaSource.connect(outputGain);
         directAudio = true;
         stopWave();
-      } catch {}
+      } catch {
+        // Preserve the original audible bypass if the browser cannot create a
+        // usable gain node after the media element has already been rerouted.
+        try {
+          mediaSource.disconnect();
+          if (outputGain) outputGain.disconnect();
+          outputGain = null;
+          mediaSource.connect(audioContext.destination);
+          directAudio = true;
+          updateAudioLevel();
+          stopWave();
+        } catch {}
+      }
     }
   }
 }
@@ -188,6 +289,7 @@ function prepareStream() {
     if (!live.getAttribute("src")) live.src = recording.metadata.audio.url;
     return true;
   }
+  if (staticSite) return false;
   if (hls || live.getAttribute("src")) return true;
   if (window.Hls && window.Hls.isSupported()) {
     hls = new Hls({liveSyncDurationCount: 3, maxBufferLength: 20, backBufferLength: 30});
@@ -248,6 +350,7 @@ async function listen() {
 }
 
 async function playbackTime() {
+  if (staticSite) return null;
   const exact = exactPlaybackTime();
   if (exact !== null) return new Date(exact).toISOString();
   if (!live.paused && live.seekable.length) {
@@ -269,6 +372,7 @@ function updateRecordingPosition() {
   if (!recording || !recording.metadata) return;
   $("recording-elapsed").textContent=mediaTime(live.currentTime);
   $("recording-seek").value=String(live.currentTime);
+  $("recording-played").value=live.currentTime;
   if (!live.ended && note.textContent === "End of recording") note.textContent = live.paused ? "Paused" : "";
   if (!playing || reducedMotion.matches) recording.tick(live.currentTime * 1000, null, false);
 }
@@ -277,18 +381,21 @@ async function refreshRecording() {
   if (!recording) { note.textContent="This recording is unavailable."; return; }
   if (recording.pending || recording.metadata || Date.now()<recordingRetryAfter) return;
   try {
-    const metadata=await recording.load(recordingId);
+    const metadata=await recording.load(recordingId, {library: libraryRecording, staticSite});
     ready=true;
     document.querySelector("main").setAttribute("aria-label","Radio Waajacu radio");
-    document.querySelector(".tuner").setAttribute("aria-label","Recording");
+    document.querySelector(".tuner").setAttribute("aria-label","Radio player");
     live.src=metadata.audio.url;
     $("now-label").textContent="RADIO WAAJACU";
     $("now-title").textContent=metadata.title;
     $("programme").hidden=false;
-    $("signal-text").textContent="Recording";
+    $("signal-text").textContent="";
     $("signal").classList.add("on");
     $("recording-progress").hidden=false;
+    $("recording-time").hidden=false;
     $("recording-seek").max=String(metadata.duration_ms/1000);
+    $("recording-played").max=metadata.duration_ms/1000;
+    $("recording-played").value=live.currentTime;
     $("recording-duration").textContent=mediaTime(metadata.duration_ms/1000);
     note.textContent="";
     updateButton();
@@ -303,6 +410,15 @@ async function refreshRecording() {
 
 async function refresh() {
   if (recordingId) { await refreshRecording(); return; }
+  if (staticSite) {
+    ready = false;
+    $("programme").hidden = true;
+    $("signal").classList.add("quiet");
+    $("signal-text").textContent = "";
+    note.textContent = "Choose a programme from the library.";
+    updateButton();
+    return;
+  }
   if (updating) return;
   updating = true;
   try {
@@ -348,6 +464,27 @@ async function refresh() {
   }
 }
 
+$("volume-toggle").addEventListener("click", () => {
+  if (listeningMuted || listeningVolume === 0) {
+    listeningMuted = false;
+    if (listeningVolume === 0) listeningVolume = lastAudibleVolume;
+  } else {
+    listeningMuted = true;
+  }
+  updateAudioLevel(true);
+});
+$("audio-volume").addEventListener("input", event => {
+  const value = Number(event.target.value);
+  if (!Number.isFinite(value)) return;
+  listeningVolume = Math.max(0, Math.min(1, value));
+  if (listeningVolume > 0) {
+    listeningMuted = false;
+    lastAudibleVolume = listeningVolume;
+  }
+  updateAudioLevel(true);
+});
+updateAudioLevel();
+
 button.addEventListener("click", listen);
 live.addEventListener("play", updateButton);
 live.addEventListener("playing", () => {
@@ -389,6 +526,7 @@ live.addEventListener("seeking", () => {
   if (recording && spiritScene) {
     spiritScene.setPositions(null);
     spiritScene.setRotations(null);
+    spiritScene.setDepthRotations?.(null);
     recording.tick(live.currentTime * 1000, null, false);
   }
 });
@@ -411,4 +549,4 @@ window.addEventListener("pageshow", event => {
   if (event.persisted) { updateWave(); refresh(); }
 });
 refresh();
-setInterval(refresh, 2500);
+if (!staticSite) setInterval(refresh, 2500);

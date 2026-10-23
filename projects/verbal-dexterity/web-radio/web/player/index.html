@@ -6,16 +6,18 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#f4ead7">
   <title>Radio Waajacu</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 24x24 32x32 48x48 64x64 128x128 256x256">
   <link rel="stylesheet" href="/assets/player.css">
   <script src="/vendor/hls.min.js" defer></script>
   <script src="/assets/spirits.js" defer></script>
   <script src="/assets/performance.js" defer></script>
   <script src="/assets/semantic.js" defer></script>
   <script src="/assets/player.js" defer></script>
+  <script src="/assets/library.js" defer></script>
 </head>
 <body>
   <div class="paper-scene" aria-hidden="true"><div class="botanical-frame"></div></div>
-  <main class="radio" aria-label="Radio Waajacu live radio">
+  <main class="radio" aria-label="Radio Waajacu radio" data-default-recording="project-e60947cdc53695e77fc984cb">
     <h1 class="visually-hidden">Radio Waajacu</h1>
     <section class="tuner" aria-label="Live broadcast">
       <div class="visualizer-slot">
@@ -25,17 +27,37 @@
         <p class="eyebrow" id="now-label">LIVE RADIO</p>
         <h2 id="now-title">Radio Waajacu</h2>
       </div>
+      <div class="seek-row">
+        <div class="recording-progress" id="recording-progress" hidden>
+          <progress id="recording-played" value="0" max="1" aria-hidden="true"></progress>
+          <input id="recording-seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="Recording position">
+        </div>
+      </div>
       <div class="controls">
         <button id="live-button" type="button" aria-label="Listen live" title="Listen live" disabled>
           <svg class="play-symbol" id="play-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>
           <svg class="pause-symbol" id="pause-symbol" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M7 5h4v14H7zM15 5h4v14h-4z"/></svg>
           <span class="visually-hidden" id="button-label">Listen live</span>
         </button>
-      </div>
-      <div class="recording-progress" id="recording-progress" hidden>
-        <span id="recording-elapsed">0:00</span>
-        <input id="recording-seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="Recording position">
-        <span id="recording-duration">0:00</span>
+        <div class="volume-control" id="volume-control">
+          <button id="volume-toggle" type="button" aria-label="Mute" title="Mute" aria-pressed="false">
+            <svg id="volume-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-5 4H3v6h3l5 4V5ZM15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg>
+            <svg id="muted-symbol" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m11 5-5 4H3v6h3l5 4V5ZM16 9l5 6M21 9l-5 6"/></svg>
+          </button>
+          <span class="volume-slider-wrap">
+            <input id="audio-volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Audio volume">
+          </span>
+        </div>
+        <span class="recording-time" id="recording-time" hidden><span id="recording-elapsed">0:00</span><span aria-hidden="true">/</span><span id="recording-duration">0:00</span></span>
+        <div class="creation-library" id="creation-library">
+          <button class="library-toggle" id="library-toggle" type="button" aria-label="Open library" title="Library" aria-controls="library-panel" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <nav class="library-panel" id="library-panel" aria-label="Programme library" tabindex="-1" hidden>
+            <p class="library-message" id="library-message" role="status" aria-live="polite"></p>
+            <ul class="library-titles" id="library-titles" hidden></ul>
+          </nav>
+        </div>
       </div>
       <p class="signal" id="signal" role="status"><span class="signal-dot" aria-hidden="true"></span><span id="signal-text">Connecting</span></p>
       <p class="player-note" id="player-note" role="status" aria-live="polite"></p>
